@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener'
+  gem 'better_errors'
 end
 
 group :test do
@@ -59,4 +61,16 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem 'faker'                             # Create datas
+gem 'activerecord-reset-pk-sequence'    # Image registered on server
+gem 'pry'                               # Debug help
+gem 'table_print'                       # See
+gem 'devise'                            # Signup login logout edit password for users
+gem 'stripe'                            # To pay on the app
+gem 'dotenv-rails'                      # To add a .env file for API key
+gem 'solargraph'                        # Auto completion in ruby
+gem 'mini_magick'                       # For images to be modified
+gem 'pg_search'                         # For the search bar
