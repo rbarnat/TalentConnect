@@ -11,7 +11,7 @@ class AppointmentController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.new(place_params)
+    @appointment = Appointment.new(appointment_params)
     if @appointment.save
       flash[:success] = "Un nouveau rendez-vous a été enregistrée!"
       redirect_to root
