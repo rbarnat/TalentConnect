@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #User has 1-N relationship to places
+  #User has 1-N relationship to places and talents
   has_one :place
+  has_many :talents
 
   validates :email, 
     presence: true,
