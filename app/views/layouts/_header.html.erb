@@ -5,7 +5,7 @@
     <!-- LOGO -->
     <a class="navbar-brand btn btn-primary" href="<%= root_path %>">
       <i class="fas fa-cat fa-1x pr-4" style="color:white" ></i>
-      <h5>Kitten Shop</h5>
+      <h5>Talent Connect</h5>
     </a>
     
     <!-- TOGGLE BUTTON -->
@@ -61,32 +61,14 @@
         
         <!-- ABOUT -->
         <li class="nav-item">
-          <a class="nav-link btn btn-primary" href="<%= teams_path %>">La team</a> 
+          <a class="nav-link btn btn-primary" href="<%= about_path %>">A propos</a> 
         </li>
-        <!-- ADMIN TEST -->
-         <% if is_current_user_admin? %>
+        <!-- ABOUT -->
         <li class="nav-item">
-          <a class="nav-link btn btn-primary" href="<%= admin_orders_path%>">Admin stuff</a> 
+          <a class="nav-link btn btn-primary" href="<%= contact_path %>">Contact</a> 
         </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary" href="<%= new_item_path%>">Créer un chaton</a> 
-        </li>
-        <% end %>
       </ul> 
       
-
-      <!-- USER CART -->
-      <div class="navbar-nav mt-3 mr-4">
-        <% if user_signed_in? %>
-          <% if Cart.where(user_id: current_user.id).last %>
-            <a class="nav-link btn btn-primary" href="<%= user_cart_path(id: Cart.where(user_id: current_user.id).last, user_id:current_user.id) %>">
-              <i class="fas fa-shopping-cart fa-2x " style="color:white"></i>
-              <p class="text-center"><small style="color:white">Panier</small></p>
-            </a>
-          <% end %>
-        <% end %>
-      </div>
-
       <!-- USER BUTTONS -->
       <div class="row navbar-nav dropdown mr-4" id="navbarColor01">
         <!-- LOGIN MENUS -->
@@ -101,6 +83,11 @@
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a href="<%= user_path(current_user.id) %>" class="dropdown-item" href="#">Mon profil</a>
+            <!-- ADMIN -->
+            <% if is_current_user_admin? %>
+              <div class="dropdown-divider"></div>
+              <a class="nav-link btn btn-primary" href="<%= admin_orders_path%>">Admin stuff</a> 
+            <% end %>
             <div class="dropdown-divider"></div>
             <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="dropdown-item">Se déconnecter</a>
           </div>
