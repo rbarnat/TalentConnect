@@ -18,6 +18,7 @@ class TalentsController < ApplicationController
 
   # GET /talents/1/edit
   def edit
+    @talent = Talent.find(params[:id])
   end
 
   # POST /talents
