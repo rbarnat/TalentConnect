@@ -22,7 +22,7 @@ end
         address: Faker::Address.street_address
     )
 end
-puts "#{Places.count} places created"
+puts "#{Place.count} places created"
 
 
 
@@ -60,7 +60,7 @@ puts "#{Talent.count} talents created"
         apprentice_id: Faker::Number.between(from: 1, to: 10),
         place_id: Faker::Number.between(from: 1, to: 10),
         talent_id: Faker::Number.between(from: 1, to: 10),
-        start_time: Faker::Date.between(from: Date.today, to: 50.days.later),
+        start_time: Faker::Date.between(from: '2020-12-01', to: '2021-03-26'),
         duration: Faker::Number.between(from: 15, to: 240)
     )
 end
