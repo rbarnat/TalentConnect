@@ -74,3 +74,4 @@ gem 'dotenv-rails'                      # To add a .env file for API key
 gem 'solargraph'                        # Auto completion in ruby
 gem 'mini_magick'                       # For images to be modified
 gem 'pg_search'                         # For the search bar
+gem "aws-sdk-s3", require: false        # Image Storage with Amazon S3
