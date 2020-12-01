@@ -3,6 +3,7 @@ class Talent < ApplicationRecord
 #Talent has 1-N relationship to users
 belongs_to :user
 has_many :appointments
+has_one_attached :picture
 
 validates :title,
     presence: true,
