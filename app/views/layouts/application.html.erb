@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="container">
+
+      <!-- USERS MESSAGES -->
+      <%= render 'layouts/messages' %>
+
+      <!-- PAGE CONTENT -->
+      <%= yield %>
+      
+    </div>
   </body>
 </html>
