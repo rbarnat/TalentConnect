@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_055122) do
+ActiveRecord::Schema.define(version: 2020_12_01_062503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "duration"
+    t.bigint "mentor_id"
+    t.bigint "apprentice_id"
+    t.bigint "place_id"
+    t.bigint "talent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apprentice_id"], name: "index_appointments_on_apprentice_id"
+    t.index ["mentor_id"], name: "index_appointments_on_mentor_id"
+    t.index ["place_id"], name: "index_appointments_on_place_id"
+    t.index ["talent_id"], name: "index_appointments_on_talent_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "city_name"
