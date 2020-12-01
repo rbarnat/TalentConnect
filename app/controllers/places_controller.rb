@@ -1,17 +1,20 @@
 class PlacesController < ApplicationController
+  # Before executing certain methods we find the right place to operate on
+  before_action :set_place, only: [:edit, :update]
+  
   def index
-    @places = Places.all
+    @places = Place.all
   end
 
   def show
   end
 
   def new
-    @place = Places.new
+    @place = Place.new
   end
 
   def create
-    @place = Places.new(place_params)
+    @place = Place.new(place_params)
     if @place.save
       flash[:success] = "Une nouvelle localisation a été enregistrée!"
       redirect_to root
@@ -25,7 +28,7 @@ class PlacesController < ApplicationController
   end
 
   def update
-    @place = Places.find(param[:id])
+    @place = Place.find(param[:id])
     if @place.update(place_params)
       flash[:success] = "Les informations de la localisation ont été mis à jour!"
       redirect_to root
@@ -35,9 +38,13 @@ class PlacesController < ApplicationController
   end
 
   private
-
+  # find the Place using the id
   def place_params
     params.require(:place).permit(:city_name, :zip_code, :address, :latitude, :longitude)
   end
 
+  # let throught and define the Place params that were sent from the view
+  def set_place
+    @place = Place.find(params[:id])
+  end
 end
