@@ -7,6 +7,8 @@ class User < ApplicationRecord
   #User has 1-N relationship to places and talents
   has_one :place
   has_many :talents
+  has_many :appointments, foreign_key: 'apprentice_id', class_name: "User"
+  has_many :appointments, foreign_key: 'mentor_id', class_name: "User"
 
   validates :email, 
     presence: true,
