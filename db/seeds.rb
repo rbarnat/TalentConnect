@@ -8,6 +8,8 @@ ActiveRecord::Base.connection.disable_referential_integrity do
   User.reset_pk_sequence
   Talent.delete_all
   Talent.reset_pk_sequence
+  Appointment.delete_all
+  Appointment.reset_pk_sequence
   puts 'DB cleaned up !'
 end
 
