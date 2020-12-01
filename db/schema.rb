@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_132405) do
+ActiveRecord::Schema.define(version: 2020_12_01_062503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "duration"
+    t.bigint "mentor_id"
+    t.bigint "apprentice_id"
+    t.bigint "place_id"
+    t.bigint "talent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apprentice_id"], name: "index_appointments_on_apprentice_id"
+    t.index ["mentor_id"], name: "index_appointments_on_mentor_id"
+    t.index ["place_id"], name: "index_appointments_on_place_id"
+    t.index ["talent_id"], name: "index_appointments_on_talent_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "city_name"
+    t.string "zip_code"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "talents", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_talents_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +57,15 @@ ActiveRecord::Schema.define(version: 2020_11_30_132405) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.bigint "place_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "talents", "users"
+  add_foreign_key "users", "places"
 end
