@@ -1,4 +1,4 @@
-class Talent < ApplicationRecord
+class Talent <  ActiveRecord::Base
 
 #Talent has 1-N relationship to users
 belongs_to :user
@@ -12,7 +12,14 @@ validates :description,
     presence: true,
     length: { in: 10..1000, message: "Description length must be between 10 and 1000"}
 
-# --- PG_SEARCH : search talents by key words ---
-    include PGSearch::Model 
-    pg_search_scope :search_by_title, against: :title
+# --- PG Search ---
+include PgSearch::Model
+pg_search_scope :roughly_spelled_like,
+                against: :title,
+                using: {
+                    trigram: {
+                        threshold: 0.2
+                    }
+                }
+
 end
