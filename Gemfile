@@ -81,11 +81,12 @@ gem 'devise'
 gem 'stripe'
 # To add a .env file for API key
 gem 'dotenv-rails'
-# Auto completion in ruby
-gem 'solargraph'
-# For images to be modified
+# Use ActiveStorage variant
 gem 'mini_magick'
 # For the search bar
 gem 'pg_search'
 # Image Storage with Amazon S3
 gem "aws-sdk-s3", require: false
+# Devise Translations
+gem 'devise-i18n'
+gem 'rails-i18n'

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get 'search_results' => 'talents#search_results', as: 'search_results'
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/contact'

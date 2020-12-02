@@ -1,2 +1,13 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<%= form_tag search_results_path, method: 'get' do %>
+  <%= text_field_tag :search_keywords%>
+  <%= submit_tag "Search"%>
+<% end %>
+
+<%# --- Random talents printed on home page --- %>
+<% @talents.sample(4).each do |talent|%>
+<ul>
+    <li> <%= talent.title%> </li>
+    <li> <%= talent.description%> </li>
+    <li> <%= talent.user_id%>
+</ul>
+<% end %>

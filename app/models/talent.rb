@@ -8,11 +8,11 @@ after_commit :add_default_picture, on: %i[create update]
 
 validates :title,
     presence: true,
-    length: { in: 3..140, message: "Title length must be between 3 and 140" }
+    length: { in: 3..140, message: "Le titre doit faire entre 3 et 140 caractères" }
 
 validates :description,
     presence: true,
-    length: { in: 10..1000, message: "Description length must be between 10 and 1000"}
+    length: { in: 10..1000, message: "La description doit faire entre 10 and 1000 caractères"}
 
 # --- PG Search ---
 include PgSearch::Model
