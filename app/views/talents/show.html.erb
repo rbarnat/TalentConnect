@@ -1,1 +1,9 @@
+<h1>Talents#show</h1>
+<p>Find me in app/views/talents/show.html.erb</p>
+
+<%if @talent.picture.attached?%>
+  <%= image_tag @talent.picture, alt: 'photo du talent', class: "m-3", height: "200"  %>
+<%else%>
+  <p>aucune photo du talent</p>
+<%end%>
 
