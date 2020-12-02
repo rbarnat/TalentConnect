@@ -17,9 +17,9 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     if @place.save
       flash[:success] = "Une nouvelle localisation a été enregistrée!"
-      redirect_to root
+      redirect_to root_path
     else
-      flash[:danger] = "Vérifiez les informations de la localisation: #{@place.errors.full_messages.each {|message| message}.join('')}"
+      flash[:danger] = "Vérifiez les informations de la localisation"
     end
     
   end
@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
       flash[:success] = "Les informations de la localisation ont été mis à jour!"
       redirect_to root
     else
-      flash[:danger] = "Vérifiez les informations de la localisation: #{@place.errors.full_messages.each {|message| message}.join('')}"
+      flash[:danger] = "Vérifiez les informations de la localisation"
     end
   end
 

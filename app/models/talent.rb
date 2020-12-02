@@ -3,6 +3,8 @@ class Talent <  ActiveRecord::Base
 #Talent has 1-N relationship to users
 belongs_to :user
 has_many :appointments
+has_one_attached :picture
+after_commit :add_default_picture, on: %i[create update]
 
 validates :title,
     presence: true,
@@ -22,4 +24,19 @@ pg_search_scope :roughly_spelled_like,
                     }
                 }
 
+
+    private
+
+    def add_default_picture
+        unless picture.attached?
+        picture.attach(
+            io: File.open(
+            Rails.root.join(
+                'app', 'assets', 'images', 'talent_default.jpg' 
+            )
+            ), filename: 'talent_default.jpg',
+            content_type: 'image/jpg'
+        )
+        end
+    end
 end
