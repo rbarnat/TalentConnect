@@ -517,11 +517,12 @@ a:hover {
 .btn-outline-light {
   color: #ffffff;
   border-color: #ffffff;
+  background-color: transparent
 }
 
 .btn-outline-light:hover {
   color: #ffffff;
-  background-color: #ffffff;
+  background-color: transparent;
   border-color: #ffffff;
 }
 
@@ -540,14 +541,14 @@ a:hover {
 }
 
 .dropdown-item {
-  color: #15D6A2;
+  color: #15D6A2 !important;
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #16181b;
+  color: #fff !important;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #15D6A2;
 }
 
 .dropdown-item.active,
@@ -570,7 +571,6 @@ a:hover {
 
 
 .custom-range::-webkit-slider-thumb {
-
   background-color: #15D6A2;
 }
 
@@ -590,6 +590,10 @@ a:hover {
 
 .card-img {
   border-radius: 1.8rem;
+}
+
+.navbar a {
+  color: #FFFFFF;
 }
 
 .navbar-brand {
