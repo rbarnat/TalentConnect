@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # USERS AND PROFILE PAGES
   devise_for :users
   resources :users, only: [:index, :show]
-  resources :static_pages, only: [:home, :about, :contact]
   # TALENTS PAGES
   resources :talents do
     resources :pictures, only: [:create]
