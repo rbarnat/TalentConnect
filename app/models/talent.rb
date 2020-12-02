@@ -6,13 +6,20 @@ has_many :appointments
 has_one_attached :picture
 after_commit :add_default_picture, on: %i[create update]
 
+#Talent has 1-N relationship to places
+belongs_to :place
+
+validates :duration,
+    presence: true,
+    numericality: { greater_than: 5, message: "Duration must be greater than 5"}
+
 validates :title,
     presence: true,
-    length: { in: 3..140, message: "Title length must be between 3 and 140" }
+    length: { in: 3..140, message: "Le titre doit faire entre 3 et 140 caractères" }
 
 validates :description,
     presence: true,
-    length: { in: 10..1000, message: "Description length must be between 10 and 1000"}
+    length: { in: 10..1000, message: "La description doit faire entre 10 and 1000 caractères"}
 
 # --- PG Search ---
 include PgSearch::Model

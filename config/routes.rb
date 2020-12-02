@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'search_results' => 'talents#search_results', as: 'search_results'
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/contact'
+  get 'static_pages/kit_ui'
+  
   # HOME PAGE
   root to: "static_pages#home"
   # USERS AND PROFILE PAGES

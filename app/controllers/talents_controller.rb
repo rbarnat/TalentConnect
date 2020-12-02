@@ -5,6 +5,12 @@ class TalentsController < ApplicationController
     @talents = Talent.all
   end
 
+  def search_results
+    keywords = params[:search_keywords]
+    @found_talents = Talent.roughly_spelled_like(keywords)
+    
+  end
+
   # GET /talents/1
   # GET /talents/1.json
   def show
