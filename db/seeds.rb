@@ -2,14 +2,14 @@ require 'faker'
 require 'activerecord-reset-pk-sequence'
 
 ActiveRecord::Base.connection.disable_referential_integrity do
-  Place.delete_all
-  Place.reset_pk_sequence
-  User.delete_all
-  User.reset_pk_sequence
-  Talent.delete_all
-  Talent.reset_pk_sequence
   Appointment.delete_all
   Appointment.reset_pk_sequence
+  Talent.delete_all
+  Talent.reset_pk_sequence
+  User.delete_all
+  User.reset_pk_sequence
+  Place.delete_all
+  Place.reset_pk_sequence
   puts 'DB cleaned up !'
 end
 
