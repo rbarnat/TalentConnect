@@ -24,8 +24,10 @@ class TalentsController < ApplicationController
   # POST /talents
   # POST /talents.json
   def create
-    @talent = Talent.create(talent_params)
-    redirect_to talent_path(talent.id)
+    @talent = Talent.new(talent_params)
+    @talent.user_id = User.find(1).id # a remplacer par current_user.id apres la reparation du login
+    @talent.save
+    redirect_to talent_path(@talent.id)
   end
 
   # PATCH/PUT /talents/1
@@ -47,7 +49,7 @@ class TalentsController < ApplicationController
   private
 
   def talent_params
-    params.require(:talent).permit(:user_id, :title, :description)
+    params.require(:talent).permit(:title, :description, :duration)
   end
   
 end

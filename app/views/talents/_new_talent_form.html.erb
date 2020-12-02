@@ -1,10 +1,31 @@
-<%= form_with model: @talent, local: true do |form| %>
+<%= form_with model: @talent, local: true, multipart: true do |form| %>
+
+  <!-- title -->
   <div class="field">
-    <%= form.label :start_time %><br>
-    <%= form.text :title, class: 'form-control' %>
+    <%= form.label :title, 'Titre' %>
+    <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ton talent. Maximum 140 caractère" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <!-- Description -->
+  <div class="field">
+    <%= form.label :description, 'Description' %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Décrit ton talent. Maximum 1000 caractère" %>
   </div>
+
+  <!-- Duration -->
+  <div class="field">
+    <%= form.label :duration, 'Durée de la scéance' %>
+    <%= form.select :duration, options_for_select(1..8) %>
+  </div>
+
+  <!-- Photos -->
+  <div class="field">
+    <%= form.label 'Photos' %>
+    <%= form.file_field :pictures, multiple: true %>
+  </div>
+
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
