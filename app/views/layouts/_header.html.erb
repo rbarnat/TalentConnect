@@ -30,32 +30,42 @@
             [T]
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <!-- CHARGES -->
-            <a class="dropdown-item" href="">charges#new (todo)</a>
-            <!-- CARTS -->
-            <a class="dropdown-item" href="#">carts#show (todo)</a>
-            <!-- ORDERS -->
-            <a class="dropdown-item" href="#">orders#show (todo)</a>
-            <!-- ITEMS -->
-            <a class="dropdown-item" href="<%= items_path %>">items#index</a>
-            <a class="dropdown-item" href="<%= new_item_path %>">items#new</a>
-            <a class="dropdown-item" href="<%= edit_item_path(1) %>">items#edit n°1</a>
-            <a class="dropdown-item" href="<%= item_path(1) %>">items#show n°1</a>
+            <!-- TALENTS -->
+            <a class="dropdown-item" href="<%= talents_path %>">talents#index</a>
+            <a class="dropdown-item" href="<%= talent_path(1) %>">talents#show n°1</a>
+            <a class="dropdown-item" href="<%= new_talent_path %>">talents#new</a>
+            <a class="dropdown-item" href="<%= edit_talent_path(1) %>">talents#edit n°1</a>
+            
+            <hr>
+            <!-- APPOINTMENTS -->
+            <a class="dropdown-item" href="<%= appointments_path %>">appointment#index</a>
+            <a class="dropdown-item" href="<%= appointment_path(1) %>">appointment#show n°1</a>
+            <a class="dropdown-item" href="<%= new_appointment_path %>">appointment#new</a>
+            <a class="dropdown-item" href="<%= edit_appointment_path(1) %>">appointment#edit n°1</a>
+            
+            <hr>
+            <!-- PLACES -->
+            <a class="dropdown-item" href="<%= places_path %>">place#index</a>
+            <a class="dropdown-item" href="<%= place_path(1) %>">place#show n°1</a>
+            <a class="dropdown-item" href="<%= edit_place_path(1) %>">place#edit n°1</a>
+            
+            <hr>
             <!-- USERS -->
+            <a a class="dropdown-item" href="<%= users_path %>">users#index</a>
+            <% if user_signed_in? %>
+              <a a class="dropdown-item" href="<%= user_path(current_user.id) %>">users#show</a>
+            <% end %>
+            <a class="dropdown-item" href="<%= new_user_registration_path %>">registrations#new</a>
+            <a class="dropdown-item" href="<%= edit_user_registration_path %>">registrations#edit</a>
+            <% if user_signed_in? %>
+              <a class="dropdown-item" href="<%= user_registration_path %>" data-confirm="Es-tu sûr de vouloir supprimer le compte ?" data-method="DELETE">registrations#destroy</a>
+            <% end %>
             <a class="dropdown-item" href="<%= new_user_session_path %>">sessions#new</a>
             <% if user_signed_in? %>
               <a class="dropdown-item" href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE">sessions#destroy</a>
             <% end %>
             <a class="dropdown-item" href="<%= new_user_password_path %>">passwords#new</a>
             <a class="dropdown-item" href="<%= edit_user_password_path %>">passwords#edit</a>
-            <% if user_signed_in? %>
-              <a class="dropdown-item" href="<%= user_registration_path %>" data-confirm="Es-tu sûr de vouloir supprimer le compte ?" data-method="DELETE">registrations#destroy</a>
-            <% end %>
-            <a class="dropdown-item" href="<%= new_user_registration_path %>">registrations#new</a>
-            <a class="dropdown-item" href="<%= edit_user_registration_path %>">registrations#edit</a>
-            <% if user_signed_in? %>
-              <a a class="dropdown-item" href="<%= user_path(current_user.id) %>">users#show</a>
-            <% end %>
           </div>
         </li>
         
@@ -82,13 +92,21 @@
             <% end %>
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <!-- USER PROFIL -->
             <a href="<%= user_path(current_user.id) %>" class="dropdown-item" href="#">Mon profil</a>
-            <!-- ADMIN -->
+            <!-- USER PROFIL & APPRENTICE SPACE -->
+            <div class="dropdown-divider"></div>
+            <a class="nav-link btn btn-primary" href="#">Mon profil</a> 
+            <!-- MENTOR SPACE -->
+            <div class="dropdown-divider"></div>
+            <a class="nav-link btn btn-primary" href="#">Espace Mentor</a> 
+            <!-- ADMIN PROFIL -->
             <% if is_current_user_admin? %>
               <div class="dropdown-divider"></div>
-              <a class="nav-link btn btn-primary" href="<%= admin_orders_path%>">Admin stuff</a> 
+              <a class="nav-link btn btn-primary" href="#">Espace Admin</a> 
             <% end %>
             <div class="dropdown-divider"></div>
+
             <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="dropdown-item">Se déconnecter</a>
           </div>
         <!-- LOGOUT MENUS -->
