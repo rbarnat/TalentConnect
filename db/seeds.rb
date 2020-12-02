@@ -45,10 +45,11 @@ puts "#{Place.count} places created"
 
 
 # --- TALENTS ---
+talents = ["Football", "Cuisine", "Escalade", "Patisserie", "Informatique", "Montage vidéo", "Piano", "Guitare", "Tennis", "Pétanque", "Playstation", "Tapisserie", "Peinture", "Construire un meuble", "Alphabet arabe", "Chinois", "Anglais", "Boxe", "Dessiner", "Faire du bateau", "Comptabilité"]
 20.times do
     Talent.create(
       user_id: Faker::Number.between(from: 1, to: 10),
-      title: Faker::Lorem.word,
+      title: talents.sample,
       description: Faker::Lorem.paragraph(sentence_count: 2),
       duration: Faker::Number.between(from: 15, to: 240),  
       place_id: Faker::Number.between(from: 1, to: 10)
