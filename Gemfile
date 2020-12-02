@@ -87,3 +87,6 @@ gem 'mini_magick'
 gem 'pg_search'
 # Image Storage with Amazon S3
 gem "aws-sdk-s3", require: false
+# Devise Translations
+gem 'devise-i18n'
+gem 'rails-i18n'
