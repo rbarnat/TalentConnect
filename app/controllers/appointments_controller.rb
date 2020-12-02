@@ -1,4 +1,4 @@
-class AppointmentController < ApplicationController
+class AppointmentsController < ApplicationController
   # Before executing certain methods we find the right appointment to operate on
   before_action :set_appointment, only: [:destroy]
 
@@ -11,10 +11,16 @@ class AppointmentController < ApplicationController
   end
 
   def create
+    @talent = Talent.find(params[:talent_id])
     @appointment = Appointment.new(appointment_params)
+    @appointment.talent_id = @talent.id
+    @appointment.apprentice_id = @talent.user_id-1 # a changer par current_user.id quand on pourra se log
+    @appointment.mentor_id = @talent.user_id
+    @appointment.place_id = 1 # a changer par le place du talent
+    @appointment.duration = 15 # en attente que la colum bouge sur le talent pour la recup
     if @appointment.save
       flash[:success] = "Un nouveau rendez-vous a été enregistrée!"
-      redirect_to root
+      redirect_to root_path
     else
       flash[:danger] = "Vérifiez les informations de votre rendez-vous: #{@appointment.errors.full_messages.each {|message| message}.join('')}"
     end
@@ -32,6 +38,6 @@ class AppointmentController < ApplicationController
 
   # let throught and define the Appointement params that were sent from the view
   def appointment_params
-    params.require(:appointment).permit(:start_time, :duration, :mentor_id, :apprentice_id, :place_id, :talent_id)
+    params.require(:appointment).permit(:start_time)
   end
 end
