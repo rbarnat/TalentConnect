@@ -1,0 +1,10 @@
+<%= form_with model: @talent, local: true do |form| %>
+  <div class="field">
+    <%= form.label :start_time %><br>
+    <%= form.text :title, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
