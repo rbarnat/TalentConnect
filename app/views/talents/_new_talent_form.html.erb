@@ -18,12 +18,26 @@
     <%= form.select :duration, options_for_select(1..8) %>
   </div>
 
+  <!-- Place nested form -->
+  <div class="field">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.label :address, 'Adresse' %>
+        <%= place_form.text_field :address %>
+
+        <%= place_form.label :city_name, 'Ville' %>
+        <%= place_form.text_field :city_name %>
+ 
+        <%= place_form.label :zip_code %>
+        <%= place_form.text_field :zip_code %>
+
+    <% end %>
+  </div>
+
   <!-- Photos -->
   <div class="field">
     <%= form.label 'Photos' %>
-    <%= form.file_field :pictures, multiple: true %>
+    <%= form.file_field :picture %>
   </div>
-
 
 <div class="actions">
   <%= form.submit %>
