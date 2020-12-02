@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #--- HOME PAGE ---
+  root to: "static_pages#home"
+  get 'search' => 'talents#search', as: 'search'
+  get 'search_results' => 'talents#search_results', as: 'search_results'
   devise_for :users
   resources :users, only: [:index, :show]
   resources :talents
