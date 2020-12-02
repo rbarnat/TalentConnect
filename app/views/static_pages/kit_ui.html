@@ -1,0 +1,329 @@
+<head>
+    <meta charset=UTF-8 lang=FR>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./main.css">
+  </head>
+  <body>
+    
+  <div>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+  </div>
+  <p> voici un paragraphe</p>
+    
+<!-------------- BUTTONS PLAIN ------------------->
+  <div>
+    <p>Les boutons:</p>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+  </div>
+    
+<!-------------- BUTTONS OUTLINE ------------------->
+  <div><br>
+    <p>Les boutons outline</p>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+    <button type="button" class="btn btn-outline-success">Success</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+  </div>
+    
+<!-------------- BUTTONS SIZE ------------------->
+  <div><br>
+    <p>Les tailles de boutons:</p>
+    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+    
+    <button type="button" class="btn btn-primary btn-sm">Small button</button>
+    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+    
+    <br><br>
+    
+    <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+  </div>
+    
+    
+<!-------------- BADGE ------------------->
+  <div><br>
+    <p>Liste des badges:</p>
+    <span class="badge badge-pill badge-primary">Primary</span>
+    <span class="badge badge-pill-outline">Primary</span>
+    <span class="badge badge-pill badge-secondary">Secondary</span>
+    <span class="badge badge-pill badge-success">Success</span>
+    <span class="badge badge-pill badge-danger">Danger</span>
+    <span class="badge badge-pill badge-warning">Warning</span>
+    <span class="badge badge-pill badge-info">Info</span>
+    <span class="badge badge-pill badge-light">Light</span>
+    <span class="badge badge-pill badge-dark">Dark</span>
+  </div>
+      
+  <br><br>
+
+<!-------------- NAVBAR ------------------->
+<!-- As a link -->
+  <nav class="navbar navbar-primary bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+  </nav>
+  <br><br>
+  <!-- As a heading -->
+  <nav class="navbar navbar-primary bg-primary">
+    <span class="navbar-brand mb-0 h1 white">Navbar</span>
+  </nav>
+      
+  <br><br>
+    
+<!-- with a dropdown -->
+  <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+    <a class="navbar-brand" href="#">Talent Connect</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">À propos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle btn btn-outline-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Se connecter
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item link-green" href="#">Se connecter</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item link-green" href="#">Créer un compte</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+        
+  <br><br>
+    <!-- with a dropdown and search bar-->
+  <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+    <a class="navbar-brand" href="#">Talent Connect</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Mon dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">À propos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto ">
+        <form class="form-inline my-2 my-lg-0 mr-3">
+          <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Recherche</button>
+        </form>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle btn btn-outline-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Se déconnecter
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item link-green" href="#">Modifier mes informations</a>
+                <div class="dropdown-divider"></div>
+              <a class="dropdown-item link-green" href="#">Se déconnecter</a>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br><br>
+
+<!-- with a dropdown and search bar-->
+  <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+    <a class="navbar-brand" href="#">Talent Connect</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Mon dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">À propos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto ">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle btn btn-outline-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Se déconnecter
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Modifier mes informations</a>
+                <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Se déconnecter</a>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br><br>
+<!-------------CARDS ------------------->
+<!-- landing page cards -->
+  <div class="card card-custom shadow mb-5 text-center max-width-18">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <a href="#">Go somewhere</a>
+    </div>
+  </div>
+    
+<!-- only text page cards -->
+  <div class="card card-custom2 shadow mb-5 max-width-45">
+    <div class="card-body">
+      <p>hello voici ma carte</p>
+    </div>
+  </div>
+    
+<!-- Cards to display each activity -->
+  <div class="card card-custom2 shadow mb-5 max-width-45">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class=" img card-img p-4" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="col-md-3 m-auto">
+        <button class="btn btn-outline-primary">En savoir plus</button>
+      </div>
+    </div>
+  </div>
+    
+<!-- one line display + badges -->
+  <div class="max-width-45">
+    <div class="card card-custom2 shadow mb-2 pt-3 pl-4" >
+      <p><a href=#>Pauline</a> veut participer à <a href=#>Débuter en musique</a> le 03/12/2020 à 16h00 </p>
+    </div>
+    <div class="float-right">
+      <span class="badge badge-pill badge-primary ml-5">VALIDER</span>
+      <span class="badge badge-pill badge-danger ml-2">REFUSER</span>
+    </div>
+  </div>
+
+  <br><br>
+    
+<!-- one line display -->
+
+  <div class="card card-custom2 shadow mb-2 mt-2 pt-3 pl-4 max-width-45">
+    <p><a href=#>Marc</a> veut participer à <a href=#>Débuter en musique</a> le 03/12/2020 à 16h00 </p>
+  </div>
+
+
+  <br><br>
+
+<!-- one line display h2 + link -->
+  <div class="card card-custom2 shadow mb-2 max-width-45">
+    <div class="row">
+      <div class = "col-sm-8">
+        <h3>Cuisine facile</h3>
+      </div>
+      <div class = "col-sm-2 pt-2">
+        <a href=#>Voir</a>
+      </div>
+      <div class = "col-sm-2 pt-2">
+        <a href=# class="link-red">Modifier</a>
+      </div>
+    </div>
+  </div>
+    
+<!-- Searching tools -->
+  <form>
+    <div class="form-group row max-width-50">
+      <label for="inputEmail3" class="col-sm-3 col-form-label-lg">Je veux apprendre:</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control form-control-lg" id="inputEmail3" placeholder="votre recherche">
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary btn-lg mb-2">Recherche</button>
+      </div>
+    </div>
+  </form>
+  
+  <br><br>
+  <!-- FORMS -->
+
+  <!--login basic form exemple-->
+  <form class="max-width-45">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre adresse email ici">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mot de passe</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrez votre mot de passe ici">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Confirmez votre mot de passe</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirmez votre mot de passe">
+    </div><br>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary ">Valider</button>
+  </div>
+  </form>
+
+   <!--select basic form exemple-->
+  <form>
+    <div class="form-group max-width-18">
+      <label for="exampleFormControlSelect1">Catégorie</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Sport</option>
+        <option>Arts</option>
+        <option>Cuisine</option>
+        <option>Bricolage</option>
+        <option>Langues</option>
+      </select>
+    </div>
+  </form>
+
+  <br><br>
+
+  <!--another select basic form exemple-->
+  <form>
+    <div class="form-group max-width-18">
+    <label for="exampleFormControlSelect1">Catégorie</label>
+    <select class="custom-select custom-select-lg mb-3">
+      <option selected>Choisir une catégorie:</option>
+      <option value="1">Sport</option>
+      <option value="2">Bricolage</option>
+      <option value="3">Informatique</option>
+    </select>
+    </div>
+  </form>
+  
+</body>

@@ -48,8 +48,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # To open email instead of sending it
   gem 'letter_opener'
+  # To have better errors
   gem 'better_errors'
+  # To enable ruby auto-completion in editors
+  gem 'solargraph'
 end
 
 group :test do
@@ -63,14 +67,26 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
-gem 'faker'                             # Create datas
-gem 'activerecord-reset-pk-sequence'    # Image registered on server
-gem 'pry'                               # Debug help
-gem 'table_print'                       # See
-gem 'devise'                            # Signup login logout edit password for users
-gem 'stripe'                            # To pay on the app
-gem 'dotenv-rails'                      # To add a .env file for API key
-gem 'solargraph'                        # Auto completion in ruby
-gem 'mini_magick'                       # For images to be modified
-gem 'pg_search'                         # For the search bar
+# Create datas
+gem 'faker'
+# Image registered on server
+gem 'activerecord-reset-pk-sequence'
+# Debug help
+gem 'pry'
+# See DB tables in rails console in a proper way
+gem 'table_print'
+# Signup login logout edit password for users
+gem 'devise'
+# To pay on the app
+gem 'stripe'
+# To add a .env file for API key
+gem 'dotenv-rails'
+# Use ActiveStorage variant
+gem 'mini_magick'
+# For the search bar
+gem 'pg_search'
+# Image Storage with Amazon S3
+gem "aws-sdk-s3", require: false
+# Devise Translations
+gem 'devise-i18n'
+gem 'rails-i18n'
