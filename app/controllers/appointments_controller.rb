@@ -19,13 +19,13 @@ class AppointmentsController < ApplicationController
     @appointment.place_id = 1 # a changer par le place du talent
     @appointment.duration = 15 # en attente que la colum bouge sur le talent pour la recup
     if @appointment.save
-      flash[:success] = "Un nouveau rendez-vous a été enregistrée!"
+      flash[:success] = "Une nouvelle scéance a été enregistrée!"
       redirect_to root_path
     else
-      flash[:danger] = "Vérifiez les informations de votre rendez-vous: #{@appointment.errors.full_messages.each {|message| message}.join('')}"
+      flash[:danger] = 'Vérifiez les informations de votre séance!'
     end
   end
-
+  
   def destroy
     @appointment.destroy
   end
