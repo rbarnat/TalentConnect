@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @talents = Talent.all
   end
 
   def about
