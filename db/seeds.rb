@@ -15,13 +15,16 @@ end
 
 
 # --- PLACES ---
-10.times do
-    Place.create(
-        city_name: Faker::Space.moon,
-        zip_code: Faker::Address.zip_code,
-        address: Faker::Address.street_address
-    )
+cities = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Bordeaux", "Montpellier", "Rennes", "Grenoble", "Rouen", "Amiens", "Metz", "Brest" ]
+
+20.times do
+  Place.create(
+      city_name: cities.sample,
+      zip_code: Faker::Address.zip_code,
+      address: Faker::Address.street_address
+  )
 end
+
 puts "#{Place.count} places created"
 
 
@@ -48,7 +51,7 @@ puts "#{Place.count} places created"
       title: Faker::Lorem.word,
       description: Faker::Lorem.paragraph(sentence_count: 2),
       duration: Faker::Number.between(from: 15, to: 240),  
-      default_place_id: Faker::Number.between(from: 1, to: 10)
+      place_id: Faker::Number.between(from: 1, to: 10)
     )
 end
 puts "#{Talent.count} talents created"
