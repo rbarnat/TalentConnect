@@ -81,9 +81,7 @@ gem 'devise'
 gem 'stripe'
 # To add a .env file for API key
 gem 'dotenv-rails'
-# Auto completion in ruby
-gem 'solargraph'
-# For images to be modified
+# Use ActiveStorage variant
 gem 'mini_magick'
 # For the search bar
 gem 'pg_search'
