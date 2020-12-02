@@ -42,11 +42,13 @@ puts "#{Place.count} places created"
 
 
 # --- TALENTS ---
-10.times do
+20.times do
     Talent.create(
       user_id: Faker::Number.between(from: 1, to: 10),
       title: Faker::Lorem.word,
-      description: Faker::Lorem.paragraph(sentence_count: 2)   
+      description: Faker::Lorem.paragraph(sentence_count: 2),
+      duration: Faker::Number.between(from: 15, to: 240),  
+      default_place_id: Faker::Number.between(from: 1, to: 10)
     )
 end
 puts "#{Talent.count} talents created"
@@ -54,14 +56,14 @@ puts "#{Talent.count} talents created"
 
 
 # --- APPOINTMENTS ---
-5.times do
+50.times do
     Appointment.create(
         mentor_id: Faker::Number.between(from: 1, to: 10),
         apprentice_id: Faker::Number.between(from: 1, to: 10),
         place_id: Faker::Number.between(from: 1, to: 10),
         talent_id: Faker::Number.between(from: 1, to: 10),
-        start_time: Faker::Date.between(from: '2020-12-01', to: '2021-03-26'),
-        duration: Faker::Number.between(from: 15, to: 240)
+        start_time: Faker::Date.between(from: '2020-12-01', to: '2021-03-26')
+        
     )
 end
 puts "#{Appointment.count} appointments created"
