@@ -7,7 +7,7 @@
         <div class="card-body">
           <div class="row">
             <% case type %>
-              <% when "passed" %>
+              <% when "past" %>
                 <h5 class="card-title ml-3 text-secondary"><%= model.title%></h5>
                 <p class="ml-2 text-secondary">avec <a href="#"><%= model.user.first_name %></a></p>
               <% else %>
@@ -16,7 +16,7 @@
             <% end %>
           </div>
           <% case type %>
-            <% when "passed" %>
+            <% when "past" %>
               <p class="card-text text-secondary"><%= model.description %></p>
             <% else %>
               <p class="card-text"><%= model.description %></p>
@@ -25,26 +25,26 @@
         </div>
       </div>
       <% case type %>
-        <% when "accepted" %>
-          <div class="col-md-3 m-auto pr-4 text-center">
-            <p class="text-primary">Séance validé</p>
-          </div>
-        <% when "passed" %>
-          <div class="col-md-3 m-auto pr-4 text-center">
-            <p class="text-secondary">Évènement passée</p>
-            <a href="#">Noter ce rendez-vous</a>
+        <% when "search-result" %>
+          <div class="col-md-3 m-auto">
+            <button class="btn btn-outline-primary" href="#">En savoir plus</button>
           </div>
         <% when "apprentice-validate" %>
           <div class="col-md-3 m-auto pr-4 text-center">
             <p class="text-danger">En attente de validation</p>
           </div>
-        <% when "search-result" %>
-          <div class="col-md-3 m-auto">
-            <button class="btn btn-outline-primary" href="#">En savoir plus</button>
-          </div>
         <% when "mentor-validate" %>
           <div class="col-md-3 m-auto">
             <button class="btn btn-outline-danger" href="#">Payer</button>
+          </div>
+        <% when "paid" %>
+          <div class="col-md-3 m-auto pr-4 text-center">
+            <p class="text-primary">Séance validé</p>
+          </div>
+        <% when "past" %>
+          <div class="col-md-3 m-auto pr-4 text-center">
+            <p class="text-secondary">Évènement passée</p>
+            <a href="#">Noter ce rendez-vous</a>
           </div>
         <% else %>
       <% end %>
