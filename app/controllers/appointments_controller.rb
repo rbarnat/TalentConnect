@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
     @appointment.talent_id = @talent.id
     @appointment.apprentice_id = @talent.user_id-1 # a changer par current_user.id quand on pourra se log
     @appointment.mentor_id = @talent.user_id
-    @appointment.place_id = 1 # a changer par le place du talent
+    @appointment.place_id = @talent.place_id
     if @appointment.save
       flash[:success] = "La scéance a bien été proposé au mentor !"
       redirect_to talent_path(@talent)
