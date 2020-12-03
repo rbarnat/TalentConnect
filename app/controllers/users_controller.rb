@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @paid_appointments = Appointment.where(apprentice_id: params[:id])
-    # @mentor_validate_appointments = 
-    # @apprentice_validate_appointments = 
+    @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
+    @past_paid_appointments = @paid_appointments.where("start_time <= ?", Time.now)
+    # @mentor_validate_appointments = @future_paid_appointments.where
+    # @apprentice_validate_appointments = @future_paid_appointments.where
   end
 
   def is_user_current_user?
