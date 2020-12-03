@@ -1,29 +1,58 @@
-<h2><%= t('.sign_up') %></h2>
+      <!-- CONFIRMATION MESSAGES, ALERT MESSAGES AND WARNING MESSAGES -->
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="card bg-light mx-auto" style="width: 500px;">
+  <article class="card-body mx-auto" style="max-width: 450px;">
+	  <h2 class="card-title mt-3 text-center">Créer mon compte</h2>
+    <hr>
+    <!-- FORM -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <!-- EMAIL -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-at"></i> </span>
+        </div>
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "email" %>
+      </div> <!-- form-group// -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <!-- PASSWORD -->
+      <% if @minimum_password_length %>
+        <i class="d-flex justify-content-center"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></i>
+      <% end %>
+      <div class="form-group input-group">
+    	  <div class="input-group-prepend">
+		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+		    </div>
+        <%= f.password_field :password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.password'}", autocomplete: "new-password" %>
+      </div> <!-- form-group// -->
+      
+      <!-- PASSWORD CONFIRMATION -->
+      <div class="form-group input-group">
+    	  <div class="input-group-prepend">
+		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+		    </div>
+        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.password_confirmation'}", autocomplete: "new-password" %>
+      </div> <!-- form-group// -->     
 
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
+      <!-- REMEMBER ME -->
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group d-flex justify-content-center">
+          <%= f.check_box :remember_me %> <br>
+          <%= f.label :remember_me, class:"ml-2" %>
+        </div>
+      <% end %>
 
-<%= render "devise/shared/links" %>
+      <!-- VALIDATION BUTTON -->
+      <div class="actions">
+        <%= f.submit t('.sign_up'), class: "btn btn-primary btn-block" %>
+      </div>
+
+      <!-- OTHER LINKS -->
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </article>
+</div> <!-- card.// -->
+
