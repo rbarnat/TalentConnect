@@ -1,9 +1,4 @@
 <!-- USERS MESSAGES -->
 <%= render 'layouts/messages' %>
+<%= render 'layouts/box-search-result' %>
 
-<%= render partial: 'layouts/searchform-half', locals: {keyword: params[:search_keywords]} %>
-
-<br>
-<% @found_talents.each do |talent|%>
-    <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "search-result"} %>
- <% end %>
