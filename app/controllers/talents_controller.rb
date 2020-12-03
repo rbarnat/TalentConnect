@@ -3,6 +3,7 @@ class TalentsController < ApplicationController
   include TalentsHelper, PlacesHelper
   before_action :authenticate_user!, :user_have_info?, only: [:new, :edit]
   before_action :set_talent, only: [:show, :edit, :update, :destroy] 
+  # Call a helper with an arguement in it
   before_action only: [:edit, :update] do 
     set_place(set_talent)
   end
