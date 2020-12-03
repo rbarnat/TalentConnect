@@ -1,0 +1,52 @@
+  <div class="card card-custom2 shadow mb-5 max-width-45">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <%= image_tag model.picture, alt: 'picture', class: "img card-img p-4" %>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <div class="row">
+            <% case type %>
+              <% when "past" %>
+                <h5 class="card-title ml-3 text-secondary"><%= model.title%></h5>
+                <p class="ml-2 text-secondary">avec <a href="#"><%= model.user.first_name %></a></p>
+              <% else %>
+                <h5 class="card-title ml-3"><%= model.title%></h5>
+                <p class="ml-2">avec <a href="#"><%= model.user.first_name %></a></p>
+            <% end %>
+          </div>
+          <% case type %>
+            <% when "past" %>
+              <p class="card-text text-secondary"><%= model.description %></p>
+            <% else %>
+              <p class="card-text"><%= model.description %></p>
+          <% end %>
+          
+        </div>
+      </div>
+      <% case type %>
+        <% when "search-result" %>
+          <div class="col-md-3 m-auto">
+            <%= link_to "En savoir plus", talent_path(model), class: "btn btn-outline-primary" %>
+          </div>
+        <% when "apprentice-validate" %>
+          <div class="col-md-3 m-auto pr-4 text-center">
+            <p class="text-danger">En attente de validation</p>
+          </div>
+        <% when "mentor-validate" %>
+          <div class="col-md-3 m-auto">
+            <button class="btn btn-outline-danger" href="#">Payer</button>
+          </div>
+        <% when "paid" %>
+          <div class="col-md-3 m-auto pr-4 text-center">
+            <p class="text-primary">Séance validé</p>
+          </div>
+        <% when "past" %>
+          <div class="col-md-3 m-auto pr-4 text-center">
+            <p class="text-secondary">Évènement passée</p>
+            <a href="#">Noter ce rendez-vous</a>
+          </div>
+        <% else %>
+      <% end %>
+    </div>
+  </div>

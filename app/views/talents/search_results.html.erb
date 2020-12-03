@@ -1,13 +1,4 @@
-<h1> Résultat de la recherche pour "<%= params[:search_keywords]%>" </h1>
+<!-- BACK LINK -->
+<%= render 'layouts/back_link' %> 
 
-<!-- USERS MESSAGES -->
-<%= render 'layouts/messages' %>
-
-<br>
-<% @found_talents.each do |talent|%>
-<ul>
-    <li> <%= talent.title%> </li>
-    <li> <%= talent.description%> </li>
-    <li> <%= talent.user_id%>
-</ul>
- <% end %>
+<%= render 'layouts/box-search-result' %>
