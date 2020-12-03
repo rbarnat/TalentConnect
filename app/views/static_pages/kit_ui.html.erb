@@ -54,8 +54,10 @@
     <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
     <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
   </div>
-    
-    
+    <br><br>
+  <button type="button" class="btn btn-outline-danger">Créer une nouvelle activité</button>
+    <br><br>
+  <button type="button" class="btn btn-outline-primary">Deviens mentor et partage ta passion!</button>
 <!-------------- BADGE ------------------->
   <div><br>
     <p>Liste des badges:</p>
@@ -207,7 +209,7 @@
     </div>
   </div>
     
-<!-- Cards to display each activity -->
+<!-- Cards to display each activity - showing in research-->
   <div class="card card-custom2 shadow mb-5 max-width-45">
     <div class="row no-gutters">
       <div class="col-md-3">
@@ -215,12 +217,79 @@
       </div>
       <div class="col-md-6">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <div class="row">
+            <h5 class="card-title ml-3">Card title</h5>
+            <p class="ml-2">avec <a href="#">Mathilde</a></p>
+          </div>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
       </div>
       <div class="col-md-3 m-auto">
         <button class="btn btn-outline-primary">En savoir plus</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards to display each activity - validation missing -->
+  <div class="card card-custom2 shadow mb-5 max-width-45">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class=" img card-img p-4" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <div class="row">
+            <h5 class="card-title ml-3">Card title</h5>
+            <p class="ml-2">avec <a href="#">Mathilde</a></p>
+          </div>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="col-md-3 m-auto pr-4 text-center">
+        <p class="text-danger">En attente de validation</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Cards to display each activity - validate and still on going -->
+  <div class="card card-custom2 shadow mb-5 max-width-45">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class=" img card-img p-4" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <div class="row">
+            <h5 class="card-title ml-3">Card title</h5>
+            <p class="ml-2">avec <a href="#">Mathilde</a></p>
+          </div>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="col-md-3 m-auto pr-4 text-center">
+        <p class="text-primary">Événement validé</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Cards to display each activity - event passed -->
+  <div class="card card-custom2 shadow mb-5 max-width-45">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class=" img card-img p-4" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <div class="row">
+            <h5 class="card-title ml-3 text-secondary">Card title</h5>
+            <p class="ml-2 text-secondary">avec <a href="#">Mathilde</a></p>
+          </div>
+          <p class="card-text text-secondary">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="col-md-3 m-auto pr-4 text-center">
+        <p class="text-secondary">Évènement passée</p>
+        <a href="#">Noter ce rendez-vous</a>
       </div>
     </div>
   </div>
@@ -297,6 +366,12 @@
   </div>
   </form>
 
+  <!--text area-->
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div><br>
+
    <!--select basic form exemple-->
   <form>
     <div class="form-group max-width-18">
@@ -324,6 +399,49 @@
       <option value="3">Informatique</option>
     </select>
     </div>
-  </form>
+  </form><br><br>
+
+<!--form exemple edit talent -->
+
+<%= form_with model: @talent, local: true, multipart: true, class: "max-width-45" do |form| %>
+  <!-- title -->
+  <div class="field">
+    <%= form.label :title, 'Titre' %>
+    <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ton talent. Maximum 140 caractère" %>
+  </div>
+  <!-- Description -->
+  <div class="field">
+    <%= form.label :description, 'Description' %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Décrit ton talent. Maximum 1000 caractère" %>
+  </div>
+  <!-- Duration -->
+  <div class="field">
+    <%= form.label :duration, 'Durée de la séance' %>
+    <%= form.select :duration, options_for_select(1..8)%>
+  </div>
+
+  <!-- Place nested form -->
+  <div class="field max-width-18">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.label :address, 'Adresse' %>
+        <%= place_form.text_field :address, class: "form-control display-inline"%>
+
+        <%= place_form.label :city_name, 'Ville' %>
+        <%= place_form.text_field :city_name , class: "form-control"%>
+ 
+        <%= place_form.label :zip_code %>
+        <%= place_form.text_field :zip_code, class: "form-control"%>
+    <% end %>
+  </div>
+  <!-- Photos -->
+  <div class="field">
+    <%= form.label 'Photos' %>
+    <%= form.file_field :picture, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit%>
+  </div>
+<% end %>
   
 </body>
