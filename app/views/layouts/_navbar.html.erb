@@ -68,10 +68,14 @@
         </li>
       </ul>
       <% if user_signed_in? %>
+      <form class="form-inline my-2 my-lg-0 mr-3">
       <ul class="navbar-nav ml-auto ">
-        <form class="form-inline my-2 my-lg-0 mr-3">
-          <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-              Se déconnecter
+         <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+         <button class="btn btn-outline-light my-2 my-sm-0 mr-3" type="submit">Recherche</button>
+        </form>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle btn btn-outline-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Se déconnecter
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item link-green" href="<%= edit_user_registration_path %>">Modifier mes informations</a>
