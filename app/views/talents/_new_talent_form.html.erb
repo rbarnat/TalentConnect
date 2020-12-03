@@ -1,0 +1,45 @@
+<%= form_with model: @talent, local: true, multipart: true do |form| %>
+
+  <!-- title -->
+  <div class="field">
+    <%= form.label :title, 'Titre' %>
+    <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ton talent. Maximum 140 caractère" %>
+  </div>
+
+  <!-- Description -->
+  <div class="field">
+    <%= form.label :description, 'Description' %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Décrit ton talent. Maximum 1000 caractère" %>
+  </div>
+
+  <!-- Duration -->
+  <div class="field">
+    <%= form.label :duration, 'Durée de la scéance' %>
+    <%= form.select :duration, options_for_select(1..8) %>
+  </div>
+
+  <!-- Place nested form -->
+  <div class="field">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.label :address, 'Adresse' %>
+        <%= place_form.text_field :address %>
+
+        <%= place_form.label :city_name, 'Ville' %>
+        <%= place_form.text_field :city_name %>
+ 
+        <%= place_form.label :zip_code %>
+        <%= place_form.text_field :zip_code %>
+
+    <% end %>
+  </div>
+
+  <!-- Photos -->
+  <div class="field">
+    <%= form.label 'Photos' %>
+    <%= form.file_field :picture %>
+  </div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>

@@ -6,6 +6,16 @@ has_many :appointments
 has_one_attached :picture
 after_commit :add_default_picture, on: %i[create update]
 
+#Talent has 1-N relationship to places
+belongs_to :place
+
+# Enable place creation when creating a talent
+accepts_nested_attributes_for :place
+
+validates :duration,
+    presence: true,
+    numericality: { greater_than: 1, message: "La durée doit être de plus de 1 minute"}
+
 validates :title,
     presence: true,
     length: { in: 3..140, message: "Le titre doit faire entre 3 et 140 caractères" }

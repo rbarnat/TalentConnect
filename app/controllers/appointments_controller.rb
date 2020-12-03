@@ -16,13 +16,13 @@ class AppointmentsController < ApplicationController
     @appointment.talent_id = @talent.id
     @appointment.apprentice_id = @talent.user_id-1 # a changer par current_user.id quand on pourra se log
     @appointment.mentor_id = @talent.user_id
-    @appointment.place_id = 1 # a changer par le place du talent
-    @appointment.duration = 15 # en attente que la colum bouge sur le talent pour la recup
+    @appointment.place_id = @talent.place_id
     if @appointment.save
-      flash[:success] = "Une nouvelle scéance a été enregistrée!"
-      redirect_to root_path
+      flash[:success] = "La scéance a bien été proposé au mentor !"
+      redirect_to talent_path(@talent)
     else
-      flash[:danger] = 'Vérifiez les informations de votre séance!'
+      flash.now[:danger] = "La séance n'a pas été créée."
+      render :new
     end
   end
   

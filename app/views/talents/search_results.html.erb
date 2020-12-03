@@ -1,4 +1,8 @@
 <h1> Résultat de la recherche pour "<%= params[:search_keywords]%>" </h1>
+
+<!-- USERS MESSAGES -->
+<%= render 'layouts/messages' %>
+
 <br>
 <% @found_talents.each do |talent|%>
 <ul>
