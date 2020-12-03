@@ -1,6 +1,8 @@
 class TalentsController < ApplicationController
-  # GET /talents
-  # GET /talents.json
+  include TalentsHelper
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :user_have_info?, only: [:new, :edit]
+
   def index
     @talents = Talent.all
   end
@@ -8,7 +10,6 @@ class TalentsController < ApplicationController
   def search_results
     keywords = params[:search_keywords]
     @found_talents = Talent.roughly_spelled_like(keywords)
-    
   end
 
   def show
@@ -26,7 +27,7 @@ class TalentsController < ApplicationController
   def create
     @place = Place.create(place_params)
     @talent = Talent.new(talent_params)
-    @talent.user_id = User.find(1).id # a remplacer par current_user.id apres la reparation du login
+    @talent.user_id = current_user.id
     @talent.place_id = @place.id
     @talent.save
     redirect_to talent_path(@talent.id)

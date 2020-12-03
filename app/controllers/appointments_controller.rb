@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
     @talent = Talent.find(params[:talent_id])
     @appointment = Appointment.new(appointment_params)
     @appointment.talent_id = @talent.id
-    @appointment.apprentice_id = @talent.user_id-1 # a changer par current_user.id quand on pourra se log
+    @appointment.apprentice_id = current_user.id
     @appointment.mentor_id = @talent.user_id
     @appointment.place_id = @talent.place_id
     if @appointment.save
