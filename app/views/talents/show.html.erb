@@ -1,9 +1,32 @@
-<h1>Talents#show</h1>
-<p>Find me in app/views/talents/show.html.erb</p>
+<!-- USERS MESSAGES -->
+<%= render 'layouts/messages' %>
 
-<%if @talent.picture.attached?%>
-  <%= image_tag @talent.picture, alt: 'photo du talent', class: "m-3", height: "200"  %>
-<%else%>
-  <p>aucune photo du talent</p>
-<%end%>
+<div class="center-element-middle text-center">
+  <div class="card border-primary mb-3 m-auto" style="width: 30rem;" height="200">
+    <h3 class="card-header mb-b"><%= @talent.title %></h3>
 
+    <div class="card-body">
+      <p class="card-text">proposé par: <%= @talent.user.first_name %></p>
+    </div>
+
+    <%if @talent.picture.attached?%>
+      <%= image_tag @talent.picture, alt: 'photo du talent', class: "m-3", height: "200"  %>
+    <%else%>
+      <p>aucune photo de ce talent</p>
+    <%end%>
+    
+    <div class="card-body">
+      <p class="card-text">Description: <%= @talent.description %></p>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text">Ville: <%= @talent.place.city_name %></p>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title mb-3">Prix : A ajouter avec le payement stripe </h5>
+      <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-primary mr-3 mt-3" %>
+    </div>
+  </div>
+</div>
+  

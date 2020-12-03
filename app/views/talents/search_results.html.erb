@@ -1,4 +1,8 @@
 <h1> Résultat de la recherche pour "<%= params[:search_keywords]%>" </h1>
+
+<!-- USERS MESSAGES -->
+<%= render 'layouts/messages' %>
+
 <br>
 <% if @found_talents.empty?%>
 <h4> Aucun résultat trouvé. </h4>

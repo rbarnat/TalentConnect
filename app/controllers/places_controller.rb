@@ -16,10 +16,11 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     if @place.save
-      flash[:success] = "Une nouvelle localisation a été enregistrée!"
+      flash[:success] = "Un nouveau lieu a été créé !"
       redirect_to root_path
     else
-      flash[:danger] = "Vérifiez les informations de la localisation"
+      flash.now[:danger] = "Le lieu n'a pas été créée."
+      render :new
     end
     
   end
@@ -30,10 +31,11 @@ class PlacesController < ApplicationController
   def update
     @place = Place.find(param[:id])
     if @place.update(place_params)
-      flash[:success] = "Les informations de la localisation ont été mis à jour!"
-      redirect_to root
+      flash[:success] = "Le lieu a été mis à jour !"
+      redirect_to talent_path(@talent)
     else
-      flash[:danger] = "Vérifiez les informations de la localisation"
+      flash.now[:danger] = "Le lieu n'a pas été mis à jour."
+      render :new
     end
   end
 

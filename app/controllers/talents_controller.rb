@@ -1,6 +1,8 @@
 class TalentsController < ApplicationController
-  # GET /talents
-  # GET /talents.json
+  include TalentsHelper
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :user_have_info?, only: [:new, :edit]
+
   def index
     @talents = Talent.all
   end
@@ -8,44 +10,35 @@ class TalentsController < ApplicationController
   def search_results
     keywords = params[:search_keywords]
     @found_talents = Talent.roughly_spelled_like(keywords)
-    
   end
 
-  # GET /talents/1
-  # GET /talents/1.json
   def show
     @talent = Talent.find(params[:id])
   end
 
-  # GET /talents/new
   def new
     @talent = Talent.new
   end
 
-  # GET /talents/1/edit
   def edit
     @talent = Talent.find(params[:id])
   end
 
-  # POST /talents
-  # POST /talents.json
   def create
+    @place = Place.create(place_params)
     @talent = Talent.new(talent_params)
-    @talent.user_id = User.find(1).id # a remplacer par current_user.id apres la reparation du login
+    @talent.user_id = current_user.id
+    @talent.place_id = @place.id
     @talent.save
     redirect_to talent_path(@talent.id)
   end
 
-  # PATCH/PUT /talents/1
-  # PATCH/PUT /talents/1.json
   def update
     @talent = Talent.find(params[:id])
     @talent.update(talent_params)
     redirect_to talents_path
   end
 
-  # DELETE /talents/1
-  # DELETE /talents/1.json
   def destroy
     @talent = Talent.find(params[:id])
     @talent.destroy
@@ -53,9 +46,13 @@ class TalentsController < ApplicationController
   end
 
   private
-
+  # Allow talent attribute to pass
   def talent_params
-    params.require(:talent).permit(:title, :description, :duration)
+    params.require(:talent).permit(:title, :description, :duration, :picture)
   end
-  
+  # Allow place nested form attribute to pass
+  def place_params
+    params.require(:place).permit(:address, :zip_code, :city_name)
+  end
+
 end
