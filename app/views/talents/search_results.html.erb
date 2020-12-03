@@ -5,5 +5,5 @@
 
 <br>
 <% @found_talents.each do |talent|%>
-    <%= render partial: 'layouts/card-display-talents', locals: {model: talent} %>
+    <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "search-result"} %>
  <% end %>
