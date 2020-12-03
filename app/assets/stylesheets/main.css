@@ -645,6 +645,15 @@ a:hover {
   max-width: 22rem;
 }
 
+.max-width-15 {
+  max-width: 15rem;
+}
+
+.item-center {
+  align-items: center;
+  justify-content: center;
+}
+
 textarea.form-control {
   border-radius: 0.8rem !important;
 }
@@ -770,4 +779,12 @@ a.text-primary:focus {
 
 .text-secondary {
   color: #D3D3D3 !important;
+}
+
+.jumbotron-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -6px grey;
 }
