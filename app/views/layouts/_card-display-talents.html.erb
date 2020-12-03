@@ -1,16 +1,16 @@
   <div class="card card-custom2 shadow mb-5 max-width-45">
     <div class="row no-gutters">
       <div class="col-md-3">
-        <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class=" img card-img p-4" alt="...">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class=" img card-img p-4" alt="..."><%-# talent.picture -%>
       </div>
       <div class="col-md-6">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">Card title</h5> <%-# talent.title -%>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><%-# talent.description-%>
         </div>
       </div>
       <div class="col-md-3 m-auto">
-        <button class="btn btn-outline-primary">En savoir plus</button>
+        <button class="btn btn-outline-primary">En savoir plus</button><%-# link_to show du talent talent.find_by[:id] -%>
       </div>
     </div>
   </div>
