@@ -20,4 +20,11 @@ class User < ApplicationRecord
     length: { minimum: 2}, allow_blank: true
   validates :phone_number, presence: true, allow_blank: true
 
+  
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+
 end
