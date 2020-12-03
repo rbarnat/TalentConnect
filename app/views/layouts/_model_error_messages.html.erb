@@ -1,14 +1,14 @@
-<% if model_name && model_name.errors.any? %>
+<% if model && model.errors.any? %>
   <div class="error_explanation alert alert-dismissible alert-danger">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <p>
     <%= I18n.t("errors.messages.not_saved",
-                count: model_name.errors.count,
-                resource: model_name.class.model_name.human.downcase)
+                count: model.errors.count,
+                resource: model.class.model_name.human.downcase)
       %>
     
       <ul>
-        <% model_name.errors.full_messages.each do |message| %>
+        <% model.errors.full_messages.each do |message| %>
           <li><small><%= message %></small></li>
         <% end %>
       </ul>

@@ -1,6 +1,15 @@
-<h1>Users#show</h1>
+<div class="card bg-light mx-auto" style="width: 700px;">
+  <article class="card-body mx-auto" style="max-width: 450px;">
+    <h1 class="card-title text-center"><i class="fas fa-user-circle"></i></h1>
+    <h2 class="card-title text-center">Mon profil</h2>
+    <hr class="mb-4">
 
-<!-- USERS MESSAGES -->
-<%= render 'layouts/messages' %>
+    <!-- MANAGE PROFIL LINK -->
+    <h4 class="card-title mt-3 text-center">Gérer mon profil</h4>
+    <hr>
+    <div class="actions">
+      <%= button_to 'Modifier/suprimer mon profil', edit_user_registration_path(), method: :get, class: "btn btn-primary btn-block" %>
+    </div>
 
-<p>Find me in app/views/users/show.html.erb</p>
+  </article>
+</div> <!-- card.// -->

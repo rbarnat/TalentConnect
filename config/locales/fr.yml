@@ -32,14 +32,16 @@ fr:
     placeholder:
       user:
         current_password: Mot de passe actuel
-        email: Ton email
+        email: Email
         encrypted_password: Mot de passe chiffré
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
-        first_name: Ton prénom
-        last_name: Ton nom de famille
-        phone_number: Ton numéro de téléphone
-        place: Ton lieu d'habitation
+        new_password: Nouveau mot de passe
+        new_password_confirmation: Nouveau mot de passe (confirmation)
+        first_name: Prénom
+        last_name: Nom de famille
+        phone_number: Numéro de téléphone
+        place: Lieu d'habitation
       appointment:
         start_time: La date/heure de début de la séance
         mentor: Le mentor
@@ -58,3 +60,5 @@ fr:
         title: Le titre du talent
         description: La description du talent
         duration: La durée d'une séance
+      send_me_reset_password_instructions: Réinitialiser mon mot de passe
+      reset_password_instruction: Envoi un email avec les instructions de réinitialisation
