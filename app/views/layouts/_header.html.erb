@@ -90,11 +90,8 @@
             <% end %>
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <!-- USER PROFIL -->
-            <a href="<%= user_path(current_user.id) %>" class="dropdown-item" href="#">Mon profil</a>
             <!-- USER PROFIL & APPRENTICE SPACE -->
-            <div class="dropdown-divider"></div>
-            <a class="nav-link btn btn-primary" href="#">Mon profil</a> 
+            <a class="nav-link btn btn-primary" href="<%= user_path(current_user.id) %>">Mon profil</a> 
             <!-- MENTOR SPACE -->
             <div class="dropdown-divider"></div>
             <a class="nav-link btn btn-primary" href="#">Espace Mentor</a> 

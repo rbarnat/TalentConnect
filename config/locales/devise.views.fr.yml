@@ -6,7 +6,7 @@ fr:
         confirmation_token: Clé de confirmation du mot de passe
         confirmed_at: Confirmé à
         created_at: Enregistré à
-        current_password: Mot de passe actuel
+        current_password: le mot de passe actuel
         current_sign_in_at: Date de la connexion actuelle
         current_sign_in_ip: IP de la connexion actuelle
         email: l'email
@@ -94,7 +94,8 @@ fr:
         are_you_sure: Es-tu sûr ?
         cancel_my_account: Supprimer mon compte
         currently_waiting_confirmation_for_email: 'Confirmation en attente pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisse ce champ vide si tu ne souhaites pas le modifier
+        leave_blank_if_you_don_t_want_to_change_it: laisse vide si tu ne souhaites pas le modifier
+        only_if_you_change_password: uniquement si tu modifies le mot de passe
         title: Éditer %{resource}
         unhappy: Pas content ?
         update: Modifier

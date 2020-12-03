@@ -1,43 +1,86 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<!-- ERRORS MESSAGES -->
+<%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="card bg-light mx-auto" style="width: 500px;">
+  <article class="card-body mx-auto" style="max-width: 450px;">
+	  <h2 class="card-title mt-3 text-center">Modifier mon profil</h2>
+    <hr>
+    <!-- FORM -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <!-- FIRST NAME -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+        </div>
+        <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.first_name'}", autocomplete: "first-name" %>
+      </div> <!-- form-group// -->
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-  <% end %>
+      <!-- LAST NAME -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+        </div>
+        <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.last_name'}", autocomplete: "last-name" %>
+      </div> <!-- form-group// -->
 
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %>
-  </div>
+      <!-- EMAIL -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-at"></i> </span>
+        </div>  
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "email" %>
+      </div> <!-- form-group// -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <!-- PASSWORD -->
+      <% if @minimum_password_length %>
+        <i class="d-flex justify-content-center"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></i>
+      <% end %>
+      <i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' ) %>)</i>
+      <div class="form-group input-group">
+    	  <div class="input-group-prepend">
+		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+		    </div>
+        <%= f.password_field :password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.new_password'}", autocomplete: "new-password" %>
+      </div> <!-- form-group// -->
+      
+      <!-- PASSWORD CONFIRMATION -->
+      <i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' ) %>)</i>
+      <div class="form-group input-group">
+    	  <div class="input-group-prepend">
+		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+		    </div>
+        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.new_password_confirmation'}", autocomplete: "new-password" %>
+      </div> <!-- form-group// -->    
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+      <!-- CURRENT PASSWORD -->
+      <i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.only_if_you_change_password' ) %>)</i>
+      <div class="form-group input-group">
+    	  <div class="input-group-prepend">
+		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+		    </div>
+        <%= f.password_field :current_password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.current_password'}", autocomplete: "current-password" %>
+      </div> <!-- form-group// --> 
 
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
+      <!-- VALIDATION BUTTON -->
+      <div class="actions">
+        <%= f.submit "Modifier", class: "btn btn-primary btn-block" %>
+      </div>
 
-<h3><%= t('.cancel_my_account') %></h3>
+    <% end %> <!-- form.// -->
 
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+    <!-- DELETE ACCOUNT BUTTON -->
+    <h4 class="card-title mt-5 text-center"><%= t('.cancel_my_account') %></h4>
+    <hr>
+    <!-- FORM -->
+    <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: "Etes-vous sûr de vouloir supprimer le compte ?" }, method: :delete, class: "btn btn-danger btn-block" %>
 
-<%= link_to t('devise.shared.links.back'), :back %>
+
+    <!-- OTHER LINKS -->
+    <div class="actions text-center mt-5">
+      <%= link_to t('devise.shared.links.back'), :back, class: "btn btn-secondary" %>
+    </div>
+    
+  </article>
+</div> <!-- card.// -->
+

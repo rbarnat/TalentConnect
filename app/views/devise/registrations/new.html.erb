@@ -1,5 +1,5 @@
-      <!-- CONFIRMATION MESSAGES, ALERT MESSAGES AND WARNING MESSAGES -->
-      <%= render "devise/shared/error_messages", resource: resource %>
+<!-- ERRORS MESSAGES -->
+<%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="card bg-light mx-auto" style="width: 500px;">
   <article class="card-body mx-auto" style="max-width: 450px;">
@@ -8,8 +8,6 @@
     <!-- FORM -->
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       
-
-
       <!-- EMAIL -->
       <div class="form-group input-group">
         <div class="input-group-prepend">
