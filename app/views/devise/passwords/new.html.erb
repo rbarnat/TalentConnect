@@ -1,16 +1,31 @@
-<h2><%= t('.forgot_your_password') %></h2>
+<!-- ERRORS MESSAGES -->
+<%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="card bg-light mx-auto" style="width: 500px;">
+  <article class="card-body mx-auto" style="max-width: 450px;">
+	  <h2 class="card-title mt-3 text-center">Un petit oubli ?</h2>
+    <hr>
+    <!-- FORM -->
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <!-- EMAIL -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-at"></i> </span>
+        </div>
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "email" %>
+      </div> <!-- form-group// --> 
 
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
+      <!-- MESSAGE EXPLICATIF -->
+      <i class="d-flex justify-content-center"><%= t('helpers.placeholder.reset_password_instruction') %></i>
+      <!-- VALIDATION BUTTON -->
+      <div class="actions">
+        <%= f.submit t('helpers.placeholder.send_me_reset_password_instructions'), class: "btn btn-primary btn-block" %>
+      </div>
+      
 
-<%= render "devise/shared/links" %>
+      <!-- OTHER LINKS -->
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </article>
+</div> <!-- card.// -->
