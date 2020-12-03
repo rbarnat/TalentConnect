@@ -32,6 +32,6 @@
   <% end %>
 <% end %>
 
-<%= render partial: 'layouts/model_error_messages', locals: {model_name: @appointment} %> 
-<%= render partial: 'layouts/model_error_messages', locals: {model_name: @talent} %>
-<%= render partial: 'layouts/model_error_messages', locals: {model_name: @place} %>
+<%= render partial: 'layouts/model_error_messages', locals: {model: @appointment} %> 
+<%= render partial: 'layouts/model_error_messages', locals: {model: @talent} %>
+<%= render partial: 'layouts/model_error_messages', locals: {model: @place} %>
