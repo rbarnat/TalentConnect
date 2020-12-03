@@ -3,14 +3,8 @@
 <%= render 'layouts/messages' %>
 
 
-
-<%= render partial: 'layouts/searchform' %>
-
-<% @talents.sample(5).each do |talent|%>
-  <%= render partial: 'layouts/landing-card', locals: {model: talent} %>
-<% end %>
-
-
+<%= render partial: 'layouts/jumbo-landing' %>
+<%= render partial: 'layouts/box-landing-card' %>
 
 
 
