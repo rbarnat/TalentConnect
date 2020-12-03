@@ -10,6 +10,7 @@
 </div>
 
 <!-- CONFIRMED APPOINTMENTS -->
+<h4 class="text-primary">Demandes confirmées</h4>
 <% if @paid_appointments %>
   <% @paid_appointments.each do |paid_appointment| %>
   <%= render partial: 'layouts/card-talent', locals: {model: paid_appointment.talent, type: "mentor-validate"} %>
