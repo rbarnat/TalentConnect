@@ -1,7 +1,7 @@
 class TalentsController < ApplicationController
   include TalentsHelper
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :user_have_info, only: [:new, :edit]
+  before_action :user_have_info?, only: [:new, :edit]
 
   def index
     @talents = Talent.all
@@ -10,7 +10,6 @@ class TalentsController < ApplicationController
   def search_results
     keywords = params[:search_keywords]
     @found_talents = Talent.roughly_spelled_like(keywords)
-    
   end
 
   def show
