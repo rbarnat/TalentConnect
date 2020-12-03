@@ -14,7 +14,7 @@ accepts_nested_attributes_for :place
 
 validates :duration,
     presence: true,
-    numericality: { greater_than: 1, message: "Duration must be greater than 1"}
+    numericality: { greater_than: 1, message: "La durée doit être de plus de 1 minute"}
 
 validates :title,
     presence: true,

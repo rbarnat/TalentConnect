@@ -1,0 +1,30 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        first_name: le prénom
+        last_name: le nom de famille
+        phone_number: le numéro de téléphone
+        place: le lieu d'habitation
+      appointment:
+        start_time: la date/heure de début de la séance
+        mentor: le mentor
+        apprentice: l'apprenti
+        talent: le talent
+        place: le lieu de la séance
+      place:
+        city_name: la ville
+        zip_code: le code postal
+        adress: l'adresse
+        latitude: la latitude
+        longitude: la longitude
+      talent:
+        user: le mentor
+        default_place: le lieu par défaut d'une séance
+        title: le titre du talent
+        description: la description du talent
+        duration: la durée d'une séance
+    models:
+      appointment: Séance
+      place: Lieu
+      talent: Talent
