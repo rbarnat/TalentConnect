@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..20 }, allow_blank: true
   validates :first_name, :last_name, 
     presence: true,
-    length: { minimum: 2}
-  validates :phone_number, presence: true
+    length: { minimum: 2}, allow_blank: true
+  validates :phone_number, presence: true, allow_blank: true
 
 end

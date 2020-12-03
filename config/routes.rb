@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # HOME PAGE
   root to: "static_pages#home"
   # USERS AND PROFILE PAGES
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: [:index, :show]
   # TALENTS PAGES
   resources :talents do
