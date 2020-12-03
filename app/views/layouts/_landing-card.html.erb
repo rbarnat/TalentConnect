@@ -1,7 +1,7 @@
-  <div class="card card-custom shadow mb-5 text-center max-width-18">
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class="card-img-top" alt="...">
+  <div class="card card-custom shadow text-center max-width-15 ml-3 mr-4 mb-4 ">
+    <%= image_tag model.picture, alt: 'picture', class: "card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <a href="#">+ d'infos</a>
+      <h5 class="card-title"><%= model.title%></h5>
+      <%= link_to "+ d'infos", talent_path(model) %>
     </div>
   </div>

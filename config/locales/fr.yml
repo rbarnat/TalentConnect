@@ -1,0 +1,64 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        first_name: le prénom
+        last_name: le nom de famille
+        phone_number: le numéro de téléphone
+        place: le lieu d'habitation
+      appointment:
+        start_time: la date/heure de début de la séance
+        mentor: le mentor
+        apprentice: l'apprenti
+        talent: le talent
+        place: le lieu de la séance
+      place:
+        city_name: la ville
+        zip_code: le code postal
+        adress: l'adresse
+        latitude: la latitude
+        longitude: la longitude
+      talent:
+        user: le mentor
+        default_place: le lieu par défaut d'une séance
+        title: le titre du talent
+        description: la description du talent
+        duration: la durée d'une séance
+    models:
+      appointment: Séance
+      place: Lieu
+      talent: Talent
+  helpers:
+    placeholder:
+      user:
+        current_password: Mot de passe actuel
+        email: Email
+        encrypted_password: Mot de passe chiffré
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        new_password: Nouveau mot de passe
+        new_password_confirmation: Nouveau mot de passe (confirmation)
+        first_name: Prénom
+        last_name: Nom de famille
+        phone_number: Numéro de téléphone
+        place: Lieu d'habitation
+      appointment:
+        start_time: La date/heure de début de la séance
+        mentor: Le mentor
+        apprentice: L'apprenti
+        talent: Le talent
+        place: Le lieu de la séance
+      place:
+        city_name: La ville
+        zip_code: Le code postal
+        adress: L'adresse
+        latitude: La latitude
+        longitude: La longitude
+      talent:
+        user: Le mentor
+        default_place: Le lieu par défaut d'une séance
+        title: Le titre du talent
+        description: La description du talent
+        duration: La durée d'une séance
+      send_me_reset_password_instructions: Réinitialiser mon mot de passe
+      reset_password_instruction: Envoi un email avec les instructions de réinitialisation

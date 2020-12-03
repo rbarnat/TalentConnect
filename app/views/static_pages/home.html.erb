@@ -1,13 +1,6 @@
-<%= form_tag search_results_path, method: 'get' do %>
-  <%= text_field_tag :search_keywords%>
-  <%= submit_tag "Search"%>
-<% end %>
+<%= render partial: 'layouts/jumbo-landing' %>
+<%= render partial: 'layouts/box-landing-card' %>
 
-<%# --- Random talents printed on home page --- %>
-<% @talents.sample(4).each do |talent|%>
-<ul>
-    <li> <%= talent.title%> </li>
-    <li> <%= talent.description%> </li>
-    <li> <%= talent.user_id%>
-</ul>
-<% end %>
+
+
+<!-- <%= render partial: 'layouts/searchform', locals: {model: @appointment} %> -->

@@ -5,14 +5,33 @@
       <p class="mb-0"><%= alert %></p>
     </div>
   <% elsif type == "notice" %>
-    <div class="alert alert-dismissible alert-success mt-1">
+    <div class="alert alert-dismissible alert-info mt-1">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <p class="mb-0"><%= notice %></p>
     </div>
+  <% elsif type == "success" %>
+    <div class="alert alert-dismissible alert-success mt-1">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <p class="mb-0"><%= success %></p>
+    </div>
+  <% elsif type == "danger" %>
+  <div class="alert alert-dismissible alert-danger mt-1">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class="mb-0"><%= danger %></p>
+  </div>
+  <% elsif type == "info" %>
+  <div class="alert alert-dismissible alert-primary mt-1">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class="mb-0"><%= info %></p>
+  </div>
   <% else %>
-    <div class="alert alert-dismissible alert-info mt-1">
+    <div class="alert alert-dismissible alert-secondary mt-1">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <p class="mb-0">Ce type de message n'est pas paramétré type : <% type %></p>
     </div>
   <% end %>
 <% end %>
+
+<%= render partial: 'layouts/model_error_messages', locals: {model: @appointment} %> 
+<%= render partial: 'layouts/model_error_messages', locals: {model: @talent} %>
+<%= render partial: 'layouts/model_error_messages', locals: {model: @place} %>

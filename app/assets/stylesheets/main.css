@@ -300,6 +300,8 @@ a:hover {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
+/*BUTTONS*/
+
 .btn {
   border-radius: 1.8rem;
 }
@@ -639,6 +641,23 @@ a:hover {
   max-width: 18rem;
 }
 
+.max-width-22 {
+  max-width: 22rem;
+}
+
+.max-width-15 {
+  max-width: 15rem;
+}
+
+.item-center {
+  align-items: center;
+  justify-content: center;
+}
+
+textarea.form-control {
+  border-radius: 0.8rem !important;
+}
+
 .card-custom {
   position: relative;
   display: -ms-flexbox;
@@ -756,4 +775,16 @@ a.text-primary:focus {
 
 .text-danger {
   color: #FF6666 !important;
+}
+
+.text-secondary {
+  color: #D3D3D3 !important;
+}
+
+.jumbotron-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -6px grey;
 }

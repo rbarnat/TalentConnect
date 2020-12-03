@@ -1,6 +1,13 @@
 class TalentsController < ApplicationController
-  # GET /talents
-  # GET /talents.json
+  # Before starting anything import helper and do do some checks
+  include TalentsHelper, PlacesHelper
+  before_action :authenticate_user!, :user_have_info?, only: [:new, :edit]
+  before_action :set_talent, only: [:show, :edit, :update, :destroy] 
+  # Call a helper with an arguement in it
+  before_action only: [:edit, :update] do 
+    set_place(set_talent)
+  end
+
   def index
     @talents = Talent.all
   end
@@ -8,52 +15,64 @@ class TalentsController < ApplicationController
   def search_results
     keywords = params[:search_keywords]
     @found_talents = Talent.roughly_spelled_like(keywords)
+  end
+
+  def show
     
   end
 
-  # GET /talents/1
-  # GET /talents/1.json
-  def show
-    @talent = Talent.find(params[:id])
-  end
-
-  # GET /talents/new
   def new
     @talent = Talent.new
   end
 
-  # GET /talents/1/edit
   def edit
-    @talent = Talent.find(params[:id])
+
   end
 
-  # POST /talents
-  # POST /talents.json
   def create
-    @talent = Talent.create(talent_params)
-    redirect_to talent_path(talent.id)
+    @place = Place.create(place_params)
+    @talent = Talent.new(talent_params)
+    @talent.user_id = current_user.id
+    @talent.place_id = @place.id
+    @talent.save
+    # If talent is created confirm and show it, else show new form
+    if @talent.save
+      flash[:success] = "Bravo, tu as crée un nouveau talent!"
+      redirect_to talent_path(@talent)
+    else
+      flash.now[:danger] = "Le talent n'a pas été crée."
+      render :new
+    end
   end
 
-  # PATCH/PUT /talents/1
-  # PATCH/PUT /talents/1.json
   def update
-    @talent = Talent.find(params[:id])
-    @talent.update(talent_params)
-    redirect_to talents_path
+    @place.update(place_params)
+    if @talent.update(talent_params)
+      flash[:success] = "Tu as mis à jour les informations de ton talent"
+      redirect_to talent_path(@talent)
+    else
+      flash.now[:danger] = "Le talent n'a pas été mis à jour."
+      render :edit
+    end
   end
 
-  # DELETE /talents/1
-  # DELETE /talents/1.json
   def destroy
-    @talent = Talent.find(params[:id])
     @talent.destroy
     redirect_to talents_path
   end
 
   private
-
+  # Allow talent attribute to pass
   def talent_params
-    params.require(:talent).permit(:user_id, :title, :description)
+    params.require(:talent).permit(:title, :description, :duration, :picture)
   end
-  
+  # Allow place nested form attribute to pass
+  def place_params
+    params.require(:place).permit(:address, :zip_code, :city_name)
+  end
+
+  # find the talent using the id
+  def set_talent
+    @talent = Talent.find(params[:id])
+  end
 end

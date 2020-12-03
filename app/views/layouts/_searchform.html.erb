@@ -1,11 +1,11 @@
-<form>
+<%= form_tag search_results_path, method: 'get' do %>
     <div class="form-group row max-width-50">
         <label for="inputEmail3" class="col-sm-3 col-form-label-lg">Je veux apprendre:</label>
-        <div class="col-sm-7">
-          <input type="text" class="form-control form-control-lg" id="inputEmail3" placeholder="votre recherche">
+        <div class="col-sm-8">
+          <%= text_field_tag :search_keywords, nil, class: "form-control form-control-lg", id: "search_keywords", placeholder: "ta recherche" %>
         </div>
-        <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary btn-lg mb-2">Recherche</button>
+        <div class="col-sm-1">
+            <%= submit_tag "Recherche", class: "btn btn-primary btn-lg mb-2" %> 
         </div>
     </div>
-</form>
+<% end %>
