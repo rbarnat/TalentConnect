@@ -27,7 +27,7 @@
       <% case type %>
         <% when "search-result" %>
           <div class="col-md-3 m-auto">
-            <button class="btn btn-outline-primary" href="#">En savoir plus</button>
+            <%= link_to "En savoir plus", talent_path(model), class: "btn btn-outline-primary" %>
           </div>
         <% when "apprentice-validate" %>
           <div class="col-md-3 m-auto pr-4 text-center">

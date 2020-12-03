@@ -2,6 +2,6 @@
     <%= image_tag model.picture, alt: 'picture', class: "card-img-top" %>
     <div class="card-body">
       <h5 class="card-title"><%= model.title%></h5>
-      <a href="#">+ d'infos</a>
+      <%= link_to "+ d'infos", talent_path(model) %>
     </div>
   </div>
