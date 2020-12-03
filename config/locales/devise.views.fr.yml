@@ -2,14 +2,14 @@ fr:
   activerecord:
     attributes:
       user:
-        confirmation_sent_at: Date d'envoi de la confirmation
+        confirmation_sent_at: "Date d'envoi de la confirmation"
         confirmation_token: Clé de confirmation du mot de passe
         confirmed_at: Confirmé à
         created_at: Enregistré à
-        current_password: Mot de passe actuel
+        current_password: le mot de passe actuel
         current_sign_in_at: Date de la connexion actuelle
         current_sign_in_ip: IP de la connexion actuelle
-        email: l'email
+        email: "l'email"
         encrypted_password: Mot de passe chiffré
         failed_attempts: Tentatives échouées
         last_sign_in_at: Date de la dernière connexion
@@ -37,18 +37,18 @@ fr:
     failure:
       already_authenticated: Tu es déjà connecté(e).
       inactive: Ton compte n’est pas encore activé.
-      invalid: "Email ou mot de passe incorrects."
+      invalid: Email ou mot de passe incorrects.
       last_attempt: Il te reste une chance avant que ton compte soit bloqué.
       locked: Ton compte est verrouillé.
       not_found_in_database: "Email ou mot de passe incorrects."
       timeout: Ton session est expirée, reconnecte-toi pour continuer.
-      unauthenticated: Tu dois te connecter ou t'enregistrer pour continuer.
+      unauthenticated: "Tu dois te connecter ou t'enregistrer pour continuer."
       unconfirmed: Tu dois confirmer ton compte par email.
     mailer:
       confirmation_instructions:
         action: Confirmer mon email
         greeting: Bienvenue %{recipient} !
-        instruction: 'Tu peux confirmer ton email grâce au lien ci-dessous :'
+        instruction: "Tu peux confirmer ton email grâce au lien ci-dessous :"
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient} !
@@ -61,15 +61,15 @@ fr:
       reset_password_instructions:
         action: Changer mon mot de passe
         greeting: Bonjour %{recipient} !
-        instruction: 'Quelqu''un a demandé un lien pour changer ton mot de passe, le voici :'
-        instruction_2: Si tu n'as pas émis cette demande, merci d'ignorer cet email.
-        instruction_3: Ton mot de passe ne changera pas tant que tu n'auras pas cliqué sur ce lien et renseigné un nouveau mot de passe.
+        instruction: "Quelqu'un a demandé un lien pour changer ton mot de passe, le voici :"
+        instruction_2: "Si tu n'as pas émis cette demande, merci d'ignorer cet email."
+        instruction_3: "Ton mot de passe ne changera pas tant que tu n'auras pas cliqué sur ce lien et renseigné un nouveau mot de passe."
         subject: Instructions pour changer le mot de passe
       unlock_instructions:
         action: Débloquer mon compte
         greeting: Bonjour %{recipient} !
-        instruction: 'Suis ce lien pour débloquer ton compte :'
-        message: Ton compte a été bloqué suite à un nombre d'essais de connexions manquées trop important.
+        instruction: "Suis ce lien pour débloquer ton compte :"
+        message: "Ton compte a été bloqué suite à un nombre d'essais de connexions manquées trop important."
         subject: Instructions pour déverrouiller le compte
     omniauth_callbacks:
       failure: 'Nous ne pouvons pas t''authentifier depuis %{kind} pour la raison suivante : ''%{reason}''.'
@@ -84,7 +84,7 @@ fr:
         forgot_your_password: Mot de passe oublié ?
         send_me_reset_password_instructions: Envoyez-moi des instructions pour réinitialiser mon mot de passe
       no_token: Tu ne peux pas accéder à cette page si tu n’y accédes pas depuis un email de réinitialisation de mot de passe. Si tu viens en effet d’un tel email, vérifie que tu as copié l’adresse URL en entier.
-      send_instructions: Tu vas recevoir sous quelques minutes un email t'indiquant comment réinitialiser ton mot de passe.
+      send_instructions: "Tu vas recevoir sous quelques minutes un email t'indiquant comment réinitialiser ton mot de passe."
       send_paranoid_instructions: Si ton email existe dans notre base de données, tu recevras un lien te permettant de récupérer ton mot de passe.
       updated: Ton mot de passe a bien été modifié. Tu es maintenant connecté(e).
       updated_not_active: Ton mot de passe a bien été modifié.
@@ -94,7 +94,8 @@ fr:
         are_you_sure: Es-tu sûr ?
         cancel_my_account: Supprimer mon compte
         currently_waiting_confirmation_for_email: 'Confirmation en attente pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisse ce champ vide si tu ne souhaites pas le modifier
+        leave_blank_if_you_don_t_want_to_change_it: laisse vide si tu ne souhaites pas le modifier
+        only_if_you_change_password: uniquement si tu modifies le mot de passe
         title: Éditer %{resource}
         unhappy: Pas content ?
         update: Modifier
@@ -103,9 +104,9 @@ fr:
         sign_up: Créer
         password: Mot de passe
       signed_up: Bienvenue ! Tu as bien été enregistré(e).
-      signed_up_but_inactive: Tu t'es bien enregistré(e). Cependant, nous n’avons pas pu te connecter car ton compte n’a pas encore été activé.
-      signed_up_but_locked: Tu t'es bien enregistré(e). Cependant, nous n’avons pas pu te connecter car ton compte est verrouillé.
-      signed_up_but_unconfirmed: Un message avec un lien de confirmation t'a été envoyé par mail. Suis ce lien pour activer ton compte.
+      signed_up_but_inactive: "Tu t'es bien enregistré(e). Cependant, nous n’avons pas pu te connecter car ton compte n’a pas encore été activé."
+      signed_up_but_locked: "Tu t'es bien enregistré(e). Cependant, nous n’avons pas pu te connecter car ton compte est verrouillé."
+      signed_up_but_unconfirmed: "Un message avec un lien de confirmation t'a été envoyé par mail. Suis ce lien pour activer ton compte."
       update_needs_confirmation: Tu as bien modifié ton compte, mais nous devons vérifier ta nouvelle adresse email. Consulte tes emails et clique sur le lien de confirmation pour confirmer ta nouvelle adresse.
       updated: Ton compte a bien été modifié.
       updated_but_not_signed_in: Ton compte a été mis à jour avec succès. Tu dois te reconnecter car ton mot de passe a été modifié.
@@ -118,8 +119,8 @@ fr:
     shared:
       links:
         back: Retour
-        didn_t_receive_confirmation_instructions: Tu n'as pas reçu l'email de confirmation ?
-        didn_t_receive_unlock_instructions: Tu n'as pas reçu l'email de déblocage ?
+        didn_t_receive_confirmation_instructions: "Tu n'as pas reçu l'email de confirmation ?"
+        didn_t_receive_unlock_instructions: "Tu n'as pas reçu l'email de déblocage ?"
         forgot_your_password: Mot de passe oublié ?
         sign_in: Connexion
         sign_in_with_provider: Connexion avec %{provider}
