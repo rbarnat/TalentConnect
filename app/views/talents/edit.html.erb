@@ -1,21 +1,10 @@
-<h1>Talents#edit</h1>
+
 
 <!-- USERS MESSAGES -->
 <%= render 'layouts/messages' %>
+<p>Bienvenue sur la page de modification de votre talent : <%=@talent.title%></p>
+<%= render "edit_talent_form" %>
 
-<p>Find me in app/views/talents/edit.html.erb</p>
 
 
 
-<p>Bienvenue sur la page d'ajout d'une picture pour le Talent portant l'id : <%=@talent.id%></p>
-<h3>Picture actuel</h3>
-<%if @talent.picture.attached?%>
-  <%= image_tag @talent.picture, alt: 'picture' %>
-<%else%>
-  <p>=== Il n'y a pas encore de picture lié à ce talent ===</p>
-<%end%>
-
-<%= form_tag talent_pictures_path(@talent), multipart: true do %>
-  <%= file_field_tag :picture %>
-  <%= submit_tag "uploader la picture" %>
-<% end %>
