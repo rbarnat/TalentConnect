@@ -5,9 +5,12 @@
 
 <%# --- Random talents printed on home page --- %>
 <% @talents.sample(4).each do |talent|%>
-<ul>
-    <li> <%= talent.title%> </li>
-    <li> <%= talent.description%> </li>
-    <li> <%= talent.user_id%>
-</ul>
+  <div class="card-custom" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Image du talent">
+    <div class="card-body">
+      <h5 class="card-title"><%= talent.title%></h5>
+      <p class="card-text"><%= talent.description%></p>
+      <a href="#" class="btn btn-primary">En savoir plus</a>
+    </div>
+  </div>
 <% end %>
