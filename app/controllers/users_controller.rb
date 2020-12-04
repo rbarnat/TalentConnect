@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :check_user
   before_action :authenticate_user!, except: [:is_user_current_user?]
   before_action :redirect_if_user_not_current_user
+  
 
   def index
     @users = User.all
@@ -38,6 +40,15 @@ class UsersController < ApplicationController
     if !is_user_current_user?
       flash[:error] = "Tu n'as pas l'autisation de gérer ce profil."
       redirect_to root_path
+    end
+  end
+
+  private 
+
+  def check_user
+    @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to root_url, alert: "Vous ne pouvez pas accéder à ce profil car il ne vous appartient pas."
     end
   end
 
