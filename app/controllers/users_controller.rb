@@ -1,23 +1,28 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :index]
+  before_action :authenticate_user!, except: [:is_user_current_user?]
   before_action :redirect_if_user_not_current_user
 
   def index
     @users = User.all
   end
 
-  def mentor_show
-    @paid_appointments = Appointment.where(mentor_id: params[:id])
-    @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
-  end
-
   def show
-    @user = User.find(params[:id])
     @paid_appointments = Appointment.where(apprentice_id: params[:id])
     @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
     @past_paid_appointments = @paid_appointments.where("start_time <= ?", Time.now)
     # @mentor_validate_appointments = @future_paid_appointments.where
     # @apprentice_validate_appointments = @future_paid_appointments.where
+  end
+
+  def apprentice_show
+    @paid_appointments = Appointment.where(apprentice_id: params[:id])
+    @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
+    @past_paid_appointments = @paid_appointments.where("start_time <= ?", Time.now)
+  end
+
+  def mentor_show
+    @paid_appointments = Appointment.where(mentor_id: params[:id])
+    @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
   end
 
   def is_user_current_user?
