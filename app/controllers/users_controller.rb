@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def mentor_show
+    @paid_appointments = Appointment.where(mentor_id: params[:id])
+    @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
+  end
+
   def show
     @user = User.find(params[:id])
     @paid_appointments = Appointment.where(apprentice_id: params[:id])

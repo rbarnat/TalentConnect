@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   # USERS AND PROFILE PAGES
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: [:index, :show]
+  # ADD MENTOR SHOW ACTION IN USER CONTROLLER (member argument is for specific user so id is needed, collection argument don't need id)
+  resources :users do
+    get "mentor_show", :on => :member
+  end
   # TALENTS PAGES
   resources :talents do
     resources :pictures, only: [:create]
