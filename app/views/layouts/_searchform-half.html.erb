@@ -1,11 +1,13 @@
 <label for="inputEmail3" class="col-form-label-lg">Je veux apprendre:</label>
 <%= form_tag search_results_path, method: 'get' do %>
-    <div class="form-group row max-width-50">
-        <div class="col-sm-7">
-          <%= text_field_tag :search_keywords, nil, class: "form-control form-control-lg", id: "search_keywords", placeholder: "ta recherche", value: keyword %>
+    <div class="form-group input-group max-width-50">
+        <div class="">
+          <%= text_field_tag :search_keywords, nil, class: "form-control form-control-lg", id: "search_keywords", placeholder: "Rechercher", value: keyword %>
         </div>
-        <div class="col-sm-2">
-            <%= submit_tag "Recherche", class: "btn btn-primary btn-lg mb-2" %> 
+        <div class="">
+            <%= button_tag(type: "submit", class: "btn btn-primary btn-lg mb-2") do %>
+                <i class="fas fa-search"></i>
+            <% end %>
         </div>
         
     </div>
