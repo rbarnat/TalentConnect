@@ -1,9 +1,9 @@
 <head>
-    <meta charset=UTF-8 lang=FR>
-    <link rel="stylesheet" href="./bootstrap.css">
-    <link rel="stylesheet" href="./main.css">
-  </head>
-  <body>
+  <meta charset=UTF-8 lang=FR>
+  <link rel="stylesheet" href="./bootstrap.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
     
   <div>
     <h1>Heading 1</h1>
@@ -16,7 +16,7 @@
   <h4 class="text-primary">Heading 4 titre</h4>
   <p> voici un paragraphe</p>
     
-<!-------------- BUTTONS PLAIN ------------------->
+  <!-------------- BUTTONS PLAIN ------------------->
   <div>
     <p>Les boutons:</p>
     <button type="button" class="btn btn-primary">Primary</button>
@@ -29,7 +29,7 @@
     <button type="button" class="btn btn-dark">Dark</button>
   </div>
     
-<!-------------- BUTTONS OUTLINE ------------------->
+  <!-------------- BUTTONS OUTLINE ------------------->
   <div><br>
     <p>Les boutons outline</p>
     <button type="button" class="btn btn-outline-primary">Primary</button>
@@ -42,7 +42,7 @@
     <button type="button" class="btn btn-outline-dark">Dark</button>
   </div>
     
-<!-------------- BUTTONS SIZE ------------------->
+  <!-------------- BUTTONS SIZE ------------------->
   <div><br>
     <p>Les tailles de boutons:</p>
     <button type="button" class="btn btn-primary btn-lg">Large button</button>
@@ -60,7 +60,7 @@
   <button type="button" class="btn btn-outline-danger">Créer une nouvelle activité</button>
     <br><br>
   <button type="button" class="btn btn-outline-primary">Deviens mentor et partage ta passion!</button>
-<!-------------- BADGE ------------------->
+  <!-------------- BADGE ------------------->
   <div><br>
     <p>Liste des badges:</p>
     <span class="badge badge-pill badge-primary">Primary</span>
@@ -76,8 +76,8 @@
       
   <br><br>
 
-<!-------------- NAVBAR ------------------->
-<!-- As a link -->
+  <!-------------- NAVBAR ------------------->
+  <!-- As a link -->
   <nav class="navbar navbar-primary bg-primary">
     <a class="navbar-brand" href="#">Navbar</a>
   </nav>
@@ -89,7 +89,7 @@
       
   <br><br>
     
-<!-- with a dropdown -->
+  <!-- with a dropdown -->
   <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
     <a class="navbar-brand" href="#">Talent Connect</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -160,7 +160,7 @@
 
   <br><br>
 
-<!-- with a dropdown and search bar-->
+  <!-- with a dropdown and search bar-->
   <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
     <a class="navbar-brand" href="#">Talent Connect</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -194,8 +194,8 @@
   </nav>
 
   <br><br>
-<!-------------CARDS ------------------->
-<!-- landing page cards -->
+  <!-------------CARDS ------------------->
+  <!-- landing page cards -->
   <div class="card card-custom shadow mb-5 text-center max-width-18">
     <img src="https://media-cdn.tripadvisor.com/media/photo-s/08/e7/2c/fe/inage-ocean-park.jpg" class="card-img-top" alt="...">
     <div class="card-body">
@@ -204,14 +204,14 @@
     </div>
   </div>
     
-<!-- only text page cards -->
+  <!-- only text page cards -->
   <div class="card card-custom2 shadow mb-5 max-width-45">
     <div class="card-body">
       <p>hello voici ma carte</p>
     </div>
   </div>
     
-<!-- Cards to display each activity - showing in research-->
+  <!-- Cards to display each activity - showing in research-->
   <div class="card card-custom2 shadow mb-5 max-width-45">
     <div class="row no-gutters">
       <div class="col-md-3">
@@ -296,7 +296,7 @@
     </div>
   </div>
     
-<!-- one line display + badges -->
+  <!-- one line display + badges -->
   <div class="max-width-45">
     <div class="card card-custom2 shadow mb-2 pt-3 pl-4" >
       <p><a href=#>Pauline</a> veut participer à <a href=#>Débuter en musique</a> le 03/12/2020 à 16h00 </p>
@@ -309,7 +309,7 @@
 
   <br><br>
     
-<!-- one line display -->
+  <!-- one line display -->
 
   <div class="card card-custom2 shadow mb-2 mt-2 pt-3 pl-4 max-width-45">
     <p><a href=#>Marc</a> veut participer à <a href=#>Débuter en musique</a> le 03/12/2020 à 16h00 </p>
@@ -318,7 +318,7 @@
 
   <br><br>
 
-<!-- one line display h2 + link -->
+  <!-- one line display h2 + link -->
   <div class="card card-custom2 shadow mb-2 max-width-45">
     <div class="row">
       <div class = "col-sm-8">
@@ -334,15 +334,15 @@
   </div>
 
 
-<!-- Jumbotron --->
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  <!-- Jumbotron --->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Fluid jumbotron</h1>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
   </div>
-</div>
     
-<!-- Searching tools -->
+  <!-- Searching tools -->
   <form>
     <div class="form-group row max-width-50">
       <label for="inputEmail3" class="col-sm-3 col-form-label-lg">Je veux apprendre:</label>
@@ -414,78 +414,39 @@
 
 <!--form exemple edit talent -->
 
-<%= form_with model: @talent, local: true, multipart: true, class: "max-width-45" do |form| %>
-  <!-- title -->
-  <div class="field">
-    <%= form.label :title, 'Titre' %>
-    <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ton talent. Maximum 140 caractère" %>
-  </div>
-  <!-- Description -->
-  <div class="field">
-    <%= form.label :description, 'Description' %>
-    <%= form.text_area :description, class: "form-control", placeholder: "Décrit ton talent. Maximum 1000 caractère" %>
-  </div>
-  <!-- Duration -->
-  <div class="field">
-    <%= form.label :duration, 'Durée de la séance' %>
-    <%= form.select :duration, options_for_select(1..8)%>
-  </div>
-
-  <!-- Place nested form -->
-  <div class="field max-width-18">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.label :address, 'Adresse' %>
-        <%= place_form.text_field :address, class: "form-control display-inline"%>
-
-        <%= place_form.label :city_name, 'Ville' %>
-        <%= place_form.text_field :city_name , class: "form-control"%>
- 
-        <%= place_form.label :zip_code %>
-        <%= place_form.text_field :zip_code, class: "form-control"%>
-    <% end %>
-  </div>
-  <!-- Photos -->
-  <div class="field">
-    <%= form.label 'Photos' %>
-    <%= form.file_field :picture, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit%>
-  </div>
-<% end %>
   
-<br><br><hr><br><br>
+  <br><br><hr><br><br>
 
-<!--form exemple edit talent -->
-<h2>Page show</h2><br><br>
+  <!--form exemple edit talent -->
+  <h2>Page show</h2><br><br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <!-- image container -->
-      <div class="image-container ">
-        <img src="https://www.lamodeenimages.com/sites/default/files-lmi/images/article/homepage/full/lexposition-hommage-a-azzedine-alaia-cover.jpg" class=".img-fluid card-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <!-- image container -->
+        <div class="image-container ">
+          <img src="https://www.lamodeenimages.com/sites/default/files-lmi/images/article/homepage/full/lexposition-hommage-a-azzedine-alaia-cover.jpg" class=".img-fluid card-img">
+        </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-    <!--Table element for text display-->
-      <table class="table table-borderless max-width-18">
-        <tbody>
-          <tr>
-            <th scope="row">Note:</th>
-            <td>4/5</td>
-          </tr>
-          <tr>
-            <th scope="col">Catégorie:</th>
-            <td>Art</td>
-          </tr>
-          <tr>
-            <th scope="col">Ville:</th>
-            <td>Paris</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="col-sm-4">
+        <!--Table element for text display-->
+        <table class="table table-borderless max-width-18">
+          <tbody>
+            <tr>
+              <th scope="row">Note:</th>
+              <td>4/5</td>
+            </tr>
+            <tr>
+              <th scope="col">Catégorie:</th>
+              <td>Art</td>
+            </tr>
+            <tr>
+              <th scope="col">Ville:</th>
+              <td>Paris</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </body>
