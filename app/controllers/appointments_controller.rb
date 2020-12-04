@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   # Before executing certain methods we find the right appointment to operate on
   before_action :set_appointment, only: [:destroy]
+  before_action :authenticate_user!
 
   def index
     @appointments = Appointment.all
