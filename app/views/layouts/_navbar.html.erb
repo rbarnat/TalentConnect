@@ -45,6 +45,7 @@
             <% if user_signed_in? %>
               <a a class="dropdown-item" href="<%= user_path(current_user.id) %>">users#show</a>
               <a a class="dropdown-item" href="<%= mentor_show_user_path(current_user.id) %>">user_mentor_profile#show</a>
+              <a a class="dropdown-item" href="<%= apprentice_show_user_path(current_user.id) %>">user_apprentice_profile#show</a>
             <% end %>
             <a class="dropdown-item" href="<%= new_user_registration_path %>">registrations#new</a>
             <a class="dropdown-item" href="<%= edit_user_registration_path %>">registrations#edit</a>
