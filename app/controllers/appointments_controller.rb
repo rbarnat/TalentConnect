@@ -19,7 +19,7 @@ class AppointmentsController < ApplicationController
     @appointment.mentor_id = @talent.user_id
     @appointment.place_id = @talent.place_id
     if @appointment.save
-      flash[:success] = "La scéance a bien été proposé au mentor !"
+      flash[:success] = "La séance a bien été proposée au mentor !"
       redirect_to talent_path(@talent)
     else
       flash.now[:danger] = "La séance n'a pas été créée."

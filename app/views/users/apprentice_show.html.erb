@@ -6,7 +6,7 @@
   <%= render partial: 'layouts/card-talent', locals: {model: future_paid_appointment.talent, type: "paid"} %>
   <% end %>
 <% else %>
-  Tu n'as pas de séance confirmées
+  Tu n'as pas de séances confirmées.
 <% end %>
 
 
@@ -18,5 +18,5 @@
   <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointments.talent, type: "past"} %>
   <% end %>
 <% else %>
-  Tu n'as pas de séance passées
+  Tu n'as pas de séances passées.
 <% end %>

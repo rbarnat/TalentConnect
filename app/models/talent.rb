@@ -14,7 +14,7 @@ accepts_nested_attributes_for :place
 
 validates :duration,
     presence: true,
-    numericality: { greater_than: 1, message: "La durée doit être de plus de 1 minute"}
+    numericality: { greater_than: 1, message: "La durée doit être supérieure à 1 minute"}
 
 validates :title,
     presence: true,
@@ -22,7 +22,7 @@ validates :title,
 
 validates :description,
     presence: true,
-    length: { in: 10..1000, message: "La description doit faire entre 10 and 1000 caractères"}
+    length: { in: 10..1000, message: "La description doit faire entre 10 et 1000 caractères"}
 
 # --- PG Search ---
 include PgSearch::Model
