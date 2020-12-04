@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def check_user
     @user = User.find(params[:id])
     if current_user != @user
-      redirect_to root_url, alert: "Vous ne pouvez pas accéder à ce profil car il ne vous appartient pas."
+      redirect_to root_url, alert: "Tu ne peux pas accéder à ce profil car il ne t'appartient pas."
     end
   end
 
