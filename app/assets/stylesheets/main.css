@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Roboto";
-  src: url('./Roboto/Roboto-Regular.ttf');
-}
-
 :root {
   --blue: #15D6A2;
   --red: #FF6666;
@@ -781,10 +776,12 @@ a.text-primary:focus {
   color: #D3D3D3 !important;
 }
 
-.jumbotron-fluid {
+.jumbotron {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 6px -6px grey;
+  background-image: url("../images/jumbotron.jpg");   
+  background-size: cover;
 }
