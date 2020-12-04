@@ -2,7 +2,7 @@
     <!-- LOGO -->
     <a class="navbar-brand" href="<%=root_path%>">
       <i class="fab fa-slideshare fa-2x mr-1 text-white"></i>
-      Talent Connect
+      <a class="navbar-brand" href="<%=root_path%>">Talent Connect</a>
     </a>
 
     <!-- TOGGLE BUTTON -->
@@ -76,15 +76,14 @@
         </li>
       </ul>
 
-
       <!-- SEARCH FORM -->
-      <div class="nav-item">
-        <%= render partial: 'layouts/searchform-navbar' %>
-      </div>
+      <ul class="navbar-nav ml-auto my-2 my-lg-0 mr-3">
+        <div class="nav-item form-inline my-2 my-lg-0 mr-">
+          <%= render partial: 'layouts/searchform-navbar' %>
+        </div>
 
       <!-- SIGNIN USER BUTTONS -->
       <% if user_signed_in? %>
-        <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle btn btn-outline-light " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user-circle mr-1"></i>
@@ -102,6 +101,7 @@
           </li>
         </ul>
 
+
       <!-- SIGNOUT USER BUTTONS -->
       <% else %>
         <ul class="navbar-nav ml-auto">
@@ -117,14 +117,7 @@
           </li>
         </ul>
       <%end%>
-
-
     </div>
-
-
-
-
-
-
-
   </nav> 
+
+
