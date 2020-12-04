@@ -11,14 +11,23 @@
     <script src="https://kit.fontawesome.com/dc9a3c0907.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h2>Bienvenue au sein de la communauté Talent Connect !</h2>
+    <h2>Confirmation de réservation de séance sur Talent Connect !</h2>
     <hr>
     <p>
-      Salut <%= @user.first_name %>,<br>
+      Salut <%= @appointment.apprentice.first_name %>,<br>
     </p>
     <p>
-      Tu t'es inscrit sur <%= link_to "Talent Connect", @urlHomePage %> en utilisant l'e-mail suivant : <%= @user.email %>.<br>
-      Pour accéder à ton espace client, connecte-toi via : <%= link_to "Me connecter", @urlLogin %> .
+      Cet email pour te confirmer que ta réservation de talent effectuée le <%= @appointment.created_at.strftime("%d/%m/%Y à %k:%M") %> a bien été enregistrée.<br>
+      Toute l'équipe de Talent Connect te remercie !<br><br>
+    
+      En voilà les grandes lignes:<br>
+      <br>
+      Séance intitulée : <%= @appointment.talent.title %><br>
+      Animée par le mentor : <%= @appointment.mentor.first_name %> <%= @appointment.mentor.last_name %><br>
+      Prévue pour se tenir le : <%= @appointment.start_time %><br>
+      <br>
+      Tu retrouveras les informations relatives à ta séance en te connectant sur ton espace client.<br>
+      Pour accéder à celui-ci, connecte-toi via : <%= link_to "Me connecter", @urlLogin %> .
     </p>
     <p>
       À très vite au sein de la communauté de partage de talents ! 
