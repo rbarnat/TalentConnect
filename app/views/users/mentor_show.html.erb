@@ -12,25 +12,25 @@
 <%
 =end%>
 <!-- MY TALENTS -->
-<h4 class="card-title mt-3 text-center">Je propose ces activités:</h4>
+<h4 class="card-title mt-3 text-center">Je propose ces activités :</h4>
 <hr>
 <% if !@current_user.talents.nil? %>
   <% @current_user.talents.each do |talent| %>
   <%= render partial: 'layouts/landing-card', locals: {model: talent, type: "paid"} %>
   <% end %>
 <% else %>
-  Tu n'as pas de talent!
+  Tu n'as pas de talent proposé !
 <% end %>
 
 
 <!-- APPOINTMENTS -->
-<h4 class="card-title mt-3 text-center">Rendez-vous à venir:</h4>
+<h4 class="card-title mt-3 text-center">Rendez-vous à venir :</h4>
 <% if @future_paid_appointments %>
   <% @future_paid_appointments.each do |future_paid_appointment| %>
   <%= render partial: 'layouts/validate_appointment_card', locals: {model: future_paid_appointment.talent, type: "paid"} %>
   <% end %>
 <% else %>
-  Tu n'as pas de séance confirmées
+  Tu n'as pas de séances confirmées.
 <% end %>
 
 <div class="actions">

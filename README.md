@@ -1,8 +1,8 @@
 # TalentConnect
 
-**TalentConnect** is a **Ruby On Rails** web application. It's an **peer-learning plateform** made by [dediane](https://github.com/dediane), [Mehdi-Lucas](https://github.com/Mehdi-Lucas), [rbarnat](https://github.com/rbarnat), [PatriceH7](https://github.com/PatriceH7) et [YohanFleury](https://github.com/YohanFleury).
+**TalentConnect** is a **Ruby On Rails** web application. It's a **peer-learning plateform** made by [dediane](https://github.com/dediane), [Mehdi-Lucas](https://github.com/Mehdi-Lucas), [rbarnat](https://github.com/rbarnat), [PatriceH7](https://github.com/PatriceH7) and [YohanFleury](https://github.com/YohanFleury).
 
-It's a project for The Hacking Project coding bootcamp.
+It's the final project for The Hacking Project coding bootcamp.
 
 ## Where to find our application?
 
@@ -14,7 +14,7 @@ You can find our application on **Heroku**:
 
 This app is using **Ruby 2.7.1** and **Rails 5.2.3**.
 
-This e-shop in RoR is using a list of **gems**, don't forget to run `bundle install` to create a `gemfile.lock` to store all dependencies that your app needed.
+This web app in RoR is using a list of **gems**, don't forget to run `bundle install` to create a `gemfile.lock` to store all dependencies that your app needed.
 
 ## Create and initialiaze the Database 
 

@@ -37,10 +37,10 @@ class TalentsController < ApplicationController
     @talent.save
     # If talent is created confirm and show it, else show new form
     if @talent.save
-      flash[:success] = "Bravo, tu as crée un nouveau talent!"
+      flash[:success] = "Bravo, tu as créé un nouveau talent!"
       redirect_to talent_path(@talent)
     else
-      flash.now[:danger] = "Le talent n'a pas été crée."
+      flash.now[:danger] = "Le talent n'a pas été créé."
       render :new
     end
   end
