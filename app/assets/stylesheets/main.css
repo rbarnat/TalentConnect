@@ -39,6 +39,10 @@ a:hover {
 
 /*TABLE*/
 
+.table-borderless {
+  border-width: 0px;
+}
+
 .table-primary,
 .table-primary>th,
 .table-primary>td {
@@ -782,6 +786,11 @@ a.text-primary:focus {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 6px -6px grey;
-  background-image: url("../images/jumbotron.jpg");   
+  background-image: url("../images/jumbotron.jpg");
   background-size: cover;
+}
+
+.image-container {
+  max-width: 45rem;
+  max height: 400px;
 }
