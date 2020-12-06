@@ -14,8 +14,8 @@
 
   <!-- Duration -->
   <div class="field">
-    <%= form.label :duration, 'Durée de la scéance' %>
-    <%= form.select :duration, options_for_select(1..8) %>
+    <%= form.label :duration, 'Durée de la scéance en heure' %>
+    <%= form.select :duration, options_for_select((0.5..8).step(0.5).map{ |n| n % 1 == 0 ? n.to_i : n }) %>
   </div>
 
   <!-- Place nested form -->
