@@ -14,7 +14,7 @@ accepts_nested_attributes_for :place
 
 validates :duration,
     presence: true,
-    numericality: { greater_than: 1, message: "La durée doit être supérieure à 1 minute"}
+    numericality: { greater_than: 29, message: "La scéance doit durer 30 minutes au minimum"}
 
 validates :title,
     presence: true,
