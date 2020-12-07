@@ -1,13 +1,16 @@
-<%= form_with model: @appointment, url: talent_appointments_path, local: true do |form| %>
+<div class="container text-center">
+  <div class="card card-custom2 shadow max-width-45 m-auto">
+      <%= form_with model: @appointment, url: talent_appointments_path, local: true do |form| %>
+        <h4 class="m-4">Faire une demande de rendez-vous:</h4>
+        <div class="field">
+          <%= form.label :start_time%><br>
+          <%= form.date_field :start_time, class: 'form-control max-width-18 m-auto' %><br>
+          <%= select_time %><br><br>
+        </div>
 
-  <div class="field">
-    <%= form.label :start_time %><br>
-    <%= form.date_field :start_time, class: 'form-control' %>
-    <%= select_time %>
+        <div class="actions">
+          <%= form.submit%>
+        </div><br>
+      <% end %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-  
-<% end %>
+</div>
