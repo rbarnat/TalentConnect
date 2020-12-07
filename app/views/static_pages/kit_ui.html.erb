@@ -449,5 +449,40 @@
       </div>
     </div>
   </div>
+
+  <!--- Profil card -->
+<hr>
+  <h3>Mon profil</h3>
+  <div class="container">
+    <table class="table table-borderless max-width-18 m-4">
+      <tbody>
+        <tr>
+          <th scope="row">Prénom:</th>
+          <td>Test</td>
+        </tr>
+        <tr>
+          <th scope="col">Nom:</th>
+          <td>Test</td>
+        </tr>
+        <tr>
+          <th scope="col">Adresse e-mail:</th>
+          <td>test@test.com</td>
+        </tr>
+        <tr>
+          <th scope="col">Téléphone</th>
+          <td>0000000000</td>
+        </tr>
+        <tr>
+          <th scope="col">Adresse postale</th>
+          <td>1 rue du test<br>75000 Paris</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4 class="mt-3 text-center">Gérer mon profil</h4>
+    <hr>
+    <div class="actions">
+      <%= button_to 'Modifier/suprimer mon profil', edit_user_registration_path(), method: :get, class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
 </body>
 

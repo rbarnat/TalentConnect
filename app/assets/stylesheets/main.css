@@ -797,3 +797,19 @@ a.text-primary:focus {
 .image-container {
   max-width: 40rem;
 }
+
+.avatar-big {
+  height: 120px;
+  width: 120px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
