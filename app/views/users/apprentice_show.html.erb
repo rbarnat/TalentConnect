@@ -24,16 +24,7 @@
       <% end %>
     </div>
     <div class="col">
-            <!-- TO BE CONFIRM APPOINTMENTS -->
-      <h4 class="card-title mt-3 text-center">Séances en attente de validation par le mentor:</h4>
-      <hr>
-      <% if @past_paid_appointments %>
-        <% @past_paid_appointments.each do |past_paid_appointments| %>
-        <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointments.talent, type: "past"} %>
-        <% end %>
-      <% else %>
-        Tu n'as pas de séances à valider.
-      <% end %>
+      <!--To implement when Stripe ok and validation by mentor ok-->
     </div>
   </div>
 </div>
