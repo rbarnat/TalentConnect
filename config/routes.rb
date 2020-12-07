@@ -22,10 +22,12 @@ Rails.application.routes.draw do
   end
   # Appointment creation is accessible through the talent show page 
   resources :talents, only: [:show] do 
-    resources :appointments, only: [:new, :create]
+    resources :appointments, only: [:new, :create] do 
+      resources :charges, only: [:new, :create]
+    end
   end
   # APPOINTMENTS INDEX AND DESTROY PAGES
-  resources :appointments, only: [:index, :destroy]
+  resources :appointments, only: [:index, :destroy, :show]
   # PLACES PAGES
   resources :places, only: [:index, :show, :create, :edit, :update]
   # STATIC PAGES : HOME ABOUT CONTACT
