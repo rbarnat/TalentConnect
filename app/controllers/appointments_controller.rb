@@ -1,10 +1,14 @@
 class AppointmentsController < ApplicationController
   # Before executing certain methods we find the right appointment to operate on
-  before_action :set_appointment, only: [:destroy]
+  before_action :set_appointment, only: [:show, :destroy]
   before_action :authenticate_user!
 
   def index
     @appointments = Appointment.all
+  end
+
+  def show
+    @talent = Talent.find(@appointment.talent_id)
   end
 
   def new
