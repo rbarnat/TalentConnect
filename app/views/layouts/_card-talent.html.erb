@@ -38,6 +38,7 @@
         <% when "mentor-validate" %>
           <div class="col-md-3 m-auto">
             <button class="btn btn-outline-danger" href="#">Payer</button>
+          <%= render partial: 'charges/new', locals: {model: model, appointment: appointment} %>
           </div>
         <% when "paid" %>
           <div class="col-md-3 m-auto pr-4 text-center">

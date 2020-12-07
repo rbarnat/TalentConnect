@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # Appointment creation is accessible through the talent show page 
   resources :talents, only: [:show] do 
     resources :appointments, only: [:new, :create] do 
+      resources :reviews, only: [:new, :create]
       resources :charges, only: [:new, :create]
     end
   end
