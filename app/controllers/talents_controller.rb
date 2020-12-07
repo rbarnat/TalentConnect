@@ -62,8 +62,11 @@ class TalentsController < ApplicationController
   end
 
   private
-  # Allow talent attribute to pass
+  # Convert duration in hours to minutes before allowing talent attributes to pass
   def talent_params
+    hours = params[:talent][:duration].to_d
+    minutes = hours * 60
+    params[:talent][:duration] = minutes
     params.require(:talent).permit(:title, :description, :duration, :picture)
   end
   # Allow place nested form attribute to pass
