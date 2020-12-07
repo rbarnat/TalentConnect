@@ -99,7 +99,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a href="<%= user_path(current_user.id) %>" class="dropdown-item link-green">Mes informations</a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item link-green">Mon espace apprenti </a>
+              <a href="<%= apprentice_show_user_path(current_user.id) %>" class="dropdown-item link-green">Mon espace apprenti </a>
               <div class="dropdown-divider"></div>
               <a href="<%= mentor_show_user_path(current_user.id) %>" class="dropdown-item link-green">Mon espace mentor</a>
               <div class="dropdown-divider"></div>
