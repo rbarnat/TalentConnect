@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mark: 1
+  comment: MyString
+  appointment: one
+
+two:
+  mark: 1
+  comment: MyString
+  appointment: two

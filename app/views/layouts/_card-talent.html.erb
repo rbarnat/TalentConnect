@@ -10,6 +10,8 @@
               <% when "past" %>
                 <h5 class="card-title ml-3 text-secondary"><%= model.title%></h5>
                 <p class="ml-2 text-secondary">avec <a href="#"><%= model.user.first_name %></a></p>
+              <% when "mentor"%>
+                <h5 class="card-title ml-3"><%= model.title%></h5>
               <% else %>
                 <h5 class="card-title ml-3"><%= model.title%></h5>
                 <p class="ml-2">avec <a href="#"><%= model.user.first_name %></a></p>
@@ -44,7 +46,12 @@
         <% when "past" %>
           <div class="col-md-3 m-auto pr-4 text-center">
             <p class="text-secondary">Évènement passé</p>
-            <a href="#">Noter ce rendez-vous</a>
+            <a href="#">Évaluer ce rendez-vous</a>
+          </div>
+        <% when "mentor" %>
+          <div class="col-md-3 m-auto pr-4 text-center">
+            <%= link_to "Modifier", edit_talent_path(model), class: "btn btn-outline-primary btn-sm m-2" %>
+            <%= button_to "Supprimer", talent_path(model), data: { confirm: "Es-tu sûr de vouloir supprimer cette activité ?" }, method: :delete, class: "btn btn-outline-danger btn-sm m-2" %>
           </div>
         <% else %>
       <% end %>

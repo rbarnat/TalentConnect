@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_180931) do
+ActiveRecord::Schema.define(version: 2020_12_07_120448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -51,6 +51,42 @@ ActiveRecord::Schema.define(version: 2020_12_02_180931) do
     t.index ["talent_id"], name: "index_appointments_on_talent_id"
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "talent_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talent_id"], name: "index_bookmarks_on_talent_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_table_talent_categories", force: :cascade do |t|
+    t.bigint "talent_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_join_table_talent_categories_on_category_id"
+    t.index ["talent_id"], name: "index_join_table_talent_categories_on_talent_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "talent_id"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+    t.index ["talent_id"], name: "index_messages_on_talent_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "city_name"
     t.string "zip_code"
@@ -61,6 +97,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_180931) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "mark"
+    t.string "comment"
+    t.bigint "appointment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
+  end
+
   create_table "talents", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -69,6 +114,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_180931) do
     t.bigint "user_id"
     t.integer "duration"
     t.bigint "place_id"
+    t.decimal "price"
     t.index ["place_id"], name: "index_talents_on_place_id"
     t.index ["user_id"], name: "index_talents_on_user_id"
   end
@@ -91,6 +137,9 @@ ActiveRecord::Schema.define(version: 2020_12_02_180931) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "join_table_talent_categories", "categories"
+  add_foreign_key "join_table_talent_categories", "talents"
+  add_foreign_key "reviews", "appointments"
   add_foreign_key "talents", "places"
   add_foreign_key "talents", "users"
   add_foreign_key "users", "places"
