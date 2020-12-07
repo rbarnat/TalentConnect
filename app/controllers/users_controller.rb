@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @paid_appointments = Appointment.where(apprentice_id: params[:id])
     @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
     @past_paid_appointments = @paid_appointments.where("start_time <= ?", Time.now)
+    @not_paid_appointments = Appointment.where(apprentice_id: params[:id])
   end
 
   def mentor_show
