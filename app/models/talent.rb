@@ -1,17 +1,23 @@
 class Talent <  ActiveRecord::Base
 
-#Talent has 1-N relationship to users
+# Talent has only one user and picture
 belongs_to :user
-has_many :appointments
 has_one_attached :picture
+# Talent has 1-N relationship to appointments, bookmarks and messages
+has_many :appointments
+has_many :bookmarks
+has_many :messages
+# A talent can have many categories
+has_many :JoinTableTalentCategory
+has_many :categories, through: :JoinTableTalentCategory
 after_commit :add_default_picture, on: %i[create update]
 
-#Talent has 1-N relationship to places
+# Talent has 1-N relationship to places
 belongs_to :place
 
 # Enable place creation when creating a talent
 accepts_nested_attributes_for :place
-
+# Validation before creation
 validates :duration,
     presence: true,
     numericality: { greater_than: 29, message: "La scéance doit durer 30 minutes au minimum"}
