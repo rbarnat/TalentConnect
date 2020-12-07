@@ -71,7 +71,7 @@ class TalentsController < ApplicationController
   end
   # Allow place nested form attribute to pass
   def place_params
-    params.require(:place).permit(:address, :zip_code, :city_name)
+    params.require(:place).permit(:address, :zip_code, :city_name, :longitude, :latitude)
   end
 
   # find the talent using the id

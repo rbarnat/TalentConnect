@@ -1,5 +1,5 @@
  <script defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
   </script>
 
 <%= form_with model: @talent, local: true, multipart: true do |form| %>
@@ -30,6 +30,33 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.label :city_name, 'Ville' %>
+        <%= place_form.text_field :city_name %>
+    <% end %>
+  </div>
+
+  
+  <div class="field">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.label :zip_code, 'Code postal' %>
+        <%= place_form.text_field :zip_code %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.hidden_field :latitude %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= fields_for :place do |place_form| %>
+        <%= place_form.hidden_field :longitude %>
+    <% end %>
+  </div>
+
   <!-- Photos -->
   <div class="field">
     <%= form.label 'Photos' %>
@@ -44,11 +71,20 @@
 
 <script>
     var searchInput ='place_address';
-    function initMap() {
+    function initAutocomplete() {
         var autocomplete;
-        autocomplete = new google.maps.places.Autocomplete(document.getElementById(searchInput))
-        google.maps.event.addListener(autocomplete, 'place_changed', function (){
-            var near_place = autocomplete.getPlace();
+        autocomplete = new google.maps.places.Autocomplete(document.getElementById(searchInput),
+        {
+          componentRestrictions: {'country' : ['FR']}
         });
+        google.maps.event.addListener(autocomplete, 'place_changed', function (){
+            var new_place = autocomplete.getPlace();
+          document.getElementById('place_address').value = new_place.address_components[0].long_name + new_place.address_components[1].long_name
+          document.getElementById('place_city_name').value = new_place.address_components[2].long_name
+          document.getElementById('place_zip_code').value = new_place.address_components[6].long_name
+          document.getElementById('place_latitude').value = new_place.geometry.location.lat();
+          document.getElementById('place_longitude').value = new_place.geometry.location.lng();
+        });
+        
     };
 </script>
