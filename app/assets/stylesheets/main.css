@@ -636,6 +636,10 @@ a:hover {
   max-width: 45rem;
 }
 
+.max-width-40 {
+  max-width: 40rem;
+}
+
 .max-width-18 {
   max-width: 18rem;
 }
@@ -791,6 +795,5 @@ a.text-primary:focus {
 }
 
 .image-container {
-  max-width: 45rem;
-  max-height: 400px;
+  max-width: 40rem;
 }
