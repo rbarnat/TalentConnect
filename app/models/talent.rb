@@ -10,6 +10,8 @@ has_many :messages
 # A talent can have many categories
 has_many :JoinTableTalentCategory
 has_many :categories, through: :JoinTableTalentCategory
+
+# Default picture
 after_commit :add_default_picture, on: %i[create update]
 
 # Talent has 1-N relationship to places
@@ -43,6 +45,7 @@ pg_search_scope :roughly_spelled_like,
 
     private
 
+    # Attach a default picture to talent if doesn't have
     def add_default_picture
         unless picture.attached?
         picture.attach(
