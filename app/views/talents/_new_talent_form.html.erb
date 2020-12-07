@@ -16,6 +16,12 @@
     <%= form.text_area :description, class: "form-control", placeholder: "Décris ton talent. (1000 caractères maximum)." %>
   </div>
 
+  <!-- Price -->
+  <div class="field">
+    <%= form.label :price, 'Prix en euros' %>
+    <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
+  </div>
+
   <!-- Duration -->
   <div class="field">
     <%= form.label :duration, 'Durée de la scéance en heure' %>
