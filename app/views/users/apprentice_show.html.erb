@@ -1,22 +1,31 @@
-<!-- CONFIRMED APPOINTMENTS -->
-<h4 class="card-title mt-3 text-center">Séances confirmées</h4>
-<hr>
-<% if @future_paid_appointments %>
-  <% @future_paid_appointments.each do |future_paid_appointment| %>
-  <%= render partial: 'layouts/card-talent', locals: {model: future_paid_appointment.talent, type: "paid"} %>
-  <% end %>
-<% else %>
-  Tu n'as pas de séances confirmées.
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col m-4">
+      <%= render partial: 'users/show-partial-profile' %>
+      <!-- CONFIRMED APPOINTMENTS -->
+      <h4 class="card-title mt-3 text-center">Séances confirmées</h4>
+      <hr>
+      <% if @future_paid_appointments %>
+        <% @future_paid_appointments.each do |future_paid_appointment| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: future_paid_appointment.talent, type: "paid"} %>
+        <% end %>
+      <% else %>
+        Tu n'as pas de séances confirmées.
+      <% end %>
+      <!-- PAST APPOINTMENTS -->
+      <h4 class="card-title mt-3 text-center">Séances passées</h4>
+      <hr>
+      <% if @past_paid_appointments %>
+        <% @past_paid_appointments.each do |past_paid_appointments| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointments.talent, type: "past"} %>
+        <% end %>
+      <% else %>
+        Tu n'as pas de séances passées.
+      <% end %>
+    </div>
+    <div class="col">
+      <!--To implement when Stripe ok and validation by mentor ok-->
+    </div>
+  </div>
+</div>
 
-
-<!-- PAST APPOINTMENTS -->
-<h4 class="card-title mt-3 text-center">Séances passées</h4>
-<hr>
-<% if @past_paid_appointments %>
-  <% @past_paid_appointments.each do |past_paid_appointments| %>
-  <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointments.talent, type: "past"} %>
-  <% end %>
-<% else %>
-  Tu n'as pas de séances passées.
-<% end %>
