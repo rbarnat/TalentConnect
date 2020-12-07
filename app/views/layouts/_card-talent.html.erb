@@ -51,7 +51,7 @@
         <% when "mentor" %>
           <div class="col-md-3 m-auto pr-4 text-center">
             <%= link_to "Modifier", edit_talent_path(model), class: "btn btn-outline-primary btn-sm m-2" %>
-            <%= link_to "Supprimer", talent_path(model), class: "btn btn-outline-danger btn-sm m-2" %>
+            <%= button_to "Supprimer", talent_path(model), data: { confirm: "Es-tu sûr de vouloir supprimer cette activité ?" }, method: :delete, class: "btn btn-outline-danger btn-sm m-2" %>
           </div>
         <% else %>
       <% end %>

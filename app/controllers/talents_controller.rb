@@ -58,7 +58,7 @@ class TalentsController < ApplicationController
 
   def destroy
     @talent.destroy
-    redirect_to talents_path
+    redirect_to mentor_show_user_url(@talent.user_id)
   end
 
   private
