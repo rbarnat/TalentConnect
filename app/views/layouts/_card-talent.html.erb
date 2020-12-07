@@ -1,27 +1,27 @@
   <div class="card card-custom2 shadow mb-5 max-width-45">
     <div class="row no-gutters">
       <div class="col-md-3">
-        <%= image_tag model.talent.picture, alt: 'picture', class: "img card-img p-4" %>
+        <%= image_tag model.picture, alt: 'picture', class: "img card-img p-4" %>
       </div>
       <div class="col-md-6">
         <div class="card-body">
           <div class="row">
             <% case type %>
               <% when "past" %>
-                <h5 class="card-title ml-3 text-secondary"><%= model.talent.title%></h5>
-                <p class="ml-2 text-secondary">avec <a href="#"><%= model.talent.user.first_name %></a></p>
+                <h5 class="card-title ml-3 text-secondary"><%= model.title%></h5>
+                <p class="ml-2 text-secondary">avec <a href="#"><%= model.user.first_name %></a></p>
               <% when "mentor"%>
-                <h5 class="card-title ml-3"><%= model.talent.title%></h5>
+                <h5 class="card-title ml-3"><%= model.title%></h5>
               <% else %>
-                <h5 class="card-title ml-3"><%= model.talent.title%></h5>
-                <p class="ml-2">avec <a href="#"><%= model.talent.user.first_name %></a></p>
+                <h5 class="card-title ml-3"><%= model.title%></h5>
+                <p class="ml-2">avec <a href="#"><%= model.user.first_name %></a></p>
             <% end %>
           </div>
           <% case type %>
             <% when "past" %>
-              <p class="card-text text-secondary"><%= model.talent.description %></p>
+              <p class="card-text text-secondary"><%= model.description %></p>
             <% else %>
-              <p class="card-text"><%= model.talent.description %></p>
+              <p class="card-text"><%= model.description %></p>
           <% end %>
           
         </div>
@@ -38,7 +38,7 @@
         <% when "mentor-validate" %>
           <div class="col-md-3 m-auto">
             <button class="btn btn-outline-danger" href="#">Payer</button>
-          <%= render partial: 'charges/new', locals: {model: model} %>
+          <%= render partial: 'charges/new', locals: {model: model, appointment: appointment} %>
           </div>
         <% when "paid" %>
           <div class="col-md-3 m-auto pr-4 text-center">

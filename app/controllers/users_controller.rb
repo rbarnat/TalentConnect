@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include TalentsHelper
   before_action :check_user
   before_action :authenticate_user!, except: [:is_user_current_user?]
   before_action :redirect_if_user_not_current_user
