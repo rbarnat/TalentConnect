@@ -32,6 +32,45 @@
         <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "email" %>
       </div> <!-- form-group// -->
 
+      <!-- PHONE -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-mobile-alt"></i> </span>
+        </div>  
+        <%= f.text_field :phone_number, autofocus: true, class:"form-control", placeholder: "Numéro de téléphone" %>
+      </div> <!-- form-group// -->
+
+
+      <hr>
+      <!-- Place nested form -->
+      <div class="field">
+        <%= f.fields_for @place do |place_form| %>
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i> </span>
+              </div>  
+              <%= place_form.text_field :address, autofocus: true, class:"form-control", placeholder: "Adresse" %>
+            </div> <!-- form-group// -->
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i> </span>
+              </div>  
+              <%= place_form.text_field :city_name, autofocus: true, class:"form-control", placeholder: "Ville"  %>
+            </div> <!-- form-group// -->
+    
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i> </span>
+              </div>  
+              <%= place_form.text_field :zip_code, autofocus: true, class:"form-control", placeholder: "Code postal"  %>
+            </div> <!-- form-group// -->
+
+        <% end %>
+      </div>
+      
+      <hr>
       <!-- PASSWORD -->
       <% if @minimum_password_length %>
         <i class="d-flex justify-content-center"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></i>
