@@ -1,46 +1,55 @@
 <!-- ERRORS MESSAGES -->
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="card bg-light mx-auto" style="width: 500px;">
-  <article class="card-body mx-auto" style="max-width: 450px;">
-	  <h2 class="card-title mt-3 text-center">Me connecter</h2>
-    <hr>
-    <!-- FORM -->
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <!-- EMAIL -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fas fa-at"></i> </span>
-        </div>
-        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "e-mail" %>
-      </div> <!-- form-group// -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <article class="card-body mx-auto">
+        <h2 class="card-title mt-3">Me connecter</h2>
+        <hr>
+        <!-- FORM -->
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <!-- PASSWORD -->
-      <div class="form-group input-group">
-    	  <div class="input-group-prepend">
-		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
-		    </div>
-        <%= f.password_field :password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.password'}", autocomplete: "password" %>
-      </div> <!-- form-group// -->
+          <!-- EMAIL -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fas fa-at"></i> </span>
+            </div>
+            <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "e-mail" %>
+          </div> <!-- form-group// -->
 
-      <!-- REMEMBER ME -->
-      <% if devise_mapping.rememberable? %>
-        <div class="form-group d-flex justify-content-center">
-          <%= f.check_box :remember_me %> <br>
-          <%= f.label :remember_me, class:"ml-2" %>
-        </div>
-      <% end %>
+          <!-- PASSWORD -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+            </div>
+            <%= f.password_field :password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.password'}", autocomplete: "password" %>
+          </div> <!-- form-group// -->
 
-      <!-- VALIDATION BUTTON -->
-      <div class="actions">
-        <%= f.submit t('.sign_in'), class: "btn btn-primary btn-block" %>
+          <!-- REMEMBER ME -->
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group d-flex justify-content-start align-items-baseline">
+              <%= f.check_box :remember_me %> <br>
+              <%= f.label :remember_me, class:"ml-2" %>
+            </div>
+          <% end %>
+
+          <!-- VALIDATION BUTTON -->
+          <div class="">
+            <%= f.submit t('.sign_in'), class: "btn btn-primary mb-3" %>
+          </div>
+
+          <!-- OTHER LINKS -->
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </article>
+    </div>
+    <div class="col">
+      <div class="mx-auto mt-4">
+        <%= image_tag("devise.jpg", width: 650, class: "") %>
       </div>
-
-      <!-- OTHER LINKS -->
-      <%= render "devise/shared/links" %>
-    <% end %>
-  </article>
-</div> <!-- card.// -->
+    </div>
+  </div>
 
 
