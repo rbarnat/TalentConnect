@@ -1,7 +1,21 @@
-<%= current_user.first_name %>
-<%= current_user.last_name %>
-<%= current_user.email %>
-
+<div class="container">
+  <div class="row">
+    <div class="col m-4">
+      <%= render partial: 'users/show-partial-profile' %>
+      <h4 class="card-title mt-3 text-center">Je propose ces activités :</h4>
+      <hr>
+      <% if !@current_user.talents.nil? %>
+        <% @current_user.talents.each do |talent| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "mentor"} %>
+        <% end %>
+      <% else %>
+        Tu n'as pas de talent proposé !
+      <% end %>
+    </div>
+    <div class="col m-4">
+    </div>
+  </div>
+</div>
 
 <!-- REMOVE COMMENT WHEN PLACE CREATION IS DEBUGGED -->
 <%
@@ -12,16 +26,6 @@
 <%
 =end%>
 <!-- MY TALENTS -->
-<h4 class="card-title mt-3 text-center">Je propose ces activités :</h4>
-<hr>
-<% if !@current_user.talents.nil? %>
-  <% @current_user.talents.each do |talent| %>
-  <%= render partial: 'layouts/landing-card', locals: {model: talent, type: "paid"} %>
-  <% end %>
-<% else %>
-  Tu n'as pas de talent proposé !
-<% end %>
-
 
 <!-- APPOINTMENTS -->
 <h4 class="card-title mt-3 text-center">Rendez-vous à venir :</h4>
