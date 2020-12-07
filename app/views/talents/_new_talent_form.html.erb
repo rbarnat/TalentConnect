@@ -79,7 +79,7 @@
         });
         google.maps.event.addListener(autocomplete, 'place_changed', function (){
             var new_place = autocomplete.getPlace();
-          document.getElementById('place_address').value = new_place.address_components[0].long_name + new_place.address_components[1].long_name
+          document.getElementById('place_address').value = new_place.address_components[0].long_name + " " + new_place.address_components[1].long_name
           document.getElementById('place_city_name').value = new_place.address_components[2].long_name
           document.getElementById('place_zip_code').value = new_place.address_components[6].long_name
           document.getElementById('place_latitude').value = new_place.geometry.location.lat();
