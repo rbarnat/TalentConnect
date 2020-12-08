@@ -3,7 +3,11 @@
       <p><a href=#>Pauline</a> veut participer à <a href=#>Débuter en musique</a> le 03/12/2020 à 16h00 </p>
     </div>
     <div class="float-right">
+      <%= button_to "VALIDER", appointment_path(appointment), params: { is_mentor_validate: true }, method: :put, class: "btn btn-outline-primary btn-sm m-2" %>
+      <%= button_to "REFUSER", appointment_path(appointment), data: { confirm: "Es-tu sûr de vouloir refuser ?" }, method: :delete, class: "btn btn-outline-danger btn-sm m-2" %>
       <span class="badge badge-pill badge-primary ml-5">VALIDER</span>
       <span class="badge badge-pill badge-danger ml-2">REFUSER</span>
+
+
     </div>
   </div>

@@ -1,0 +1,19 @@
+<%= form_with model: @review, url: talent_appointment_reviews_path, local: true, multipart: true do |form| %>
+
+  <!-- Mark -->
+  <div class="field">
+    <%= form.label :mark, 'Note' %>
+    <%= form.select :mark, options_for_select(1..5) %>
+  </div>
+
+  <!-- Comment -->
+  <div class="field">
+    <%= form.label :comment, 'Commentaire' %>
+    <%= form.text_area :comment, class: "form-control", placeholder: "Commentaire (500 caractères maximum)." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  
+<% end %>

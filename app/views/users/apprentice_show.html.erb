@@ -12,7 +12,7 @@
       <hr>
       <% if @future_paid_appointments && @future_paid_appointments.count > 0 %>
         <% @future_paid_appointments.each do |future_paid_appointment| %>
-        <%= render partial: 'layouts/card-talent', locals: {model: future_paid_appointment.talent, type: "paid"} %>
+        <%= render partial: 'layouts/card-talent', locals: {model: future_paid_appointment.talent,appointment: future_paid_appointment, type: "paid"} %>
         <% end %>
       <% else %>
         Aucune séance confirmée.
@@ -22,8 +22,8 @@
       <h4 class="card-title mt-4">Séances passées :</h4>
       <hr>
       <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
-        <% @past_paid_appointments.each do |past_paid_appointment| %>
-        <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointment.talent, type: "past"} %>
+        <% @past_paid_appointments.each do |past_paid_appointments| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointments.talent, appointment: past_paid_appointments, type: "past"} %>
         <% end %>
       <% else %>
         Aucune séance passée.

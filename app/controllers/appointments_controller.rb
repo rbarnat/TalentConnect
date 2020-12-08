@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   # Before executing certain methods we find the right appointment to operate on
-  before_action :set_appointment, only: [:show, :destroy]
+  before_action :set_appointment, only: [:show, :destroy, :update]
   before_action :authenticate_user!
 
   def index
@@ -31,10 +31,16 @@ class AppointmentsController < ApplicationController
     end
   end
   
-  def destroy
-    @appointment.destroy
+  def update
+    @appointment.update(appointment_params_update)
+    redirect_to mentor_show_user_path(current_user.id)
   end
 
+  def destroy
+    @appointment.destroy
+    redirect_to mentor_show_user_path(current_user.id)
+  end
+  
   private
   # find the appointment using the id
   def set_appointment
@@ -43,6 +49,10 @@ class AppointmentsController < ApplicationController
 
   # let throught and define the Appointement params that were sent from the view
   def appointment_params
-    params.require(:appointment).permit(:start_time)
+    params.require(:appointment).permit(:start_time, :is_mentor_validate)
+  end
+
+  def appointment_params_update
+    params.permit(:is_mentor_validate)
   end
 end

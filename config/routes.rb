@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'search_results' => 'talents#search_results', as: 'search_results'
   get 'static_pages/home'
   get 'static_pages/about'
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   # TALENTS PAGES
   resources :talents do
     resources :pictures, only: [:create]
+    resources :reviews, only: [:show]
   end
   # Appointment creation is accessible through the talent show page 
   resources :talents, only: [:show] do 
@@ -27,8 +27,8 @@ Rails.application.routes.draw do
       resources :charges, only: [:new, :create]
     end
   end
-  # APPOINTMENTS INDEX AND DESTROY PAGES
-  resources :appointments, only: [:index, :destroy, :show]
+  # APPOINTMENTS INDEX, UPDATE AND DESTROY PAGES
+  resources :appointments, only: [:index, :destroy, :show, :update]
   # PLACES PAGES
   resources :places, only: [:index, :show, :create, :edit, :update]
   # STATIC PAGES : HOME ABOUT CONTACT
