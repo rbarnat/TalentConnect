@@ -369,7 +369,7 @@ puts "========================================================="
 
 
 
-# --- CATEGORY ---
+# --- CATEGORIES ---
 categories=[]
 
 category_constants = 
@@ -394,7 +394,7 @@ puts "========================================================="
 
 
 # --- TALENTS AND JOIN TABLE TALENTS CATEGORIES---
-talents=[]
+
 
 talents_constants = 
 [
@@ -444,7 +444,8 @@ talents_constants =
   {:title => "Ukulele : initiation", :description => "",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
   {:title => "Les accords en Ukulele", :description => "",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
 ]
-
+# TALENTS ON MENTORS
+talents=[]
 talents_constants.each_with_index do |talent,i|
   current_talent = Talent.create(
                             user_id: mentor_users[i].id,
@@ -468,23 +469,142 @@ talents_constants.each_with_index do |talent,i|
                                   category_id: talent[:category_id]
                                   )
 end
+
+# TALENTS ON ADMIN TO TEST
+talents_admin=[]
+talents_constants.each_with_index do |talent,i|
+  admin_user =  admin_users.sample
+  current_talent = Talent.create(
+                            user_id: admin_user.id,
+                            title: talent[:title],
+                            description: Faker::Lorem.paragraph(sentence_count: 2),  #talent[:description],
+                            duration: Faker::Number.between(from: 60, to: 240),  
+                            place_id: admin_user.id,
+                            price: Faker::Number.between(from: 1, to: 30)
+                            )
+    current_talent.picture.attach(
+    io: File.open(
+      Rails.root.join(
+        'app', 'assets', 'images', talent[:picture_name]
+      )
+    ), filename: talent[:picture_name],
+    content_type: 'image/jpg'
+  )
+  talents_admin << current_talent
+  JoinTableTalentCategory.create(
+                                  talent_id: current_talent.id,
+                                  category_id: talent[:category_id]
+                                  )
+end
+
 puts "========================================================="
-puts "TALENTS TOTAL              : #{Talent.count}/38"
-puts "J_TALENTS_CATEGORIES TOTAL : #{JoinTableTalentCategory.count}/38"
+puts "TALENTS MENTOR              : #{talents.count}/38"
+puts "TALENTS ADMIN               : #{talents_admin.count}/38"
+puts "---------------------------------------------------------"
+puts "TALENTS TOTAL              : #{Talent.count}/76"
+puts "J_TALENTS_CATEGORIES TOTAL : #{JoinTableTalentCategory.count}/76"
 puts "========================================================="
 
 
 
 # --- APPOINTMENTS ---
-# 50.times do
-#     Appointment.create(
-#         mentor_id: Faker::Number.between(from: 1, to: 10),
-#         apprentice_id: Faker::Number.between(from: 1, to: 10),
-#         place_id: Faker::Number.between(from: 1, to: 10),
-#         talent_id: Faker::Number.between(from: 1, to: 10),
-#         start_time: Faker::Date.between(from: '2020-12-01', to: '2021-03-26')
-        
-#     )
-# end
-# puts "#{Appointment.count} appointments created"
+past_appointments = []
+Talent.all.each do |talent|
+  # PAST APPOINTMENTS
+  rand(1..5).times do
+    past_appointments << Appointment.create(
+                  start_time: Faker::Date.between(from: '2020-11-01', to: '2020-12-09'),
+                  mentor_id: talent.user_id,
+                  apprentice_id: apprentice_users.sample.id,
+                  place_id: talent.place_id,
+                  talent_id: talent.id,
+                  is_mentor_validate: true,
+                  is_paid: true
+    )
+  end
+  # USER VALIDATE APPOINTMENTS
+  rand(1..3).times do
+    Appointment.create(
+                  start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
+                  mentor_id: talent.user_id,
+                  apprentice_id: apprentice_users.sample.id,
+                  place_id: talent.place_id,
+                  talent_id: talent.id,
+                  is_mentor_validate: false,
+                  is_paid: false
+    )
+  end
+  # MENTOR VALIDATE APPOINTMENTS
+  rand(1..3).times do
+    Appointment.create(
+                  start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
+                  mentor_id: talent.user_id,
+                  apprentice_id: apprentice_users.sample.id,
+                  place_id: talent.place_id,
+                  talent_id: talent.id,
+                  is_mentor_validate: true,
+                  is_paid: false
+    )
+  end
+  # MENTOR VALIDATE APPOINTMENTS
+  rand(1..3).times do
+    Appointment.create(
+                  start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
+                  mentor_id: talent.user_id,
+                  apprentice_id: apprentice_users.sample.id,
+                  place_id: talent.place_id,
+                  talent_id: talent.id,
+                  is_mentor_validate: true,
+                  is_paid: true
+    )
+  end
+end
+puts "========================================================="
+puts "APPOINTMENTS TOTAL : #{Appointment.count}"
+puts "========================================================="
 
+
+
+
+# --- BOOKMARKS ---
+Talent.all.each do |talent|
+  # PAST APPOINTMENTS
+  rand(5..20).times do
+    Bookmark.create(
+                  user_id: apprentice_users.sample.id,
+                  talent_id: talent.id
+    )
+  end
+end
+puts "========================================================="
+puts "BOOKMARK TOTAL : #{Bookmark.count}"
+puts "========================================================="
+
+
+
+
+# --- REVIEWS ---
+comment_constant = [
+  "C'était chouette, je recommande ce mentor !",
+  "La séance d'essai m'a vraiment permi de découvrir un nouveau monde, Merci !!",
+  "Le temps est passé tellement vite... à quand un prochaine séance ?",
+  "Le mentor a pris le temps de bien m'expliquer. Dommage que ce soit payant !",
+  "Merci à mon mentor qui a assuré !",
+  "Pourquoi ne pas proposer plus de contenu dans les séances ?",
+  "J'ai adoré !",
+  "Le mentor m'a bien aidé !",
+  "Ca y est je suis lancé. Un grand merci !",
+  "Waaaw c'était génial !!",
+  "J'aurais aimé que cela dure plus longtemps ^^ !"
+]
+past_appointments.each do |appointment|
+  # PAST APPOINTMENTS
+  Review.create(
+                appointment_id: appointment.id,
+                mark: rand(2..5),
+                comment: comment_constant.sample
+  )
+end
+puts "========================================================="
+puts "REVIEWS TOTAL : #{Review.count}"
+puts "========================================================="
