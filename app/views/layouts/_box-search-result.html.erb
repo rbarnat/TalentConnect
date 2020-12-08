@@ -31,14 +31,29 @@
                 })
                 marker.addListener('mouseover', function(){
                   infoWindow.open(map, marker)
-                });
+                })
                 marker.addListener('mouseout', function(){
                   infoWindow.close(map, marker)
                 })
+                 google.maps.event.addListener(marker, 'mouseover', function() {
+                marker.setIcon('http://localhost:3000/assets/placeholder-f81493e884c0c349248261acb25eaa2a906d06e58aa46c82ebaf9054f3f08ec7.png');
+                })
+                google.maps.event.addListener(marker, 'mouseout', function() {
+                marker.setIcon('http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png');
+                })
               }
               <% @found_talents.each do |talent|%>
-                  addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>}, "<%= talent.title%>" )
+                  addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>}, "<%= talent.price%>" )
                   <% end%>
+
+                var talents = document.querySelectorAll(".row.no-gutters")
+                talents.forEach(talent => {
+                  talent.addEventListener('mouseover', function(){
+                    this.style.color = '';
+                  })
+                });
+               
+                
             }
         </script>
         <script defer
