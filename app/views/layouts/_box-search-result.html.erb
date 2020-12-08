@@ -12,7 +12,7 @@
         <script>
             function initMap(){
                 var options = {
-                    zoom:10,
+                    zoom:11,
                     center:{lat:48.8534,lng:2.3488}
                 }
                 // New map
@@ -21,7 +21,8 @@
               function addMarker(coords){
                 var marker = new google.maps.Marker({
                     position:coords,
-                    map:map
+                    map:map,
+                    icon: 'http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png'
                     
                 });
               }
