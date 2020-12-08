@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_120448) do
+ActiveRecord::Schema.define(version: 2020_12_08_072631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_120448) do
     t.bigint "talent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_mentor_validate", default: false
+    t.boolean "is_paid", default: false
     t.index ["apprentice_id"], name: "index_appointments_on_apprentice_id"
     t.index ["mentor_id"], name: "index_appointments_on_mentor_id"
     t.index ["place_id"], name: "index_appointments_on_place_id"
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_120448) do
     t.string "last_name"
     t.string "phone_number"
     t.bigint "place_id"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
