@@ -18,17 +18,26 @@
                 // New map
                 var map = new google.maps.Map(document.getElementById('map'), options);
                 // Add marker
-              function addMarker(coords){
+              function addMarker(coords, content){
                 var marker = new google.maps.Marker({
                     position:coords,
                     map:map,
                     icon: 'http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png'
-                    
-                });
-              }
 
-                  <% @found_talents.each do |talent|%>
-                  addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%> })
+                })
+                 // Add info window
+                var infoWindow = new google.maps.InfoWindow({
+                content: content 
+                })
+                marker.addListener('mouseover', function(){
+                  infoWindow.open(map, marker)
+                });
+                marker.addListener('mouseout', function(){
+                  infoWindow.close(map, marker)
+                })
+              }
+              <% @found_talents.each do |talent|%>
+                  addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>}, "<%= talent.title%>" )
                   <% end%>
             }
         </script>
