@@ -28,7 +28,7 @@
       <hr>
       <% if @not_validate_appointments && @not_validate_appointments.count > 0 %>
         <% @not_validate_appointments.each do |not_validate_appointment| %>
-        <%= render partial: 'layouts/validate_appointment_card', locals: {model: not_validate_appointment.talent, type: "apprentice-validate"} %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: not_validate_appointment.talent, appointment: not_validate_appointment, type: "apprentice-validate"} %>
         <% end %>
       <% else %>
         Aucune séance à valider.
@@ -39,7 +39,7 @@
       <hr>
       <% if @not_paid_appointments && @not_paid_appointments.count > 0 %>
         <% @not_paid_appointments.each do |not_paid_appointment| %>
-        <%= render partial: 'layouts/validate_appointment_card', locals: {model: not_paid_appointment.talent, type: "mentor-validate"} %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: not_paid_appointment.talent, appointment: not_paid_appointment, type: "mentor-validate"} %>
         <% end %>
       <% else %>
         Aucune séance en attente de paiement.
@@ -50,7 +50,7 @@
       <hr>
       <% if @future_paid_appointments && @future_paid_appointments.count > 0 %>
         <% @future_paid_appointments.each do |future_paid_appointment| %>
-        <%= render partial: 'layouts/validate_appointment_card', locals: {model: future_paid_appointment.talent, type: "paid"} %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: future_paid_appointment.talent, appointment: future_paid_appointment, type: "paid"} %>
         <% end %>
       <% else %>
         Aucune séance confirmée.
@@ -61,7 +61,7 @@
       <hr>
       <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
         <% @past_paid_appointments.each do |past_paid_appointment| %>
-        <%= render partial: 'layouts/validate_appointment_card', locals: {model: past_paid_appointment.talent, type: "past"} %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: past_paid_appointment.talent, appointment: past_paid_appointment, type: "past"} %>
         <% end %>
       <% else %>
         Aucune séance passée.

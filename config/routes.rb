@@ -27,8 +27,8 @@ Rails.application.routes.draw do
       resources :charges, only: [:new, :create]
     end
   end
-  # APPOINTMENTS INDEX AND DESTROY PAGES
-  resources :appointments, only: [:index, :destroy, :show]
+  # APPOINTMENTS INDEX, UPDATE AND DESTROY PAGES
+  resources :appointments, only: [:index, :destroy, :show, :update]
   # PLACES PAGES
   resources :places, only: [:index, :show, :create, :edit, :update]
   # STATIC PAGES : HOME ABOUT CONTACT
