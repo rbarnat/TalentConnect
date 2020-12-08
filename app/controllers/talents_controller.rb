@@ -67,7 +67,7 @@ class TalentsController < ApplicationController
     hours = params[:talent][:duration].to_d
     minutes = hours * 60
     params[:talent][:duration] = minutes
-    params.require(:talent).permit(:title, :description, :duration, :picture)
+    params.require(:talent).permit(:title, :description, :duration, :picture, :price)
   end
   # Allow place nested form attribute to pass
   def place_params
