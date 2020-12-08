@@ -18,15 +18,21 @@ class UsersController < ApplicationController
   end
 
   def apprentice_show
-    @paid_appointments = Appointment.where(apprentice_id: params[:id])
+    @paid_appointments = Appointment.where(apprentice_id: params[:id], is_mentor_validate: true, is_paid: true)
+    
     @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
     @past_paid_appointments = @paid_appointments.where("start_time <= ?", Time.now)
-    @not_paid_appointments = Appointment.where(apprentice_id: params[:id])
+    @not_validate_appointments = Appointment.where(apprentice_id: params[:id], is_mentor_validate: false, is_paid: false)
+    @not_paid_appointments = Appointment.where(apprentice_id: params[:id], is_mentor_validate: true, is_paid: false)
   end
 
   def mentor_show
-    @paid_appointments = Appointment.where(mentor_id: params[:id])
+    @paid_appointments = Appointment.where(mentor_id: params[:id], is_mentor_validate: true, is_paid: true)
+
     @future_paid_appointments = @paid_appointments.where("start_time > ?", Time.now)
+    @past_paid_appointments = @paid_appointments.where("start_time <= ?", Time.now)
+    @not_validate_appointments = Appointment.where(apprentice_id: params[:id], is_mentor_validate: false, is_paid: false)
+    @not_paid_appointments = Appointment.where(apprentice_id: params[:id], is_mentor_validate: true, is_paid: false)
   end
 
   def is_user_current_user?

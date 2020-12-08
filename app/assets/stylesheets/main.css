@@ -652,6 +652,10 @@ a:hover {
   max-width: 15rem;
 }
 
+.max-width-1 {
+  max-width: 1rem;
+}
+
 .item-center {
   align-items: center;
   justify-content: center;

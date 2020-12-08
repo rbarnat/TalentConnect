@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row">
+    <!-- LEFT COLUMN -->
     <div class="col m-4">
       <h2>Mon espace apprenti</h2>
+
+      <!-- PROFIL -->
       <%= render partial: 'users/show-partial-profile' %>
-      <!-- CONFIRMED APPOINTMENTS -->
+
+      <!-- FUTURE VALIDATE & PAID APPOINTMENTS -->
       <h4 class="card-title mt-4">Séances confirmées :</h4>
       <hr>
       <% if @future_paid_appointments && @future_paid_appointments.count > 0 %>
@@ -13,25 +17,40 @@
       <% else %>
         Aucune séance confirmée.
       <% end %>
-      <!-- PAST APPOINTMENTS -->
+
+      <!-- PAST VALIDATE & PAID APPOINTMENTS -->
       <h4 class="card-title mt-4">Séances passées :</h4>
       <hr>
       <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
-        <% @past_paid_appointments.each do |past_paid_appointments| %>
-        <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointments.talent, type: "past"} %>
+        <% @past_paid_appointments.each do |past_paid_appointment| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: past_paid_appointment.talent, type: "past"} %>
         <% end %>
       <% else %>
         Aucune séance passée.
       <% end %>
     </div>
+
+    <!-- RIGHT COLUMN -->
     <div class="col">
+
+      <!-- APPOINTMENTS THAT NEED TO BE VALIDATE -->
+      <h4 class="card-title mt-4">Séances en attente de validation du mentor :</h4>
+      <hr>
+      <% if @not_validate_appointments && @not_validate_appointments.count > 0 %>
+        <% @not_validate_appointments.each do |not_validate_appointment| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: not_validate_appointment.talent, appointment: not_validate_appointment, type: "apprentice-validate"} %>
+        <% end %>
+      <% else %>
+        Aucune séance en attente de validation par le mentor.
+      <% end %>
+
       <!--To implement when Stripe ok and validation by mentor ok-->
-      <!-- PAST APPOINTMENTS -->
+      <!-- APPOINTMENTS THAT NEED TO BE PAID -->
       <h4 class="card-title mt-4">Séances en attente de paiement :</h4>
       <hr>
       <% if @not_paid_appointments && @not_paid_appointments.count > 0 %>
-        <% @not_paid_appointments.each do |not_paid_appointments| %>
-        <%= render partial: 'layouts/card-talent', locals: {model: not_paid_appointments.talent, appointment: not_paid_appointments, type: "mentor-validate"} %>
+        <% @not_paid_appointments.each do |not_paid_appointment| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: not_paid_appointment.talent, appointment: not_paid_appointment, type: "mentor-validate"} %>
         <% end %>
       <% else %>
         Aucune séance en attente de paiement.
