@@ -3,7 +3,11 @@
     <div class="row align-items-center">
       <div class="col-3">
         <div class="avatar-big m-auto">
-          <img class="avatar-img rounded-circle" src="https://images.pexels.com/photos/5706424/pexels-photo-5706424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+          <%if @user.avatar.attached?%>
+            <%= image_tag @user.avatar, alt: 'avatar', class: "avatar-img rounded-circle" %>
+          <%else%>
+            <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle") %>
+          <%end%>
         </div>
       </div>
       <div class="col-9">
