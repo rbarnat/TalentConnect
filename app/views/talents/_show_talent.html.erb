@@ -22,7 +22,7 @@
         <tbody>
           <tr>
             <th scope="row">Note:</th>
-            <td>à implanter</td>
+            <td><%= global_mark(@reviewed_appointments) %></td>
           </tr>
           <tr>
             <th scope="col">Catégorie:</th>
@@ -49,3 +49,14 @@
     <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
   </div>
 </div>
+
+<% @reviewed_appointments.sort.each do |appointment| %>
+    <tr class="table">
+      <th scope="row"><%= appointment.apprentice.first_name %> a laissé une évaluation sur ce talent:</th>
+      <br>
+      <td>Note: <%= appointment.review.mark %>/5</td>
+      <br>
+      <td>Commentaire: <%= appointment.review.comment %></td>
+      <hr>
+    </tr>
+<% end %>
