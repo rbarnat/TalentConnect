@@ -1,86 +1,155 @@
+<!-- BACK LINK -->
+<%= render 'layouts/back_link' %> 
+
 <!-- ERRORS MESSAGES -->
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="card bg-light mx-auto" style="width: 500px;">
-  <article class="card-body mx-auto" style="max-width: 450px;">
-	  <h2 class="card-title mt-3 text-center">Modifier mon profil</h2>
-    <hr>
-    <!-- FORM -->
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="container max-width-45">
+<h2 class="mt-3">Modifier mon profil</h2>
+<hr>
+  <!-- FORM -->
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    
+      <div class="row d-flex justify-content-between">
+        <!-- LEFT COLUMN -->
+        <div class="col-5">
+          <!-- BASIC INFORMATIONS -->
+          <h5 class="card-title">Mes informations de base</h5>
+          <hr>
+          <article class="">
+            <!-- FIRST NAME -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+              </div>
+              <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.first_name'}", autocomplete: "first-name" %>
+            </div> <!-- form-group// -->
 
-      <!-- FIRST NAME -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+            <!-- LAST NAME -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+              </div>
+              <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.last_name'}", autocomplete: "last-name" %>
+            </div> <!-- form-group// -->
+
+            <!-- EMAIL -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-at"></i> </span>
+              </div>  
+              <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "email" %>
+            </div> <!-- form-group// -->
+
+            <!-- PHONE -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-mobile-alt"></i> </span>
+              </div>  
+              <%= f.text_field :phone_number, autofocus: true, class:"form-control", placeholder: "Numéro de téléphone" %>
+            </div> <!-- form-group// -->
+
+            <!-- ADRESSE INFORMATIONS -->
+            <h5 class="card-title mt-4">Mon adresse</h5>
+            <hr>
+            <!-- Place nested form -->
+            <div class="field">
+              <%= f.fields_for @place do |place_form| %>
+
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i> </span>
+                    </div>  
+                    <%= place_form.text_field :address, autofocus: true, class:"form-control", placeholder: "Adresse" %>
+                  </div> <!-- form-group// -->
+
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i> </span>
+                    </div>  
+                    <%= place_form.text_field :city_name, autofocus: true, class:"form-control", placeholder: "Ville"  %>
+                  </div> <!-- form-group// -->
+          
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-map-marker-alt"></i> </span>
+                    </div>  
+                    <%= place_form.text_field :zip_code, autofocus: true, class:"form-control", placeholder: "Code postal"  %>
+                  </div> <!-- form-group// -->
+
+              <% end %>
+            </div>
+          </article>
         </div>
-        <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.first_name'}", autocomplete: "first-name" %>
-      </div> <!-- form-group// -->
 
-      <!-- LAST NAME -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+        <!-- RIGHT COLUMN -->
+        <div class="col-5">
+          <!-- AVATAR -->
+          <h5 class="card-title">Ma photo de profil</h5>
+          <hr>
+          <div class="container">
+            <%if @user.avatar.attached?%>
+              <div class="avatar-big">
+              <%= image_tag @user.avatar, alt: 'avatar', class: "avatar-img rounded-circle" %>
+              </div>
+            <%else%>
+              <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle") %>
+            <%end%>
+            <div class="field">
+              <%= f.file_field :avatar, class: "mt-1 " %>
+            </div>
+          </div>
+
+          <!-- PASSWORD -->
+          <h5 class="card-title mt-4">Mon mot de passe</h5>
+          <hr>
+          <article class="">
+            <!-- PASSWORD -->
+            <% if @minimum_password_length %>
+              <small><i class="d-flex justify-content-center"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></i></small>
+            <% end %>
+            <small><i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' ) %>)</i></small>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+              </div>
+              <%= f.password_field :password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.new_password'}", autocomplete: "new-password" %>
+            </div> <!-- form-group// -->
+            
+            <!-- PASSWORD CONFIRMATION -->
+            <small><i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' ) %>)</i></small>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+              </div>
+              <%= f.password_field :password_confirmation, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.new_password_confirmation'}", autocomplete: "new-password" %>
+            </div> <!-- form-group// -->    
+
+            <!-- CURRENT PASSWORD -->
+            <small><i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.only_if_you_change_password' ) %>)</i></small>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+              </div>
+              <%= f.password_field :current_password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.current_password'}", autocomplete: "current-password" %>
+            </div> <!-- form-group// --> 
+          </article>
         </div>
-        <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.last_name'}", autocomplete: "last-name" %>
-      </div> <!-- form-group// -->
-
-      <!-- EMAIL -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fas fa-at"></i> </span>
-        </div>  
-        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.email'}", autocomplete: "email" %>
-      </div> <!-- form-group// -->
-
-      <!-- PASSWORD -->
-      <% if @minimum_password_length %>
-        <i class="d-flex justify-content-center"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></i>
-      <% end %>
-      <i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' ) %>)</i>
-      <div class="form-group input-group">
-    	  <div class="input-group-prepend">
-		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
-		    </div>
-        <%= f.password_field :password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.new_password'}", autocomplete: "new-password" %>
-      </div> <!-- form-group// -->
-      
-      <!-- PASSWORD CONFIRMATION -->
-      <i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' ) %>)</i>
-      <div class="form-group input-group">
-    	  <div class="input-group-prepend">
-		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
-		    </div>
-        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.new_password_confirmation'}", autocomplete: "new-password" %>
-      </div> <!-- form-group// -->    
-
-      <!-- CURRENT PASSWORD -->
-      <i class="d-flex justify-content-center">(<%= t('devise.registrations.edit.only_if_you_change_password' ) %>)</i>
-      <div class="form-group input-group">
-    	  <div class="input-group-prepend">
-		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
-		    </div>
-        <%= f.password_field :current_password, class:"form-control", placeholder: "#{I18n.t 'helpers.placeholder.user.current_password'}", autocomplete: "current-password" %>
-      </div> <!-- form-group// --> 
-
-      <!-- VALIDATION BUTTON -->
-      <div class="actions">
-        <%= f.submit "Modifier", class: "btn btn-primary btn-block" %>
       </div>
 
-    <% end %> <!-- form.// -->
-
-    <!-- DELETE ACCOUNT BUTTON -->
-    <h4 class="card-title mt-5 text-center"><%= t('.cancel_my_account') %></h4>
-    <hr>
-    <!-- FORM -->
-    <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: "Etes-vous sûr de vouloir supprimer le compte ?" }, method: :delete, class: "btn btn-danger btn-block" %>
-
-
-    <!-- OTHER LINKS -->
-    <div class="actions text-center mt-5">
-      <%= link_to t('devise.shared.links.back'), :back, class: "btn btn-secondary" %>
-    </div>
+      <!-- VALIDATION BUTTON -->
+      <div class="actions d-flex justify-content-center">
+        <%= f.submit "Modifier mes informations", class: "btn btn-primary" %>
+      </div>
     
-  </article>
-</div> <!-- card.// -->
+  <% end %> <!-- form.// -->
 
+  <!-- DELETE ACCOUNT BUTTON -->
+  <h5 class="card-title mt-5 text-center"><%= t('.cancel_my_account') %></h5>
+  <hr>
+  <!-- FORM -->
+  <div class="d-flex justify-content-center">
+    <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: "Es-tu sûr de vouloir supprimer ton compte ?" }, method: :delete, class: "btn btn-danger" %>
+  </div>
+
+</div>

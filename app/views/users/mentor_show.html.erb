@@ -1,7 +1,75 @@
-<%= current_user.first_name %>
-<%= current_user.last_name %>
-<%= current_user.email %>
+<div class="container">
+  <div class="row">
+    <!-- LEFT COLUMN -->
+    <div class="col m-4">
+      <h2>Mon espace mentor</h2>
 
+      <!-- PROFIL -->
+      <%= render partial: 'users/show-partial-profile' %>
+
+      <!-- TALENTS -->
+      <h4 class="card-title mt-4">Je propose ces activités :</h4>
+      <hr>
+      <% if @current_user.talents && @current_user.talents.count > 0  %>
+        <% @current_user.talents.each do |talent| %>
+        <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "mentor"} %>
+        <% end %>
+      <% else %>
+        Pas encore d'activité proposée.
+      <% end %>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col m-4">
+
+      <!-- APPOINTMENTS THAT NEED TO BE VALIDATE -->
+      <h4 class="card-title mt-4">Séances à valider :</h4>
+      <hr>
+      <% if @not_validate_appointments && @not_validate_appointments.count > 0 %>
+        <% @not_validate_appointments.each do |not_validate_appointment| %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: not_validate_appointment.talent, appointment: not_validate_appointment, type: "apprentice-validate"} %>
+        <% end %>
+      <% else %>
+        Aucune séance à valider.
+      <% end %>
+
+      <!-- APPOINTMENTS THAT NEED TO BE PAID -->
+      <h4 class="card-title mt-4">Séances en attente de paiement :</h4>
+      <hr>
+      <% if @not_paid_appointments && @not_paid_appointments.count > 0 %>
+        <% @not_paid_appointments.each do |not_paid_appointment| %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: not_paid_appointment.talent, appointment: not_paid_appointment, type: "mentor-validate"} %>
+        <% end %>
+      <% else %>
+        Aucune séance en attente de paiement.
+      <% end %>
+
+      <!-- FUTURE VALIDATE & PAID APPOINTMENTS -->
+      <h4 class="card-title mt-4">Séances à venir :</h4>
+      <hr>
+      <% if @future_paid_appointments && @future_paid_appointments.count > 0 %>
+        <% @future_paid_appointments.each do |future_paid_appointment| %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: future_paid_appointment.talent, appointment: future_paid_appointment, type: "paid"} %>
+        <% end %>
+      <% else %>
+        Aucune séance confirmée.
+      <% end %>
+
+      <!-- PAST VALIDATE & PAID APPOINTMENTS -->
+      <h4 class="card-title mt-4">Séances passées :</h4>
+      <hr>
+      <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
+        <% @past_paid_appointments.each do |past_paid_appointment| %>
+        <%= render partial: 'layouts/validate_appointment_card', locals: {model: past_paid_appointment.talent, appointment: past_paid_appointment, type: "past"} %>
+        <% end %>
+      <% else %>
+        Aucune séance passée.
+      <% end %>
+
+    </div>
+  </div>
+</div>
 
 <!-- REMOVE COMMENT WHEN PLACE CREATION IS DEBUGGED -->
 <%
@@ -12,27 +80,12 @@
 <%
 =end%>
 <!-- MY TALENTS -->
-<h4 class="card-title mt-3 text-center">Je propose ces activités:</h4>
-<hr>
-<% if !@current_user.talents.nil? %>
-  <% @current_user.talents.each do |talent| %>
-  <%= render partial: 'layouts/landing-card', locals: {model: talent, type: "paid"} %>
-  <% end %>
-<% else %>
-  Tu n'as pas de talent!
-<% end %>
 
 
-<!-- APPOINTMENTS -->
-<h4 class="card-title mt-3 text-center">Rendez-vous à venir:</h4>
-<% if @future_paid_appointments %>
-  <% @future_paid_appointments.each do |future_paid_appointment| %>
-  <%= render partial: 'layouts/validate_appointment_card', locals: {model: future_paid_appointment.talent, type: "paid"} %>
-  <% end %>
-<% else %>
-  Tu n'as pas de séance confirmées
-<% end %>
-
-<div class="actions">
-  <%= button_to 'Créer une nouvelle activité', new_talent_path(), method: :get, class: "btn btn-primary btn-block" %>
+<div class="row">
+  <div class="col m-4">
+    <div class="actions ml-3">
+      <%= button_to 'Proposer une activité', new_talent_path(), method: :get, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>

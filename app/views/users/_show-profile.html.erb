@@ -1,0 +1,38 @@
+<div class="container">
+<div class="card card-custom2 shadow max-width-45 m-auto">
+<div class="card-body">
+<h2 class="text-center m-4">Mon profil</h2>
+  <div class="avatar-big m-auto">
+    <%if @user.avatar.attached?%>
+      <%= image_tag @user.avatar, alt: 'avatar', class: "avatar-img rounded-circle" %>
+    <%else%>
+      <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle") %>
+    <%end%>
+  </div><br><hr><br>
+  <table class="table table-borderless max-width-18 m-auto m-4">
+    <tbody>
+      <tr>
+        <th scope="row">Prénom:</th>
+        <td><%=@user.first_name%></td>
+      </tr>
+      <tr>
+        <th scope="col">Nom:</th>
+        <td><%=@user.last_name%></td>
+      </tr>
+      <tr>
+        <th scope="col">Adresse e-mail:</th>
+        <td><%=@user.email%></td>
+      </tr>
+      <tr>
+        <th scope="col">Téléphone</th>
+        <td><%=@user.phone_number%></td>
+      </tr>
+    </tbody>
+  </table><br><hr>
+  <h5 class="text-center m-4">Gérer mon profil</h5>
+  <div class="actions text-center m-4">
+    <%= button_to 'Modifier/suprimer mon profil', edit_user_registration_path(), method: :get, class: "btn btn-primary" %>
+  </div>
+  </div>
+  </div>
+</div>

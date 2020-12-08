@@ -1,47 +1,56 @@
 <!-- ERRORS MESSAGES -->
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="card bg-light mx-auto" style="width: 500px;">
-  <article class="card-body mx-auto" style="max-width: 450px;">
-	  <h2 class="card-title mt-3 text-center">Modifier mon mot de passe</h2>
-    <hr>
-    <!-- FORM -->
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      
-      <!-- TOKEN -->
-      <%= f.hidden_field :reset_password_token %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <article class="card-body mx-auto"">
+        <h2 class="card-title mt-3">Modifier mon mot de passe</h2>
+        <hr>
+        <!-- FORM -->
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          
+          <!-- TOKEN -->
+          <%= f.hidden_field :reset_password_token %>
 
-      <!-- CONFIRMATION MESSAGES, ALERT MESSAGES AND WARNING MESSAGES -->
-      <%= render "devise/shared/error_messages", resource: resource %>
+          <!-- CONFIRMATION MESSAGES, ALERT MESSAGES AND WARNING MESSAGES -->
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-      <!-- PASSWORD -->
-      <% if @minimum_password_length %>
-        <i class="d-flex justify-content-center">(<%= @minimum_password_length %> caractères minimum)</i>
-      <% end %>
-      <div class="form-group input-group">
-    	  <div class="input-group-prepend">
-		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
-		    </div>
-        <%= f.password_field :password, class:"form-control", placeholder: "Nouveau mot de passe", autocomplete: "new-password" %>
-      </div> <!-- form-group// -->
-      
+          <!-- PASSWORD -->
+          <% if @minimum_password_length %>
+            <i class="">(<%= @minimum_password_length %> caractères minimum)</i>
+          <% end %>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+            </div>
+            <%= f.password_field :password, class:"form-control", placeholder: "Nouveau mot de passe", autocomplete: "new-password" %>
+          </div> <!-- form-group// -->
+          
 
-      <!-- PASSWORD CONFIRMATION -->
-      <div class="form-group input-group">
-    	  <div class="input-group-prepend">
-		      <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
-		    </div>
-        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Confirmation du mot de passe", autocomplete: "new-password" %>
-      </div> <!-- form-group// -->     
+          <!-- PASSWORD CONFIRMATION -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+            </div>
+            <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Confirmation du mot de passe", autocomplete: "new-password" %>
+          </div> <!-- form-group// -->     
 
-      <!-- VALIDATION BUTTON -->
-      <div class="actions">
-        <%= f.submit "Modifier", class: "btn btn-primary btn-block" %>
+          <!-- VALIDATION BUTTON -->
+          <div class="actions">
+            <%= f.submit "Modifier", class: "btn btn-primary mb-3" %>
+          </div>
+
+          <!-- OTHER LINKS -->
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </article>
+    </div>
+    <div class="col">
+      <div class="mx-auto mt-4">
+        <%= image_tag("_page_devise1.jpg", width: 650, class: "") %>
       </div>
-
-      <!-- OTHER LINKS -->
-      <%= render "devise/shared/links" %>
-    <% end %>
-  </article>
-</div> <!-- card.// -->
+    </div>
+  </div>
+</div>
 

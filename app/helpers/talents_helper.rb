@@ -5,4 +5,8 @@ module TalentsHelper
       redirect_to edit_user_registration_path # a changer par user edit path quand cette page sera ajoutée
       end
   end
+
+  def convert_price(price)
+    price * 100
+  end
 end

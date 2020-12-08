@@ -1,52 +1,60 @@
-<%= form_with model: @talent, local: true, multipart: true, method: :patch do |form| %>
+<div class="container">
+  <div class=" card card-custom2 shadow max-width-45 p-4 m-auto">
+    <div class="p-2">
+      <h4 class="text-primary text-center"><u>Bienvenue sur la page de modification de votre talent :</u></h4>
+      <h4 class="text-center"> <%=@talent.title%></h4><br>
+    </div>
+    <%= form_with model: @talent, local: true, multipart: true, method: :patch do |form| %>
 
-  <!-- title -->
-  <div class="field">
-    <%= form.label :title, 'Titre' %>
-    <%= form.text_field :title, class: "form-control" %>
-  </div>
+      <!-- title -->
+      <div class="field">
+        <%= form.label :title, 'Titre' %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div><br>
 
-  <!-- Description -->
-  <div class="field">
-    <%= form.label :description, 'Description' %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
+      <!-- Description -->
+      <div class="field">
+        <%= form.label :description, 'Description' %>
+        <%= form.text_area :description, class: "form-control" %>
+      </div><br>
 
-  <!-- Duration -->
-  <div class="field">
-    <%= form.label :duration, 'Durée de la scéance' %>
-    <%= form.select :duration, options_for_select(1..8) %>
-  </div>
+      <!-- Duration -->
+      <div class="field">
+        <%= form.label :duration, 'Durée de la scéance' %>
+        <%= form.select :duration, options_for_select(1..8) %>
+      </div><br>
 
-  <!-- Place nested form -->
-  <div class="field">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.label :address, 'Adresse' %>
-        <%= place_form.text_field :address %>
+      <!-- Place nested form -->
+      <div class="field">
+        <%= fields_for :place do |place_form| %>
+            <%= place_form.label :address, 'Adresse' %>
+            <%= place_form.text_field :address %><br>
 
-        <%= place_form.label :city_name, 'Ville' %>
-        <%= place_form.text_field :city_name %>
- 
-        <%= place_form.label :zip_code %>
-        <%= place_form.text_field :zip_code %>
+            <%= place_form.label :city_name, 'Ville' %>
+            <%= place_form.text_field :city_name %><br>
+    
+            <%= place_form.label :zip_code %>
+            <%= place_form.text_field :zip_code %><br>
 
+        <% end %>
+      </div><br>
+
+      <!-- Photos -->
+
+      <h3>Photo actuelle</h3>
+      <%if @talent.picture.attached?%>
+        <%= image_tag @talent.picture, alt: 'picture', class: 'max-width-45 card-img' %>
+      <%else%>
+        <p>=== Il n'y a pas encore de photo liée à ce talent ===</p>
+      <%end%>
+      <div class="field">
+        <%= form.label 'Photos' %>
+        <%= form.file_field :picture %>
+      </div><br>
+
+    <div class="actions text-center p-3">
+      <%= form.submit "Modifier les informations", class:'btn btn-primary' %>
+    </div>
     <% end %>
   </div>
-
-  <!-- Photos -->
-
-  <h3>Photo actuelle</h3>
-  <%if @talent.picture.attached?%>
-    <%= image_tag @talent.picture, alt: 'picture' %>
-  <%else%>
-    <p>=== Il n'y a pas encore de picture lié à ce talent ===</p>
-  <%end%>
-  <div class="field">
-    <%= form.label 'Photos' %>
-    <%= form.file_field :picture %>
-  </div>
-
-<div class="actions">
-  <%= form.submit "Modifier les informations" %>
 </div>
-<% end %>

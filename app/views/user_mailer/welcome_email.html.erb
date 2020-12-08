@@ -14,17 +14,16 @@
     <h2>Bienvenue au sein de la communauté Talent Connect !</h2>
     <hr>
     <p>
-      Salut à toi amateur de talent,<br>
+      Salut <%= @user.first_name %>,<br>
     </p>
     <p>
       Tu t'es inscrit sur <%= link_to "Talent Connect", @urlHomePage %> en utilisant l'e-mail suivant : <%= @user.email %>.<br>
       Pour accéder à ton espace client, connecte-toi via : <%= link_to "Me connecter", @urlLogin %> .
     </p>
-    <br>
     <p>
       À très vite au sein de la communauté de partage de talents ! 
       <br><br>
-      L'équipe de Talent Connect
+      L'équipe de Talent Connect.
     </p>
   </body>
 </html>

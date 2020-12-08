@@ -37,10 +37,10 @@ class TalentsController < ApplicationController
     @talent.save
     # If talent is created confirm and show it, else show new form
     if @talent.save
-      flash[:success] = "Bravo, tu as crée un nouveau talent!"
+      flash[:success] = "Bravo, tu as créé un nouveau talent!"
       redirect_to talent_path(@talent)
     else
-      flash.now[:danger] = "Le talent n'a pas été crée."
+      flash.now[:danger] = "Le talent n'a pas été créé."
       render :new
     end
   end
@@ -58,17 +58,20 @@ class TalentsController < ApplicationController
 
   def destroy
     @talent.destroy
-    redirect_to talents_path
+    redirect_to mentor_show_user_url(@talent.user_id)
   end
 
   private
-  # Allow talent attribute to pass
+  # Convert duration in hours to minutes before allowing talent attributes to pass
   def talent_params
-    params.require(:talent).permit(:title, :description, :duration, :picture)
+    hours = params[:talent][:duration].to_d
+    minutes = hours * 60
+    params[:talent][:duration] = minutes
+    params.require(:talent).permit(:title, :description, :duration, :picture, :price)
   end
   # Allow place nested form attribute to pass
   def place_params
-    params.require(:place).permit(:address, :zip_code, :city_name)
+    params.require(:place).permit(:address, :zip_code, :city_name, :longitude, :latitude)
   end
 
   # find the talent using the id

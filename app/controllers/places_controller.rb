@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
       flash[:success] = "Un nouveau lieu a été créé !"
       redirect_to root_path
     else
-      flash.now[:danger] = "Le lieu n'a pas été créée."
+      flash.now[:danger] = "Le lieu n'a pas été créé."
       render :new
     end
     
