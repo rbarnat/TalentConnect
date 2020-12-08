@@ -2,49 +2,53 @@
 <%= render 'layouts/back_link' %> 
 
 <div class="container">
-<h1>N'hésite pas à nous contacter !</h1>
-<p>Envoie nous tes coordonnées, et l'un des super équipiers de TalentConnect se fera un plaisir de te recontacter.
-</p>
+  <div class="card card-custom2 shadow max-width-45 m-auto">
+    <div class="card-body">
+      <h3 class="text-center text-primary">N'hésite pas à nous contacter !</h3>
+      <p class="m-4">Envoie nous tes coordonnées, et l'un des super équipiers de TalentConnect se fera un plaisir de te recontacter.
+      </p>
 
-<!--contact form-->
-<form class="contact-form">
-  <div class="form-row" display="flex" flex-flow="row wrap">
-    <div class="form-group">
-      <label for="contactInputFirstName" style="margin-bottom: 10px; margin-right: 15px">     * Prénom</label>
-      <input type="email" class="form-control" id="contactInputFirstName" placeholder="Entre ton prénom ici" maxlength="255" type="text" class="TextField" style="width:395px; margin-bottom: 10px; margin-right: 15px">
-    </div>
-    <div class="form-group">
-      <label for="contactInputLastName" style="margin-bottom: 10px; margin-right: 15px">     * Nom</label>
-      <input type="password" class="form-control" id="contactInputLastName" placeholder="Entre ton nom ici" maxlength="255" type="text" class="TextField" style="width:395px; margin-bottom: 10px; margin-right: 15px">
-    </div>
-  </div>
-  <div class="form-row" display="flex" flex-flow="row wrap">
-    <div class="form-group">
-      <label for="contactInputEmail" style="margin-bottom: 10px; margin-right: 15px">     * Adresse E-mail</label>
-      <input type="email" class="form-control" id="contactInputEmail" placeholder="Entre ton adresse email ici" maxlength="255" type="text" class="TextField" style="width:395px; margin-bottom: 10px; margin-right: 15px">
-    </div>
-    <div class="form-group">
-      <label for="contactInputPhone" style="margin-bottom: 10px; margin-right: 15px">     * Téléphone</label>
-      <input type="password" class="form-control" id="contactInputPhone" placeholder="Entre ton téléphone ici" maxlength="255" type="text" class="TextField" style="width:395px; margin-bottom: 10px; margin-right: 15px">
-    </div>
-  </div>
-  <div class="form-row" display="flex" flex-flow="row wrap">
-    <div class="form-group">
-      <label for="contactInputPhone" style="margin-bottom: 10px; margin-right: 15px">   Que pouvons-nous faire pour toi ?</label>
-      <input type="password" class="form-control" id="contactInputPhone" placeholder="Entre le descriptif de ta demande ici" maxlength="1000" type="text" class="TextField" style="width:805px; margin-bottom: 10px; margin-right: 15px">
-    </div>
-  </div>
-  <div class="text-align-left">
-    <button type="submit" class="btn btn-primary ">Valider</button>
-  </div>
-  <br>
-</form>
+      <!--contact form-->
+      <form class="contact-form m-4">
+        <div class="form-row">
+          <div class="form-group col-md-6 pr-4">
+              <label for="contactInputFirstName">     * Prénom</label>
+              <input type="text" class="form-control" id="contactInputFirstName" placeholder="Entre ton prénom ici" maxlength="255">
+          </div>
+          <div class="form-group col-md-6">
+              <label for="contactInputLastName">     * Nom</label>
+              <input type="text" class="form-control" id="contactInputLastName" placeholder="Entre ton nom ici" maxlength="255">
+          </div>
+        </div>
 
-<!--alternative contact via email-->
-<div class="contact-direct-email" display="flex" flex-flow="row wrap">
-  <p>Ou si tu préfères la méthode classique d'envoi d'un e-mail, clique sur le lien ci-dessous pour nous contacter.</p>
-  <div class="text-align-left">
-    <button type="submit" class="btn btn-primary ">Envoi d'un e-mail</button>
+        <div class="form-group">
+          <label for="contactInputEmail" >     * Adresse E-mail</label>
+          <input type="email" class="form-control" id="contactInputEmail" placeholder="Entre ton adresse email ici" maxlength="255">
+        </div>
+        <div class="form-group">
+          <label for="contactInputPhone">     * Téléphone</label>
+          <input type="text" class="form-control" id="contactInputPhone" placeholder="Entre ton téléphone ici" maxlength="255">
+        </div>
+        <div class="form-group">
+          <label for="contactInputText">Que pouvons-nous faire pour toi ?</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="1000" placeholder="Entre le descriptif de ta demande ici"></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+        <br>
+      </form>
+
+      <!--alternative contact via email-->
+      <hr>
+      <div class="contact-direct-email" display="flex" flex-flow="row wrap">
+        <p class="m-4">Ou si tu préfères la méthode classique d'envoi d'un e-mail, clique sur le lien ci-dessous pour nous contacter.</p>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Nous contacter par e-mail </button><br><br>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
