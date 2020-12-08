@@ -38,6 +38,7 @@
         <% when "mentor-validate" %>
           <div class="col-md-3 m-auto">
             <button class="btn btn-outline-danger" href="#">Payer</button>
+          <%= render partial: 'charges/new', locals: {model: model, appointment: appointment} %>
           </div>
         <% when "paid" %>
           <div class="col-md-3 m-auto pr-4 text-center">
@@ -46,7 +47,7 @@
         <% when "past" %>
           <div class="col-md-3 m-auto pr-4 text-center">
             <p class="text-secondary">Évènement passé</p>
-            <a href="#">Évaluer ce rendez-vous</a>
+            <%= link_to "Évaluer", new_talent_appointment_review_path(model, appointment), class: "btn btn-outline-primary btn-sm m-2" %>
           </div>
         <% when "mentor" %>
           <div class="col-md-3 m-auto pr-4 text-center">
