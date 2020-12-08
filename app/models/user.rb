@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :messages, foreign_key: 'sender_id', class_name: "User"
   has_many :messages, foreign_key: 'recipient_id', class_name: "User"
   has_many :bookmarks
+  has_many :chat_rooms, dependent: :destroy
 
   # Default avatar
   after_commit :add_default_avatar, on: %i[create update]

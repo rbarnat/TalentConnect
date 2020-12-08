@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_120448) do
+ActiveRecord::Schema.define(version: 2020_12_08_093552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_120448) do
     t.bigint "talent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_mentor_validate", default: false
+    t.boolean "is_paid", default: false
     t.index ["apprentice_id"], name: "index_appointments_on_apprentice_id"
     t.index ["mentor_id"], name: "index_appointments_on_mentor_id"
     t.index ["place_id"], name: "index_appointments_on_place_id"
@@ -66,6 +68,14 @@ ActiveRecord::Schema.define(version: 2020_12_07_120448) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+  end
+
   create_table "join_table_talent_categories", force: :cascade do |t|
     t.bigint "talent_id"
     t.bigint "category_id"
@@ -82,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_120448) do
     t.bigint "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chat_room_id"
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
     t.index ["talent_id"], name: "index_messages_on_talent_id"
@@ -131,14 +143,17 @@ ActiveRecord::Schema.define(version: 2020_12_07_120448) do
     t.string "last_name"
     t.string "phone_number"
     t.bigint "place_id"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_rooms", "users"
   add_foreign_key "join_table_talent_categories", "categories"
   add_foreign_key "join_table_talent_categories", "talents"
+  add_foreign_key "messages", "chat_rooms"
   add_foreign_key "reviews", "appointments"
   add_foreign_key "talents", "places"
   add_foreign_key "talents", "users"

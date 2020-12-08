@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   # Appointment creation is accessible through the talent show page 
   resources :talents, only: [:show] do 
+    resources :chat_rooms, only: [:new, :create, :show, :index]
     resources :appointments, only: [:new, :create] do 
       resources :reviews, only: [:new, :create]
       resources :charges, only: [:new, :create]
@@ -31,8 +32,13 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :destroy, :show]
   # PLACES PAGES
   resources :places, only: [:index, :show, :create, :edit, :update]
+  
+  # CHAT TOOMS
+  
+  resources :messages, only: [:new, :create]
   # STATIC PAGES : HOME ABOUT CONTACT
   get "/home" => "static_pages#home"
   get "/about" => "static_pages#about"
   get "/contact" => "static_pages#contact"
+  mount ActionCable.server => '/cable'
 end

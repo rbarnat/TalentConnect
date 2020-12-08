@@ -16,3 +16,4 @@
 //= require jquery
 //= require bootstrap
 //= require fontawesome
+//= require cable
