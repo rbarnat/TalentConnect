@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.appointment_id = params[:appointment_id]
     @review.save
     # If review is created confirm and show it, else show new form
     if @review.save
@@ -22,7 +23,8 @@ class ReviewsController < ApplicationController
   private
   # Allow review attributes to pass
   def review_params
-    params.require(:review).permit(:mark, :comment, :appointment_id, :talent_id)
+    params.permit(:appointment_id, :talent_id)
+    params.require(:review).permit(:mark, :comment)
   end
 
 end
