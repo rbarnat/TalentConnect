@@ -444,6 +444,13 @@ talents_constants =
   {:title => "Ukulele : initiation", :description => "",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
   {:title => "Les accords en Ukulele", :description => "",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
 ]
+talents_constants_admin = []
+talents_constants.each_with_index do |talents_constant,i|
+  if i < 15
+    talents_constants_admin << talents_constant
+  end
+end
+
 # TALENTS ON MENTORS
 talents=[]
 talents_constants.each_with_index do |talent,i|
@@ -472,7 +479,7 @@ end
 
 # TALENTS ON ADMIN TO TEST
 talents_admin=[]
-talents_constants.each_with_index do |talent,i|
+talents_constants_admin.each_with_index do |talent,i|
   admin_user =  admin_users.sample
   current_talent = Talent.create(
                             user_id: admin_user.id,
@@ -499,10 +506,10 @@ end
 
 puts "========================================================="
 puts "TALENTS MENTOR              : #{talents.count}/38"
-puts "TALENTS ADMIN               : #{talents_admin.count}/38"
+puts "TALENTS ADMIN               : #{talents_admin.count}/15"
 puts "---------------------------------------------------------"
-puts "TALENTS TOTAL              : #{Talent.count}/76"
-puts "J_TALENTS_CATEGORIES TOTAL : #{JoinTableTalentCategory.count}/76"
+puts "TALENTS TOTAL              : #{Talent.count}/51"
+puts "J_TALENTS_CATEGORIES TOTAL : #{JoinTableTalentCategory.count}/51"
 puts "========================================================="
 
 
@@ -515,7 +522,7 @@ Talent.all.each do |talent|
     past_appointments << Appointment.create(
                   start_time: Faker::Date.between(from: '2020-11-01', to: '2020-12-09'),
                   mentor_id: talent.user_id,
-                  apprentice_id: apprentice_users.sample.id,
+                  apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
                   talent_id: talent.id,
                   is_mentor_validate: true,
@@ -527,7 +534,7 @@ Talent.all.each do |talent|
     Appointment.create(
                   start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
                   mentor_id: talent.user_id,
-                  apprentice_id: apprentice_users.sample.id,
+                  apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
                   talent_id: talent.id,
                   is_mentor_validate: false,
@@ -539,7 +546,7 @@ Talent.all.each do |talent|
     Appointment.create(
                   start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
                   mentor_id: talent.user_id,
-                  apprentice_id: apprentice_users.sample.id,
+                  apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
                   talent_id: talent.id,
                   is_mentor_validate: true,
@@ -551,7 +558,7 @@ Talent.all.each do |talent|
     Appointment.create(
                   start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
                   mentor_id: talent.user_id,
-                  apprentice_id: apprentice_users.sample.id,
+                  apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
                   talent_id: talent.id,
                   is_mentor_validate: true,
@@ -571,7 +578,7 @@ Talent.all.each do |talent|
   # PAST APPOINTMENTS
   rand(5..20).times do
     Bookmark.create(
-                  user_id: apprentice_users.sample.id,
+                  user_id: User.all.sample.id,
                   talent_id: talent.id
     )
   end
