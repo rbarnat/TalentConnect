@@ -788,14 +788,26 @@ a.text-primary:focus {
   color: #D3D3D3 !important;
 }
 
+/* .jumbotron {
+ 
+  box-shadow: 0 4px 6px -6px grey;
+  background-image: url("");
+  background-size: cover;
+} */
+
 .jumbotron {
-  display: flex;
-  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #eee;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px -6px grey;
-  background-image: url("../images/_page_jumbotron.jpg");
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
 .image-container {
@@ -816,4 +828,24 @@ a.text-primary:focus {
 
 .rounded-circle {
   border-radius: 50% !important;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.video-container {
+  position: relative;
+}
+
+.text-field-transparent {
+  background-color: transparent;
+}
+
+.white-background {
+  background-color: rgba(255, 255, 255, 0.5)
 }
