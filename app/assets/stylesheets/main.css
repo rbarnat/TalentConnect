@@ -441,7 +441,7 @@ a:hover {
 
 .btn-outline-primary:focus,
 .btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(54, 206, 168, 0.25);
 }
 
 .btn-outline-primary.disabled,
