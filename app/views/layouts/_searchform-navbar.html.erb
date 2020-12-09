@@ -1,5 +1,5 @@
 <!-- DO NOT DISPLAY IF ROOT/HOME/SEARCHRESULT PAGES -->
-<% unless current_page?(root_path) || current_page?(home_path) || current_page?(search_results_path) %>
+<% unless current_page?(root_path) || current_page?(home_path) || current_page?(search_results_path) || current_page?(talents_path) %>
     <%= form_tag search_results_path, method: 'get' do %>
         <div class="form-group input-group">
             <div class="">
