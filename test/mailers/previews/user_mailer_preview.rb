@@ -7,7 +7,7 @@ class UserMailerPreview < ActionMailer::Preview
   end
 
   def booking_user_confirmation
-    appointment = Appointment.find(2)
+    appointment = Appointment.find(1)
     UserMailer.booking_user_confirmation(appointment)
   end
 
@@ -16,13 +16,18 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.booking_mentor_confirmation(appointment)
   end
 
+  def validation_by_mentor_confirmation
+    appointment = Appointment.find(1)
+    UserMailer.validation_by_mentor_confirmation(appointment)
+  end
+
   def payment_apprentice_confirmation
-    appointment = Appointment.find(52)
+    appointment = Appointment.find(1)
     UserMailer.payment_apprentice_confirmation(appointment)
   end
 
   def payment_mentor_confirmation
-    appointment = Appointment.find(52)
+    appointment = Appointment.find(1)
     UserMailer.payment_mentor_confirmation(appointment)
   end
 
