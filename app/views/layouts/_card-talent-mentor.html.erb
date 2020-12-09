@@ -1,0 +1,49 @@
+<div class="container clearfix mt-3">
+  <div class="max-width-45">
+    <div class="card card-custom2 shadow pt-3 pl-4" >
+      
+      <% case type %>
+        <% when "apprentice-validate" %>
+          <p>
+            <%= link_to appointment.talent.title, talent_path(appointment.talent), class: "h5" %>
+            <br>
+            <span class="text-primary"><%= appointment.apprentice.first_name %></span> propose une séance le <%=appointment.start_time.strftime("%d/%m/%Y à %k:%M")%>
+          </p>
+        <% when "mentor-validate" %>
+          <p>
+            <%= link_to appointment.talent.title, talent_path(appointment.talent), class: "h5" %>
+            <br>
+            En attente de <span class="text-primary"><%= appointment.apprentice.first_name %></span> pour le <%=appointment.start_time.strftime("%d/%m/%Y à %k:%M")%>
+          </p>
+        <% when "paid" %>
+          <p>
+            <%= link_to appointment.talent.title, talent_path(appointment.talent), class: "h5" %>
+            <br>
+            avec <span class="text-primary"><%= appointment.apprentice.first_name %></span> le <%=appointment.start_time.strftime("%d/%m/%Y à %k:%M")%>
+          </p>
+        <% when "past" %>
+          <p class="text-secondary">
+            <%= link_to appointment.talent.title, talent_path(appointment.talent), class: "h5" %>
+            <br>
+            avec <span class="text-primary"><%= appointment.apprentice.first_name %></span> le <%=appointment.start_time.strftime("%d/%m/%Y à %k:%M")%>
+          </p>
+        <% else %>
+      <% end %>
+    </div>
+    <div class="float-right">
+      <% case type %>
+        <% when "apprentice-validate" %>
+          <%= link_to "VALIDER", appointment_path(appointment), params: { is_mentor_validate: true }, method: :put, class: "badge badge-pill badge-primary ml-5" %>
+          <%= link_to "REFUSER", appointment_path(appointment), data: { confirm: "Es-tu sûr de vouloir refuser ?" }, method: :delete, class: "badge badge-pill badge-danger ml-2" %>
+        <% when "mentor-validate" %>
+          <p class="text-danger">En attente</p>
+        <% when "paid" %>
+          <p class="text-primary">Séance validée</p>
+        <% when "past" %>
+          <p class="text-secondary">Séance passée</p>
+        <% else %>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
