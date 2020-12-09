@@ -26,7 +26,10 @@
           </tr>
           <tr>
             <th scope="col">Catégorie:</th>
-            <td>à implanter</td>
+            <td><% @talent.categories.each do |category| %>
+                <%= category.title %><br>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th scope="col">Ville:</th>
@@ -35,6 +38,10 @@
           <tr>
             <th scope="col">Prix:</th>
             <td><%= @talent.price %> €</td>
+          </tr>
+          <tr>
+            <th scope="col">Durée de la scéance:</th>
+            <td><%= @talent.duration %> h</td>
           </tr>
         </tbody>
       </table>

@@ -10,6 +10,15 @@
   --danger: #FF6666;
 }
 
+.btn-heart {
+  color: #ec8391;
+}
+
+.btn-heart:hover {
+  color: #ec8391;
+  transform: scale(1.15);
+}
+
 /*LINKS*/
 
 a {
@@ -907,4 +916,10 @@ video {
 
 .black-background {
   background-color: rgba(3, 3, 3, 0.2)
+}
+
+#map {
+  position: fixed;
+  height: 600px;
+  width: 70%;
 }

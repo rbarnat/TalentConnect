@@ -8,13 +8,13 @@
           <div class="row">
             <% case type %>
               <% when "past" %>
-                <h5 class="card-title ml-3 text-secondary"><%= model.title%></h5>
-                <p class="ml-2 text-secondary">avec <a href="#"><%= model.user.first_name %></a></p>
+                <%= link_to model.title, talent_path(model), class: "h5" %>
+                <p class="ml-2 text-secondary">avec <span class="text-primary"><%= model.user.first_name %></span></p>
               <% when "mentor"%>
-                <h5 class="card-title ml-3"><%= model.title%></h5>
+                <%= link_to model.title, talent_path(model), class: "h5" %>
               <% else %>
-                <h5 class="card-title ml-3"><%= model.title%></h5>
-                <p class="ml-2">avec <a href="#"><%= model.user.first_name %></a></p>
+                <%= link_to model.title, talent_path(model), class: "h5" %>
+                <p class="ml-2">avec <span class="text-primary"><%= model.user.first_name %></span></p>
             <% end %>
           </div>
           <% case type %>
@@ -45,7 +45,7 @@
           </div>
         <% when "past" %>
           <div class="col-md-3 m-auto pr-4 text-center">
-            <p class="text-secondary">Évènement passé</p>
+            <p class="text-secondary">Séance passée</p>
             <%= link_to "Évaluer", new_talent_appointment_review_path(model, appointment), class: "btn btn-outline-primary btn-sm m-2" %>
           </div>
         <% when "mentor" %>
