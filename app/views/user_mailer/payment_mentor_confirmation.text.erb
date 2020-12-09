@@ -1,5 +1,5 @@
 Confirmation de paiement pour une séance sur Talent Connect !
-==============================================================
+=============================================================
 
 Salut <%= @appointment.mentor.first_name %>,
 
@@ -9,7 +9,7 @@ En voilà les grandes lignes:
 
 Montant du règlement : <%= @amount %> €
 Pour une séance intitulée : <%= @appointment.talent.title %>
-Animée par le mentor (juste pour confirmer que c'est bien toi!) : <%= @appointment.mentor.first_name %> <%= @appointment.mentor.last_name %>
+Réservée par l'apprenti : <%= @appointment.apprentice.first_name %> <%= @appointment.apprentice.last_name %>
 Prévue pour se tenir le : <%= @appointment.start_time %>
 
 Tu n'as plus qu'à attendre la date de ta séance, pour retrouver ton apprenti le jour J !

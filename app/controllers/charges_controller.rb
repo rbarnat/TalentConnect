@@ -24,9 +24,9 @@ class ChargesController < ApplicationController
       @appointment.is_paid = true
       @appointment.save
       flash[:success] = "Bravo, tu as réservé ta scéance et payé #{@amount} €!"
+      payment_apprentice_send(@appointment)
+      payment_mentor_send(@appointment)
       redirect_to apprentice_show_user_path(current_user.id)
-      payment_apprentice_send(appointment)
-      payment_mentor_send(appointment)
     end
 
   rescue Stripe::CardError => e
