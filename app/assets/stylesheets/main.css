@@ -763,6 +763,10 @@ textarea.form-control {
   border-radius: 0.8rem !important;
 }
 
+.landing-card:hover {
+  transform: scale(1.15);
+}
+
 .card-custom {
   position: relative;
   display: -ms-flexbox;
