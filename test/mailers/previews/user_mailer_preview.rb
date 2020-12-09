@@ -7,7 +7,12 @@ class UserMailerPreview < ActionMailer::Preview
   end
 
   def booking_user_confirmation
-    appointment = Appointment.find(1)
+    appointment = Appointment.find(2)
     UserMailer.booking_user_confirmation(appointment)
+  end
+
+  def booking_mentor_confirmation
+    appointment = Appointment.find(1)
+    UserMailer.booking_mentor_confirmation(appointment)
   end
 end

@@ -9,11 +9,16 @@ class Appointment < ApplicationRecord
 
   # Validation before creation
   validates :start_time, presence: true
-  # Send mail to user after creating the appointment
+  # Send mail to user apprentice and mentor after creating the appointment
   after_create :booking_user_send
+  after_create :booking_mentor_send
 
   def booking_user_send
     UserMailer.booking_user_confirmation(self).deliver_now
+  end
+
+  def booking_mentor_send
+    UserMailer.booking_mentor_confirmation(self).deliver_now
   end
   
 end

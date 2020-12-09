@@ -11,24 +11,23 @@
     <script src="https://kit.fontawesome.com/dc9a3c0907.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h2>Confirmation de réservation de séance sur Talent Connect !</h2>
+    <h2>Nouvelle demande de réservation de séance sur Talent Connect !</h2>
     <hr>
     <p>
-      Salut <%= @appointment.apprentice.first_name %>,<br>
+      Salut <%= @appointment.mentor.first_name %>,<br>
     </p>
     <p>
-      Cet email pour te confirmer que ta demande de réservation de talent effectuée le <%= @appointment.created_at.strftime("%d/%m/%Y à %k:%M") %> a bien été enregistrée.<br>
-      Toute l'équipe de Talent Connect te remercie !<br><br>
+      Cet email pour te confirmer qu'une nouvelle demande de réservation de talent a été effectuée le <%= @appointment.created_at.strftime("%d/%m/%Y à %k:%M") %>.<br>
     
       En voilà les grandes lignes:<br>
       <br>
       Séance intitulée : <%= @appointment.talent.title %><br>
-      Animée par le mentor : <%= @appointment.mentor.first_name %> <%= @appointment.mentor.last_name %><br>
-      Prévue pour se tenir le : <%= @appointment.start_time %><br>
+      Demande de réservation lancée par l'apprenti : <%= @appointment.apprentice.first_name %> <%= @appointment.apprentice.last_name %><br>
+      Proposée pour se tenir le : <%= @appointment.start_time %><br>
       <br>
-      Ta demande a été envoyée au mentor. Dès qu'il aura confirmé sa réponse, une nouvelle notification te parviendra.
+      Merci de la passer en revue, et de confirmer ta réponse au plus vite, car ton apprenti attend ta réponse avec impatience!
       
-      En attendant, tu retrouveras les informations relatives à ta séance en te connectant sur ton espace client.<br>
+      Nous te rappelons que tu peux retrouver toutes les informations relatives à tes talents sur ton profil, au sein de ton espace client.<br>
       Pour y accéder, connecte-toi via : <%= link_to "Me connecter", @urlLogin %> .
     </p>
     <p>
