@@ -18,7 +18,14 @@ module TalentsHelper
       appointments.each do |appointment|
         rating += appointment.review.mark
       end
-      return "#{'%.1f' % (rating.to_d / appointments.length)}/5"
+      total_rating = rating.to_d / appointments.length
+      # Formating for better view
+      if total_rating == total_rating.to_i
+        total_rating = "#{total_rating.to_i}/5"
+      else 
+        total_rating = "#{'%.1f' % total_rating}/5"
+      end
+      return total_rating
     end
   end
 end
