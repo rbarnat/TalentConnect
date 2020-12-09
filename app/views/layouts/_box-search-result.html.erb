@@ -1,7 +1,7 @@
 <div class="container">
+  <p>Résultat de la recherche: </p>
   <div class="row">
-    <div class="col">
-        <%= render partial: 'layouts/searchform-half', locals: {keyword: params[:search_keywords]} %>
+    <div class="col scroll-div">
         <br>
         <% if @found_talents && @found_talents.count > 0 %>
             <% @found_talents.each do |talent|%>
@@ -20,7 +20,6 @@
         <% end %>
     </div>
     <div class="col" id="map">
-    </div>
         <script>
             var markers = []
             
@@ -104,5 +103,6 @@
         <script defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCROEXaB0Wy3Go4BC2Mv8oAg8uVR4r9PmM&callback=initMap">
         </script>
+    </div>
   </div>
 </div>
