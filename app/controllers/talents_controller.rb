@@ -2,6 +2,7 @@ class TalentsController < ApplicationController
   # Before starting anything import helper and do do some checks
   include TalentsHelper, PlacesHelper
   before_action :authenticate_user!, :user_have_info?, only: [:new, :edit]
+  before_action :is_current_user_talent?, only: [:edit]
   before_action :set_talent, only: [:show, :edit, :update, :destroy] 
   # Call a helper with an arguement in it
   before_action only: [:edit, :update] do 

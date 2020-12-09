@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+  include ReviewsHelper
+  before_action :authenticate_user!
+  before_action :is_current_user_appointment?, only: [:new]
   def new
     @review = Review.new
   end
