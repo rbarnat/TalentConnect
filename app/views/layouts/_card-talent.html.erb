@@ -1,4 +1,4 @@
-  <div class="card card-custom2 shadow mb-5 max-width-45">
+  <div class="card card-custom2 shadow mb-3 max-width-45">
     <div class="row no-gutters">
       <div class="col-md-3">
         <%= image_tag model.picture, alt: 'picture', class: "img card-img p-4" %>
@@ -37,7 +37,6 @@
           </div>
         <% when "mentor-validate" %>
           <div class="col-md-3 m-auto">
-            <button class="btn btn-outline-danger" href="#">Payer</button>
           <%= render partial: 'charges/new', locals: {model: model, appointment: appointment} %>
           </div>
         <% when "paid" %>

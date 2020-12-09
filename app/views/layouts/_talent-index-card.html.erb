@@ -1,0 +1,9 @@
+  <div class="card card-custom shadow text-center max-width-15 ml-3 mr-4 mb-4 ">
+    <div class="card-img-container">
+      <%= image_tag model.picture, alt: 'picture', class: "card-img-top" %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= model.title%></h5>
+      <%= link_to "+ d'infos", talent_path(model) %>
+    </div>
+  </div>

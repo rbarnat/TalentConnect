@@ -3,8 +3,20 @@
     <div class="col">
         <%= render partial: 'layouts/searchform-half', locals: {keyword: params[:search_keywords]} %>
         <br>
-        <% @found_talents.each do |talent|%>
-            <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "search-result"} %>
+        <% if @found_talents && @found_talents.count > 0 %>
+            <% @found_talents.each do |talent|%>
+                <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "search-result"} %>
+            <% end %>
+        <% else %>
+            <% if params[:search_keywords].length == 0 %>
+                Saisi au moins 4 caractère dans la recherche.
+            <% else %>
+                Aucun résultat pour "<%= params[:search_keywords] %>"
+                <% if params[:search_keywords].length < 4 %>
+                    (4 caractères minimum)
+                <% end %>
+                .
+            <% end %>
         <% end %>
     </div>
     <div class="col" id="map">

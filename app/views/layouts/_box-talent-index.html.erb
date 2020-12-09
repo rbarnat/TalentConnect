@@ -1,0 +1,7 @@
+<div class="text-center m-4">
+  <div class="row item-center">
+    <% @talents.all.each do |talent|%>
+      <%= render partial: 'layouts/talent-index-card', locals: {model: talent} %>
+    <% end %>
+  </div>
+</div>
