@@ -24,5 +24,21 @@ default from: 'contact.talentconnect100@gmail.com'
 
     mail(to: @user.email, subject: 'Demande de réservation de séance sur TalentConnect !')
   end
-  
+
+  def payment_apprentice_confirmation(appointment)
+    @user = appointment.apprentice
+    @appointment = appointment
+    @urlLogin = new_user_session_url
+    @amount = appointment.talent.price
+    mail(to: @user.email, subject: 'Confirmation de paiement pour séance sur TalentConnect !')
+  end
+
+  def payment_mentor_confirmation(appointment)
+    @user = appointment.mentor
+    @appointment = appointment
+    @urlLogin = new_user_session_url
+    @amount = appointment.talent.price
+    mail(to: @user.email, subject: 'Confirmation de paiement pour séance sur TalentConnect !')
+  end
+
 end
