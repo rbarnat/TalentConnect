@@ -22,6 +22,8 @@
     <div class="col" id="map">
     </div>
         <script>
+            var markers = []
+            
             function initMap(){
                 var options = {
                     zoom:11,
@@ -30,19 +32,74 @@
                 // New map
                 var map = new google.maps.Map(document.getElementById('map'), options);
                 // Add marker
-              function addMarker(coords){
+              function addMarker(coords, content, id){
                 var marker = new google.maps.Marker({
                     position:coords,
                     map:map,
+                    animation: google.maps.Animation.DROP,
+                    id: id,
                     icon: 'http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png'
-                    
+                })
+                 // Add info window
+                var infoWindow = new google.maps.InfoWindow({
+                content: content 
+                })
+                marker.addListener('mouseover', function(){
+                  infoWindow.open(map, marker)
+                })
+                marker.addListener('mouseout', function(){
+                  infoWindow.close(map, marker)
+                })
+                  // Change the icon style
+                 google.maps.event.addListener(marker, 'mouseover', function() {
+                marker.setIcon('http://localhost:3000/assets/placeholder-f81493e884c0c349248261acb25eaa2a906d06e58aa46c82ebaf9054f3f08ec7.png');
+                })
+                google.maps.event.addListener(marker, 'mouseout', function() {
+                marker.setIcon('http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png');
+                })
+                marker.addListener("click", () => {
+                map.setZoom(15);
+                map.setCenter(marker.getPosition());
                 });
+                return marker;
               }
-
+                  // Create one unique marker for each talent
+                  <% id = 0 %>
                   <% @found_talents.each do |talent|%>
-                  addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%> })
+                  var marker = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>}, "<%= talent.price%>", <%= id %>)
+                  markers[<%= id %>]= marker
+                  <% id = id+1%>
+                  
                   <% end%>
+                  
+                  // Target all talent's card in the results and add an event
+                var talents = document.querySelectorAll(".row.no-gutters")
+                
+                
+                talents.forEach((talent,index) => {
+                  talent.addEventListener('mouseover', function(){
+                    this.style.boxShadow = "5px 10px 10px #15D6A2";
+                    this.style.borderRadius = "25px";
+                    changeMarkerOn(index);
+                  })
+                  talent.addEventListener('mouseout', function(){
+                    this.style = " ";
+                    changeMarkerOff(index);
+                  })
+                  
+                });
+               
+                
             }
+            function changeMarkerOn(idmarker){
+              markers[idmarker].setIcon('http://localhost:3000/assets/placeholder-f81493e884c0c349248261acb25eaa2a906d06e58aa46c82ebaf9054f3f08ec7.png')
+              console.log(markers[idmarker])
+            }
+            function changeMarkerOff(idmarker){
+              markers[idmarker].setIcon('http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png')
+            }
+            
+
         </script>
         <script defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCROEXaB0Wy3Go4BC2Mv8oAg8uVR4r9PmM&callback=initMap">
