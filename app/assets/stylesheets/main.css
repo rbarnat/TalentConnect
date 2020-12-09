@@ -708,10 +708,6 @@ button.stripe-button-el:focus>span {
 }
 
 .input-custom {
-  font-size: large;
-}
-
-.input-custom: {
   border-width: 0px;
   font-size: large;
 }
@@ -917,7 +913,7 @@ a.text-primary:focus {
   margin-bottom: 30px;
   color: inherit;
   background-color: #eee;
-  height: 400px;
+  height: 450px;
   overflow: hidden;
   position: relative;
   align-items: center;
