@@ -10,6 +10,15 @@
   --danger: #FF6666;
 }
 
+.btn-heart {
+  color: #ec8391;
+}
+
+.btn-heart:hover {
+  color: #ec8391;
+  transform: scale(1.15);
+}
+
 /*LINKS*/
 
 a {
