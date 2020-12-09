@@ -396,7 +396,7 @@
               <div class="row card-search p-1">
 
                 <div class="col-3 left-border">
-                  <%= select_tag :search_keywords, nil , class: "transparent-input", id: "search_keywords", placeholder: "Catégorie" %>
+                  <%= select_tag :search_keywords, options_for_select(['Arts', 'Musique', 'DIY', 'Cuisine']), class: "transparent-input", id: "search_keywords", placeholder: "Catégorie" %>
                 </div>
 
                 <div class="col-6 left-border">
@@ -405,7 +405,7 @@
 
                 <div class="col-3">
                   <div class="row">
-                  <%= text_field_tag :search_keywords, nil, class: "transparent-input", id: "search_keywords", placeholder: "Localisation" %>
+                  <%= text_field_tag :search_place, nil, class: "transparent-input", id: "search_place", placeholder: "Localisation" %>
                   </div>
                 </div> 
               </div>
