@@ -441,7 +441,7 @@ a:hover {
 
 .btn-outline-primary:focus,
 .btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(54, 206, 168, 0.25);
 }
 
 .btn-outline-primary.disabled,
@@ -703,6 +703,20 @@ textarea.form-control {
   border-radius: 1.5rem;
 }
 
+.card-custom3 {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: #818182;
+  border-radius: 1.5rem;
+}
+
 .page-link {
   position: relative;
   display: block;
@@ -855,6 +869,6 @@ video {
   background-color: transparent;
 }
 
-.white-background {
-  background-color: rgba(255, 255, 255, 0.5)
+.black-background {
+  background-color: rgba(3, 3, 3, 0.2)
 }

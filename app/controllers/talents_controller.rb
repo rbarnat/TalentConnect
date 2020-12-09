@@ -18,7 +18,7 @@ class TalentsController < ApplicationController
   end
 
   def show
-    
+    @reviewed_appointments = Appointment.where(talent_id: set_talent).joins(:review)
   end
 
   def new
