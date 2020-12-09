@@ -23,10 +23,6 @@ end
 
 
 # --- PLACES ---
-cities = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", 
-          "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille"]
-zipcodes = ["75001", "13001", "69001", "31000", "06000", 
-            "44000", "34000", "67000", "33000", "59000"]
 
 # PARIS
 paris_adresses = 
@@ -105,6 +101,10 @@ paris_adresses =
   {:city_name => "Paris", :zip_code => "75011", :address => "10,Passage du Jeu de Boules", :latitude => 48.865629,:longitude => 2.367579},
   {:city_name => "Paris", :zip_code => "75011", :address => "4,Rue Saint-Maur", :latitude => 48.858878,:longitude => 2.383424},
 
+  #----------------------
+  # COPY OF WHAT IS ABOVE
+  #----------------------
+
   #Paris 1er Arrondissement
   {:city_name => "Paris", :zip_code => "75001", :address => "11 rue d'Alger", :latitude => 48.865572,:longitude => 2.329904},
   {:city_name => "Paris", :zip_code => "75001", :address => "8 rue de l'Amiral de Coligny", :latitude => 48.86067,:longitude => 2.340928},
@@ -178,65 +178,6 @@ paris_adresses =
   {:city_name => "Paris", :zip_code => "75011", :address => "4,Rue Jean Macé", :latitude => 48.852814,:longitude => 2.384627},
   {:city_name => "Paris", :zip_code => "75011", :address => "10,Passage du Jeu de Boules", :latitude => 48.865629,:longitude => 2.367579},
   {:city_name => "Paris", :zip_code => "75011", :address => "4,Rue Saint-Maur", :latitude => 48.858878,:longitude => 2.383424},
-  
-  #Paris 12eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75012", :address => "13,Rue Abel", :latitude => 48.847782,:longitude => 2.37549}
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 13eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 14eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 15eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 16eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 17eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 18eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 19eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 20eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test}
 ]
 apprentice_places=[]
 mentor_places=[]
@@ -406,7 +347,7 @@ talents_constants =
 
   {:title => "Cokedama: nature is in the air !", :description => "",:picture_name => "talent_cokedama.jpg", :category_id =>  2},
   {:title => "Le secret de la pate brisée", :description => "",:picture_name => "talent_cooking.jpg", :category_id =>  6},
-  {:title => "Sallade et métissage", :description => "",:picture_name => "talent_cooking1.jpg", :category_id =>  6},
+  {:title => "Salade et métissage", :description => "",:picture_name => "talent_cooking1.jpg", :category_id =>  6},
   {:title => "Les blancs en neige", :description => "",:picture_name => "talent_cooking2.jpg", :category_id =>  6},
   {:title => "Ramen party !", :description => "",:picture_name => "talent_cooking3.jpg", :category_id =>  6},
 
@@ -431,18 +372,18 @@ talents_constants =
   {:title => "Photo de scènes", :description => "",:picture_name => "talent_photo1.jpg", :category_id =>  3},
   {:title => "Initiation à la photo", :description => "",:picture_name => "talent_photo2.jpg", :category_id =>  3},
   {:title => "Traitements photo", :description => "",:picture_name => "talent_photo3.jpg", :category_id =>  3},
-  {:title => "Photo sur portable", :description => "",:picture_name => "talent_photo4.jpg", :category_id =>  3},
-  {:title => "Retouches photo", :description => "",:picture_name => "talent_photo5.jpg", :category_id =>  3},
+  {:title => "Photo sur portable", :description => "Tu as toujours rêvé de prendre le cliché du siècle avec ce que tu as sous la main ? Tu veux pouvoir manier ton téléphone portable comme un vrai pro ? Nous verrons ensemble comment utiliser les configurations et paramétres des GSM pour arriver à un super rendu : ton compte instagram ne va pas s'en remettre !",:picture_name => "talent_photo4.jpg", :category_id =>  3},
+  {:title => "Retouches photo", :description => "Tes clichés sont top mais tu changerais bien un petit détail ou deux ? Tu veux créer des effets de folie pour enjayer tes fans ? Nous verrons ensemble qu'avec Adobe Photoshop Express et GIMP, il existe queqlques fonctionalités qui permettent d'avoir un résultat professionel. A ta souris !",:picture_name => "talent_photo5.jpg", :category_id =>  3},
 
-  {:title => "Débuter le piano", :description => "",:picture_name => "talent_piano.jpg", :category_id =>  7},
-  {:title => "Poterie et compagnie", :description => "",:picture_name => "talent_pottery.jpg", :category_id =>  2},
-  {:title => "Initiation à la poterie", :description => "",:picture_name => "talent_pottery1.jpg", :category_id =>  2},
-  {:title => "La poterie c'est pas sorcier !", :description => "",:picture_name => "talent_pottery2.jpg", :category_id =>  2},
-  {:title => "Techniques de couture", :description => "",:picture_name => "talent_sewing.jpg", :category_id =>  2},
+  {:title => "Débuter le piano", :description => "Il jouait du piano debout, c'est peut-être un détail pour vous, mais pour moi ca veut dire beaucoup ! Si pour toi aussi le piano c'est la vie, et que tu souhaite t'initier, tu es au bon endroit. Je suis soliste dans l'orchestre philarmonique de Paris, et souhaite faire découvrir ce magnifique instrument au plus grand nombre. Alors n'hésites pas à me contacter !",:picture_name => "talent_piano.jpg", :category_id =>  7},
+  {:title => "Poterie et compagnie", :description => "Tu as toujours rêvé de réaliser des amphores et des vases comme dans l'ancien temps ? Ca tombe bien c'est ma spécialité. Je suis architecte de métier et passionné par la poterie d'égypte ancienne et de mésopotamie. Nous verrons ensemble les techniques et matériaux autrefois utilisés. Tu es prêt à voyager dans le temps ?",:picture_name => "talent_pottery.jpg", :category_id =>  2},
+  {:title => "Initiation à la poterie", :description => "Tu as deux mains gauches et tu t'interesse à la poterie ? Mes ateliers d'initiation vont te donner les clés et fournir le matériel pour que tu puisse avoir les bases. Nous réaliserons ensemble plusieurs basiques que tu seras fier de montrer à tes amis. Alors qu'est ce que tu attends ?",:picture_name => "talent_pottery1.jpg", :category_id =>  2},
+  {:title => "La poterie c'est pas sorcier !", :description => "Quand il s'agit de travaux manuels, tu n'as pas de bol et finis toujours par casser tes réalisations ? Nous allons voir ensemble des procédés de fabrication et des matériaux beaucoup plus resistants que l'argile. Je fournis tous les matériel et les matériaux. Tout ce que tu as à faire c'est venir !",:picture_name => "talent_pottery2.jpg", :category_id =>  2},
+  {:title => "Techniques de couture", :description => "La couture c'est ton dada ? Tu souhaites savoir adapter ton patron à ta morphologie ? Tu ne sait pas quoi faire lorsque le fil de la machine à coudre casse ? Tu veux savoir coudre des tissus épais ou en surépaisseur ? Je suis couturier de métier depuis plus 40 ans. Maintenant à la retraite je serais ravie de t'apprendre à trouver une aiguille dans une botte de foin !",:picture_name => "talent_sewing.jpg", :category_id =>  2},
 
-  {:title => "Skateboard : les bases", :description => "",:picture_name => "talent_skateboard.jpg", :category_id =>  9},
-  {:title => "Ukulele : initiation", :description => "",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
-  {:title => "Les accords en Ukulele", :description => "",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
+  {:title => "Skateboard : les bases", :description => "Ca te donne envie de rider lorsque tu vois Marty sur son Hoverboard dans Retour vers le futur ? Grace à cette séance d'initiation nous allons apprendre la posture et les déplacements de base pour que tu te sente à l'aise sur ta planche. Si tu es sage on testera quelques slides. N'oublie pas tes protecs !",:picture_name => "talent_skateboard.jpg", :category_id =>  9},
+  {:title => "Ukulele : initiation", :description => "Tu as la larme à l'oeil à chaque fois que tu entends Over the raimbow de israel kamakawiwo'ole ? Tu veux apprendre un instrument facile à transporter et qui animera tes longues soirées d'hiver ? Je suis la pour t'apprendre toutes les bases du Ukulele avec des morceaux accessibles et adpatés. Les plus grands virtuoses ont tous commencé quelque part. A ton tours de lancer !",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
+  {:title => "Les accords en Ukulele", :description => "Tu trouves le Ukulele dans les ziks de Cocoon tellement stylé ? Tu veux pouvoir t'accompagner ou accompagner des pots au chant pour les fin de soirée ? Ce cours est fait pour toi ! Nous verrons tous les accords mineures et majeurs de base, la posture et les positions des mains. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
 ]
 talents_constants_admin = []
 talents_constants.each_with_index do |talents_constant,i|
@@ -567,7 +508,7 @@ Talent.all.each do |talent|
   end
 end
 puts "========================================================="
-puts "APPOINTMENTS TOTAL : #{Appointment.count}"
+puts "APPOINTMENTS TOTAL          : #{Appointment.count}"
 puts "========================================================="
 
 
@@ -584,34 +525,115 @@ Talent.all.each do |talent|
   end
 end
 puts "========================================================="
-puts "BOOKMARK TOTAL : #{Bookmark.count}"
+puts "BOOKMARKS TOTAL              : #{Bookmark.count}"
 puts "========================================================="
 
 
 
 
 # --- REVIEWS ---
-comment_constant = [
-  "C'était chouette, je recommande ce mentor !",
-  "La séance d'essai m'a vraiment permi de découvrir un nouveau monde, Merci !!",
-  "Le temps est passé tellement vite... à quand un prochaine séance ?",
-  "Le mentor a pris le temps de bien m'expliquer. Dommage que ce soit payant !",
-  "Merci à mon mentor qui a assuré !",
-  "Pourquoi ne pas proposer plus de contenu dans les séances ?",
-  "J'ai adoré !",
-  "Le mentor m'a bien aidé !",
-  "Ca y est je suis lancé. Un grand merci !",
-  "Waaaw c'était génial !!",
-  "J'aurais aimé que cela dure plus longtemps ^^ !"
+comment_constants = [
+  {:comment => "C'était chouette, je recommande ce mentor !", :note => 4},
+  {:comment => "La séance d'essai m'a vraiment permi de découvrir un nouveau monde, Merci !!", :note => 5},
+  {:comment => "Le temps est passé tellement vite... à quand un prochaine séance ?", :note => 5},
+  {:comment => "Le mentor a pris le temps de bien m'expliquer. Dommage que ce soit payant !", :note => 2},
+  {:comment => "Merci à mon mentor qui a assuré !", :note => 4},
+  {:comment => "Pourquoi ne pas proposer plus de contenu dans les séances ?", :note => 3},
+  {:comment => "J'ai adoré !", :note => 5},
+  {:comment => "Le mentor m'a bien aidé !", :note => 4},
+  {:comment => "Ca y est je suis lancé. Un grand merci !", :note => 5},
+  {:comment => "Waaaw c'était génial !!", :note => 5},
+  {:comment => "J'aurais aimé que cela dure plus longtemps ^^ !", :note => 4},
+  {:comment => "Mon mentor m'a posé un lapin !", :note => 1},
+  {:comment => "Cette activité m'a beaucoup plu !", :note => 5},
+  {:comment => "Je me sens beaucoup plus à l'aise, merci !", :note => 5},
 ]
 past_appointments.each do |appointment|
+  current_comment = comment_constants.sample
   # PAST APPOINTMENTS
   Review.create(
                 appointment_id: appointment.id,
-                mark: rand(2..5),
-                comment: comment_constant.sample
+                mark: current_comment[:note],
+                comment: current_comment[:comment]
   )
 end
 puts "========================================================="
-puts "REVIEWS TOTAL : #{Review.count}"
+puts "REVIEWS TOTAL               : #{Review.count}"
 puts "========================================================="
+
+
+
+# --- MESSAGES ---
+messages_constants = [
+  {:question => "Bonjour je souhaiterais en savoir un peu plus. Peux-tu me renseigner ?", :answer => "Bonjour ! oui bien entendu dis moi ce que tu souhaites savoir :)"},
+  {:question => "Salut, je cherche une personne aguerri. Es-tu mon Homme ? :D", :answer => "Salut à toi ! J'ai plus de 10 ans d'expérience! Ca devrait faire l'affaire non ? ;)"},
+  {:question => "Bonjour ! ", :answer => "Bonjour, est ce que je peux te renseigner ?"},
+  {:question => "Salut ! ", :answer => "Salut, qu'est ce que je peux faire pour toi ?"},
+  {:question => "Salut ! J'ai un ami qui m'a parlé de ton talent. C'est pas trop dur à apprendre ?", :answer => "Bonjour, non on commence en douceur avec les basiques ne t'inquiète pas ! :)"},
+]
+Talent.all.each do |talent|
+  rand(1..3).times do
+    current_message = messages_constants.sample
+    current_apprentice = apprentice_users.sample
+    # APPRENTICE MESSAGE
+    Message.create(
+                  talent_id: talent.id,
+                  sender_id: current_apprentice.id,
+                  recipient_id: talent.user_id,
+                  content: current_message[:question]
+    )
+    # MENTOR MESSAGE
+    Message.create(
+      talent_id: talent.id,
+      sender_id: talent.user_id,
+      recipient_id: current_apprentice.id,
+      content: current_message[:answer]
+    )
+  end
+end
+puts "========================================================="
+puts "MESSAGES TOTAL               : #{Message.count}"
+puts "========================================================="
+
+puts " "
+puts " "
+puts " "
+puts " "
+puts " "
+puts "*********************************************************"
+puts "*********************************************************"
+puts "**                       SEED                          **"
+puts "*********************************************************"
+puts "*********************************************************"
+puts "========================================================="
+puts "PLACES PARIS APPRENTICE     :#{apprentice_places.count}/50"
+puts "PLACES PARIS MENTOR         :#{mentor_places.count}/40"
+puts "PLACES PARIS ADMINS         :#{admin_places.count}/6"
+puts "---------------------------------------------------------"
+puts "PLACES TOTAL                : #{Place.count}/96"
+puts "========================================================="
+puts "USERS APPRENTICE            : #{apprentice_users.count}/50"
+puts "USERS MENTOR                : #{mentor_users.count}/40"
+puts "USERS ADMIN                 : #{admin_users.count}/6"
+puts "---------------------------------------------------------"
+puts "USERS TOTAL                 : #{User.count}/96"
+puts "========================================================="
+puts "CATEGORIES TOTAL            : #{Category.count}/9"
+puts "========================================================="
+puts "TALENTS MENTOR              : #{talents.count}/38"
+puts "TALENTS ADMIN               : #{talents_admin.count}/15"
+puts "---------------------------------------------------------"
+puts "TALENTS TOTAL               : #{Talent.count}/51"
+puts "J_TALENTS_CATEGORIES TOTAL  : #{JoinTableTalentCategory.count}/51"
+puts "========================================================="
+puts "APPOINTMENTS TOTAL          : #{Appointment.count}"
+puts "========================================================="
+puts "BOOKMARKS TOTAL             : #{Bookmark.count}"
+puts "========================================================="
+puts "REVIEWS TOTAL               : #{Review.count}"
+puts "========================================================="
+puts "MESSAGES TOTAL              : #{Message.count}"
+puts "========================================================="
+puts "*********************************************************"
+puts "**TOTAL MODELS CREATED      : #{Place.count + User.count + Category.count + Talent.count + JoinTableTalentCategory.count + Appointment.count + Bookmark.count + Review.count + Message.count}"
+puts "*********************************************************"
