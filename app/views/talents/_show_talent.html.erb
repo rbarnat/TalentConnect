@@ -26,7 +26,10 @@
           </tr>
           <tr>
             <th scope="col">Catégorie:</th>
-            <td>à implanter</td>
+            <td><% @talent.categories.each do |category| %>
+                <%= category.title %><br>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th scope="col">Ville:</th>

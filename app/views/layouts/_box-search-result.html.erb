@@ -26,7 +26,7 @@
             
             function initMap(){
                 var options = {
-                    zoom:11,
+                    zoom:12,
                     center:{lat:48.8534,lng:2.3488}
                 }
                 // New map
@@ -38,7 +38,7 @@
                     map:map,
                     animation: google.maps.Animation.DROP,
                     id: id,
-                    icon: 'http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png'
+                    icon: "<%= asset_path 'maps-and-flags.png' %>"
                 })
                  // Add info window
                 var infoWindow = new google.maps.InfoWindow({
@@ -52,10 +52,10 @@
                 })
                   // Change the icon style
                  google.maps.event.addListener(marker, 'mouseover', function() {
-                marker.setIcon('http://localhost:3000/assets/placeholder-f81493e884c0c349248261acb25eaa2a906d06e58aa46c82ebaf9054f3f08ec7.png');
+                marker.setIcon("<%= asset_path 'placeholder.png' %>");
                 })
                 google.maps.event.addListener(marker, 'mouseout', function() {
-                marker.setIcon('http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png');
+                marker.setIcon("<%= asset_path 'maps-and-flags.png' %>");
                 })
                 marker.addListener("click", () => {
                 map.setZoom(15);
@@ -66,7 +66,7 @@
                   // Create one unique marker for each talent
                   <% id = 0 %>
                   <% @found_talents.each do |talent|%>
-                  var marker = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>}, "<%= talent.price%>", <%= id %>)
+                  var marker = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>},"<%= talent.price %> €", <%= id %>)
                   markers[<%= id %>]= marker
                   <% id = id+1%>
                   
@@ -92,11 +92,11 @@
                 
             }
             function changeMarkerOn(idmarker){
-              markers[idmarker].setIcon('http://localhost:3000/assets/placeholder-f81493e884c0c349248261acb25eaa2a906d06e58aa46c82ebaf9054f3f08ec7.png')
+              markers[idmarker].setIcon("<%= asset_path 'placeholder.png' %>")
               console.log(markers[idmarker])
             }
             function changeMarkerOff(idmarker){
-              markers[idmarker].setIcon('http://localhost:3000/assets/maps-and-flags-b5094032565f8f893184045c01df8eae4620018e1c00b6bf39fae6ac1fb7c2aa.png')
+              markers[idmarker].setIcon("<%= asset_path 'maps-and-flags.png' %>")
             }
             
 
