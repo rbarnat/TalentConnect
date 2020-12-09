@@ -301,6 +301,42 @@ a:hover {
 
 /*BUTTONS*/
 
+button.stripe-button-el,
+button.stripe-button-el>span {
+  color: #FFF !important;
+  background-color: #FF6666 !important;
+  border-color: #FF6666 !important;
+  border-radius: 1.8rem;
+  background-image: none;
+  text-shadow: none;
+  box-shadow: none;
+  border-width: 1px;
+  border-style: solid;
+}
+
+button.stripe-button-el:hover,
+button.stripe-button-el:hover>span {
+  color: #ff6666 !important;
+  background-color: #FFf !important;
+  border-color: #FF6666 !important;
+  border-radius: 1.8rem;
+  background-image: none;
+  text-shadow: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+
+button.stripe-button-el:focus,
+button.stripe-button-el:focus>span {
+  color: #fff !important;
+  background-color: #FF6666 !important;
+  border-color: #FF6666 !important;
+  border-radius: 1.8rem;
+  box-shadow: 0 0 0 0.2rem rgba(54, 206, 168, 0.25) !important;
+  background-image: none;
+}
+
 .btn {
   border-radius: 1.8rem;
 }
@@ -441,7 +477,7 @@ a:hover {
 
 .btn-outline-primary:focus,
 .btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(54, 206, 168, 0.25);
 }
 
 .btn-outline-primary.disabled,
@@ -699,6 +735,20 @@ textarea.form-control {
   background-color: #fff;
   background-clip: border-box;
   border: 0px solid rgba(0, 0, 0, 0.125);
+  box-shadow: #818182;
+  border-radius: 1.5rem;
+}
+
+.card-custom3 {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   box-shadow: #818182;
   border-radius: 1.5rem;
 }
