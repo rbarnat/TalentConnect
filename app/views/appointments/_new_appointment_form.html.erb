@@ -4,9 +4,9 @@
         <h4 class="m-4">Faire une demande de rendez-vous:</h4>
         <div class="field">
           <%= form.label :start_time%><br>
-          <%= form.datetime_select :start_time, { ampm: true, order: [:day, :month, :year] }, { class: "custom-select mb-1" } %><br>
+          <%= form.datetime_select :start_time, {:prompt => {day: 'Choisir jour', month: 'Choisir mois', year: 'Choisir année', hour: 'choisir heure', minute: 'choisir minute'}, 
+          :start_year => Date.current.year, :datetime_separator => ""}, {:class => 'custom-select mb-3 col-md-3'}%><br>
         </div>
-
     <div class="actions text-center p-3">
       <%= form.submit "Envoyer la demande", class: "btn btn-primary" %>
     </div><br>

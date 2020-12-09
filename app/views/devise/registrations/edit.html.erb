@@ -95,8 +95,15 @@
             <%else%>
               <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle") %>
             <%end%>
-            <div class="field">
-              <%= f.file_field :avatar, class: "mt-1 " %>
+            <!-- Photos -->
+            <div>
+              <br>
+              <label class="btn btn-secondary ">
+                  Choisir une photo
+                  <span style="display:none;">
+                    <%= f.file_field :avatar %>
+                  </span>
+              </label>
             </div>
           </div>
 
