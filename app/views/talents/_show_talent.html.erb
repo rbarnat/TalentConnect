@@ -50,13 +50,27 @@
   </div>
 </div>
 
-<% @reviewed_appointments.sort.each do |appointment| %>
-    <tr class="table">
-      <th scope="row"><%= appointment.apprentice.first_name %> a laissé une évaluation sur ce talent:</th>
-      <br>
-      <td>Note: <%= appointment.review.mark %>/5</td>
-      <br>
-      <td>Commentaire: <%= appointment.review.comment %></td>
-      <hr>
-    </tr>
-<% end %>
+<div class="container">
+ 
+<p class="text-center">
+  <a class="btn btn-outline-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Voir les commentaires</a>
+</p>
+    <% @reviewed_appointments.sort.each do |appointment| %>
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card card-custom3 max-width-45 mx-auto mb-3 p-4">
+            <div class="row">
+              <div class="col-10">
+                <%= appointment.apprentice.first_name %> a laissé une évaluation sur ce talent:<hr>
+                <strong><u>Commentaire: </u></strong><%= appointment.review.comment %></td>
+              </div>
+              <div class="col-2 m-auto pr-4 text-center">
+                Note<h5 class="text-primary"> <%= appointment.review.mark %>/5</h5>              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
