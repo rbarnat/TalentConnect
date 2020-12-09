@@ -908,3 +908,9 @@ video {
 .black-background {
   background-color: rgba(3, 3, 3, 0.2)
 }
+
+#map {
+  position: fixed;
+  height: 600px;
+  width: 70%;
+}
