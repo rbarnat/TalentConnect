@@ -923,13 +923,11 @@ a.text-primary:focus {
   background-size: cover;
 } */
 
-.jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
+#carouselExampleIndicators {
   margin-bottom: 30px;
   color: inherit;
   background-color: #eee;
-  height: 450px;
+  height: 520px;
   overflow: hidden;
   position: relative;
   align-items: center;
@@ -967,7 +965,7 @@ video {
 }
 
 .video-container {
-  position: relative;
+  position: absolute;
 }
 
 .text-field-transparent {
@@ -992,4 +990,18 @@ video {
 
 .display-none {
   display: none;
+}
+
+@media (min-width: 900px) {
+  .simple-navbar {
+    display: none;
+  }
+
+
+}
+
+@media (max-width: 900px) {
+  .fancy-navbar {
+    display: none;
+  }
 }

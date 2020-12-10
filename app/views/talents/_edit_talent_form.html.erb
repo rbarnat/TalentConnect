@@ -33,7 +33,7 @@
           <!-- Duration -->
           <div class="field">
             <%= form.label :duration, 'Durée en heure' %>
-            <%= form.select :duration, options_for_select((0.5..8).step(0.5).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
+            <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
           </div>
         </div>
         <div class="col">

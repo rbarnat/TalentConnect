@@ -400,7 +400,7 @@ talents_constants.each_with_index do |talent,i|
                             user_id: mentor_users[i].id,
                             title: talent[:title],
                             description: talent[:description],
-                            duration: Faker::Number.between(from: 60, to: 240),  
+                            duration: rand(1..8)*60,  
                             place_id: mentor_users[i].id,
                             price: Faker::Number.between(from: 1, to: 30)
                             )
@@ -427,7 +427,7 @@ talents_constants_admin.each_with_index do |talent,i|
                             user_id: admin_user.id,
                             title: talent[:title],
                             description: Faker::Lorem.paragraph(sentence_count: 2),  #talent[:description],
-                            duration: Faker::Number.between(from: 60, to: 240),  
+                            duration: rand(1..8)*60,  
                             place_id: admin_user.id,
                             price: Faker::Number.between(from: 1, to: 30)
                             )
@@ -458,11 +458,16 @@ puts "========================================================="
 
 # --- APPOINTMENTS ---
 past_appointments = []
+user_validate_appointments = []
+mentor_validate_appointments = []
+paid_appointments = []
 Talent.all.each do |talent|
   # PAST APPOINTMENTS
   rand(1..5).times do
+    faker_time = Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     past_appointments << Appointment.create(
-                  start_time: Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day),
+                  start_time: start_time,
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -473,8 +478,10 @@ Talent.all.each do |talent|
   end
   # USER VALIDATE APPOINTMENTS
   rand(1..3).times do
-    Appointment.create(
-                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day),
+    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
+    user_validate_appointments << Appointment.create(
+                  start_time: start_time,
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -485,8 +492,10 @@ Talent.all.each do |talent|
   end
   # MENTOR VALIDATE APPOINTMENTS
   rand(1..3).times do
-    Appointment.create(
-                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
+    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
+    mentor_validate_appointments << Appointment.create(
+                  start_time: start_time,
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -497,8 +506,10 @@ Talent.all.each do |talent|
   end
   # PAID APPOINTMENTS
   rand(1..3).times do
-    Appointment.create(
-                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
+    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
+    paid_appointments << Appointment.create(
+                  start_time: start_time,
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -509,6 +520,11 @@ Talent.all.each do |talent|
   end
 end
 puts "========================================================="
+puts "PAST APPOINTMENTS           : #{past_appointments.count}"
+puts "USER VALIDATE APPOINTMENTS  : #{user_validate_appointments.count}"
+puts "MENTOR VALIDATE APPOINTMENTS: #{mentor_validate_appointments.count}"
+puts "PAID APPOINTMENTS           : #{paid_appointments.count}"
+puts "---------------------------------------------------------"
 puts "APPOINTMENTS TOTAL          : #{Appointment.count}"
 puts "========================================================="
 
@@ -627,6 +643,11 @@ puts "---------------------------------------------------------"
 puts "TALENTS TOTAL               : #{Talent.count}/53"
 puts "J_TALENTS_CATEGORIES TOTAL  : #{JoinTableTalentCategory.count}/53"
 puts "========================================================="
+puts "PAST APPOINTMENTS           : #{past_appointments.count}"
+puts "USER VALIDATE APPOINTMENTS  : #{user_validate_appointments.count}"
+puts "MENTOR VALIDATE APPOINTMENTS: #{mentor_validate_appointments.count}"
+puts "PAID APPOINTMENTS           : #{paid_appointments.count}"
+puts "---------------------------------------------------------"
 puts "APPOINTMENTS TOTAL          : #{Appointment.count}"
 puts "========================================================="
 puts "BOOKMARKS TOTAL             : #{Bookmark.count}"
