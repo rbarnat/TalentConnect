@@ -235,6 +235,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simple_calendar (2.4.1)
+      rails (>= 3.0)
     solargraph (0.39.17)
       backport (~> 1.1)
       benchmark
@@ -315,6 +317,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_calendar (~> 2.0)
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)
