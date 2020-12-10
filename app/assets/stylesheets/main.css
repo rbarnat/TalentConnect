@@ -750,6 +750,14 @@ button.stripe-button-el:focus>span {
   max-width: 22rem;
 }
 
+.max-width-28 {
+  max-width: 28rem;
+}
+
+.max-width-36 {
+  max-width: 36rem;
+}
+
 .max-width-15 {
   max-width: 15rem;
 }
