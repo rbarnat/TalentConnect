@@ -75,10 +75,10 @@
         <h5>À propos de nous</h5>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="/about">Èquipe</a>
+            <%= link_to "   Equipe", about_path %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Contacte-nous</a>
+            <%= link_to "   Contacte-nous", contact_path %>
           </li>
         </ul>
       </div> 
@@ -86,13 +86,13 @@
         <h5>Liens pratiques du site</h5>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="/home">Accueil</a>
+            <%= link_to "   Accueil", home_path %>
           </li>
         </ul>
       </div>
-      <div class="col-6 col-lg-3 col-xl-6">
+      <div class="col-6 col-lg-6 col-xl-6">
         <h5>Pourquoi utiliser TalentConnect ?</h5>
-        <ul class="list-unstyled" style="margin-top:17px">
+        <ul class="list-unstyled">
           <li class="mb-3 d-flex">
             <div class="ml-3">
               <span>
