@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def redirect_if_user_not_current_user
     if !is_user_current_user?
-      flash[:error] = "Tu n'as pas l'autisation de gérer ce profil."
+      flash[:error] = "Tu n'as pas l'autorisation de gérer ce profil."
       redirect_to root_path
     end
   end
