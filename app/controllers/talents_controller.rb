@@ -21,6 +21,8 @@ class TalentsController < ApplicationController
 
   def show
     @reviewed_appointments = Appointment.where(talent_id: set_talent).joins(:review)
+    @converted_price = set_talent.price.to_i
+    @converted_duration = "#{set_talent.duration/60}h #{set_talent.duration % 60}min"
   end
 
   def new
