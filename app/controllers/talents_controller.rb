@@ -1,12 +1,13 @@
 class TalentsController < ApplicationController
   # Before starting anything import helper and do do some checks
-  include TalentsHelper, PlacesHelper
+  include TalentsHelper, PlacesHelper, CategoriesHelper
   before_action :authenticate_user!, :user_have_info?, only: [:new, :edit]
   before_action :is_current_user_talent?, only: [:edit]
   before_action :set_talent, only: [:show, :edit, :update, :destroy] 
   # Call a helper with an arguement in it
   before_action only: [:edit, :update] do 
     set_place(set_talent)
+    set_joint_table_talent_category(set_talent)
   end
 
   def index
@@ -36,6 +37,9 @@ class TalentsController < ApplicationController
     @talent.user_id = current_user.id
     @talent.place_id = @place.id
     @talent.save
+    @joint_table_talent_category = JoinTableTalentCategory.create(category_params)
+    @joint_table_talent_category.talent_id = @talent.id
+    @joint_table_talent_category.save
     # If talent is created confirm and show it, else show new form
     if @talent.save
       flash[:success] = "Bravo, tu as créé un nouveau talent!"
@@ -48,6 +52,7 @@ class TalentsController < ApplicationController
 
   def update
     @place.update(place_params)
+    @joint_table_talent_category.update(category_params)
     if @talent.update(talent_params)
       flash[:success] = "Tu as mis à jour les informations de ton talent"
       redirect_to talent_path(@talent)
@@ -73,6 +78,11 @@ class TalentsController < ApplicationController
   # Allow place nested form attribute to pass
   def place_params
     params.require(:place).permit(:address, :zip_code, :city_name, :longitude, :latitude)
+  end
+
+  # Allow place nested form attribute to pass
+  def category_params
+    params.require(:JoinTableTalentCategory).permit(:category_id)
   end
 
   # find the talent using the id
