@@ -19,6 +19,14 @@ class TalentsController < ApplicationController
 
   def show
     @reviewed_appointments = Appointment.where(talent_id: set_talent).joins(:review)
+
+    # AGENDA
+    @duration_hour = (set_talent.duration / 60).round
+    paid_appointments_as_mentor = Appointment.where(mentor_id: set_talent.user_id, is_mentor_validate: true, is_paid: true) 
+    mentor_validate_appointments_as_mentor = Appointment.where(mentor_id: set_talent.user_id, is_mentor_validate: true, is_paid: false)
+    paid_appointments_as_apprentice = Appointment.where(apprentice_id: set_talent.user_id, is_mentor_validate: true, is_paid: true)
+    mentor_validate_appointments_as_apprentice = Appointment.where(apprentice_id: set_talent.user_id, is_mentor_validate: true, is_paid: false)
+    @user_agenda = paid_appointments_as_mentor || mentor_validate_appointments_as_mentor || paid_appointments_as_apprentice || mentor_validate_appointments_as_apprentice
   end
 
   def new
