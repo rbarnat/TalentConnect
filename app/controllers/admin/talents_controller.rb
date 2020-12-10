@@ -2,6 +2,8 @@ class Admin::TalentsController < ApplicationController
     
     def index
         @talents = Talent.all
+        @appointments = Appointment.all
+        @users = User.all
     end
 
     def edit
