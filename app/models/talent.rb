@@ -8,8 +8,8 @@ has_many :appointments
 has_many :bookmarks
 has_many :messages
 # A talent can have many categories
-has_many :JoinTableTalentCategory
-has_many :categories, through: :JoinTableTalentCategory
+has_many :JoinTableTalentCategory, dependent: :destroy
+has_many :categories, through: :JoinTableTalentCategory, dependent: :destroy
 
 # Default picture
 after_commit :add_default_picture, on: %i[create update]

@@ -93,10 +93,22 @@
     </div>
 
   </div>
-  
+  <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row">
+    <h5>Description: </h5>
+    <p><%= @talent.description %></p>
+  </div>
+  <div class="text-center">
+    <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+  </div>
+  <% if is_current_user_admin? %>
+  <div class="text-center">
+    <%= link_to "Modifier le talent", edit_admin_talent_path(id: @talent.id),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+  </div>
+  <div class="text-center">
+    <%= link_to "Supprimer", admin_talent_path(@talent), method: "delete", class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+  </div>
+  <% end %>
 </div>
-
-
 
   <div class="row">
     <div class="col-sm-8">

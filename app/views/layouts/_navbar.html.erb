@@ -109,7 +109,7 @@
               <a href="<%= mentor_show_user_path(current_user.id) %>" class="dropdown-item link-green">Mon espace mentor</a>
               <div class="dropdown-divider"></div>
               <% if is_current_user_admin? %>
-                <a href="#" class="dropdown-item link-green">Mon espace ADMIN</a>
+                <a href="<%= admin_talents_path%>" class="dropdown-item link-green">Mon espace ADMIN</a>
                 <div class="dropdown-divider"></div>
               <%end%>
               <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="dropdown-item link-green">Déconnexion</a>
