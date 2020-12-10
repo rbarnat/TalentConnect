@@ -1,7 +1,9 @@
 class AppointmentsController < ApplicationController
+  include AppointmentHelper
   # Before executing certain methods we find the right appointment to operate on
   before_action :set_appointment, only: [:show, :destroy, :update]
   before_action :authenticate_user!
+  before_action :is_user_both_apprentice_and_mentor?
 
   def index
     @appointments = Appointment.all
@@ -41,11 +43,15 @@ class AppointmentsController < ApplicationController
   
   def update
     @appointment.update(appointment_params_update)
+    if @appointment.is_mentor_validate
+      validation_by_mentor_send(@appointment)
+    end
     redirect_to mentor_show_user_path(current_user.id)
   end
 
   def destroy
     @appointment.destroy
+    appointment_rejected_send(@appointment)
     redirect_to mentor_show_user_path(current_user.id)
   end
   
@@ -63,4 +69,13 @@ class AppointmentsController < ApplicationController
   def appointment_params_update
     params.permit(:is_mentor_validate)
   end
+
+  def validation_by_mentor_send(appointment)
+    UserMailer.validation_by_mentor_confirmation(appointment).deliver_now
+  end
+
+  def appointment_rejected_send(appointment)
+    UserMailer.appointment_rejected_confirmation(appointment).deliver_now
+  end
+
 end
