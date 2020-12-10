@@ -32,11 +32,22 @@
         <div class="col">
           <!-- Duration -->
           <div class="field">
-            <%= form.label :duration, 'Durée de la scéance en heure' %>
+            <%= form.label :duration, 'Durée en heure' %>
             <%= form.select :duration, options_for_select((0.5..8).step(0.5).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
           </div>
         </div>
+        <div class="col">
+          <!-- Category nested form -->
+          <div class="field">
+            <%= fields_for :JoinTableTalentCategory do |category_form| %>
+                <%= category_form.label :category_id, 'Catégorie' %>
+                <%= category_form.collection_select :category_id, get_categories, :id, :title, { }, { class: "custom-select custom-select mb-3"} %>    
+            <% end %>
+          </div>
+        </div>
       </div>
+
+
 
       <hr>
       <!-- Place nested form -->

@@ -35,14 +35,15 @@ class AppointmentsController < ApplicationController
   
   def update
     @appointment.update(appointment_params_update)
-    if appointment.is_mentor_validate
-      validation_by_mentor_send(appointment)
+    if @appointment.is_mentor_validate
+      validation_by_mentor_send(@appointment)
     end
     redirect_to mentor_show_user_path(current_user.id)
   end
 
   def destroy
     @appointment.destroy
+    appointment_rejected_send(@appointment)
     redirect_to mentor_show_user_path(current_user.id)
   end
   
@@ -63,6 +64,10 @@ class AppointmentsController < ApplicationController
 
   def validation_by_mentor_send(appointment)
     UserMailer.validation_by_mentor_confirmation(appointment).deliver_now
+  end
+
+  def appointment_rejected_send(appointment)
+    UserMailer.appointment_rejected_confirmation(appointment).deliver_now
   end
 
 end

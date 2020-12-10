@@ -1,0 +1,20 @@
+Demande de réservation de séance rejetée par mentor sur TalentConnect !
+=======================================================================
+
+Salut <%= @appointment.apprentice.first_name %>,
+
+Des imprévus, cela arrive, même à nos mentors! En conséquence de quoi, nous te confirmons que ta demande de réservation de talent effectuée le <%= @appointment.created_at.strftime("%d/%m/%Y à %k:%M") %> a malheureusement été rejetée par ton mentor.
+
+Telles en étaient les grandes lignes:
+
+Séance intitulée : <%= @appointment.talent.title %>
+Animée par le mentor : <%= @appointment.mentor.first_name %> <%= @appointment.mentor.last_name %>
+Prévue pour se tenir le : <%= @appointment.start_time %>
+Montant à régler : <%= @amount %> €
+
+Nous t'invitons à proposer un nouveau créneau à ce mentor, ou consulter les autres talents disponibles pour faire une nouvelle réservation, en te connectant sur ton espace client.
+Pour y accéder, connecte-toi via : <%= link_to "Me connecter", @urlLogin %> .
+
+À très vite au sein de la communauté de partage de talents ! 
+
+L'équipe de Talent Connect
