@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   
   # HOME PAGE
   root to: "static_pages#home"
+  # ADMIN ROUTES
+  namespace :admin do
+    resources :talents, only: [:index, :edit, :destroy]
+  end
   # USERS AND PROFILE PAGES
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: [:index, :show]
