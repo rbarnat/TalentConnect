@@ -8,21 +8,21 @@
           <div class="row">
             <% case type %>
               <% when "past" %>
-                <%= link_to model.title, talent_path(model), class: "h5" %>
+                <%= link_to model.title, talent_path(model), class: "p" %>
                 <p class="ml-2 text-secondary">avec <span class="text-primary"><%= model.user.first_name %></span></p>
               <% when "mentor"%>
                 <%= link_to model.title, talent_path(model), class: "h5" %>
               <% else %>
-                <%= link_to model.title, talent_path(model), class: "h5" %>
+                <%= link_to model.title, talent_path(model), class: "p" %>
                 <p class="ml-2">avec <span class="text-primary"><%= model.user.first_name %></span></p>
             <% end %>
-          </div>
           <% case type %>
             <% when "past" %>
-              <p class="card-text text-secondary"><%= model.description %></p>
+              <p class="card-text text-secondary text-truncate"><%= model.description %></p>
             <% else %>
-              <p class="card-text"><%= model.description %></p>
+              <p class="card-text text-truncate"><%= model.description %></p>
           <% end %>
+          </div>
           
         </div>
       </div>
