@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row">
     <h3 class=""><%= @talent.title %></h3>
-    <p class="ml-3 pt-2">proposé par: <a href="#"><%= @talent.user.first_name %></a></p>
+    <p class="ml-3 pt-2">proposé par : <div class="text-primary ml-2 pt-2"><%= @talent.user.first_name %></div></p>
   </div>
 
   <div class="row">
@@ -14,6 +14,38 @@
           <p>aucune photo de ce talent</p>
         <%end%>
       </div>
+
+      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row">
+        <h5>Description: </h5>
+        <p><%= @talent.description %></p>
+      </div>
+
+      <div class="text-center">
+        <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+      </div>
+      <p class="text-center">
+        <a class="btn btn-outline-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Voir les commentaires</a>
+      </p>
+      <div class="container">
+
+          <% @reviewed_appointments.sort.each do |appointment| %>
+            <div class="col">
+              <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-custom3 max-width-45 mx-auto mb-3 p-4">
+                  <div class="row">
+                    <div class="col-10">
+                      <%= appointment.apprentice.first_name %> a laissé une évaluation sur ce talent:<hr>
+                      <strong><u>Commentaire: </u></strong><%= appointment.review.comment %></td>
+                    </div>
+                    <div class="col-2 m-auto pr-4 text-center">
+                      Note<h5 class="text-primary"> <%= appointment.review.mark %>/5</h5>              
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+      </div>
     </div>
 
     <div class="col-sm-4">
@@ -22,11 +54,14 @@
         <tbody>
           <tr>
             <th scope="row">Note:</th>
-            <td>à implanter</td>
+            <td><%= global_mark(@reviewed_appointments) %></td>
           </tr>
           <tr>
             <th scope="col">Catégorie:</th>
-            <td>à implanter</td>
+            <td><% @talent.categories.each do |category| %>
+                <%= category.title %><br>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th scope="col">Ville:</th>
@@ -34,10 +69,27 @@
           </tr>
           <tr>
             <th scope="col">Prix:</th>
-            <td><%= @talent.price %> €</td>
+            <td><%= @converted_price %> €</td>
+          </tr>
+          <tr>
+            <th scope="col">Durée de la scéance:</th>
+            <td><%= @converted_duration %></td>
           </tr>
         </tbody>
       </table>
+      <div class="container">
+        <%= month_calendar events: @user_agenda, day_names: "date.day_names",table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}  do |date, user_agenda| %>
+          <strong> <%= date.strftime("%d") %></strong> 
+          <% (8..20).each do |hour| %>
+            <% if @user_agenda.where("start_time > ? AND start_time <= ?", DateTime.new(date.year, date.month, date.day, hour), DateTime.new(date.year, date.month, date.day, hour + @duration_hour) ).any? %>
+              <div class="btn btn-sm btn-danger">
+                <strike><%= "#{hour}h" %></strike>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
 
   </div>
@@ -48,4 +100,17 @@
   <div class="text-center">
     <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
   </div>
+  <% if is_current_user_admin? %>
+  <div class="text-center">
+    <%= link_to "Modifier le talent", edit_admin_talent_path(id: @talent.id),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+  </div>
+  <div class="text-center">
+    <%= link_to "Supprimer", admin_talent_path(@talent), method: "delete", class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+  </div>
+  <% end %>
 </div>
+
+  <div class="row">
+    <div class="col-sm-8">
+    </div>
+    </div>

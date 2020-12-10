@@ -1,31 +1,31 @@
 <% flash.each do |type, msg| %>
   <% if type == "alert" %>
-    <div class="alert alert-dismissible alert-warning mt-1">
+    <div class="alert alert-dismissible alert-warning mb-0">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <p class="mb-0"><%= alert %></p>
     </div>
   <% elsif type == "notice" %>
-    <div class="alert alert-dismissible alert-info mt-1">
+    <div class="alert alert-dismissible alert-info mb-0">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <p class="mb-0"><%= notice %></p>
     </div>
   <% elsif type == "success" %>
-    <div class="alert alert-dismissible alert-success mt-1">
+    <div class="alert alert-dismissible alert-success mb-0">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <p class="mb-0"><%= success %></p>
     </div>
   <% elsif type == "danger" %>
-  <div class="alert alert-dismissible alert-danger mt-1">
+  <div class="alert alert-dismissible alert-danger mb-0">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <p class="mb-0"><%= danger %></p>
   </div>
   <% elsif type == "info" %>
-  <div class="alert alert-dismissible alert-primary mt-1">
+  <div class="alert alert-dismissible alert-primary mb-0">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <p class="mb-0"><%= info %></p>
   </div>
   <% else %>
-    <div class="alert alert-dismissible alert-secondary mt-1">
+    <div class="alert alert-dismissible alert-secondary mb-0">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <p class="mb-0">Ce type de message n'est pas paramétré type : <% type %></p>
     </div>

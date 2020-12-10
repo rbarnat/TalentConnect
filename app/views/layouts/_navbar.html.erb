@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg navbar-primary bg-primary mb-3">
+ <nav class="navbar navbar-expand-lg navbar-primary sticky-top bg-primary">
     <!-- LOGO -->
     <a class="navbar-brand" href="<%=root_path%>">
       <i class="fab fa-slideshare fa-2x mr-1 text-white"></i>
@@ -72,6 +72,11 @@
           <a class="nav-link" href="<%=home_path%>">Accueil</a>
         </li>
 
+        <!-- TALENTS INDEX -->
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= talents_path %>">Explorer</a>
+        </li>
+
         <!-- ABOUT -->
         <li class="nav-item">
           <a class="nav-link" href="<%=about_path%>">À propos</a>
@@ -93,11 +98,7 @@
       <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle btn btn-outline-light " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%if current_user.avatar.attached?%>
-                <%= image_tag current_user.avatar, alt: 'avatar', class: "avatar-img rounded-circle max-width-1" %>
-              <%else%>
-                <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle") %>
-              <%end%>
+              <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle max-width-1") %>
               Mon espace
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -108,7 +109,7 @@
               <a href="<%= mentor_show_user_path(current_user.id) %>" class="dropdown-item link-green">Mon espace mentor</a>
               <div class="dropdown-divider"></div>
               <% if is_current_user_admin? %>
-                <a href="#" class="dropdown-item link-green">Mon espace ADMIN</a>
+                <a href="<%= admin_talents_path%>" class="dropdown-item link-green">Mon espace ADMIN</a>
                 <div class="dropdown-divider"></div>
               <%end%>
               <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="dropdown-item link-green">Déconnexion</a>

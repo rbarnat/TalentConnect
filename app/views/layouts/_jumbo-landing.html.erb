@@ -1,11 +1,49 @@
-<div class="jumbotron">
-    <video autoplay="" muted="" loop="">
-    <source src="https://vod-progressive.akamaized.net/exp=1607433729~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1086%2F17%2F430432875%2F1870283989.mp4~hmac=77ee012d5f84fa914b55dbdfd51ed14d268b0becdf3d1349aff4595e70f923fd/vimeo-prod-skyfire-std-us/01/1086/17/430432875/1870283989.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>
-    <div class="video-container">
-        <h5 class="max-width-45 text-center p-1 rounded text-white">Trouve un mentor pour apprendre de nouvelles compétences en peer-learning, puis enseigne à ton tour ces compétences à un apprenti ! </h5>
-        <br><br><br><br><br><br><br>
-        <%= render partial: 'layouts/searchform' %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="embed-responsive embed-responsive-16by9">
+        <video class="d-block w-100" src="https://storage.coverr.co/videos/6QUXuEZ9aqgqzoaljfjjmbU7flCejAmx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA3NjA0OTU1fQ.kfUwNgz7uWoVTr78otkO_8izt4OldcbKh3KF2V6Hed8" type="video/mp4" autoplay="" muted="" loop="" alt="Second slide">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="embed-responsive embed-responsive-16by9">
+        <video class="d-block w-100" src="https://storage.coverr.co/videos/1di9RQ7cmcFzQqixD02TjDrson5YlqEAB?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA3NDY0Mjc2fQ.fHpBsI6j4uLNaLvvKqggU9frbZ8e5-CZLoQSTmldZKM" type="video/mp4" autoplay="" muted="" loop="" alt="Third slide">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="embed-responsive embed-responsive-16by9">
+        <video class="d-block w-100 h-70" src="https://storage.coverr.co/videos/svj2xevK5IbDImnP4029bVuqaWpsrn601L?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA3NjA0OTc1fQ.98Ppk8cWW52QccXl5wOPqHNVdH0aQOVUjnVfDSdDjXE" type="video/mp4" autoplay="" muted="" loop="" alt="Fourth slide">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="embed-responsive embed-responsive-16by9">
+        <video class="d-block w-100" src="https://storage.coverr.co/videos/ULu4xAiREBE8ltxosq5GHxXmhPNXRlGY?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA3NjA1NjA3fQ.sMQneQ3Yh26NNMzPT4Z1cFr_gtiuaXr2O-J7VCY8pWI" type="video/mp4" autoplay="" muted="" loop="" alt="First slide">
+      </div>
+    </div>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+    <div class="video-container"><br><br><br><br><br><br><br><br>
+        <h4 class="max-width-40 text-center p-1 rounded text-white black-background">Découvre de nouveaux talents avec un mentor ou transmet ta passion! </h4>
     </div>
 </div>
+
+<!--<div class="d-flex justify-content-center">
+   <%= render partial: 'layouts/searchform-sentence' %>
+</div>-->

@@ -1,78 +1,107 @@
  <script defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
   </script>
+<div class="container">
+  <div class=" card card-custom2 shadow max-width-45 p-4 m-auto">
+    <div class="p-2">
+      <h4 class="text-primary text-center"><u>Bienvenue sur la page de création de talent :</u></h4>
+      <h4 class="text-center"> <%=@talent.title%></h4><br>
+    </div>
+    <%= form_with model: @talent, local: true, multipart: true do |form| %>
 
-<%= form_with model: @talent, local: true, multipart: true do |form| %>
+      <!-- title -->
+      <div class="field">
+        <%= form.label :title, 'Titre' %>
+        <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ton talent. (140 caractères maximum)." %>
+      </div>
 
-  <!-- title -->
-  <div class="field">
-    <%= form.label :title, 'Titre' %>
-    <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ton talent. (140 caractères maximum)." %>
-  </div>
+      <!-- Description -->
+      <div class="field">
+        <%= form.label :description, 'Description' %>
+        <%= form.text_area :description, class: "form-control", placeholder: "Décris ton talent. (1000 caractères maximum)." %>
+      </div><br>
 
-  <!-- Description -->
-  <div class="field">
-    <%= form.label :description, 'Description' %>
-    <%= form.text_area :description, class: "form-control", placeholder: "Décris ton talent. (1000 caractères maximum)." %>
-  </div>
+      <div class="row">
+        <div class="col">
+          <!-- Price -->
+          <div class="field">
+            <%= form.label :price, 'Prix en euros' %>
+            <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Duration -->
+          <div class="field">
+            <%= form.label :duration, 'Durée en heure' %>
+            <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Category nested form -->
+          <div class="field">
+            <%= fields_for :JoinTableTalentCategory do |category_form| %>
+                <%= category_form.label :category_id, 'Catégorie' %>
+                <%= category_form.collection_select :category_id, get_categories, :id, :title, { }, { class: "custom-select custom-select mb-3"} %>    
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <!-- Price -->
-  <div class="field">
-    <%= form.label :price, 'Prix en euros' %>
-    <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
-  </div>
+      <hr>
+      <!-- Place nested form -->
+      <div class="field">
+        <%= fields_for :place do |place_form| %>
+            <%= place_form.label :address, 'Adresse' %>
+            <%= place_form.text_field :address, class: "form-control" %>
+        <% end %>
+      </div>
 
-  <!-- Duration -->
-  <div class="field">
-    <%= form.label :duration, 'Durée de la scéance en heure' %>
-    <%= form.select :duration, options_for_select((0.5..8).step(0.5).map{ |n| n % 1 == 0 ? n.to_i : n }) %>
-  </div>
+      <div class="field">
+        <%= fields_for :place do |place_form| %>
+            <%= place_form.label :city_name, 'Ville' %>
+            <%= place_form.text_field :city_name, class: "form-control" %>
+        <% end %>
+      </div>
 
-  <!-- Place nested form -->
-  <div class="field">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.label :address, 'Adresse' %>
-        <%= place_form.text_field :address %>
+      
+      <div class="field">
+        <%= fields_for :place do |place_form| %>
+            <%= place_form.label :zip_code, 'Code postal' %>
+            <%= place_form.text_field :zip_code, class: "form-control" %>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= fields_for :place do |place_form| %>
+            <%= place_form.hidden_field :latitude %>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= fields_for :place do |place_form| %>
+            <%= place_form.hidden_field :longitude %>
+        <% end %>
+      </div>
+
+      <hr>
+      <!-- Photos -->
+      <div class="actions text-center p-3">
+        <label>Photo</label>
+        <br>
+        <label class="btn btn-secondary ">
+            Choisir une photo
+            <span class="display-none">
+              <%= form.file_field :picture %>
+            </span>
+        </label>
+      </div>
+
+    <div class="actions text-center p-3">
+      <%= form.submit "Créer le talent", class: "btn btn-primary" %>
+    </div>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.label :city_name, 'Ville' %>
-        <%= place_form.text_field :city_name %>
-    <% end %>
-  </div>
-
-  
-  <div class="field">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.label :zip_code, 'Code postal' %>
-        <%= place_form.text_field :zip_code %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.hidden_field :latitude %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= fields_for :place do |place_form| %>
-        <%= place_form.hidden_field :longitude %>
-    <% end %>
-  </div>
-
-  <!-- Photos -->
-  <div class="field">
-    <%= form.label 'Photos' %>
-    <%= form.file_field :picture %>
-  </div>
-
-<div class="actions">
-  <%= form.submit %>
 </div>
-<% end %>
   <!-- AUTO COMPLETE -->
 
 <script>

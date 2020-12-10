@@ -1,0 +1,20 @@
+Nouvelle demande de réservation de séance sur Talent Connect !
+==============================================================
+
+Salut <%= @appointment.mentor.first_name %>,
+
+Cet email pour te confirmer qu'une nouvelle demande de réservation de talent a été effectuée le <%= @appointment.created_at.strftime("%d/%m/%Y à %k:%M") %> a bien été enregistrée.
+
+En voilà les grandes lignes:
+
+Séance intitulée : <%= @appointment.talent.title %>
+Demande de réservation lancée par l'apprenti : <%= @appointment.apprentice.first_name %> <%= @appointment.apprentice.last_name %><br>
+Proposée pour se tenir le : <%= @appointment.start_time %><br>
+
+Merci de la passer en revue, et de confirmer ta réponse au plus vite, car ton apprenti attend ta réponse avec impatience!
+Nous te rappelons que tu peux retrouver toutes les informations relatives à tes talents sur ton profil, au sein de ton espace client.<br>
+Pour y accéder, connecte-toi via : <%= @urlLogin %> .
+
+À très vite au sein de la communauté de partage de talents ! 
+
+L'équipe de Talent Connect

@@ -1,0 +1,22 @@
+Confirmation de paiement pour une séance sur Talent Connect !
+=============================================================
+
+Salut <%= @appointment.apprentice.first_name %>,
+
+Cet email pour te confirmer que le règlement que tu viens d'effectuer pour la réservation d'un talent a bien été pris en compte.
+Toute l'équipe de Talent Connect te remercie !
+
+En voilà les grandes lignes:
+
+Montant du règlement : <%= @amount %> €
+Pour une séance intitulée : <%= @appointment.talent.title %>
+Animée par le mentor : <%= @appointment.mentor.first_name %> <%= @appointment.mentor.last_name %>
+Prévue pour se tenir le : <%= @appointment.start_time %>
+
+Tu n'as plus qu'à attendre la date de ta séance, pour retrouver ton mentor le jour J !
+
+En attendant, tu peux retrouver les informations relatives à ta séance ou consulter d'autres talents en te connectant sur ton espace client. Pour y accéder, connecte-toi via : <%= link_to "Me connecter", @urlLogin %> .
+
+À très vite au sein de la communauté de partage de talents ! 
+
+L'équipe de Talent Connect

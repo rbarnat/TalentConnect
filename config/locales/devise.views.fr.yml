@@ -103,7 +103,7 @@ fr:
       new:
         sign_up: Créer
         password: Mot de passe
-      signed_up: Bienvenue ! Tu as bien été enregistré(e).
+      signed_up: "Bienvenue ! Pour une expérience optimale, merci de renseigner ton prénom : Mon espace/Mes informations."
       signed_up_but_inactive: "Tu t'es bien enregistré(e). Cependant, nous n’avons pas pu te connecter car ton compte n’a pas encore été activé."
       signed_up_but_locked: "Tu t'es bien enregistré(e). Cependant, nous n’avons pas pu te connecter car ton compte est verrouillé."
       signed_up_but_unconfirmed: "Un message avec un lien de confirmation t'a été envoyé par mail. Suis ce lien pour activer ton compte."

@@ -1,14 +1,38 @@
-<div class="container">
-  <div class="row">
+<div class="container mt-4">
+  <!-- TOP LINE -->
+  <div class="row d-flex justify-content-between align-items-start">
     <!-- LEFT COLUMN -->
-    <div class="col m-4">
-      <h2>Mon espace apprenti</h2>
+    <div class="col-6">
+
+      <!-- TITLE -->
+      <div class="container mb-4">
+        <div class="row">
+          <div class="col-7">
+            <h3 class="">Mon espace apprenti</h3>
+          </div>
+          <div class="col-5">
+            <%= link_to 'Modifier/suprimer mon profil', edit_user_registration_path(), method: :get, class: "badge badge-pill badge-primary" %>
+          </div>
+        </div>
+      </div>
 
       <!-- PROFIL -->
       <%= render partial: 'users/show-partial-profile' %>
 
+    </div>
+    <!-- RIGHT COLUMN -->
+    <div class="col-6 d-flex justify-content-end">
+      <%= link_to 'Mon espace mentor', mentor_show_user_path(current_user.id), class: "btn btn-outline-danger" %>
+    </div>
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="row mt-4">
+    <!-- LEFT COLUMN -->
+    <div class="col-6">
+
       <!-- FUTURE VALIDATE & PAID APPOINTMENTS -->
-      <h4 class="card-title mt-4">Séances confirmées :</h4>
+      <h4 class="card-title text-primary">Séances confirmées :</h4>
       <hr>
       <% if @future_paid_appointments && @future_paid_appointments.count > 0 %>
         <% @future_paid_appointments.each do |future_paid_appointment| %>
@@ -19,7 +43,7 @@
       <% end %>
 
       <!-- PAST VALIDATE & PAID APPOINTMENTS -->
-      <h4 class="card-title mt-4">Séances passées :</h4>
+      <h4 class="card-title text-primary">Séances passées :</h4>
       <hr>
       <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
         <% @past_paid_appointments.each do |past_paid_appointments| %>
@@ -31,10 +55,10 @@
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="col">
+    <div class="col-6">
 
       <!-- APPOINTMENTS THAT NEED TO BE VALIDATE -->
-      <h4 class="card-title mt-4">Séances en attente de validation du mentor :</h4>
+      <h4 class="card-title text-primary">Séances en attente de validation du mentor :</h4>
       <hr>
       <% if @not_validate_appointments && @not_validate_appointments.count > 0 %>
         <% @not_validate_appointments.each do |not_validate_appointment| %>
@@ -46,7 +70,7 @@
 
       <!--To implement when Stripe ok and validation by mentor ok-->
       <!-- APPOINTMENTS THAT NEED TO BE PAID -->
-      <h4 class="card-title mt-4">Séances en attente de paiement :</h4>
+      <h4 class="card-title text-primary">Séances en attente de paiement :</h4>
       <hr>
       <% if @not_paid_appointments && @not_paid_appointments.count > 0 %>
         <% @not_paid_appointments.each do |not_paid_appointment| %>

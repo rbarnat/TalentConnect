@@ -1,5 +1,6 @@
 require 'faker'
 require 'activerecord-reset-pk-sequence'
+Faker::Config.locale = 'fr'
 
 ActiveRecord::Base.connection.disable_referential_integrity do
   Review.delete_all
@@ -23,10 +24,6 @@ end
 
 
 # --- PLACES ---
-cities = ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", 
-          "Nantes", "Montpellier", "Strasbourg", "Bordeaux", "Lille"]
-zipcodes = ["75001", "13001", "69001", "31000", "06000", 
-            "44000", "34000", "67000", "33000", "59000"]
 
 # PARIS
 paris_adresses = 
@@ -105,6 +102,10 @@ paris_adresses =
   {:city_name => "Paris", :zip_code => "75011", :address => "10,Passage du Jeu de Boules", :latitude => 48.865629,:longitude => 2.367579},
   {:city_name => "Paris", :zip_code => "75011", :address => "4,Rue Saint-Maur", :latitude => 48.858878,:longitude => 2.383424},
 
+  #----------------------
+  # COPY OF WHAT IS ABOVE
+  #----------------------
+
   #Paris 1er Arrondissement
   {:city_name => "Paris", :zip_code => "75001", :address => "11 rue d'Alger", :latitude => 48.865572,:longitude => 2.329904},
   {:city_name => "Paris", :zip_code => "75001", :address => "8 rue de l'Amiral de Coligny", :latitude => 48.86067,:longitude => 2.340928},
@@ -178,65 +179,6 @@ paris_adresses =
   {:city_name => "Paris", :zip_code => "75011", :address => "4,Rue Jean Macé", :latitude => 48.852814,:longitude => 2.384627},
   {:city_name => "Paris", :zip_code => "75011", :address => "10,Passage du Jeu de Boules", :latitude => 48.865629,:longitude => 2.367579},
   {:city_name => "Paris", :zip_code => "75011", :address => "4,Rue Saint-Maur", :latitude => 48.858878,:longitude => 2.383424},
-  
-  #Paris 12eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75012", :address => "13,Rue Abel", :latitude => 48.847782,:longitude => 2.37549}
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75012", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 13eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75013", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 14eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75014", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 15eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75015", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 16eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75016", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 17eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75017", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 18eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75018", :address => "test", :latitude => test,:longitude => test},
-
-  # #Paris 19eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75019", :address => "test", :latitude => test,:longitude => test},
-  # #Paris 20eme Arrondissement
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test},
-  # {:city_name => "Paris", :zip_code => "75020", :address => "test", :latitude => test,:longitude => test}
 ]
 apprentice_places=[]
 mentor_places=[]
@@ -398,51 +340,51 @@ puts "========================================================="
 
 talents_constants = 
 [
-  {:title => "La Calligraphie c'est la vie !", :description => "",:picture_name => "talent_calligraphy.jpg", :category_id =>  3},
-  {:title => "Entrechats entre nous : entre dans la danse !", :description => "",:picture_name => "talent_classic_dance.jpg", :category_id =>  1},
-  {:title => "Initiation à l'escalade", :description => "",:picture_name => "talent_climb.jpg", :category_id =>  9},
-  {:title => "Escalade : vers l'infini et au delà !", :description => "",:picture_name => "talent_climb1.jpg", :category_id =>  9},
-  {:title => "Les basics de l'escalade", :description => "",:picture_name => "talent_climb2.jpg", :category_id =>  9},
+  {:title => "La Calligraphie c'est la vie !", :description => "Tu es passionné d'écriture, ou simplement amoureux des belles lettres ? Participe à cet atelier mélant découverte et mise en pratique de ce qui est défini comme l'art du trait. Tu y découvriras les calligraphies chinoise, latine et arabe, et pourras bien sûr repartir avec tes propres réalisations. Intéressé ? Alors réserve vite une séance !",:picture_name => "talent_calligraphy.jpg", :category_id =>  3},
+  {:title => "Entrechats entre nous : entre dans la danse !", :description => "Amoureux de danse classique, mais n'ayant jamais osé franchir la porte d'un studio ? Cet atelier est fait pour toi. Tu pourras, de manière moins formelle et surtout à ton rythme, t'initier aux bases de la danse classique. Je suis une ancienne étoile de l'opéra de Paris, qui a à coeur de partager sa passion. Rejoins-moi vite en réservant ta séance.",:picture_name => "talent_classic_dance.jpg", :category_id =>  1},
+  {:title => "Initiation à l'escalade", :description => "Intéressé par la découverte de l'escalade, dans un cadre sympa et informel ? Cette séance est faite pour toi. Il s'agit d'y découvrir les bases et t'ouvrir la voie d'une pratique mélant sécurité et plaisir. Inscris-toi vite !",:picture_name => "talent_climb.jpg", :category_id =>  9},
+  {:title => "Escalade : vers l'infini et au delà !", :description => "Tu possèdes déjà de bonnes bases, et recherche des conseils précieux pour t'aider à franchir de nouveaux sommets ? Cet atelier est fait pour toi. Je suis un vrai passionné ayant déjà gravi plusieurs sommets mythiques dont le célèbre K2. Je t'offrirai une aide personnalisée, en fonction de tes propres objectifs. Alors inscris-toi vite !",:picture_name => "talent_climb1.jpg", :category_id =>  9},
+  {:title => "Les basics de l'escalade", :description => "Tu as envie de découvrir l'escalade dans un cadre sympa ? Alors rejoins-moi pour une séance de découverte. Nous y découvrirons les quelques principes qui te permettront de te faire plaisir, tout en sécurité. Inscris-toi vite!",:picture_name => "talent_climb2.jpg", :category_id =>  9},
 
-  {:title => "Cokedama: nature is in the air !", :description => "",:picture_name => "talent_cokedama.jpg", :category_id =>  2},
-  {:title => "Le secret de la pate brisée", :description => "",:picture_name => "talent_cooking.jpg", :category_id =>  6},
-  {:title => "Sallade et métissage", :description => "",:picture_name => "talent_cooking1.jpg", :category_id =>  6},
-  {:title => "Les blancs en neige", :description => "",:picture_name => "talent_cooking2.jpg", :category_id =>  6},
-  {:title => "Ramen party !", :description => "",:picture_name => "talent_cooking3.jpg", :category_id =>  6},
+  {:title => "Kokedama: nature is in the air !", :description => "Tu te demande comment prendre soin de cette plante, ou souhaite t'initier à cet art en provenance du Japon ? Viens participer à une séance. Je suis une passionnée de cet art si particulier : tu en ressortiras transformé !",:picture_name => "talent_cokedama.jpg", :category_id =>  2},
+  {:title => "Le secret de la pate brisée", :description => "Tu veux apprendre de nouvelles recettes de tartes sympas et originales, réussies à tous les coups ? Alors réserve une séance pour ce talent tout en saveur! Tu y découvriras les trucs et astuces des plus grands pâtissiers, en plus de te faire plaisir et pouvoir ensuite faire plaisir autour de toi. Qu'est ce que tu fais encore ici ?!",:picture_name => "talent_cooking.jpg", :category_id =>  6},
+  {:title => "Salade et métissage", :description => "Vegan de pére en fils, je suis un expert de la salade ! Je t’expliquerais tout ses secrets et tu pourras impressioner tes potes en soirée avec tes nouvelles conaissances sur la laitue et les tomates !",:picture_name => "talent_cooking1.jpg", :category_id =>  6},
+  {:title => "Les blancs en neige", :description => "Monter les blancs en neige est une frustration pour beaucoup de personnes... Dans ce cours tu verras que c’est très facile quand on a la technique. Tu pourrass te débarasser de ton batteur éléctrique et désencombrer ton 9m² dans Paris centre !",:picture_name => "talent_cooking2.jpg", :category_id =>  6},
+  {:title => "Ramen party !", :description => "Faire des Ramens c’est simple. Mais faire un vrai bon ramen digne de la gastronomie Japonaise c’est pas donné à tout le monde ! J’ai appris la technique ancestrale de Naruto en personne. Il parait qu'aprés l'avoir mangé certains ont décuplé leur réserve de chakra : à toi les meilleurs ninjutsu !",:picture_name => "talent_cooking3.jpg", :category_id =>  6},
 
-  {:title => "Pizza italienne", :description => "",:picture_name => "talent_cooking4.jpg", :category_id =>  6},
-  {:title => "Les Madeleines de mamy", :description => "",:picture_name => "talent_cooking5.jpg", :category_id =>  6},
-  {:title => "Crêpes bretonnes", :description => "",:picture_name => "talent_cooking6.jpg", :category_id =>  6},
-  {:title => "Les pâtes de la mama !", :description => "",:picture_name => "talent_cooking7.jpg", :category_id =>  6},
-  {:title => "Initiation à l'électronique", :description => "",:picture_name => "talent_electronic.jpg", :category_id =>  2},
+  {:title => "Pizza italienne", :description => "Oublie toutes les pizzas que tu as mangé jusqu’à aujourd’hui. Viens apprendre à faire la vrai pizza Napolitaine ! Tu verras comment faire le tout maison : de la pâte jusqu’à la sauce. A presto! ",:picture_name => "talent_cooking4.jpg", :category_id =>  6},
+  {:title => "Les Madeleines de mamy", :description => "Grand-mère sait faire de bonnes madeleines (et pas seulement du bon café), c’est pour ça que je l’ai sorti de la maison de retraite et remise au boulot ! Viens en profiter en apprenant à les faire comme elle. Offre limité dans le temps vu l’état de ma mémé, alors ne perd pas une seconde et réserve une séance !",:picture_name => "talent_cooking5.jpg", :category_id =>  6},
+  {:title => "Crêpes bretonnes", :description => "Une bonne crêpes ca égaye toujours la journée, encore plus quand elle est Bretonne. Viens boire de la Breizh autour d’une bonne crêpe que tu feras toi même grâce à mes conseils avisés. Attention cours interdit au Normand ! (faut pas déconner quand même...)",:picture_name => "talent_cooking6.jpg", :category_id =>  6},
+  {:title => "Les pâtes de la mama !", :description => "Ciao a tutti, j’ai 35 ans et j’habite encore chez la mia mamma. Après reflexion je me suis dis que je ne devrais pas être seul à aussi bien manger ! J’ai donc eu l'idée de partager ses recettes avec le monde et vous invitez à venir cuisiner les pâtes avec elle. En tant que gouteur officiel je vous dirais si au bout du cours vous faite la pasta aussi bien que mamma. Peut être auras tu la chance de te voir remettre un certificat (RNCP II) signé par une vrai mamone !",:picture_name => "talent_cooking7.jpg", :category_id =>  6},
+  {:title => "Initiation à l'électronique", :description => "Comment le courant circule dans un fil ? Apprenez-en plus sur la tension d'un circuit et construisez votre super circuit ! Repartez avec votre propre kit de video-surveillance IP pour filmer les ébats de votre femme. Le divorce est dans la poche !",:picture_name => "talent_electronic.jpg", :category_id =>  2},
 
-  {:title => "Guitare: s'accompagner", :description => "",:picture_name => "talent_guitare.jpg", :category_id =>  7},
-  {:title => "Guitare et improvisation", :description => "",:picture_name => "talent_guitare1.jpg", :category_id =>  7},
-  {:title => "Solo de guitare", :description => "",:picture_name => "talent_guitare2.jpg", :category_id =>  7},
-  {:title => "Compo à la guitare", :description => "",:picture_name => "talent_guitare3.jpg", :category_id =>  7},
-  {:title => "La guitare électrique", :description => "",:picture_name => "talent_guitare4.jpg", :category_id =>  7},
+  {:title => "Guitare: s'accompagner", :description => "Pour apprendre à accompagner à la guitare les chansons que l’on aime... S’accompagner en chantant, chanter en s’accompagnant !",:picture_name => "talent_guitare.jpg", :category_id =>  7},
+  {:title => "Guitare et improvisation", :description => "Le plus difficile dans l'improvisation, c'est de se lancer. Je vais vous montrer que l'improvisation est bien plus à votre portée que vous n'auriez pu l'imaginer !",:picture_name => "talent_guitare1.jpg", :category_id =>  7},
+  {:title => "Solo de guitare", :description => "Méthode de guitare progressive et structurée pour apprendre à jouer note à note les plus grands solos de l'histoire du Rock. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_guitare2.jpg", :category_id =>  7},
+  {:title => "Compo à la guitare", :description => "Les manières de composer seront illustrées pour différents ensembles musicaux. On commencera avec quelques principes généraux, puis on appliquera ces principes pour une formation guitare-voix, et enfin pour un quintet instrumental.",:picture_name => "talent_guitare3.jpg", :category_id =>  7},
+  {:title => "La guitare électrique", :description => "Vous vous ferez plaisir sur des styles différents : rock, heavy metal, jazz, blues... La sonorité n'a plus rien à voir avec celle d'une guitare acoustique.",:picture_name => "talent_guitare4.jpg", :category_id =>  7},
+  
+  {:title => "Guitare : les accords", :description => "Apprendre les 8 principaux accords de guitare faciles pour débutants! Ils nous permettent de jouer un très grand nombre de morceaux à la guitare.",:picture_name => "talent_guitare5.jpg", :category_id =>  7},
+  {:title => "Guitare et voix", :description => "Ces premiers cours de guitare pour débutants sont parfaits pour commencer. Nous allons aborder tout un tas de sujets pour partir avec les bons réflexes. Comment tenir sa guitare, son médiator ? Ou encore comment savoir lire les notes de guitare ou même comment accorder sa guitare ?",:picture_name => "talent_guitare6.jpg", :category_id =>  7},
+  {:title => "Initiation au Camping", :description => "Le camping est un excellent moyen de se rapprocher de la nature. Avec un minimum d’équipement, un peu de planification et quelques connaissances de base vous aurez tout ce qu’il faut pour vivre une excellente expérience. Alors qu'attendez vous pour partir à l'aventure ?",:picture_name => "talent_hike.jpg", :category_id =>  9},
+  {:title => "Mes début en tricot", :description => "Vous débutez dans l'apprentissage du tricot ? Après une familiarisation avec le matériel, vous apprendrez à tricoter le point mousse et le point de jersey, pour réaliser vos premiers ouvrages. Vous allez en avoir des choses à raconter à mémé dimanche !",:picture_name => "talent_hook.jpg", :category_id =>  2},
+  {:title => "Photo macro", :description => "Mon idée n’est pas de faire de vous des photographes professionnels, mais simplement des photographes amateurs qui aiment faire des photos et de belles photos de près. Nous verrons tout un tas de techniques et astuces adaptées aux photos macros. A toi les photos Instagram de folie !",:picture_name => "talent_photo.jpg", :category_id =>  3},
 
-  {:title => "Guitare : les accords", :description => "",:picture_name => "talent_guitare5.jpg", :category_id =>  7},
-  {:title => "Guitare et voix", :description => "",:picture_name => "talent_guitare6.jpg", :category_id =>  7},
-  {:title => "Initiation au Camping", :description => "",:picture_name => "talent_hike.jpg", :category_id =>  9},
-  {:title => "Mes début en crochet", :description => "",:picture_name => "talent_hook.jpg", :category_id =>  2},
-  {:title => "Photo macro", :description => "",:picture_name => "talent_photo.jpg", :category_id =>  3},
+  {:title => "Photo de scènes", :description => "Depuis quelques mois, je travaille pour le Théâtre La comédie Odéon à Paris. Je m’y rends pour prendre en photo les pièces qui s’y jouent. Rejoignez moi pour apprendre à graver sur péllicule ces instants si riches en émotion !",:picture_name => "talent_photo1.jpg", :category_id =>  3},
+  {:title => "Initiation à la photo", :description => "Si les grands principes de la photographie sont toujours un mystère pour toi, n'attend plus pour t'inscrire à cette initiation photo ! Tu auras l'opportunité de mieux comprendre les principaux réglages de ton appareil et pourra l'exploiter à 100% !",:picture_name => "talent_photo2.jpg", :category_id =>  3},
+  {:title => "Traitements photo", :description => "Vous débutez en photo et souhaitez comprendre les principaux réglages de votre appareil ? L'Initiation Photo est faite pour vous ! Ce cours photo s'adresse aux débutants ou faux débutants ayant fait l'acquisition d'un appareil photo numérique (reflex, bridge, hybride, compact expert). Il vous aide à acquérir les bases de la photographie et créer les images que vous avez en tête.",:picture_name => "talent_photo3.jpg", :category_id =>  3},
+  {:title => "Photo sur portable", :description => "Tu as toujours rêvé de prendre le cliché du siècle avec ce que tu as sous la main ? Tu veux pouvoir manier ton téléphone portable comme un vrai pro ? Nous verrons ensemble comment utiliser les configurations et paramétres des GSM pour arriver à un super rendu : ton compte instagram ne va pas s'en remettre !",:picture_name => "talent_photo4.jpg", :category_id =>  3},
+  {:title => "Retouches photo", :description => "Tes clichés sont top mais tu changerais bien un petit détail ou deux ? Tu veux créer des effets de folie pour enjayer tes fans ? Nous verrons ensemble qu'avec Adobe Photoshop Express et GIMP, il existe queqlques fonctionalités qui permettent d'avoir un résultat professionel. A ta souris !",:picture_name => "talent_photo5.jpg", :category_id =>  3},
 
-  {:title => "Photo de scènes", :description => "",:picture_name => "talent_photo1.jpg", :category_id =>  3},
-  {:title => "Initiation à la photo", :description => "",:picture_name => "talent_photo2.jpg", :category_id =>  3},
-  {:title => "Traitements photo", :description => "",:picture_name => "talent_photo3.jpg", :category_id =>  3},
-  {:title => "Photo sur portable", :description => "",:picture_name => "talent_photo4.jpg", :category_id =>  3},
-  {:title => "Retouches photo", :description => "",:picture_name => "talent_photo5.jpg", :category_id =>  3},
+  {:title => "Débuter le piano", :description => "Il jouait du piano debout, c'est peut-être un détail pour vous, mais pour moi ca veut dire beaucoup ! Si pour toi aussi le piano c'est la vie, et que tu souhaite t'initier, tu es au bon endroit. Je suis soliste dans l'orchestre philarmonique de Paris, et souhaite faire découvrir ce magnifique instrument au plus grand nombre. Alors n'hésites pas à me contacter !",:picture_name => "talent_piano.jpg", :category_id =>  7},
+  {:title => "Poterie et compagnie", :description => "Tu as toujours rêvé de réaliser des amphores et des vases comme dans l'ancien temps ? Ca tombe bien c'est ma spécialité. Je suis architecte de métier et passionné par la poterie d'égypte ancienne et de mésopotamie. Nous verrons ensemble les techniques et matériaux autrefois utilisés. Tu es prêt à voyager dans le temps ?",:picture_name => "talent_pottery.jpg", :category_id =>  2},
+  {:title => "Initiation à la poterie", :description => "Tu as deux mains gauches et tu t'interesse à la poterie ? Mes ateliers d'initiation vont te donner les clés et fournir le matériel pour que tu puisse avoir les bases. Nous réaliserons ensemble plusieurs basiques que tu seras fier de montrer à tes amis. Alors qu'est ce que tu attends ?",:picture_name => "talent_pottery1.jpg", :category_id =>  2},
+  {:title => "La poterie c'est pas sorcier !", :description => "Quand il s'agit de travaux manuels, tu n'as pas de bol et finis toujours par casser tes réalisations ? Nous allons voir ensemble des procédés de fabrication et des matériaux beaucoup plus resistants que l'argile. Je fournis tous les matériel et les matériaux. Tout ce que tu as à faire c'est venir !",:picture_name => "talent_pottery2.jpg", :category_id =>  2},
+  {:title => "Techniques de couture", :description => "La couture c'est ton dada ? Tu souhaites savoir adapter ton patron à ta morphologie ? Tu ne sait pas quoi faire lorsque le fil de la machine à coudre casse ? Tu veux savoir coudre des tissus épais ou en surépaisseur ? Je suis couturier de métier depuis plus 40 ans. Maintenant à la retraite je serais ravie de t'apprendre à trouver une aiguille dans une botte de foin !",:picture_name => "talent_sewing.jpg", :category_id =>  2},
 
-  {:title => "Débuter le piano", :description => "",:picture_name => "talent_piano.jpg", :category_id =>  7},
-  {:title => "Poterie et compagnie", :description => "",:picture_name => "talent_pottery.jpg", :category_id =>  2},
-  {:title => "Initiation à la poterie", :description => "",:picture_name => "talent_pottery1.jpg", :category_id =>  2},
-  {:title => "La poterie c'est pas sorcier !", :description => "",:picture_name => "talent_pottery2.jpg", :category_id =>  2},
-  {:title => "Techniques de couture", :description => "",:picture_name => "talent_sewing.jpg", :category_id =>  2},
-
-  {:title => "Skateboard : les bases", :description => "",:picture_name => "talent_skateboard.jpg", :category_id =>  9},
-  {:title => "Ukulele : initiation", :description => "",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
-  {:title => "Les accords en Ukulele", :description => "",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
+  {:title => "Skateboard : les bases", :description => "Ca te donne envie de rider lorsque tu vois Marty sur son Hoverboard dans Retour vers le futur ? Grace à cette séance d'initiation nous allons apprendre la posture et les déplacements de base pour que tu te sente à l'aise sur ta planche. Si tu es sage on testera quelques slides. N'oublie pas tes protecs !",:picture_name => "talent_skateboard.jpg", :category_id =>  9},
+  {:title => "Ukulele : initiation", :description => "Tu as la larme à l'oeil à chaque fois que tu entends Over the raimbow de israel kamakawiwo'ole ? Tu veux apprendre un instrument facile à transporter et qui animera tes longues soirées d'hiver ? Je suis la pour t'apprendre toutes les bases du Ukulele avec des morceaux accessibles et adpatés. Les plus grands virtuoses ont tous commencé quelque part. A ton tours de lancer !",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
+  {:title => "Les accords en Ukulele", :description => "Tu trouves le Ukulele dans les ziks de Cocoon tellement stylé ? Tu veux pouvoir t'accompagner ou accompagner des pots au chant pour les fin de soirée ? Ce cours est fait pour toi ! Nous verrons tous les accords mineures et majeurs de base, la posture et les positions des mains. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
 ]
 talents_constants_admin = []
 talents_constants.each_with_index do |talents_constant,i|
@@ -457,8 +399,8 @@ talents_constants.each_with_index do |talent,i|
   current_talent = Talent.create(
                             user_id: mentor_users[i].id,
                             title: talent[:title],
-                            description: Faker::Lorem.paragraph(sentence_count: 2),  #talent[:description],
-                            duration: Faker::Number.between(from: 60, to: 240),  
+                            description: talent[:description],
+                            duration: rand(1..8)*60,  
                             place_id: mentor_users[i].id,
                             price: Faker::Number.between(from: 1, to: 30)
                             )
@@ -485,7 +427,7 @@ talents_constants_admin.each_with_index do |talent,i|
                             user_id: admin_user.id,
                             title: talent[:title],
                             description: Faker::Lorem.paragraph(sentence_count: 2),  #talent[:description],
-                            duration: Faker::Number.between(from: 60, to: 240),  
+                            duration: rand(1..8)*60,  
                             place_id: admin_user.id,
                             price: Faker::Number.between(from: 1, to: 30)
                             )
@@ -508,19 +450,24 @@ puts "========================================================="
 puts "TALENTS MENTOR              : #{talents.count}/38"
 puts "TALENTS ADMIN               : #{talents_admin.count}/15"
 puts "---------------------------------------------------------"
-puts "TALENTS TOTAL              : #{Talent.count}/51"
-puts "J_TALENTS_CATEGORIES TOTAL : #{JoinTableTalentCategory.count}/51"
+puts "TALENTS TOTAL               : #{Talent.count}/53"
+puts "J_TALENTS_CATEGORIES TOTAL  : #{JoinTableTalentCategory.count}/53"
 puts "========================================================="
 
 
 
 # --- APPOINTMENTS ---
 past_appointments = []
+user_validate_appointments = []
+mentor_validate_appointments = []
+paid_appointments = []
 Talent.all.each do |talent|
   # PAST APPOINTMENTS
   rand(1..5).times do
+    faker_time = Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     past_appointments << Appointment.create(
-                  start_time: Faker::Date.between(from: '2020-11-01', to: '2020-12-09'),
+                  start_time: Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -531,8 +478,10 @@ Talent.all.each do |talent|
   end
   # USER VALIDATE APPOINTMENTS
   rand(1..3).times do
-    Appointment.create(
-                  start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
+    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
+    user_validate_appointments << Appointment.create(
+                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -543,8 +492,10 @@ Talent.all.each do |talent|
   end
   # MENTOR VALIDATE APPOINTMENTS
   rand(1..3).times do
-    Appointment.create(
-                  start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
+    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
+    mentor_validate_appointments << Appointment.create(
+                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -553,10 +504,12 @@ Talent.all.each do |talent|
                   is_paid: false
     )
   end
-  # MENTOR VALIDATE APPOINTMENTS
+  # PAID APPOINTMENTS
   rand(1..3).times do
-    Appointment.create(
-                  start_time: Faker::Date.between(from: '2020-12-15', to: '2021-01-31'),
+    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
+    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
+    paid_appointments << Appointment.create(
+                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -567,7 +520,12 @@ Talent.all.each do |talent|
   end
 end
 puts "========================================================="
-puts "APPOINTMENTS TOTAL : #{Appointment.count}"
+puts "PAST APPOINTMENTS           : #{past_appointments.count}"
+puts "USER VALIDATE APPOINTMENTS  : #{user_validate_appointments.count}"
+puts "MENTOR VALIDATE APPOINTMENTS: #{mentor_validate_appointments.count}"
+puts "PAID APPOINTMENTS           : #{paid_appointments.count}"
+puts "---------------------------------------------------------"
+puts "APPOINTMENTS TOTAL          : #{Appointment.count}"
 puts "========================================================="
 
 
@@ -584,34 +542,120 @@ Talent.all.each do |talent|
   end
 end
 puts "========================================================="
-puts "BOOKMARK TOTAL : #{Bookmark.count}"
+puts "BOOKMARKS TOTAL              : #{Bookmark.count}"
 puts "========================================================="
 
 
 
 
 # --- REVIEWS ---
-comment_constant = [
-  "C'était chouette, je recommande ce mentor !",
-  "La séance d'essai m'a vraiment permi de découvrir un nouveau monde, Merci !!",
-  "Le temps est passé tellement vite... à quand un prochaine séance ?",
-  "Le mentor a pris le temps de bien m'expliquer. Dommage que ce soit payant !",
-  "Merci à mon mentor qui a assuré !",
-  "Pourquoi ne pas proposer plus de contenu dans les séances ?",
-  "J'ai adoré !",
-  "Le mentor m'a bien aidé !",
-  "Ca y est je suis lancé. Un grand merci !",
-  "Waaaw c'était génial !!",
-  "J'aurais aimé que cela dure plus longtemps ^^ !"
+comment_constants = [
+  {:comment => "C'était chouette, je recommande ce mentor !", :note => 4},
+  {:comment => "La séance d'essai m'a vraiment permi de découvrir un nouveau monde, Merci !!", :note => 5},
+  {:comment => "Le temps est passé tellement vite... à quand un prochaine séance ?", :note => 5},
+  {:comment => "Le mentor a pris le temps de bien m'expliquer. Dommage que ce soit payant !", :note => 2},
+  {:comment => "Merci à mon mentor qui a assuré !", :note => 4},
+  {:comment => "Pourquoi ne pas proposer plus de contenu dans les séances ?", :note => 3},
+  {:comment => "J'ai adoré !", :note => 5},
+  {:comment => "Le mentor m'a bien aidé !", :note => 4},
+  {:comment => "Ca y est je suis lancé. Un grand merci !", :note => 5},
+  {:comment => "Waaaw c'était génial !!", :note => 5},
+  {:comment => "J'aurais aimé que cela dure plus longtemps ^^ !", :note => 4},
+  {:comment => "Mon mentor m'a posé un lapin !", :note => 1},
+  {:comment => "Cette activité m'a beaucoup plu !", :note => 5},
+  {:comment => "Je me sens beaucoup plus à l'aise, merci !", :note => 5},
 ]
 past_appointments.each do |appointment|
+  current_comment = comment_constants.sample
   # PAST APPOINTMENTS
   Review.create(
                 appointment_id: appointment.id,
-                mark: rand(2..5),
-                comment: comment_constant.sample
+                mark: current_comment[:note],
+                comment: current_comment[:comment]
   )
 end
 puts "========================================================="
-puts "REVIEWS TOTAL : #{Review.count}"
+puts "REVIEWS TOTAL               : #{Review.count}"
 puts "========================================================="
+
+
+
+# --- MESSAGES ---
+messages_constants = [
+  {:question => "Bonjour je souhaiterais en savoir un peu plus. Peux-tu me renseigner ?", :answer => "Bonjour ! oui bien entendu dis moi ce que tu souhaites savoir :)"},
+  {:question => "Salut, je cherche une personne aguerri. Es-tu mon Homme ? :D", :answer => "Salut à toi ! J'ai plus de 10 ans d'expérience! Ca devrait faire l'affaire non ? ;)"},
+  {:question => "Bonjour ! ", :answer => "Bonjour, est ce que je peux te renseigner ?"},
+  {:question => "Salut ! ", :answer => "Salut, qu'est ce que je peux faire pour toi ?"},
+  {:question => "Salut ! J'ai un ami qui m'a parlé de ton talent. C'est pas trop dur à apprendre ?", :answer => "Bonjour, non on commence en douceur avec les basiques ne t'inquiète pas ! :)"},
+]
+Talent.all.each do |talent|
+  rand(1..3).times do
+    current_message = messages_constants.sample
+    current_apprentice = apprentice_users.sample
+    # APPRENTICE MESSAGE
+    Message.create(
+                  talent_id: talent.id,
+                  sender_id: current_apprentice.id,
+                  recipient_id: talent.user_id,
+                  content: current_message[:question]
+    )
+    # MENTOR MESSAGE
+    Message.create(
+      talent_id: talent.id,
+      sender_id: talent.user_id,
+      recipient_id: current_apprentice.id,
+      content: current_message[:answer]
+    )
+  end
+end
+puts "========================================================="
+puts "MESSAGES TOTAL               : #{Message.count}"
+puts "========================================================="
+
+puts " "
+puts " "
+puts " "
+puts " "
+puts " "
+puts "*********************************************************"
+puts "*********************************************************"
+puts "**                       SEED                          **"
+puts "*********************************************************"
+puts "*********************************************************"
+puts "========================================================="
+puts "PLACES PARIS APPRENTICE     :#{apprentice_places.count}/50"
+puts "PLACES PARIS MENTOR         :#{mentor_places.count}/40"
+puts "PLACES PARIS ADMINS         :#{admin_places.count}/6"
+puts "---------------------------------------------------------"
+puts "PLACES TOTAL                : #{Place.count}/96"
+puts "========================================================="
+puts "USERS APPRENTICE            : #{apprentice_users.count}/50"
+puts "USERS MENTOR                : #{mentor_users.count}/40"
+puts "USERS ADMIN                 : #{admin_users.count}/6"
+puts "---------------------------------------------------------"
+puts "USERS TOTAL                 : #{User.count}/96"
+puts "========================================================="
+puts "CATEGORIES TOTAL            : #{Category.count}/9"
+puts "========================================================="
+puts "TALENTS MENTOR              : #{talents.count}/38"
+puts "TALENTS ADMIN               : #{talents_admin.count}/15"
+puts "---------------------------------------------------------"
+puts "TALENTS TOTAL               : #{Talent.count}/53"
+puts "J_TALENTS_CATEGORIES TOTAL  : #{JoinTableTalentCategory.count}/53"
+puts "========================================================="
+puts "PAST APPOINTMENTS           : #{past_appointments.count}"
+puts "USER VALIDATE APPOINTMENTS  : #{user_validate_appointments.count}"
+puts "MENTOR VALIDATE APPOINTMENTS: #{mentor_validate_appointments.count}"
+puts "PAID APPOINTMENTS           : #{paid_appointments.count}"
+puts "---------------------------------------------------------"
+puts "APPOINTMENTS TOTAL          : #{Appointment.count}"
+puts "========================================================="
+puts "BOOKMARKS TOTAL             : #{Bookmark.count}"
+puts "========================================================="
+puts "REVIEWS TOTAL               : #{Review.count}"
+puts "========================================================="
+puts "MESSAGES TOTAL              : #{Message.count}"
+puts "========================================================="
+puts "*********************************************************"
+puts "**TOTAL MODELS CREATED      : #{Place.count + User.count + Category.count + Talent.count + JoinTableTalentCategory.count + Appointment.count + Bookmark.count + Review.count + Message.count}"
+puts "*********************************************************"

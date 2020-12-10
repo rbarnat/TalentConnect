@@ -1,16 +1,46 @@
 <div class="container text-center">
   <div class="card card-custom2 shadow max-width-45 m-auto">
-      <%= form_with model: @appointment, url: talent_appointments_path, local: true do |form| %>
-        <h4 class="m-4">Faire une demande de rendez-vous:</h4>
-        <div class="field">
-          <%= form.label :start_time%><br>
-          <%= form.date_field :start_time, class: 'form-control max-width-18 m-auto' %><br>
-          <%= select_time %><br><br>
-        </div>
+      <h2 class="m-3 text-primary"><%= @talent.title%></h2>
+      <h4 class="">Propose une date et une heure à <%= @talent.user.first_name%></h4>
 
-        <div class="actions">
-          <%= form.submit%>
-        </div><br>
-      <% end %>
-  </div>
+      <div class="container">
+
+        <%= week_calendar events: @user_agenda, day_names: "date.day_names",table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}  do |date, user_agenda| %>
+          <strong> <%= date.strftime("%d/%m/%y") %></strong> 
+          <% (8..20).each do |hour| %>
+            <% if @user_agenda.where("start_time > ? AND start_time <= ?", DateTime.new(date.year, date.month, date.day, hour), DateTime.new(date.year, date.month, date.day, hour + @duration_hour) ).any? %>
+              <div class="btn btn-sm btn-danger">
+                <strike><%= "#{hour}h" %></strike>
+              </div>
+            <% else %>
+              <%= form_with model: @appointment, url: talent_appointments_path, local: true do |form| %>
+                <%= form.datetime_select :start_time, {default: {day: date.day, month: date.month, year: date.year, hour: hour, minute: 00, seconde: 00 }, use_hidden: true} %>
+                <%= form.submit "#{hour}h", class: "btn btn-sm btn-outline-info", data: { confirm: "Proposer le #{date.day}/#{date.month}/#{date.year} à #{hour}h au mentor ?" } %>
+              <% end %>
+            <% end %>
+
+          <% end %>
+
+        <% end %>
+
+      </div>
+
+      
+      <div class="container d-flex justify-content-start align-items-center mt-2">
+        <div class="btn btn-sm btn-outline-info">
+          15h
+        </div>
+        <div class="ml-2">
+          <span class= "text-primary">Créneau disponible</span> : propose à ton mentor une séance !
+        </div>
+      </div>
+      <div class="container d-flex justify-content-start align-items-center mt-2 mb-2">
+        <div class="btn btn-sm btn-danger">
+          <strike>10h</strike>
+        </div>
+        <div class="ml-2">
+          <span class= "text-danger">Créneau indisponible</span> : ton mentor a déjà une séance en tant que mentor ou apprenti !
+        </div>
+      </div>
+  </>
 </div>

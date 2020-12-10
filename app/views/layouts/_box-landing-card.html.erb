@@ -1,9 +1,10 @@
-
-<div class="text-center">
-  <p class="lead">Trouve une nouvelle passion :</p>
-  <div class="row item-center">
+<hr>
+<div class="container">
+<div class="text-center m-4">
+  <h4 class="text-primary">Trouve une nouvelle passion...</h4><br>
+  <div class="row item-center ">
     <% @talents.sample(4).each do |talent|%>
       <%= render partial: 'layouts/landing-card', locals: {model: talent} %>
     <% end %>
   </div>
-</div>
+</div><br>
