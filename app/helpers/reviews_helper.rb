@@ -1,5 +1,5 @@
 module ReviewsHelper
-
+  private
   def is_current_user_appointment?
     @appointment = Appointment.find_by(id: params[:appointment_id])
     if @appointment.nil?
