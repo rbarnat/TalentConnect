@@ -17,6 +17,8 @@ class TalentsController < ApplicationController
   def search_results
     keywords = params[:search_keywords]
     @found_talents = Talent.roughly_spelled_like(keywords)
+    @filtred_talents = filter_talents(@found_talents)
+
   end
 
   def show
@@ -96,8 +98,14 @@ class TalentsController < ApplicationController
     params.require(:JoinTableTalentCategory).permit(:category_id)
   end
 
+  def search_category_params
+    params.permit(:category_id, :city_name)
+  end
+
   # find the talent using the id
   def set_talent
     @talent = Talent.find(params[:id])
   end
+
 end
+

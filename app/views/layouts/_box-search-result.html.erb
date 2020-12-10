@@ -3,8 +3,8 @@
   <div class="row">
     <div class="col scroll-div">
         <br>
-        <% if @found_talents && @found_talents.count > 0 %>
-            <% @found_talents.each do |talent|%>
+        <% if @filtred_talents && @filtred_talents.count > 0 %>
+            <% @filtred_talents.each do |talent|%>
                 <%= render partial: 'layouts/card-talent', locals: {model: talent, type: "search-result"} %>
             <% end %>
         <% else %>
@@ -64,7 +64,7 @@
               }
                   // Create one unique marker for each talent
                   <% id = 0 %>
-                  <% @found_talents.each do |talent|%>
+                  <% @filtred_talents.each do |talent|%>
                   var marker = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>},"<%= talent.price %> €", <%= id %>)
                   markers[<%= id %>]= marker
                   <% id = id+1%>
