@@ -1,13 +1,9 @@
 <hr>
 <div class="text-center m-4">
-  <h4 class="text-primary">Trouve une nouvelle passion :</h4><br>
+  <h4 class="text-primary">Trouve une nouvelle passion...</h4><br>
   <div class="row item-center">
     <% @talents.sample(4).each do |talent|%>
       <%= render partial: 'layouts/landing-card', locals: {model: talent} %>
     <% end %>
   </div>
-</div>
-<div class="text-center m-4">
-<h5 class="">Toi aussi, deviens mentor!</h5>
-<%= button_to 'Proposer une activité', new_talent_path(), method: :get, class: "btn btn-outline-danger btn-sm" %>
-</div>
+</div><br>
