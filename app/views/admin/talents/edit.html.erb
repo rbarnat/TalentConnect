@@ -1,4 +1,4 @@
-<h1> Ici toi ô Grand Admin tu peux éditer n'importe quel talent ! </h1>
+<h1 class="text-center text-primary"> Ici toi ô Grand Admin tu peux éditer n'importe quel talent ! </h1>
 <br>
 
  <script defer
@@ -36,7 +36,7 @@
           <!-- Duration -->
           <div class="field">
             <%= form.label :duration, 'Durée de la scéance en heure' %>
-            <%= form.select :duration, options_for_select((0.5..8).step(0.5).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
+            <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
           </div>
         </div>
       </div>
