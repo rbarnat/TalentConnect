@@ -4,6 +4,7 @@ class Admin::TalentsController < ApplicationController
         @talents = Talent.all
         @appointments = Appointment.all
         @users = User.all
+        @categories = Category.all
     end
 
     def edit
@@ -15,6 +16,5 @@ class Admin::TalentsController < ApplicationController
         @talent = Talent.find(params[:id])
         @talent.destroy
        redirect_to root_path ,  alert: 'Talent supprimé !'
-
       end
 end
