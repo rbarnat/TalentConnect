@@ -43,23 +43,10 @@
       <!--alternative contact via email-->
       <hr>
       <div class="contact-direct-email" display="flex" flex-flow="row wrap">
-        <p class="m-4">Ou si tu préfères la méthode classique d'envoi d'un e-mail, clique sur le lien ci-dessous pour nous contacter.</p>
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Nous contacter par e-mail </button><br><br>
-        </div>
+        <p class="m-4">Ou si tu préfères la méthode classique d'envoi d'un e-mail, clique sur le lien ci-après pour nous contacter : 
+        <%= mail_to('contact.talentconnect100@gmail.com', name = nil, html_options = {subject: 'Prise de contact TalentConnect'}) %>
+        </p>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
