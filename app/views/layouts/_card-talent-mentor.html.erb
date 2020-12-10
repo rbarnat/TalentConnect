@@ -33,7 +33,7 @@
     <div class="float-right">
       <% case type %>
         <% when "apprentice-validate" %>
-          <%= link_to "VALIDER", appointment_path(appointment), params: { is_mentor_validate: true }, method: :put, class: "badge badge-pill badge-primary ml-5" %>
+          <%= link_to "VALIDER", appointment_path(appointment, is_mentor_validate: true ), method: :put, class: "btn badge badge-pill badge-primary ml-5" %>
           <%= link_to "REFUSER", appointment_path(appointment), data: { confirm: "Es-tu sûr de vouloir refuser ?" }, method: :delete, class: "badge badge-pill badge-danger ml-2" %>
         <% when "mentor-validate" %>
           <p class="text-danger">En attente</p>
