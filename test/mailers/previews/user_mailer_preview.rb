@@ -31,4 +31,9 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.payment_mentor_confirmation(appointment)
   end
 
+  def appointment_rejected_confirmation
+    appointment = Appointment.find(1)
+    UserMailer.appointment_rejected_confirmation(appointment)
+  end
+  
 end
