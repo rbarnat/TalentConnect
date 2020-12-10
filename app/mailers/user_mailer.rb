@@ -49,4 +49,11 @@ default from: 'contact.talentconnect100@gmail.com'
     mail(to: @user.email, subject: 'Confirmation de validation de séance par mentor sur TalentConnect !')
   end
 
+  def appointment_rejected_confirmation(appointment)
+    @user = appointment.apprentice
+    @appointment = appointment
+    @urlLogin = new_user_session_url
+    mail(to: @user.email, subject: 'Demande de réservation de séance rejetée par mentor sur TalentConnect !')
+  end
+
 end
