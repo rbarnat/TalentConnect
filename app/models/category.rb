@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   # A category can include many talents
-  has_many :JoinTableTalentCategory
+  has_many :JoinTableTalentCategory, dependent: :destroy
   has_many :talents, through: :JoinTableTalentCategory
 
   # Validation before creation

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # ADMIN ROUTES
   namespace :admin do
     resources :talents, only: [:index, :edit, :destroy]
+    resources :categories, only: [:create, :destroy]
   end
   # USERS AND PROFILE PAGES
   devise_for :users, controllers: { registrations: 'registrations' }
