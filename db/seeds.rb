@@ -364,11 +364,11 @@ talents_constants =
   {:title => "Compo à la guitare", :description => "Les manières de composer seront illustrées pour différents ensembles musicaux. On commencera avec quelques principes généraux, puis on appliquera ces principes pour une formation guitare-voix, et enfin pour un quintet instrumental.",:picture_name => "talent_guitare3.jpg", :category_id =>  7},
   {:title => "La guitare électrique", :description => "Vous vous ferez plaisir sur des styles différents : rock, heavy metal, jazz, blues... La sonorité n'a plus rien à voir avec celle d'une guitare acoustique.",:picture_name => "talent_guitare4.jpg", :category_id =>  7},
   
-  {:title => "Guitare : les accords", :description => "Apprendre les 8 principaux accords de guitare faciles pour débutants! Ils nous permettent de jouer un très grand nombre de morceaux à la guitare.",:picture_name => "talent_guitare5.jpg", :category_id =>  7},
-  {:title => "Guitare et voix", :description => "Ces premiers cours de guitare pour débutants sont parfaits pour commencer. Nous allons aborder tout un tas de sujets pour partir avec les bons réflexes. Comment tenir sa guitare, son médiator ? Ou encore comment savoir lire les notes de guitare ou même comment accorder sa guitare ?",:picture_name => "talent_guitare6.jpg", :category_id =>  7},
-  {:title => "Initiation au Camping", :description => "Le camping est un excellent moyen de se rapprocher de la nature. Avec un minimum d’équipement, un peu de planification et quelques connaissances de base vous aurez tout ce qu’il faut pour vivre une excellente expérience. Alors qu'attendez vous pour partir à l'aventure ?",:picture_name => "talent_hike.jpg", :category_id =>  9},
-  {:title => "Mes début en tricot", :description => "Vous débutez dans l'apprentissage du tricot ? Après une familiarisation avec le matériel, vous apprendrez à tricoter le point mousse et le point de jersey, pour réaliser vos premiers ouvrages. Vous allez en avoir des choses à raconter à mémé dimanche !",:picture_name => "talent_hook.jpg", :category_id =>  2},
-  {:title => "Photo macro", :description => "Mon idée n’est pas de faire de vous des photographes professionnels, mais simplement des photographes amateurs qui aiment faire des photos et de belles photos de près. Nous verrons tout un tas de techniques et astuces adaptées aux photos macros. A toi les photos Instagram de folie !",:picture_name => "talent_photo.jpg", :category_id =>  3},
+  # {:title => "Guitare : les accords", :description => "Apprendre les 8 principaux accords de guitare faciles pour débutants! Ils nous permettent de jouer un très grand nombre de morceaux à la guitare.",:picture_name => "talent_guitare5.jpg", :category_id =>  7},
+  # {:title => "Guitare et voix", :description => "Ces premiers cours de guitare pour débutants sont parfaits pour commencer. Nous allons aborder tout un tas de sujets pour partir avec les bons réflexes. Comment tenir sa guitare, son médiator ? Ou encore comment savoir lire les notes de guitare ou même comment accorder sa guitare ?",:picture_name => "talent_guitare6.jpg", :category_id =>  7},
+  # {:title => "Initiation au Camping", :description => "Le camping est un excellent moyen de se rapprocher de la nature. Avec un minimum d’équipement, un peu de planification et quelques connaissances de base vous aurez tout ce qu’il faut pour vivre une excellente expérience. Alors qu'attendez vous pour partir à l'aventure ?",:picture_name => "talent_hike.jpg", :category_id =>  9},
+  # {:title => "Mes début en tricot", :description => "Vous débutez dans l'apprentissage du tricot ? Après une familiarisation avec le matériel, vous apprendrez à tricoter le point mousse et le point de jersey, pour réaliser vos premiers ouvrages. Vous allez en avoir des choses à raconter à mémé dimanche !",:picture_name => "talent_hook.jpg", :category_id =>  2},
+  # {:title => "Photo macro", :description => "Mon idée n’est pas de faire de vous des photographes professionnels, mais simplement des photographes amateurs qui aiment faire des photos et de belles photos de près. Nous verrons tout un tas de techniques et astuces adaptées aux photos macros. A toi les photos Instagram de folie !",:picture_name => "talent_photo.jpg", :category_id =>  3},
 
   {:title => "Photo de scènes", :description => "Depuis quelques mois, je travaille pour le Théâtre La comédie Odéon à Paris. Je m’y rends pour prendre en photo les pièces qui s’y jouent. Rejoignez moi pour apprendre à graver sur péllicule ces instants si riches en émotion !",:picture_name => "talent_photo1.jpg", :category_id =>  3},
   {:title => "Initiation à la photo", :description => "Si les grands principes de la photographie sont toujours un mystère pour toi, n'attend plus pour t'inscrire à cette initiation photo ! Tu auras l'opportunité de mieux comprendre les principaux réglages de ton appareil et pourra l'exploiter à 100% !",:picture_name => "talent_photo2.jpg", :category_id =>  3},
@@ -384,7 +384,13 @@ talents_constants =
 
   {:title => "Skateboard : les bases", :description => "Ca te donne envie de rider lorsque tu vois Marty sur son Hoverboard dans Retour vers le futur ? Grace à cette séance d'initiation nous allons apprendre la posture et les déplacements de base pour que tu te sente à l'aise sur ta planche. Si tu es sage on testera quelques slides. N'oublie pas tes protecs !",:picture_name => "talent_skateboard.jpg", :category_id =>  9},
   {:title => "Ukulele : initiation", :description => "Tu as la larme à l'oeil à chaque fois que tu entends Over the raimbow de israel kamakawiwo'ole ? Tu veux apprendre un instrument facile à transporter et qui animera tes longues soirées d'hiver ? Je suis la pour t'apprendre toutes les bases du Ukulele avec des morceaux accessibles et adpatés. Les plus grands virtuoses ont tous commencé quelque part. A ton tours de lancer !",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
-  {:title => "Les accords en Ukulele", :description => "Tu trouves le Ukulele dans les ziks de Cocoon tellement stylé ? Tu veux pouvoir t'accompagner ou accompagner des pots au chant pour les fin de soirée ? Ce cours est fait pour toi ! Nous verrons tous les accords mineures et majeurs de base, la posture et les positions des mains. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
+  {:title => "Les accords en Ukulele", :description => "Tu trouves le Ukulele dans les ziks de Cocoon tellement stylé ? Tu veux pouvoir t'accompagner ou accompagner des pots au chant pour les fin de soirée ? Ce cours est fait pour toi ! Nous verrons tous les accords mineures et majeurs de base, la posture et les positions des mains. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_ukulele1.jpg", :category_id =>  7},
+
+  {:title => "Montage vidéo express", :description => "Tu dois faire une vidéo en express et tu n'as aucune compétence dans le montage vidéo ? Ce cours est fait pour toi ! En quelques heures on abordera tous les trucs et astuces de pros pour passer de zéro jusqu'à l'obtention de ton premier oscar!",:picture_name => "talent_montage_video.jpg", :category_id =>  3},
+  {:title => "Upload ta vidéo sur Youtube", :description => "Pour devenir un vrai Youtubeur tu dois d'abord apprendre à uploader tes vidéos",:picture_name => "talent_upload_video_youtube.jpg", :category_id =>  3},
+  {:title => "Les filtres vidéo", :description => "Les meilleurs filtres instagram pour avoir plus de followers!",:picture_name => "talent_filtres_video.jpg", :category_id =>  3},
+  {:title => "Lumière et vidéos", :description => "Gère ta lumière et filme comme un pro avec ce cours proposé par un vrai cinéaste!",:picture_name => "talent_lumiere_video.jpg", :category_id =>  3},
+  {:title => "Vidéos avec GoPro", :description => "Les vidéo Xtream n'auront plus de secret pour toi! tu pourra mieux filmer toutes tes activités sportives!",:picture_name => "talent_gopro_video.jpg", :category_id =>  3},
 ]
 talents_constants_admin = []
 talents_constants.each_with_index do |talents_constant,i|
@@ -421,30 +427,30 @@ end
 
 # TALENTS ON ADMIN TO TEST
 talents_admin=[]
-talents_constants_admin.each_with_index do |talent,i|
-  admin_user =  admin_users.sample
-  current_talent = Talent.create(
-                            user_id: admin_user.id,
-                            title: talent[:title],
-                            description: talent[:description],
-                            duration: rand(1..8)*60,  
-                            place_id: admin_user.id,
-                            price: Faker::Number.between(from: 1, to: 30)
-                            )
-    current_talent.picture.attach(
-    io: File.open(
-      Rails.root.join(
-        'app', 'assets', 'images', talent[:picture_name]
-      )
-    ), filename: talent[:picture_name],
-    content_type: 'image/jpg'
-  )
-  talents_admin << current_talent
-  JoinTableTalentCategory.create(
-                                  talent_id: current_talent.id,
-                                  category_id: talent[:category_id]
-                                  )
-end
+# talents_constants_admin.each_with_index do |talent,i|
+#   admin_user =  admin_users.sample
+#   current_talent = Talent.create(
+#                             user_id: admin_user.id,
+#                             title: talent[:title],
+#                             description: talent[:description],
+#                             duration: rand(1..8)*60,  
+#                             place_id: admin_user.id,
+#                             price: Faker::Number.between(from: 1, to: 30)
+#                             )
+#     current_talent.picture.attach(
+#     io: File.open(
+#       Rails.root.join(
+#         'app', 'assets', 'images', talent[:picture_name]
+#       )
+#     ), filename: talent[:picture_name],
+#     content_type: 'image/jpg'
+#   )
+#   talents_admin << current_talent
+#   JoinTableTalentCategory.create(
+#                                   talent_id: current_talent.id,
+#                                   category_id: talent[:category_id]
+#                                   )
+# end
 
 puts "========================================================="
 puts "TALENTS MENTOR              : #{talents.count}/38"
