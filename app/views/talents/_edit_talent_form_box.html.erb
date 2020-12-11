@@ -1,12 +1,12 @@
 <%= form_with model: model, local: true, multipart: true, method: :patch do |form| %>
 
-  <!-- title -->
+  <!-- TITLE -->
   <div class="field">
     <%= form.label :title, 'Titre' %>
     <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <!-- Description -->
+  <!-- DESCRIPTION -->
   <div class="field mt-2">
     <%= form.label :description, 'Description' %>
     <%= form.text_area :description, class: "form-control" %>
@@ -14,21 +14,21 @@
 
   <div class="row">
     <div class="col">
-      <!-- Price -->
+      <!-- PRICE -->
       <div class="field mt-2">
         <%= form.label :price, 'Prix en euros' %>
         <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
       </div>
     </div>
     <div class="col">
-      <!-- Duration -->
+      <!-- DURATION -->
       <div class="field mt-2">
         <%= form.label :duration, 'Durée en heure' %>
         <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
       </div>
     </div>
     <div class="col">
-      <!-- Category nested form -->
+      <!-- CATEGORY NESTED FORM -->
       <div class="field mt-2">
         <%= fields_for :JoinTableTalentCategory do |category_form| %>
             <%= category_form.label :category_id, 'Catégorie' %>
@@ -38,10 +38,9 @@
     </div>
   </div>
 
-
-
   <hr>
-  <!-- Place nested form -->
+
+  <!-- PLACE NESTED FORM -->
   <div class="field mt-2">
     <%= fields_for :place do |place_form| %>
         <%= place_form.label :address, 'Adresse' %>
@@ -56,7 +55,6 @@
     <% end %>
   </div>
 
-  
   <div class="field mt-2">
     <%= fields_for :place do |place_form| %>
         <%= place_form.label :zip_code, 'Code postal' %>
@@ -77,8 +75,7 @@
   </div>
 
   <hr>
-  <!-- Photos -->
-
+  <!-- PICTURE -->
   <h3>Photo du talent</h3>
   <%if model.picture.attached?%>
     <%= image_tag model.picture, alt: 'picture', class: 'max-width-45 card-img' %>
