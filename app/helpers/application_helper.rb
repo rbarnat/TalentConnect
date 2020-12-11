@@ -30,19 +30,10 @@ module ApplicationHelper
     begin
       # do something dodgy
       convert_date_in_datetime(date, hour)
-    rescue ActiveRecord::RecordNotFound
-      # handle not found error
-      return false
-    rescue ActiveRecord::ActiveRecordError
-      # handle other ActiveRecord errors
-      return false
-    rescue # StandardError
-      # handle most other errors
-      return false
-    rescue Exception
-      # handle everything else
-      return false
-      raise
+    rescue => e
+      puts e.class
+      puts e.message
+      puts e.trace
     end
     return true
 

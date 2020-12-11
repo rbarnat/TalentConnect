@@ -103,23 +103,7 @@
         </tbody>
       </table>
       <!-- AGENDA -->
-      <div class="container">
-        <div class="">
-          <strong>Agenda du mentor : </strong>
-        </div>
-        <%= month_calendar events: @user_agenda, day_names: "date.day_names",table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}  do |date, user_agenda| %>
-          <strong> <%= date.strftime("%d") %></strong> 
-          <% (8..20).each do |hour| %>
-            <% if convert_date_in_datetime_ok?(date, hour) %>
-              <% if @user_agenda.where("start_time >= ? AND start_time <= ?", convert_date_in_datetime(date, hour), convert_date_in_datetime(date, hour + @duration_hour) ).any? %>
-                <div class="btn btn-sm btn-danger">
-                  <strike><%= "#{hour}h" %></strike>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
+
 
     </div>
 
