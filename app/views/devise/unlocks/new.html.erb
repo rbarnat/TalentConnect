@@ -1,4 +1,4 @@
-<!-- ERRORS MESSAGES -->
+<!-- ERROR MESSAGES -->
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="container">
@@ -21,8 +21,8 @@
             <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "Adresse email", autocomplete: "email" %>
           </div> <!-- form-group// --> 
 
-          <!-- MESSAGE EXPLICATIF -->
-          <i class="">Envoi un email avec les instructions de déblocage.</i>
+          <!-- EXPLANATORY MESSAGE -->
+          <i class="">Envoie un email avec les instructions de déblocage.</i>
           <!-- VALIDATION BUTTON -->
           <div class="actions">
             <%= f.submit "Débloquer mon compte", class: "btn btn-primary mb-3" %>

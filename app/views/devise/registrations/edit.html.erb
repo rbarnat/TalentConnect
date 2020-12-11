@@ -1,7 +1,7 @@
 <!-- BACK LINK -->
 <%= render 'layouts/back_link' %> 
 
-<!-- ERRORS MESSAGES -->
+<!-- ERROR MESSAGES -->
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="container max-width-45">
@@ -13,7 +13,7 @@
       <div class="row d-flex justify-content-between">
         <!-- LEFT COLUMN -->
         <div class="col-5">
-          <!-- BASIC INFORMATIONS -->
+          <!-- BASIC INFORMATION -->
           <h5 class="card-title">Mes informations de base</h5>
           <hr>
           <article class="">
@@ -49,10 +49,10 @@
               <%= f.text_field :phone_number, autofocus: true, class:"form-control", placeholder: "Numéro de téléphone" %>
             </div> <!-- form-group// -->
 
-            <!-- ADRESSE INFORMATIONS -->
+            <!-- ADDRESS INFORMATION -->
             <h5 class="card-title mt-4">Mon adresse</h5>
             <hr>
-            <!-- Place nested form -->
+            <!-- PLACE NESTED FORM -->
             <div class="field">
               <%= f.fields_for @place do |place_form| %>
 
@@ -95,7 +95,7 @@
             <%else%>
               <%= image_tag("user_default.jpg", class: "avatar-img rounded-circle") %>
             <%end%>
-            <!-- Photos -->
+            <!-- PICTURE -->
             <div>
               <br>
               <label class="btn btn-secondary ">

@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <!-- PROFIL -->
+      <!-- PROFILE -->
       <%= render partial: 'users/show-partial-profile' %>
 
     </div>
@@ -42,7 +42,7 @@
         Aucune séance confirmée.
       <% end %>
 
-      <!-- PAST VALIDATE & PAID APPOINTMENTS -->
+      <!-- PAST VALIDATED & PAID APPOINTMENTS -->
       <h4 class="card-title text-primary">Séances passées :</h4>
       <hr>
       <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
@@ -57,7 +57,7 @@
     <!-- RIGHT COLUMN -->
     <div class="col-6">
 
-      <!-- APPOINTMENTS THAT NEED TO BE VALIDATE -->
+      <!-- APPOINTMENTS THAT NEED TO BE VALIDATED -->
       <h4 class="card-title text-primary">Séances en attente de validation du mentor :</h4>
       <hr>
       <% if @not_validate_appointments && @not_validate_appointments.count > 0 %>

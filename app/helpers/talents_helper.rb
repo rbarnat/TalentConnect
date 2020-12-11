@@ -2,7 +2,7 @@ module TalentsHelper
   private 
   def user_have_info?
     if current_user.first_name.nil?
-      flash[:danger] = "Tu n'a pas encore renseigné ton prénom"
+      flash[:danger] = "Tu n'a pas encore renseigné ton prénom."
       redirect_to edit_user_registration_path
     end
   end
@@ -13,14 +13,14 @@ module TalentsHelper
 
   def is_current_user_talent?
     unless current_user.id == Talent.find(params[:id]).user_id
-      flash[:danger] = "Tu ne peux pas éditer le talent d'une autre personne"
+      flash[:danger] = "Tu ne peux pas éditer le talent d'une autre personne."
       redirect_to talent_path(params[:id])
     end
   end
 
   def global_mark(appointments)
     if appointments.length == 0 
-      return "Pas encore d'évaluation"
+      return "Pas encore d'évaluation."
     else
       rating = 0
       appointments.each do |appointment|
