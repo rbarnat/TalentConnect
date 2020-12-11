@@ -344,7 +344,8 @@ talents_constants =
   {:title => "Entrechats entre nous : entre dans la danse !", :description => "Amoureux de danse classique, mais n'ayant jamais osé franchir la porte d'un studio ? Cet atelier est fait pour toi. Tu pourras, de manière moins formelle et surtout à ton rythme, t'initier aux bases de la danse classique. Je suis une ancienne étoile de l'opéra de Paris, qui a à coeur de partager sa passion. Rejoins-moi vite en réservant ta séance.",:picture_name => "talent_classic_dance.jpg", :category_id =>  1},
   {:title => "Initiation à l'escalade", :description => "Intéressé par la découverte de l'escalade, dans un cadre sympa et informel ? Cette séance est faite pour toi. Il s'agit d'y découvrir les bases et t'ouvrir la voie d'une pratique mélant sécurité et plaisir. Inscris-toi vite !",:picture_name => "talent_climb.jpg", :category_id =>  9},
   {:title => "Escalade : vers l'infini et au delà !", :description => "Tu possèdes déjà de bonnes bases, et recherche des conseils précieux pour t'aider à franchir de nouveaux sommets ? Cet atelier est fait pour toi. Je suis un vrai passionné ayant déjà gravi plusieurs sommets mythiques dont le célèbre K2. Je t'offrirai une aide personnalisée, en fonction de tes propres objectifs. Alors inscris-toi vite !",:picture_name => "talent_climb1.jpg", :category_id =>  9},
-  {:title => "Les basics de l'escalade", :description => "Tu as envie de découvrir l'escalade dans un cadre sympa ? Alors rejoins-moi pour une séance de découverte. Nous y découvrirons les quelques principes qui te permettront de te faire plaisir, tout en sécurité. Inscris-toi vite!",:picture_name => "talent_climb2.jpg", :category_id =>  9},
+  # {:title => "Les basics de l'escalade", :description => "Tu as envie de découvrir l'escalade dans un cadre sympa ? Alors rejoins-moi pour une séance de découverte. Nous y découvrirons les quelques principes qui te permettront de te faire plaisir, tout en sécurité. Inscris-toi vite!",:picture_name => "talent_climb2.jpg", :category_id =>  9},
+  {:title => "Montage vidéo express", :description => "Tu dois faire une vidéo en express et tu n'as aucune compétence dans le montage vidéo ? Ce cours est fait pour toi ! En quelques heures on abordera tous les trucs et astuces de pros pour passer de zéro jusqu'à l'obtention de ton premier oscar!",:picture_name => "talent_montage_video.jpg", :category_id =>  3},
 
   {:title => "Kokedama: nature is in the air !", :description => "Tu te demande comment prendre soin de cette plante, ou souhaite t'initier à cet art en provenance du Japon ? Viens participer à une séance. Je suis une passionnée de cet art si particulier : tu en ressortiras transformé !",:picture_name => "talent_cokedama.jpg", :category_id =>  2},
   {:title => "Le secret de la pate brisée", :description => "Tu veux apprendre de nouvelles recettes de tartes sympas et originales, réussies à tous les coups ? Alors réserve une séance pour ce talent tout en saveur! Tu y découvriras les trucs et astuces des plus grands pâtissiers, en plus de te faire plaisir et pouvoir ensuite faire plaisir autour de toi. Qu'est ce que tu fais encore ici ?!",:picture_name => "talent_cooking.jpg", :category_id =>  6},
@@ -352,7 +353,8 @@ talents_constants =
   {:title => "Les blancs en neige", :description => "Monter les blancs en neige est une frustration pour beaucoup de personnes... Dans ce cours tu verras que c’est très facile quand on a la technique. Tu pourrass te débarasser de ton batteur éléctrique et désencombrer ton 9m² dans Paris centre !",:picture_name => "talent_cooking2.jpg", :category_id =>  6},
   {:title => "Ramen party !", :description => "Faire des Ramens c’est simple. Mais faire un vrai bon ramen digne de la gastronomie Japonaise c’est pas donné à tout le monde ! J’ai appris la technique ancestrale de Naruto en personne. Il parait qu'aprés l'avoir mangé certains ont décuplé leur réserve de chakra : à toi les meilleurs ninjutsu !",:picture_name => "talent_cooking3.jpg", :category_id =>  6},
 
-  {:title => "Pizza italienne", :description => "Oublie toutes les pizzas que tu as mangé jusqu’à aujourd’hui. Viens apprendre à faire la vrai pizza Napolitaine ! Tu verras comment faire le tout maison : de la pâte jusqu’à la sauce. A presto! ",:picture_name => "talent_cooking4.jpg", :category_id =>  6},
+  {:title => "Upload ta vidéo sur Youtube", :description => "Pour devenir un vrai Youtubeur tu dois d'abord apprendre à uploader tes vidéos",:picture_name => "talent_upload_video_youtube.jpg", :category_id =>  3},
+  # {:title => "Pizza italienne", :description => "Oublie toutes les pizzas que tu as mangé jusqu’à aujourd’hui. Viens apprendre à faire la vrai pizza Napolitaine ! Tu verras comment faire le tout maison : de la pâte jusqu’à la sauce. A presto! ",:picture_name => "talent_cooking4.jpg", :category_id =>  6},
   {:title => "Les Madeleines de mamy", :description => "Grand-mère sait faire de bonnes madeleines (et pas seulement du bon café), c’est pour ça que je l’ai sorti de la maison de retraite et remise au boulot ! Viens en profiter en apprenant à les faire comme elle. Offre limité dans le temps vu l’état de ma mémé, alors ne perd pas une seconde et réserve une séance !",:picture_name => "talent_cooking5.jpg", :category_id =>  6},
   {:title => "Crêpes bretonnes", :description => "Une bonne crêpes ca égaye toujours la journée, encore plus quand elle est Bretonne. Viens boire de la Breizh autour d’une bonne crêpe que tu feras toi même grâce à mes conseils avisés. Attention cours interdit au Normand ! (faut pas déconner quand même...)",:picture_name => "talent_cooking6.jpg", :category_id =>  6},
   {:title => "Les pâtes de la mama !", :description => "Ciao a tutti, j’ai 35 ans et j’habite encore chez la mia mamma. Après reflexion je me suis dis que je ne devrais pas être seul à aussi bien manger ! J’ai donc eu l'idée de partager ses recettes avec le monde et vous invitez à venir cuisiner les pâtes avec elle. En tant que gouteur officiel je vous dirais si au bout du cours vous faite la pasta aussi bien que mamma. Peut être auras tu la chance de te voir remettre un certificat (RNCP II) signé par une vrai mamone !",:picture_name => "talent_cooking7.jpg", :category_id =>  6},
@@ -364,13 +366,15 @@ talents_constants =
   {:title => "Compo à la guitare", :description => "Les manières de composer seront illustrées pour différents ensembles musicaux. On commencera avec quelques principes généraux, puis on appliquera ces principes pour une formation guitare-voix, et enfin pour un quintet instrumental.",:picture_name => "talent_guitare3.jpg", :category_id =>  7},
   {:title => "La guitare électrique", :description => "Vous vous ferez plaisir sur des styles différents : rock, heavy metal, jazz, blues... La sonorité n'a plus rien à voir avec celle d'une guitare acoustique.",:picture_name => "talent_guitare4.jpg", :category_id =>  7},
   
-  {:title => "Guitare : les accords", :description => "Apprendre les 8 principaux accords de guitare faciles pour débutants! Ils nous permettent de jouer un très grand nombre de morceaux à la guitare.",:picture_name => "talent_guitare5.jpg", :category_id =>  7},
+  {:title => "Les filtres vidéo", :description => "Les meilleurs filtres instagram pour avoir plus de followers!",:picture_name => "talent_filtres_video.jpg", :category_id =>  3},
+  # {:title => "Guitare : les accords", :description => "Apprendre les 8 principaux accords de guitare faciles pour débutants! Ils nous permettent de jouer un très grand nombre de morceaux à la guitare.",:picture_name => "talent_guitare5.jpg", :category_id =>  7},
   {:title => "Guitare et voix", :description => "Ces premiers cours de guitare pour débutants sont parfaits pour commencer. Nous allons aborder tout un tas de sujets pour partir avec les bons réflexes. Comment tenir sa guitare, son médiator ? Ou encore comment savoir lire les notes de guitare ou même comment accorder sa guitare ?",:picture_name => "talent_guitare6.jpg", :category_id =>  7},
   {:title => "Initiation au Camping", :description => "Le camping est un excellent moyen de se rapprocher de la nature. Avec un minimum d’équipement, un peu de planification et quelques connaissances de base vous aurez tout ce qu’il faut pour vivre une excellente expérience. Alors qu'attendez vous pour partir à l'aventure ?",:picture_name => "talent_hike.jpg", :category_id =>  9},
   {:title => "Mes début en tricot", :description => "Vous débutez dans l'apprentissage du tricot ? Après une familiarisation avec le matériel, vous apprendrez à tricoter le point mousse et le point de jersey, pour réaliser vos premiers ouvrages. Vous allez en avoir des choses à raconter à mémé dimanche !",:picture_name => "talent_hook.jpg", :category_id =>  2},
   {:title => "Photo macro", :description => "Mon idée n’est pas de faire de vous des photographes professionnels, mais simplement des photographes amateurs qui aiment faire des photos et de belles photos de près. Nous verrons tout un tas de techniques et astuces adaptées aux photos macros. A toi les photos Instagram de folie !",:picture_name => "talent_photo.jpg", :category_id =>  3},
 
-  {:title => "Photo de scènes", :description => "Depuis quelques mois, je travaille pour le Théâtre La comédie Odéon à Paris. Je m’y rends pour prendre en photo les pièces qui s’y jouent. Rejoignez moi pour apprendre à graver sur péllicule ces instants si riches en émotion !",:picture_name => "talent_photo1.jpg", :category_id =>  3},
+  {:title => "Lumière et vidéos", :description => "Gère ta lumière et filme comme un pro avec ce cours proposé par un vrai cinéaste!",:picture_name => "talent_lumiere_video.jpg", :category_id =>  3},
+  # {:title => "Photo de scènes", :description => "Depuis quelques mois, je travaille pour le Théâtre La comédie Odéon à Paris. Je m’y rends pour prendre en photo les pièces qui s’y jouent. Rejoignez moi pour apprendre à graver sur péllicule ces instants si riches en émotion !",:picture_name => "talent_photo1.jpg", :category_id =>  3},
   {:title => "Initiation à la photo", :description => "Si les grands principes de la photographie sont toujours un mystère pour toi, n'attend plus pour t'inscrire à cette initiation photo ! Tu auras l'opportunité de mieux comprendre les principaux réglages de ton appareil et pourra l'exploiter à 100% !",:picture_name => "talent_photo2.jpg", :category_id =>  3},
   {:title => "Traitements photo", :description => "Vous débutez en photo et souhaitez comprendre les principaux réglages de votre appareil ? L'Initiation Photo est faite pour vous ! Ce cours photo s'adresse aux débutants ou faux débutants ayant fait l'acquisition d'un appareil photo numérique (reflex, bridge, hybride, compact expert). Il vous aide à acquérir les bases de la photographie et créer les images que vous avez en tête.",:picture_name => "talent_photo3.jpg", :category_id =>  3},
   {:title => "Photo sur portable", :description => "Tu as toujours rêvé de prendre le cliché du siècle avec ce que tu as sous la main ? Tu veux pouvoir manier ton téléphone portable comme un vrai pro ? Nous verrons ensemble comment utiliser les configurations et paramétres des GSM pour arriver à un super rendu : ton compte instagram ne va pas s'en remettre !",:picture_name => "talent_photo4.jpg", :category_id =>  3},
@@ -384,7 +388,9 @@ talents_constants =
 
   {:title => "Skateboard : les bases", :description => "Ca te donne envie de rider lorsque tu vois Marty sur son Hoverboard dans Retour vers le futur ? Grace à cette séance d'initiation nous allons apprendre la posture et les déplacements de base pour que tu te sente à l'aise sur ta planche. Si tu es sage on testera quelques slides. N'oublie pas tes protecs !",:picture_name => "talent_skateboard.jpg", :category_id =>  9},
   {:title => "Ukulele : initiation", :description => "Tu as la larme à l'oeil à chaque fois que tu entends Over the raimbow de israel kamakawiwo'ole ? Tu veux apprendre un instrument facile à transporter et qui animera tes longues soirées d'hiver ? Je suis la pour t'apprendre toutes les bases du Ukulele avec des morceaux accessibles et adpatés. Les plus grands virtuoses ont tous commencé quelque part. A ton tours de lancer !",:picture_name => "talent_ukulele.jpg", :category_id =>  7},
-  {:title => "Les accords en Ukulele", :description => "Tu trouves le Ukulele dans les ziks de Cocoon tellement stylé ? Tu veux pouvoir t'accompagner ou accompagner des pots au chant pour les fin de soirée ? Ce cours est fait pour toi ! Nous verrons tous les accords mineures et majeurs de base, la posture et les positions des mains. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_ukulele1.jpg", :category_id =>  7}
+  # {:title => "Les accords en Ukulele", :description => "Tu trouves le Ukulele dans les ziks de Cocoon tellement stylé ? Tu veux pouvoir t'accompagner ou accompagner des pots au chant pour les fin de soirée ? Ce cours est fait pour toi ! Nous verrons tous les accords mineures et majeurs de base, la posture et les positions des mains. Jimmy Hendrix n'a qu'a bien se tenir !",:picture_name => "talent_ukulele1.jpg", :category_id =>  7},
+  {:title => "Vidéos avec GoPro", :description => "Les vidéo Xtream n'auront plus de secret pour toi! tu pourra mieux filmer toutes tes activités sportives!",:picture_name => "talent_gopro_video.jpg", :category_id =>  3},
+  
 ]
 talents_constants_admin = []
 talents_constants.each_with_index do |talents_constant,i|
@@ -421,30 +427,30 @@ end
 
 # TALENTS ON ADMIN TO TEST
 talents_admin=[]
-talents_constants_admin.each_with_index do |talent,i|
-  admin_user =  admin_users.sample
-  current_talent = Talent.create(
-                            user_id: admin_user.id,
-                            title: talent[:title],
-                            description: talent[:description],
-                            duration: rand(1..8)*60,  
-                            place_id: admin_user.id,
-                            price: Faker::Number.between(from: 1, to: 30)
-                            )
-    current_talent.picture.attach(
-    io: File.open(
-      Rails.root.join(
-        'app', 'assets', 'images', talent[:picture_name]
-      )
-    ), filename: talent[:picture_name],
-    content_type: 'image/jpg'
-  )
-  talents_admin << current_talent
-  JoinTableTalentCategory.create(
-                                  talent_id: current_talent.id,
-                                  category_id: talent[:category_id]
-                                  )
-end
+# talents_constants_admin.each_with_index do |talent,i|
+#   admin_user =  admin_users.sample
+#   current_talent = Talent.create(
+#                             user_id: admin_user.id,
+#                             title: talent[:title],
+#                             description: talent[:description],
+#                             duration: rand(1..8)*60,  
+#                             place_id: admin_user.id,
+#                             price: Faker::Number.between(from: 1, to: 30)
+#                             )
+#     current_talent.picture.attach(
+#     io: File.open(
+#       Rails.root.join(
+#         'app', 'assets', 'images', talent[:picture_name]
+#       )
+#     ), filename: talent[:picture_name],
+#     content_type: 'image/jpg'
+#   )
+#   talents_admin << current_talent
+#   JoinTableTalentCategory.create(
+#                                   talent_id: current_talent.id,
+#                                   category_id: talent[:category_id]
+#                                   )
+# end
 
 puts "========================================================="
 puts "TALENTS MENTOR              : #{talents.count}/38"
