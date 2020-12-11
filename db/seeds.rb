@@ -426,7 +426,7 @@ talents_constants_admin.each_with_index do |talent,i|
   current_talent = Talent.create(
                             user_id: admin_user.id,
                             title: talent[:title],
-                            description: Faker::Lorem.paragraph(sentence_count: 2),  #talent[:description],
+                            description: talent[:description],
                             duration: rand(1..8)*60,  
                             place_id: admin_user.id,
                             price: Faker::Number.between(from: 1, to: 30)
@@ -464,8 +464,6 @@ paid_appointments = []
 Talent.all.each do |talent|
   # PAST APPOINTMENTS
   rand(1..5).times do
-    faker_time = Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day)
-    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     past_appointments << Appointment.create(
                   start_time: Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day),
                   mentor_id: talent.user_id,
@@ -478,8 +476,6 @@ Talent.all.each do |talent|
   end
   # USER VALIDATE APPOINTMENTS
   rand(1..3).times do
-    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day)
-    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     user_validate_appointments << Appointment.create(
                   start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day),
                   mentor_id: talent.user_id,
@@ -492,8 +488,6 @@ Talent.all.each do |talent|
   end
   # MENTOR VALIDATE APPOINTMENTS
   rand(1..3).times do
-    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
-    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     mentor_validate_appointments << Appointment.create(
                   start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
                   mentor_id: talent.user_id,
@@ -506,8 +500,6 @@ Talent.all.each do |talent|
   end
   # PAID APPOINTMENTS
   rand(1..3).times do
-    faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
-    start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     paid_appointments << Appointment.create(
                   start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
                   mentor_id: talent.user_id,
