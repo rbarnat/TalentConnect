@@ -1,11 +1,5 @@
 module TalentsHelper
   private 
-  def user_have_info?
-    if current_user.first_name.nil?
-      flash[:danger] = "Tu n'a pas encore renseigné ton prénom."
-      redirect_to edit_user_registration_path
-    end
-  end
 
   def convert_price(price)
     price * 100
