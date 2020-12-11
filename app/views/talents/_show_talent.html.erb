@@ -78,8 +78,13 @@
           </tr>
           <tr>
             <th scope="col">Catégorie :</th>
-            <td><% @talent.categories.each do |category| %>
-                <%= category.title %><br>
+            <td>
+              <% if @talent.categories.any? %>
+                <% @talent.categories.each do |category| %>
+                  <%= category.title %><br>
+                <% end %>
+              <% else %>
+                Aucune
               <% end %>
             </td>
           </tr>

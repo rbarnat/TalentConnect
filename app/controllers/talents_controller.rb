@@ -33,7 +33,7 @@ class TalentsController < ApplicationController
     @user_agenda = paid_appointments_as_mentor || mentor_validate_appointments_as_mentor || paid_appointments_as_apprentice || mentor_validate_appointments_as_apprentice
     
     @converted_price = set_talent.price.to_i
-    @converted_duration = "#{set_talent.duration/60}h #{set_talent.duration % 60}min"
+    @converted_duration = "#{set_talent.duration/60}h"
   end
 
   def new

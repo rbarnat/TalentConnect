@@ -1,106 +1,14 @@
-<h1 class="text-center text-primary"> Ici toi ô Grand Admin tu peux éditer n'importe quel talent ! </h1>
-<br>
-
- <script defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
-  </script>
-<div class="container">
+<script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
+</script>
+<div class="container mt-4">
   <div class=" card card-custom2 shadow max-width-45 p-4 m-auto">
     <div class="p-2">
-      <h4 class="text-primary text-center"><u>Bienvenue sur la page de modification de votre talent :</u></h4>
-      <h4 class="text-center"> <%=@talent.title%></h4><br>
+      <h4 class="text-primary text-center"> <%=@talent.title%></h4><br>
+      <h5 class=""><strong><u>MODE ADMIN :</u></strong></h5>
+      <p>Ici toi ô Grand Admin tu peux éditer n'importe quel talent ! </p>
     </div>
-    <%= form_with model: @talent, local: true, multipart: true, method: :patch do |form| %>
-
-      <!-- TITLE -->
-      <div class="field">
-        <%= form.label :title, 'Titre' %>
-        <%= form.text_field :title, class: "form-control" %>
-      </div>
-
-      <!-- DESCRIPTION -->
-      <div class="field">
-        <%= form.label :description, 'Description' %>
-        <%= form.text_area :description, class: "form-control" %>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <!-- PRICE -->
-          <div class="field">
-            <%= form.label :price, 'Prix en euros' %>
-            <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col">
-          <!-- DURATION -->
-          <div class="field">
-            <%= form.label :duration, 'Durée de la scéance en heure' %>
-            <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-      <!-- PLACE NESTED FORM -->
-      <div class="field">
-        <%= fields_for :place do |place_form| %>
-            <%= place_form.label :address, 'Adresse' %>
-            <%= place_form.text_field :address, class: "form-control" %>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= fields_for :place do |place_form| %>
-            <%= place_form.label :city_name, 'Ville' %>
-            <%= place_form.text_field :city_name, class: "form-control" %>
-        <% end %>
-      </div>
-
-      
-      <div class="field">
-        <%= fields_for :place do |place_form| %>
-            <%= place_form.label :zip_code, 'Code postal' %>
-            <%= place_form.text_field :zip_code, class: "form-control" %>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= fields_for :place do |place_form| %>
-            <%= place_form.hidden_field :latitude %>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= fields_for :place do |place_form| %>
-            <%= place_form.hidden_field :longitude %>
-        <% end %>
-      </div>
-
-      <hr>
-      <!-- PICTURES -->
-
-      <h3>Photo actuelle</h3>
-      <%if @talent.picture.attached?%>
-        <%= image_tag @talent.picture, alt: 'picture', class: 'max-width-45 card-img' %>
-      <%else%>
-        <p>=== Il n'y a pas encore de photo liée à ce talent ===</p>
-      <%end%>
-      <div class="actions text-center p-3">
-        <label>Photo</label>
-        <br>
-        <label class="btn btn-secondary ">
-            Choisir une photo
-            <span class="display-none">
-              <%= form.file_field :picture %>
-            </span>
-        </label>
-      </div>
-
-    <div class="actions text-center p-3">
-      <%= form.submit "Modifier le talent", class: "btn btn-primary" %>
-    </div>
-    <% end %>
+    <%= render partial: 'talents/edit_talent_form_box', locals: {model: @talent} %>
   </div>
 </div>
 

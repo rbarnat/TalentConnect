@@ -1,6 +1,8 @@
- <script defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
-  </script>
+<!-- GMAP -->
+<script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
+</script>
+<!-- CONTENT -->
 <div class="container">
   <div class=" card card-custom2 shadow max-width-45 p-4 m-auto">
     <div class="p-2">
@@ -109,11 +111,13 @@
       <%= form.submit "Modifier le talent", class: "btn btn-primary" %>
     </div>
     <% end %>
+      <h4 class="text-primary text-center"> <%=@talent.title%></h4><br>
+    </div>
+    <%= render partial: 'talents/edit_talent_form_box', locals: {model: @talent} %>
   </div>
 </div>
 
-<!-- AUTO COMPLETE -->
-
+<!-- GMAP AUTO COMPLETE -->
 <script>
     var searchInput ='place_address';
     function initAutocomplete() {
