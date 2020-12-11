@@ -110,10 +110,12 @@
         <%= month_calendar events: @user_agenda, day_names: "date.day_names",table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}  do |date, user_agenda| %>
           <strong> <%= date.strftime("%d") %></strong> 
           <% (8..20).each do |hour| %>
-            <% if @user_agenda.where("start_time > ? AND start_time <= ?", DateTime.new(date.year, date.month, date.day, hour), DateTime.new(date.year, date.month, date.day, hour + @duration_hour) ).any? %>
-              <div class="btn btn-sm btn-danger">
-                <strike><%= "#{hour}h" %></strike>
-              </div>
+            <% if convert_date_in_datetime_ok?(date, hour) %>
+              <% if @user_agenda.where("start_time >= ? AND start_time <= ?", convert_date_in_datetime(date, hour), convert_date_in_datetime(date, hour + @duration_hour) ).any? %>
+                <div class="btn btn-sm btn-danger">
+                  <strike><%= "#{hour}h" %></strike>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>

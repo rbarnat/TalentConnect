@@ -15,4 +15,36 @@ module ApplicationHelper
     end
     return cities_names_array
   end
+
+  def convert_date_in_datetime(date, hour)
+    date_string = date.strftime("%d/%m/%Y")
+    time_string = ""
+    time_string = "0#{hour}:00:00" if hour < 10
+    time_string = "#{hour}:00:00" if hour >= 10
+    datetime_string = date_string + " " + time_string
+    datetime_string.to_datetime
+    # DateTime.new(date.year, date.month, date.day, hour,0,0,'+0')
+  end
+
+  def convert_date_in_datetime_ok?(date, hour)
+    begin
+      # do something dodgy
+      convert_date_in_datetime(date, hour)
+    rescue ActiveRecord::RecordNotFound
+      # handle not found error
+      return false
+    rescue ActiveRecord::ActiveRecordError
+      # handle other ActiveRecord errors
+      return false
+    rescue # StandardError
+      # handle most other errors
+      return false
+    rescue Exception
+      # handle everything else
+      return false
+      raise
+    end
+    return true
+
+  end
 end
