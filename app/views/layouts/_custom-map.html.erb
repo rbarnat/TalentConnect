@@ -1,0 +1,184 @@
+<script>
+var markers = []
+var infoWindows = []
+function initMap(){
+    var options = {
+        zoom:12,
+        center:{lat:48.8534,lng:2.3488},
+        styles: [
+                    {
+                        "featureType": "administrative",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "stylers": [
+                            {
+                                "color": "#abbaa4"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.line",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#3f518c"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "stylers": [
+                            {
+                                "color": "#ad9b8d"
+                            }
+                        ]
+                    }
+                ]
+}
+// New map
+var map = new google.maps.Map(document.getElementById('map'), options);
+// Add marker
+function addMarker(coords, content, id){
+var result = [2];
+var marker = new google.maps.Marker({
+    position:coords,
+    map:map,
+    animation: google.maps.Animation.DROP,
+    id: id,
+    icon: "<%= asset_path 'maps-and-flags.png' %>"
+})
+    // Add info window
+var infoWindow = new google.maps.InfoWindow({
+content: content 
+})
+marker.addListener('mouseover', function(){
+    infoWindow.open(map, marker)
+})
+marker.addListener('mouseout', function(){
+    infoWindow.close(map, marker)
+})
+    // Change the icon style
+    google.maps.event.addListener(marker, 'mouseover', function() {
+marker.setIcon("<%= asset_path 'placeholder.png' %>");
+})
+google.maps.event.addListener(marker, 'mouseout', function() {
+marker.setIcon("<%= asset_path 'maps-and-flags.png' %>");
+})
+marker.addListener("click", () => {
+map.setZoom(15);
+map.setCenter(marker.getPosition());
+});
+result[0] = marker
+result[1] = infoWindow
+return result;
+}
+    // Create one unique marker for each talent
+    <% id = 0 %>
+    <% @found_talents.each do |talent|%>
+    var markerInfoWindow = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>},"<%= talent.price %> €", <%= id %>)
+    markers[<%= id %>]= markerInfoWindow[0]
+    infoWindows[<%= id %>]= markerInfoWindow[1]
+    <% id = id+1%>
+    
+    <% end%>
+    
+    // Target all talent's card in the results and add an event
+var talents = document.querySelectorAll(".row.no-gutters")
+
+
+talents.forEach((talent,index) => {
+    talent.addEventListener('mouseover', function(){
+    this.style.boxShadow = "5px 10px 10px #808080";
+    this.style.borderRadius = "25px";
+    changeMarkerOn(index);
+    })
+    talent.addEventListener('mouseout', function(){
+    this.style = " ";
+    changeMarkerOff(index);
+    })
+    
+});
+
+
+}
+function changeMarkerOn(idmarker){
+markers[idmarker].setIcon("<%= asset_path 'placeholder.png' %>")
+infoWindows[idmarker].open(map, markers[idmarker])
+}
+function changeMarkerOff(idmarker){
+markers[idmarker].setIcon("<%= asset_path 'maps-and-flags.png' %>")
+infoWindows[idmarker].close(map, markers[idmarker])
+}
+</script>
