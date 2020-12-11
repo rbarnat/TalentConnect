@@ -1,21 +1,23 @@
- <script defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
-  </script>
+<!-- GMAP -->
+<script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI3Q_EMl4fqy5IsGdqAFzhlWJb9QOcAYI&libraries=places&callback=initAutocomplete">
+</script>
+<!-- CONTENT -->
 <div class="container">
   <div class=" card card-custom2 shadow max-width-45 p-4 m-auto">
     <div class="p-2">
-      <h4 class="text-primary text-center"><u>Bienvenue sur la page de modification de votre talent :</u></h4>
+      <h4 class="text-primary text-center"><u>Bienvenue sur la page de modification de ton talent :</u></h4>
       <h4 class="text-center"> <%=@talent.title%></h4><br>
     </div>
     <%= form_with model: @talent, local: true, multipart: true, method: :patch do |form| %>
 
-      <!-- title -->
+      <!-- TITLE -->
       <div class="field">
         <%= form.label :title, 'Titre' %>
         <%= form.text_field :title, class: "form-control" %>
       </div>
 
-      <!-- Description -->
+      <!-- DESCRIPTION -->
       <div class="field">
         <%= form.label :description, 'Description' %>
         <%= form.text_area :description, class: "form-control" %>
@@ -23,21 +25,21 @@
 
       <div class="row">
         <div class="col">
-          <!-- Price -->
+          <!-- PRICE -->
           <div class="field">
             <%= form.label :price, 'Prix en euros' %>
             <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
           </div>
         </div>
         <div class="col">
-          <!-- Duration -->
+          <!-- DURATION -->
           <div class="field">
             <%= form.label :duration, 'Durée en heure' %>
             <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
           </div>
         </div>
         <div class="col">
-          <!-- Category nested form -->
+          <!-- CATEGORY NESTED FORM -->
           <div class="field">
             <%= fields_for :JoinTableTalentCategory do |category_form| %>
                 <%= category_form.label :category_id, 'Catégorie' %>
@@ -47,10 +49,8 @@
         </div>
       </div>
 
-
-
       <hr>
-      <!-- Place nested form -->
+      <!-- PLACE NESTED FORM -->
       <div class="field">
         <%= fields_for :place do |place_form| %>
             <%= place_form.label :address, 'Adresse' %>
@@ -65,7 +65,6 @@
         <% end %>
       </div>
 
-      
       <div class="field">
         <%= fields_for :place do |place_form| %>
             <%= place_form.label :zip_code, 'Code postal' %>
@@ -86,11 +85,10 @@
       </div>
 
       <hr>
-      <!-- Photos -->
-
+      <!-- PICTURE -->
       <h3>Photo actuelle</h3>
       <%if @talent.picture.attached?%>
-        <%= image_tag @talent.picture, alt: 'picture', class: 'max-width-45 card-img' %>
+        <%= image_tag @talent.picture, alt: 'Photo', class: 'max-width-45 card-img' %>
       <%else%>
         <p>=== Il n'y a pas encore de photo liée à ce talent ===</p>
       <%end%>
@@ -109,11 +107,13 @@
       <%= form.submit "Modifier le talent", class: "btn btn-primary" %>
     </div>
     <% end %>
+      <h4 class="text-primary text-center"> <%=@talent.title%></h4><br>
+    </div>
+    <%= render partial: 'talents/edit_talent_form_box', locals: {model: @talent} %>
   </div>
 </div>
 
-<!-- AUTO COMPLETE -->
-
+<!-- GMAP AUTO COMPLETE -->
 <script>
     var searchInput ='place_address';
     function initAutocomplete() {

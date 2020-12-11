@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/about'
   get 'static_pages/contact'
-  get 'static_pages/kit_ui'
+  get 'static_pages/ui_kit'
   
   # HOME PAGE
   root to: "static_pages#home"
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :pictures, only: [:create]
     resources :reviews, only: [:show]
   end
-  # Appointment creation is accessible through the talent show page 
+  # APPOINTMENT CREATION IS ACCESSIBLE THROUGH THE TALENT SHOW PAGE 
   resources :talents, only: [:show] do 
     resources :appointments, only: [:new, :create] do 
       resources :reviews, only: [:new, :create]

@@ -33,7 +33,7 @@ class TalentsController < ApplicationController
     @user_agenda = paid_appointments_as_mentor || mentor_validate_appointments_as_mentor || paid_appointments_as_apprentice || mentor_validate_appointments_as_apprentice
     
     @converted_price = set_talent.price.to_i
-    @converted_duration = "#{set_talent.duration/60}h #{set_talent.duration % 60}min"
+    @converted_duration = "#{set_talent.duration/60}h"
   end
 
   def new
@@ -67,7 +67,7 @@ class TalentsController < ApplicationController
     @place.update(place_params)
     @joint_table_talent_category.update(category_params)
     if @talent.update(talent_params)
-      flash[:success] = "Tu as mis à jour les informations de ton talent"
+      flash[:success] = "Tu as mis à jour les informations de ton talent."
       redirect_to talent_path(@talent)
     else
       flash.now[:danger] = "Le talent n'a pas été mis à jour."

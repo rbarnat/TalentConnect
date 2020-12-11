@@ -1,51 +1,71 @@
 <div class="container mt-4">
   <div class="row">
     <h3 class=""><%= @talent.title %></h3>
-    <p class="ml-3 pt-2">proposé par : <div class="text-primary ml-2 pt-2"><%= @talent.user.first_name %></div></p>
+    <p class="ml-3 pt-2">Proposé par : <div class="text-primary ml-2 pt-2"><%= @talent.user.first_name %></div></p>
   </div>
 
   <div class="row">
-    <div class="col-sm-8">
-        <!-- image container -->
-      <div class="image-container ">
+    <div class="col-sm-8 text-center">
+
+      <!-- TALENT CARD -->
+      <div class="image-container">
         <%if @talent.picture.attached?%>
         <%= image_tag @talent.picture, alt: 'photo du talent', class: ".img-fluid card-img"%>
         <%else%>
-          <p>aucune photo de ce talent</p>
+          <p>Aucune photo de ce talent</p>
         <%end%>
       </div>
-
-      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row">
+      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row ">
         <h5>Description: </h5>
         <p><%= @talent.description %></p>
       </div>
 
-      <div class="text-center">
+      <!-- ADD APPOINTMENT BUTTTON -->
+      <div class="mr-5">
         <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
       </div>
-      <p class="text-center">
-        <a class="btn btn-outline-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Voir les commentaires</a>
-      </p>
-      <div class="container">
 
-          <% @reviewed_appointments.sort.each do |appointment| %>
-            <div class="col">
-              <div class="collapse multi-collapse" id="multiCollapseExample1">
-                <div class="card card-custom3 max-width-45 mx-auto mb-3 p-4">
-                  <div class="row">
-                    <div class="col-10">
-                      <%= appointment.apprentice.first_name %> a laissé une évaluation sur ce talent:<hr>
-                      <strong><u>Commentaire: </u></strong><%= appointment.review.comment %></td>
-                    </div>
-                    <div class="col-2 m-auto pr-4 text-center">
-                      Note<h5 class="text-primary"> <%= appointment.review.mark %>/5</h5>              
+      <% if is_current_user_admin? %>
+        <div class="mr-5">
+          <strong>MENUS ADMIN</strong>
+          <div class="container d-flex justify-content-center">
+            <div class="text-center">
+              <%= link_to "Modifier le talent", edit_admin_talent_path(id: @talent.id),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+            </div>
+            <div class="text-center">
+              <%= link_to "Supprimer", admin_talent_path(@talent), method: "delete", class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="mr-5">
+        <!-- REWIEWS BUTTTON -->
+        <p class="text-center">
+          <a class="btn btn-outline-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Voir les commentaires</a>
+        </p>
+        <!-- REWIEWS CONTENT -->
+        <div class="container">
+            <% @reviewed_appointments.sort.each do |appointment| %>
+              <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                  <div class="card card-custom3 max-width-45 mx-auto mb-3 p-4">
+                    <div class="row">
+                      <div class="col-10">
+                        <%= appointment.apprentice.first_name %> a laissé une évaluation sur ce talent:<hr>
+                        <strong><u>Commentaire: </u></strong><%= appointment.review.comment %></td>
+                      </div>
+                      <div class="col-2 m-auto pr-4 text-center">
+                        Note<h5 class="text-primary"> <%= appointment.review.mark %>/5</h5>              
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+        </div>
       </div>
+
     </div>
 
     <div class="col-sm-4">
@@ -53,38 +73,49 @@
       <table class="table table-borderless max-width-18">
         <tbody>
           <tr>
-            <th scope="row">Note:</th>
+            <th scope="row">Note : </th>
             <td><%= global_mark(@reviewed_appointments) %></td>
           </tr>
           <tr>
-            <th scope="col">Catégorie:</th>
-            <td><% @talent.categories.each do |category| %>
-                <%= category.title %><br>
+            <th scope="col">Catégorie :</th>
+            <td>
+              <% if @talent.categories.any? %>
+                <% @talent.categories.each do |category| %>
+                  <%= category.title %><br>
+                <% end %>
+              <% else %>
+                Aucune
               <% end %>
             </td>
           </tr>
           <tr>
-            <th scope="col">Ville:</th>
+            <th scope="col">Ville : </th>
             <td><%= @talent.place.city_name %></td>
           </tr>
           <tr>
-            <th scope="col">Prix:</th>
+            <th scope="col">Prix : </th>
             <td><%= @converted_price %> €</td>
           </tr>
           <tr>
-            <th scope="col">Durée de la scéance:</th>
+            <th scope="col">Durée de la scéance : </th>
             <td><%= @converted_duration %></td>
           </tr>
         </tbody>
       </table>
+      <!-- AGENDA -->
       <div class="container">
+        <div class="">
+          <strong>Agenda du mentor : </strong>
+        </div>
         <%= month_calendar events: @user_agenda, day_names: "date.day_names",table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}  do |date, user_agenda| %>
           <strong> <%= date.strftime("%d") %></strong> 
           <% (8..20).each do |hour| %>
-            <% if @user_agenda.where("start_time > ? AND start_time <= ?", DateTime.new(date.year, date.month, date.day, hour), DateTime.new(date.year, date.month, date.day, hour + @duration_hour) ).any? %>
-              <div class="btn btn-sm btn-danger">
-                <strike><%= "#{hour}h" %></strike>
-              </div>
+            <% if convert_date_in_datetime_ok?(date, hour) %>
+              <% if @user_agenda.where("start_time >= ? AND start_time <= ?", convert_date_in_datetime(date, hour), convert_date_in_datetime(date, hour + @duration_hour) ).any? %>
+                <div class="btn btn-sm btn-danger">
+                  <strike><%= "#{hour}h" %></strike>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
@@ -93,24 +124,15 @@
     </div>
 
   </div>
-  <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row">
-    <h5>Description: </h5>
-    <p><%= @talent.description %></p>
-  </div>
-  <div class="text-center">
-    <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
-  </div>
-  <% if is_current_user_admin? %>
-  <div class="text-center">
-    <%= link_to "Modifier le talent", edit_admin_talent_path(id: @talent.id),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
-  </div>
-  <div class="text-center">
-    <%= link_to "Supprimer", admin_talent_path(@talent), method: "delete", class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
-  </div>
-  <% end %>
+
+  <div class="row ">
+    <div class="col-sm-8">
+      
+    </div>
+    </div>
+
 </div>
 
-  <div class="row">
-    <div class="col-sm-8">
-    </div>
-    </div>
+  
+
+    

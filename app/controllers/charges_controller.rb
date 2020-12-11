@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
       @appointment = Appointment.find(params[:appointment_id])
       @appointment.is_paid = true
       @appointment.save
-      flash[:success] = "Bravo, tu as réservé ta scéance et payé #{@amount} €!"
+      flash[:success] = "Bravo, tu as réservé ta séance et payé #{@amount} €!"
       payment_apprentice_send(@appointment)
       payment_mentor_send(@appointment)
       redirect_to apprentice_show_user_path(current_user.id)

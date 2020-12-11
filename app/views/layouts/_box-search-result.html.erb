@@ -9,7 +9,7 @@
             <% end %>
         <% else %>
             <% if params[:search_keywords].length == 0 %>
-                Saisi au moins 4 caractère dans la recherche.
+                Saisis au moins 4 caractère dans la recherche.
             <% else %>
                 Aucun résultat pour "<%= params[:search_keywords] %>"
                 <% if params[:search_keywords].length < 4 %>
@@ -20,86 +20,8 @@
         <% end %>
     </div>
     <div class="col" id="map">
-        <script>
-            var markers = []
-            
-            function initMap(){
-                var options = {
-                    zoom:12,
-                    center:{lat:48.8534,lng:2.3488}
-                }
-                // New map
-                var map = new google.maps.Map(document.getElementById('map'), options);
-                // Add marker
-              function addMarker(coords, content, id){
-                var marker = new google.maps.Marker({
-                    position:coords,
-                    map:map,
-                    animation: google.maps.Animation.DROP,
-                    id: id,
-                    icon: "<%= asset_path 'maps-and-flags.png' %>"
-                })
-                 // Add info window
-                var infoWindow = new google.maps.InfoWindow({
-                content: content 
-                })
-                marker.addListener('mouseover', function(){
-                  infoWindow.open(map, marker)
-                })
-                marker.addListener('mouseout', function(){
-                  infoWindow.close(map, marker)
-                })
-                  // Change the icon style
-                 google.maps.event.addListener(marker, 'mouseover', function() {
-                marker.setIcon("<%= asset_path 'placeholder.png' %>");
-                })
-                google.maps.event.addListener(marker, 'mouseout', function() {
-                marker.setIcon("<%= asset_path 'maps-and-flags.png' %>");
-                })
-                marker.addListener("click", () => {
-                map.setZoom(15);
-                map.setCenter(marker.getPosition());
-                });
-                return marker;
-              }
-                  // Create one unique marker for each talent
-                  <% id = 0 %>
-                  <% @filtred_talents.each do |talent|%>
-                  var marker = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>},"<%= talent.price %> €", <%= id %>)
-                  markers[<%= id %>]= marker
-                  <% id = id+1%>
-                  
-                  <% end%>
-                  
-                  // Target all talent's card in the results and add an event
-                var talents = document.querySelectorAll(".row.no-gutters")
-                
-                
-                talents.forEach((talent,index) => {
-                  talent.addEventListener('mouseover', function(){
-                    this.style.boxShadow = "5px 10px 10px #808080";
-                    this.style.borderRadius = "25px";
-                    changeMarkerOn(index);
-                  })
-                  talent.addEventListener('mouseout', function(){
-                    this.style = " ";
-                    changeMarkerOff(index);
-                  })
-                  
-                });
-               
-                
-            }
-            function changeMarkerOn(idmarker){
-              markers[idmarker].setIcon("<%= asset_path 'placeholder.png' %>")
-              console.log(markers[idmarker])
-            }
-            function changeMarkerOff(idmarker){
-              markers[idmarker].setIcon("<%= asset_path 'maps-and-flags.png' %>")
-            }
-            
-
-        </script>
+        <!-- GOOGLE MAP API -->
+        <%= render 'layouts/custom-map' %>
         <script defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCROEXaB0Wy3Go4BC2Mv8oAg8uVR4r9PmM&callback=initMap">
         </script>

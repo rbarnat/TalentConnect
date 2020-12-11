@@ -936,6 +936,34 @@ a.text-primary:focus {
   flex-direction: column;
 }
 
+.vid-carousel-1 {
+  -ms-transform: translateY(-40%);
+  -moz-transform: translateY(-40%);
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+}
+
+.vid-carousel-2 {
+  -ms-transform: translateY(-5%);
+  -moz-transform: translateY(-5%);
+  -webkit-transform: translateY(-5%);
+  transform: translateY(-5%);
+}
+
+.vid-carousel-3 {
+  -ms-transform: translateY(-20%);
+  -moz-transform: translateY(-20%);
+  -webkit-transform: translateY(-20%);
+  transform: translateY(-20%);
+}
+
+.vid-carousel-4 {
+  -ms-transform: translateY(-10%);
+  -moz-transform: translateY(-10%);
+  -webkit-transform: translateY(-10%);
+  transform: translateY(-10%);
+}
+
 .image-container {
   max-width: 40rem;
 }
