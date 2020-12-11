@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
       flash[:success] = "Bravo, ton commentaire a bien été pris en compte!"
       redirect_to talent_path(params[:talent_id])
     else
-      flash.now[:danger] = "Le commentaire n'a pas été créé. tu as déjà évalué cette scéance!"
+      flash.now[:danger] = "Le commentaire n'a pas été créé. Tu as déjà évalué cette scéance!"
       render :new
     end
   end
