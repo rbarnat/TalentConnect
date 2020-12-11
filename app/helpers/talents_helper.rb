@@ -36,4 +36,36 @@ module TalentsHelper
       return total_rating
     end
   end
+
+  def filter_talents(talent_array)
+    category_choice = search_category_params[:category_id]
+    city_choice = search_category_params[:city_name]
+
+    if category_choice.blank? && city_choice.blank?
+      return talent_array
+
+    elsif category_choice.blank? 
+      @filtred_talents = []
+      talent_array.each do |talent|
+        if talent.place.city_name == city_choice
+          @filtred_talents << talent
+        end
+      end
+    elsif city_choice.blank?
+      @filtred_talents = []
+      talent_array.each do |talent|
+        if talent.categories.ids.include?(category_choice.to_i)
+          @filtred_talents << talent
+        end
+      end
+    else
+      @filtred_talents = []
+      talent_array.each do |talent|
+        if talent.categories.ids.include?(category_choice.to_i) && talent.place.city_name == city_choice
+          @filtred_talents << talent
+        end
+      end
+    end
+    return @filtred_talents
+  end
 end

@@ -467,7 +467,7 @@ Talent.all.each do |talent|
     faker_time = Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day)
     start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     past_appointments << Appointment.create(
-                  start_time: start_time,
+                  start_time: Faker::Time.between_dates(from: 1.month.ago, to: 1.day.ago, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -481,7 +481,7 @@ Talent.all.each do |talent|
     faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day)
     start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     user_validate_appointments << Appointment.create(
-                  start_time: start_time,
+                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 2.month.from_now, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -495,7 +495,7 @@ Talent.all.each do |talent|
     faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
     start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     mentor_validate_appointments << Appointment.create(
-                  start_time: start_time,
+                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
@@ -509,7 +509,7 @@ Talent.all.each do |talent|
     faker_time = Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day)
     start_time = DateTime.new(faker_time.year, faker_time.month, faker_time.day, faker_time.hour)
     paid_appointments << Appointment.create(
-                  start_time: start_time,
+                  start_time: Faker::Time.between_dates(from: 1.day.from_now, to: 1.month.from_now, period: :day),
                   mentor_id: talent.user_id,
                   apprentice_id: User.all.sample.id,
                   place_id: talent.place_id,
