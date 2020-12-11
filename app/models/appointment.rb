@@ -5,7 +5,7 @@ class Appointment < ApplicationRecord
   belongs_to :place
   belongs_to :talent
   # An appointment can have only one review written by the apprentice (mentor can't write review for now)
-  has_one :review
+  has_one :review, dependent: :destroy
 
   # Validation before creation
   validates :start_time, presence: true
