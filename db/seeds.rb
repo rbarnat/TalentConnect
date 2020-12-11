@@ -28,73 +28,73 @@ end
 # PARIS
 paris_addresses = 
 [
-  #Paris 1er Arrondissement
+  #Paris 1st district
   {:city_name => "Paris", :zip_code => "75001", :address => "11 rue d'Alger", :latitude => 48.865572,:longitude => 2.329904},
   {:city_name => "Paris", :zip_code => "75001", :address => "8 rue de l'Amiral de Coligny", :latitude => 48.86067,:longitude => 2.340928},
   {:city_name => "Paris", :zip_code => "75001", :address => "2 place André Malraux", :latitude => 48.863963,:longitude => 2.335737},
   {:city_name => "Paris", :zip_code => "75001", :address => "15 rue de l'Arbre Sec", :latitude => 48.859682,:longitude => 2.341897},
   {:city_name => "Paris", :zip_code => "75001", :address => "25B rue d'Argenteuil", :latitude => 48.866215,:longitude => 2.333242},
-  #Paris 2eme Arrondissement
+  #Paris 2nd district
   {:city_name => "Paris", :zip_code => "75002", :address => "50 rue Dalayrac", :latitude => 48.868181,:longitude => 2.335286},
   {:city_name => "Paris", :zip_code => "75002", :address => "20 rue Danielle Casanova", :latitude => 48.868059,:longitude => 2.33145},
   {:city_name => "Paris", :zip_code => "75002", :address => "1 rue des Degrés", :latitude => 48.869399,:longitude => 2.350622},
   {:city_name => "Paris", :zip_code => "75002", :address => "28 rue Dussoubs", :latitude => 48.866156,:longitude => 2.349107},
   {:city_name => "Paris", :zip_code => "75002", :address => "14 rue Étienne Marcel", :latitude => 48.864006,:longitude => 2.348835},
 
-  #Paris 3eme Arrondissement
+  #Paris 3rd district
   {:city_name => "Paris", :zip_code => "75003", :address => "2 rue Blondel", :latitude => 48.868496,:longitude => 2.355043},
   {:city_name => "Paris", :zip_code => "75003", :address => "9,Rue du Bourg l'Abbé", :latitude => 48.864018,:longitude => 2.351698},
   {:city_name => "Paris", :zip_code => "75003", :address => "13,Rue de Braque", :latitude => 48.861192,:longitude => 2.356174},
   {:city_name => "Paris", :zip_code => "75003", :address => "47B,Rue de Bretagne", :latitude => 48.863346,:longitude => 2.361409},
   {:city_name => "Paris", :zip_code => "75003", :address => "49,Rue Charlot", :latitude => 48.863264,:longitude => 2.362949},
-  #Paris 4eme Arrondissement
+  #Paris 4th district
   {:city_name => "Paris", :zip_code => "75004", :address => "75,Rue Saint-Antoine", :latitude => 48.854408,:longitude => 2.363073},
   {:city_name => "Paris", :zip_code => "75004", :address => "16,Rue Sainte-Croix Bretonnerie", :latitude => 48.858089,:longitude => 2.356706},
   {:city_name => "Paris", :zip_code => "75004", :address => "3,Place Saint-Gervais", :latitude => 48.855673,:longitude => 2.3543},
   {:city_name => "Paris", :zip_code => "75004", :address => "42,Rue Saint-Louis en l'Île", :latitude => 48.851714,:longitude => 2.356989},
   {:city_name => "Paris", :zip_code => "75004", :address => "120,Rue Saint-Martin", :latitude => 48.860577,:longitude => 2.351205},
 
-  #Paris 5eme Arrondissement
+  #Paris 5th district
   {:city_name => "Paris", :zip_code => "75005", :address => "36,Rue du Fer à Moulin", :latitude => 48.838906,:longitude => 2.352837},
   {:city_name => "Paris", :zip_code => "75005", :address => "8,Rue des Feuillantines", :latitude => 48.841737,:longitude => 2.3424},
   {:city_name => "Paris", :zip_code => "75005", :address => "14,Rue des Fossés Saint-Bernard", :latitude => 48.848736,:longitude => 2.355045},
   {:city_name => "Paris", :zip_code => "75005", :address => "11,Rue Frédéric Sauton", :latitude => 48.850876,:longitude => 2.349118},
   {:city_name => "Paris", :zip_code => "75005", :address => "9,Rue Fustel de Coulanges", :latitude => 48.839406,:longitude => 2.339694},
 
-  #Paris 6eme Arrondissement
+  #Paris 6th districit
   {:city_name => "Paris", :zip_code => "75006", :address => "19,Rue Mazarine", :latitude => 48.855102,:longitude => 2.337892},
   {:city_name => "Paris", :zip_code => "75006", :address => "5BIS,Rue André Mazet", :latitude => 48.853895,:longitude => 2.339174},
   {:city_name => "Paris", :zip_code => "75006", :address => "9B,Rue de Mézières", :latitude => 48.850213,:longitude => 2.331446},
   {:city_name => "Paris", :zip_code => "75006", :address => "14,Rue Monsieur le Prince", :latitude => 48.850426,:longitude => 2.339608},
   {:city_name => "Paris", :zip_code => "75006", :address => "101,Boulevard du Montparnasse", :latitude => 48.842485,:longitude => 2.328727},
 
-  #Paris 7eme Arrondissement
+  #Paris 7th district
   {:city_name => "Paris", :zip_code => "75007", :address => "53,Rue Cler", :latitude => 48.85607,:longitude => 2.306868},
   {:city_name => "Paris", :zip_code => "75007", :address => "10,Rue Cognacq Jay", :latitude => 48.861861,:longitude => 2.304083},
   {:city_name => "Paris", :zip_code => "75007", :address => "17,Rue de la Comète", :latitude => 48.858742,:longitude => 2.309221},
   {:city_name => "Paris", :zip_code => "75007", :address => "17,Rue de Constantine", :latitude => 48.859858,:longitude => 2.314948},
   {:city_name => "Paris", :zip_code => "75007", :address => "6,Rue Desgenettes", :latitude => 48.861811,:longitude => 2.309648},
-  #Paris 8eme Arrondissement
+  #Paris 8th district
   {:city_name => "Paris", :zip_code => "75008", :address => "15,Rue de la Bienfaisance", :latitude => 48.876576,:longitude => 2.317404},
   {:city_name => "Paris", :zip_code => "75008", :address => "6,Rue du Boccador", :latitude => 48.866348,:longitude => 2.303441},
   {:city_name => "Paris", :zip_code => "75008", :address => "25,Rue Boissy d'Anglas", :latitude => 48.869289,:longitude => 2.322053},
   {:city_name => "Paris", :zip_code => "75008", :address => "9,Rue de Bucarest", :latitude => 48.880633,:longitude => 2.326189},
   {:city_name => "Paris", :zip_code => "75008", :address => "104,Avenue des Champs-Élysées", :latitude => 48.872094,:longitude => 2.301611},
 
-  #Paris 9eme Arrondissement
+  #Paris 9th district
   {:city_name => "Paris", :zip_code => "75009", :address => "3,Rue Blanche", :latitude => 48.877403,:longitude => 2.332041},
   {:city_name => "Paris", :zip_code => "75009", :address => "1S,Impasse de la Boule Rouge", :latitude => 48.873569,:longitude => 2.34383},
   {:city_name => "Paris", :zip_code => "75009", :address => "38,Rue de Bruxelles", :latitude => 48.882923,:longitude => 2.328497},
   {:city_name => "Paris", :zip_code => "75009", :address => "4,Rue de Budapest", :latitude => 48.876075,:longitude => 2.32771},
   {:city_name => "Paris", :zip_code => "75009", :address => "16B,Rue Cadet", :latitude => 48.874924,:longitude => 2.343079},
-  #Paris 10eme Arrondissement
+  #Paris 10th district
   {:city_name => "Paris", :zip_code => "75010", :address => "4TER,Boulevard de Bonne Nouvelle", :latitude => 48.870049,:longitude => 2.352418},
   {:city_name => "Paris", :zip_code => "75010", :address => "10,Rue Bouchardon", :latitude => 48.869931,:longitude => 2.35742},
   {:city_name => "Paris", :zip_code => "75010", :address => "18S,Rue Boy-Zelenski", :latitude => 48.877508,:longitude => 2.368728},
   {:city_name => "Paris", :zip_code => "75010", :address => "78,Passage Brady", :latitude => 48.871436,:longitude => 2.354498},
   {:city_name => "Paris", :zip_code => "75010", :address => "7B,Passage du Buisson Saint-Louis", :latitude => 48.872544,:longitude => 2.372883},
 
-  #Paris 11eme Arrondissement
+  #Paris 11th district
   {:city_name => "Paris", :zip_code => "75011", :address => "10,Rue Henri Ranvier", :latitude => 48.85861,:longitude => 2.386745},
   {:city_name => "Paris", :zip_code => "75011", :address => "3,Place Hubertine Auclert", :latitude => 48.858904,:longitude => 2.380658},
   {:city_name => "Paris", :zip_code => "75011", :address => "7,Impasse des Jardiniers", :latitude => 48.852188,:longitude => 2.392034},
@@ -106,73 +106,73 @@ paris_addresses =
   # COPY OF WHAT IS ABOVE
   #----------------------
 
-  #Paris 1er Arrondissement
+  #Paris 1st district
   {:city_name => "Paris", :zip_code => "75001", :address => "11 rue d'Alger", :latitude => 48.865572,:longitude => 2.329904},
   {:city_name => "Paris", :zip_code => "75001", :address => "8 rue de l'Amiral de Coligny", :latitude => 48.86067,:longitude => 2.340928},
   {:city_name => "Paris", :zip_code => "75001", :address => "2 place André Malraux", :latitude => 48.863963,:longitude => 2.335737},
   {:city_name => "Paris", :zip_code => "75001", :address => "15 rue de l'Arbre Sec", :latitude => 48.859682,:longitude => 2.341897},
   {:city_name => "Paris", :zip_code => "75001", :address => "25B rue d'Argenteuil", :latitude => 48.866215,:longitude => 2.333242},
-  #Paris 2eme Arrondissement
+  #Paris 2nd district
   {:city_name => "Paris", :zip_code => "75002", :address => "50 rue Dalayrac", :latitude => 48.868181,:longitude => 2.335286},
   {:city_name => "Paris", :zip_code => "75002", :address => "20 rue Danielle Casanova", :latitude => 48.868059,:longitude => 2.33145},
   {:city_name => "Paris", :zip_code => "75002", :address => "1 rue des Degrés", :latitude => 48.869399,:longitude => 2.350622},
   {:city_name => "Paris", :zip_code => "75002", :address => "28 rue Dussoubs", :latitude => 48.866156,:longitude => 2.349107},
   {:city_name => "Paris", :zip_code => "75002", :address => "14 rue Étienne Marcel", :latitude => 48.864006,:longitude => 2.348835},
 
-  #Paris 3eme Arrondissement
+  #Paris 3rd district
   {:city_name => "Paris", :zip_code => "75003", :address => "2 rue Blondel", :latitude => 48.868496,:longitude => 2.355043},
   {:city_name => "Paris", :zip_code => "75003", :address => "9,Rue du Bourg l'Abbé", :latitude => 48.864018,:longitude => 2.351698},
   {:city_name => "Paris", :zip_code => "75003", :address => "13,Rue de Braque", :latitude => 48.861192,:longitude => 2.356174},
   {:city_name => "Paris", :zip_code => "75003", :address => "47B,Rue de Bretagne", :latitude => 48.863346,:longitude => 2.361409},
   {:city_name => "Paris", :zip_code => "75003", :address => "49,Rue Charlot", :latitude => 48.863264,:longitude => 2.362949},
-  #Paris 4eme Arrondissement
+  #Paris 4th district
   {:city_name => "Paris", :zip_code => "75004", :address => "75,Rue Saint-Antoine", :latitude => 48.854408,:longitude => 2.363073},
   {:city_name => "Paris", :zip_code => "75004", :address => "16,Rue Sainte-Croix Bretonnerie", :latitude => 48.858089,:longitude => 2.356706},
   {:city_name => "Paris", :zip_code => "75004", :address => "3,Place Saint-Gervais", :latitude => 48.855673,:longitude => 2.3543},
   {:city_name => "Paris", :zip_code => "75004", :address => "42,Rue Saint-Louis en l'Île", :latitude => 48.851714,:longitude => 2.356989},
   {:city_name => "Paris", :zip_code => "75004", :address => "120,Rue Saint-Martin", :latitude => 48.860577,:longitude => 2.351205},
 
-  #Paris 5eme Arrondissement
+  #Paris 5th district
   {:city_name => "Paris", :zip_code => "75005", :address => "36,Rue du Fer à Moulin", :latitude => 48.838906,:longitude => 2.352837},
   {:city_name => "Paris", :zip_code => "75005", :address => "8,Rue des Feuillantines", :latitude => 48.841737,:longitude => 2.3424},
   {:city_name => "Paris", :zip_code => "75005", :address => "14,Rue des Fossés Saint-Bernard", :latitude => 48.848736,:longitude => 2.355045},
   {:city_name => "Paris", :zip_code => "75005", :address => "11,Rue Frédéric Sauton", :latitude => 48.850876,:longitude => 2.349118},
   {:city_name => "Paris", :zip_code => "75005", :address => "9,Rue Fustel de Coulanges", :latitude => 48.839406,:longitude => 2.339694},
 
-  #Paris 6eme Arrondissement
+  #Paris 6th district
   {:city_name => "Paris", :zip_code => "75006", :address => "19,Rue Mazarine", :latitude => 48.855102,:longitude => 2.337892},
   {:city_name => "Paris", :zip_code => "75006", :address => "5BIS,Rue André Mazet", :latitude => 48.853895,:longitude => 2.339174},
   {:city_name => "Paris", :zip_code => "75006", :address => "9B,Rue de Mézières", :latitude => 48.850213,:longitude => 2.331446},
   {:city_name => "Paris", :zip_code => "75006", :address => "14,Rue Monsieur le Prince", :latitude => 48.850426,:longitude => 2.339608},
   {:city_name => "Paris", :zip_code => "75006", :address => "101,Boulevard du Montparnasse", :latitude => 48.842485,:longitude => 2.328727},
 
-  #Paris 7eme Arrondissement
+  #Paris 7th district
   {:city_name => "Paris", :zip_code => "75007", :address => "53,Rue Cler", :latitude => 48.85607,:longitude => 2.306868},
   {:city_name => "Paris", :zip_code => "75007", :address => "10,Rue Cognacq Jay", :latitude => 48.861861,:longitude => 2.304083},
   {:city_name => "Paris", :zip_code => "75007", :address => "17,Rue de la Comète", :latitude => 48.858742,:longitude => 2.309221},
   {:city_name => "Paris", :zip_code => "75007", :address => "17,Rue de Constantine", :latitude => 48.859858,:longitude => 2.314948},
   {:city_name => "Paris", :zip_code => "75007", :address => "6,Rue Desgenettes", :latitude => 48.861811,:longitude => 2.309648},
-  #Paris 8eme Arrondissement
+  #Paris 8th district
   {:city_name => "Paris", :zip_code => "75008", :address => "15,Rue de la Bienfaisance", :latitude => 48.876576,:longitude => 2.317404},
   {:city_name => "Paris", :zip_code => "75008", :address => "6,Rue du Boccador", :latitude => 48.866348,:longitude => 2.303441},
   {:city_name => "Paris", :zip_code => "75008", :address => "25,Rue Boissy d'Anglas", :latitude => 48.869289,:longitude => 2.322053},
   {:city_name => "Paris", :zip_code => "75008", :address => "9,Rue de Bucarest", :latitude => 48.880633,:longitude => 2.326189},
   {:city_name => "Paris", :zip_code => "75008", :address => "104,Avenue des Champs-Élysées", :latitude => 48.872094,:longitude => 2.301611},
 
-  #Paris 9eme Arrondissement
+  #Paris 9th district
   {:city_name => "Paris", :zip_code => "75009", :address => "3,Rue Blanche", :latitude => 48.877403,:longitude => 2.332041},
   {:city_name => "Paris", :zip_code => "75009", :address => "1S,Impasse de la Boule Rouge", :latitude => 48.873569,:longitude => 2.34383},
   {:city_name => "Paris", :zip_code => "75009", :address => "38,Rue de Bruxelles", :latitude => 48.882923,:longitude => 2.328497},
   {:city_name => "Paris", :zip_code => "75009", :address => "4,Rue de Budapest", :latitude => 48.876075,:longitude => 2.32771},
   {:city_name => "Paris", :zip_code => "75009", :address => "16B,Rue Cadet", :latitude => 48.874924,:longitude => 2.343079},
-  #Paris 10eme Arrondissement
+  #Paris 10th district
   {:city_name => "Paris", :zip_code => "75010", :address => "4TER,Boulevard de Bonne Nouvelle", :latitude => 48.870049,:longitude => 2.352418},
   {:city_name => "Paris", :zip_code => "75010", :address => "10,Rue Bouchardon", :latitude => 48.869931,:longitude => 2.35742},
   {:city_name => "Paris", :zip_code => "75010", :address => "18S,Rue Boy-Zelenski", :latitude => 48.877508,:longitude => 2.368728},
   {:city_name => "Paris", :zip_code => "75010", :address => "78,Passage Brady", :latitude => 48.871436,:longitude => 2.354498},
   {:city_name => "Paris", :zip_code => "75010", :address => "7B,Passage du Buisson Saint-Louis", :latitude => 48.872544,:longitude => 2.372883},
 
-  #Paris 11eme Arrondissement
+  #Paris 11th district
   {:city_name => "Paris", :zip_code => "75011", :address => "10,Rue Henri Ranvier", :latitude => 48.85861,:longitude => 2.386745},
   {:city_name => "Paris", :zip_code => "75011", :address => "3,Place Hubertine Auclert", :latitude => 48.858904,:longitude => 2.380658},
   {:city_name => "Paris", :zip_code => "75011", :address => "7,Impasse des Jardiniers", :latitude => 48.852188,:longitude => 2.392034},
