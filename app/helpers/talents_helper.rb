@@ -12,6 +12,13 @@ module TalentsHelper
     end
   end
 
+  def user_have_info?
+    if current_user.first_name.nil?
+      flash[:alert] = "Pour utiliser cette fonctionalité, tu dois renseigner au moins ton prénom."
+      redirect_to edit_user_registration_path
+    end
+  end
+
   def global_mark(appointments)
     if appointments.length == 0 
       return "Pas encore d'évaluation."
