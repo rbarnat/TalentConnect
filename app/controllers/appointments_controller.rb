@@ -1,10 +1,11 @@
 class AppointmentsController < ApplicationController
-  include AppointmentHelper, ApplicationHelper
+  include AppointmentHelper
   # Before executing certain methods we find the right appointment to operate on
   before_action :set_appointment, only: [:show, :destroy, :update]
   before_action :authenticate_user!
-  before_action :is_user_both_apprentice_and_mentor?
   before_action :authenticate_user!, :user_have_info?, only: [:new]
+  before_action :is_user_both_apprentice_and_mentor?
+  
 
   def index
     @appointments = Appointment.all

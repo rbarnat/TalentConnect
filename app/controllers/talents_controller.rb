@@ -1,6 +1,6 @@
 class TalentsController < ApplicationController
   # Before starting anything import helper and do do some checks
-  include TalentsHelper, PlacesHelper, CategoriesHelper, ApplicationHelper
+  include TalentsHelper, PlacesHelper, CategoriesHelper
   before_action :authenticate_user!, :user_have_info?, only: [:new, :edit]
   before_action :is_current_user_talent?, only: [:edit]
   before_action :set_talent, only: [:show, :edit, :update, :destroy] 

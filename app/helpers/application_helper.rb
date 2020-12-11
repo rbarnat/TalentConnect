@@ -16,13 +16,6 @@ module ApplicationHelper
     return cities_names_array
   end
 
-  def user_have_info?
-    if current_user.first_name.nil?
-      flash[:alert] = "Pour utiliser cette fonctionalité, tu dois renseigner au moins ton prénom."
-      redirect_to edit_user_registration_path
-    end
-  end
-
   def convert_date_in_datetime(date, hour)
     date_string = date.strftime("%d/%m/%Y")
     time_string = ""

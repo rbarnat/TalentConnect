@@ -13,15 +13,16 @@
     <!-- HEADER -->
     <%= render 'layouts/navbar' %>
 
-    <!--<div class="container">-->
-      <!-- USER MESSAGES -->
+    <!-- USER MESSAGES -->
+    <div class="container">
       <%= render 'layouts/messages' %>  
+    </div>
 
-      <!-- PAGE CONTENT -->
-      <%= yield %>
+    <!-- PAGE CONTENT -->
+    <%= yield %>
 
-      <!-- PAGE FOOTER -->
-      <%= render 'layouts/footer' %>
+    <!-- FOOTER -->
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>
