@@ -1,17 +1,28 @@
 class Admin::CategoriesController < ApplicationController
 
     def index
-        @categories = Category.all
+        @category = Category.all
     end
 
     def create
-        
+        @category = Category.new(category_params)
+        if @category.save
+            redirect_to admin_talents_path ,  success: 'Catégorie créée avec succés !'
+        else
+            redirect_to admin_talents_path , danger: 'La création de la catégorie a échouée'
+        end
     end
 
     def destroy 
-        @categorie = Category.find(params[:id])
-        @categorie.destroy
-        redirect_to admin_talents_path ,  alert: 'Catégorie supprimée !'
+        @category = Category.find(params[:id])
+        @category.destroy
+        redirect_to admin_talents_path ,  success: 'Catégorie supprimée !'
+    end
+
+    private
+
+    def category_params
+        params.require(:category).permit(:title)
     end
     
 end
