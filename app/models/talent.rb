@@ -4,9 +4,9 @@ class Talent <  ActiveRecord::Base
 belongs_to :user
 has_one_attached :picture
 # Talent has 1-N relationship to appointments, bookmarks and messages
-has_many :appointments
-has_many :bookmarks
-has_many :messages
+has_many :appointments, dependent: :destroy
+has_many :bookmarks, dependent: :destroy
+has_many :messages, dependent: :destroy
 # A talent can have many categories
 has_many :JoinTableTalentCategory, dependent: :destroy
 has_many :categories, through: :JoinTableTalentCategory, dependent: :destroy
