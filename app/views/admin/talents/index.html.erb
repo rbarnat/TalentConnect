@@ -3,14 +3,14 @@
   <h3 class="text-primary text-center p-3 m-2"> Dashboard administrateur</h1>
   <div class="card card-custom2 shadow p-4 m-5 w-50 mx-auto">
     <h4 class="pb-2 mb-4"> Actuellement il y a : </h4>
-    <p> <strong class="text-primary">  <%= @users.count%></strong class="text-primary"> utilisateurs inscrits sur notre site !</p>
+    <p> <strong class="text-primary">  <%= @users.count%></strong class="text-primary"> utilisateurs inscrits sur notre site!</p>
     <p>  <strong class="text-primary"> <%= @appointments.count%></strong class="text-primary"> RDV pris entre mentors et apprentis! </p>
     <p>  <strong class="text-primary"> <%= @talents.count%></strong class="text-primary"> talents proposés par des mentors! </p>
     <p>  <strong class="text-primary"> <%= @categories.count%></strong class="text-primary"> catégories différentes! </p>
   </div>
 
   <div class="card card-custom2 shadow p-4 m-5 w-50 mx-auto">
-    <h4 class="pb-2 mb-4"> <u> Liste des categories : </u></h4>
+    <h4 class="pb-2 mb-4"> <u> Liste des catégories : </u></h4>
     <% @categories.each do |category| %>
     <p> <%= category.title%>
     <%= link_to "Supprimer", admin_category_path(id: category.id), method: "delete", remote: true, class: "btn btn-outline-danger btn-sm m-2  float-right" %> </p>
