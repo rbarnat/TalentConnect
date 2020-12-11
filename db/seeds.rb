@@ -260,7 +260,7 @@ mentor_places.each do |place|
                               password_confirmation: "Password",
                               phone_number: Faker::PhoneNumber.cell_phone_in_e164,
                               place_id: place.id,
-                              is_admin: true
+                              is_admin: false
                               )
   # Place.last.destroy
 end
