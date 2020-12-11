@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row">
     <h3 class=""><%= @talent.title %></h3>
-    <p class="ml-3 pt-2">proposé par : <div class="text-primary ml-2 pt-2"><%= @talent.user.first_name %></div></p>
+    <p class="ml-3 pt-2">Proposé par : <div class="text-primary ml-2 pt-2"><%= @talent.user.first_name %></div></p>
   </div>
 
   <div class="row">
@@ -12,7 +12,7 @@
         <%if @talent.picture.attached?%>
         <%= image_tag @talent.picture, alt: 'photo du talent', class: ".img-fluid card-img"%>
         <%else%>
-          <p>aucune photo de ce talent</p>
+          <p>Aucune photo de ce talent</p>
         <%end%>
       </div>
       <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row ">

@@ -67,7 +67,7 @@ class TalentsController < ApplicationController
     @place.update(place_params)
     @joint_table_talent_category.update(category_params)
     if @talent.update(talent_params)
-      flash[:success] = "Tu as mis à jour les informations de ton talent"
+      flash[:success] = "Tu as mis à jour les informations de ton talent."
       redirect_to talent_path(@talent)
     else
       flash.now[:danger] = "Le talent n'a pas été mis à jour."

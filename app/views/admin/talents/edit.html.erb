@@ -12,13 +12,13 @@
     </div>
     <%= form_with model: @talent, local: true, multipart: true, method: :patch do |form| %>
 
-      <!-- title -->
+      <!-- TITLE -->
       <div class="field">
         <%= form.label :title, 'Titre' %>
         <%= form.text_field :title, class: "form-control" %>
       </div>
 
-      <!-- Description -->
+      <!-- DESCRIPTION -->
       <div class="field">
         <%= form.label :description, 'Description' %>
         <%= form.text_area :description, class: "form-control" %>
@@ -26,14 +26,14 @@
 
       <div class="row">
         <div class="col">
-          <!-- Price -->
+          <!-- PRICE -->
           <div class="field">
             <%= form.label :price, 'Prix en euros' %>
             <%= form.number_field :price, min: 1, value: 10, class: "form-control" %>
           </div>
         </div>
         <div class="col">
-          <!-- Duration -->
+          <!-- DURATION -->
           <div class="field">
             <%= form.label :duration, 'Durée de la scéance en heure' %>
             <%= form.select :duration, options_for_select((1..8).step(1).map{ |n| n % 1 == 0 ? n.to_i : n }, 1), { }, {class: "custom-select custom-select mb-3"} %>
@@ -42,7 +42,7 @@
       </div>
 
       <hr>
-      <!-- Place nested form -->
+      <!-- PLACE NESTED FORM -->
       <div class="field">
         <%= fields_for :place do |place_form| %>
             <%= place_form.label :address, 'Adresse' %>
@@ -78,7 +78,7 @@
       </div>
 
       <hr>
-      <!-- Photos -->
+      <!-- PICTURES -->
 
       <h3>Photo actuelle</h3>
       <%if @talent.picture.attached?%>

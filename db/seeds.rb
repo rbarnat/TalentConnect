@@ -26,7 +26,7 @@ end
 # --- PLACES ---
 
 # PARIS
-paris_adresses = 
+paris_addresses = 
 [
   #Paris 1er Arrondissement
   {:city_name => "Paris", :zip_code => "75001", :address => "11 rue d'Alger", :latitude => 48.865572,:longitude => 2.329904},
@@ -184,34 +184,34 @@ apprentice_places=[]
 mentor_places=[]
 admin_places=[]
 
-paris_adresses.each_with_index do |paris_adresse,i|
+paris_addresses.each_with_index do |paris_address,i|
   if i > 0 && i <= 50
     apprentice_places << Place.create(
-                                city_name: paris_adresse[:city_name],
-                                zip_code: paris_adresse[:zip_code],
-                                address: paris_adresse[:address],
-                                latitude: paris_adresse[:latitude],
-                                longitude: paris_adresse[:longitude]
+                                city_name: paris_address[:city_name],
+                                zip_code: paris_address[:zip_code],
+                                address: paris_address[:address],
+                                latitude: paris_address[:latitude],
+                                longitude: paris_address[:longitude]
                                 )
   end
 
   if i > 51 && i <= 91
     mentor_places << Place.create(
-                                city_name: paris_adresse[:city_name],
-                                zip_code: paris_adresse[:zip_code],
-                                address: paris_adresse[:address],
-                                latitude: paris_adresse[:latitude],
-                                longitude: paris_adresse[:longitude]
+                                city_name: paris_address[:city_name],
+                                zip_code: paris_address[:zip_code],
+                                address: paris_address[:address],
+                                latitude: paris_address[:latitude],
+                                longitude: paris_address[:longitude]
                                 )
   end
 
   if i >= 92 && i < 98
     admin_places << Place.create(
-                                city_name: paris_adresse[:city_name],
-                                zip_code: paris_adresse[:zip_code],
-                                address: paris_adresse[:address],
-                                latitude: paris_adresse[:latitude],
-                                longitude: paris_adresse[:longitude]
+                                city_name: paris_address[:city_name],
+                                zip_code: paris_address[:zip_code],
+                                address: paris_address[:address],
+                                latitude: paris_address[:latitude],
+                                longitude: paris_address[:longitude]
                                 )
   end
   if i >= 99

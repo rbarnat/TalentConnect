@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <!-- PROFIL -->
+      <!-- PROFILE -->
       <%= render partial: 'users/show-partial-profile' %>
 
       <!-- NEW TALENT -->
@@ -51,7 +51,7 @@
     <!-- RIGHT COLUMN -->
     <div class="col-6">
 
-      <!-- APPOINTMENTS THAT NEED TO BE VALIDATE -->
+      <!-- APPOINTMENTS THAT NEED TO BE VALIDATED -->
       <h4 class="card-title text-primary">Séances à valider :</h4>
       <hr>
       <% if @not_validate_appointments && @not_validate_appointments.count > 0 %>
@@ -73,7 +73,7 @@
         Aucune séance en attente de paiement.
       <% end %>
 
-      <!-- FUTURE VALIDATE & PAID APPOINTMENTS -->
+      <!-- FUTURE VALIDATED & PAID APPOINTMENTS -->
       <h4 class="card-title text-primary">Séances à venir :</h4>
       <hr>
       <% if @future_paid_appointments && @future_paid_appointments.count > 0 %>
@@ -84,7 +84,7 @@
         Aucune séance confirmée.
       <% end %>
 
-      <!-- PAST VALIDATE & PAID APPOINTMENTS -->
+      <!-- PAST VALIDATED & PAID APPOINTMENTS -->
       <h4 class="card-title text-primary">Séances passées :</h4>
       <hr>
       <% if @past_paid_appointments && @past_paid_appointments.count > 0 %>
