@@ -3,11 +3,28 @@
   <h3 class="text-primary text-center p-3 m-2"> Dashboard administrateur</h1>
   <div class="card card-custom2 shadow p-4 m-5 w-50 mx-auto">
     <h4 class="pb-2 mb-4"> Actuellement il y a : </h4>
+<<<<<<< HEAD
+    <p>  <strong class="text-primary"> <%= @users.count%></strong class="text-primary"> utilisateurs inscrits sur notre site !</p>
+=======
     <p> <strong class="text-primary">  <%= @users.count%></strong class="text-primary"> utilisateurs inscrits sur notre site!</p>
+>>>>>>> development
     <p>  <strong class="text-primary"> <%= @appointments.count%></strong class="text-primary"> RDV pris entre mentors et apprentis! </p>
     <p>  <strong class="text-primary"> <%= @talents.count%></strong class="text-primary"> talents proposés par des mentors! </p>
     <p>  <strong class="text-primary"> <%= @categories.count%></strong class="text-primary"> catégories différentes! </p>
   </div>
+
+<h4 class="pb-2 mb-4"> Crée une catégorie ! </h4>
+  <%= form_with model: @category, url: admin_categories_path,local: true do |form| %>
+      <div class="field">
+        <%= form.text_field :title, class: "form-control", placeholder: "L'intitulé de ta catégorie" %>
+      </div>
+      <div class="actions text-center p-3">
+      <%= form.submit "Créer la catégorie", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+   
+
+
 
   <div class="card card-custom2 shadow p-4 m-5 w-50 mx-auto">
     <h4 class="pb-2 mb-4"> <u> Liste des catégories : </u></h4>

@@ -5,6 +5,7 @@ class Admin::TalentsController < ApplicationController
         @appointments = Appointment.all
         @users = User.all
         @categories = Category.all
+        @category = Category.new
     end
 
     def edit
