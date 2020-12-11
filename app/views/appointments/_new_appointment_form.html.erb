@@ -8,15 +8,26 @@
         <%= week_calendar events: @user_agenda, day_names: "date.day_names",table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day"}  do |date, user_agenda| %>
           <strong> <%= date.strftime("%d/%m/%y") %></strong> 
           <% (8..20).each do |hour| %>
+            <% if convert_date_in_datetime_ok?(date, hour) %>
+              <% if @user_agenda.where("start_time > ? AND start_time <= ?", convert_date_in_datetime(date, hour), convert_date_in_datetime(date, hour + @duration_hour) ).any? %>
+                
+                <div class="btn btn-sm btn-danger">
+                  <strike><%= "#{hour}h" %></strike>
+                </div>
 
-            <%= form_with model: @appointment, url: talent_appointments_path, local: true do |form| %>
-              <%= form.datetime_select :start_time, {default: {day: date.day, month: date.month, year: date.year, hour: hour, minute: 00, seconde: 00 }, use_hidden: true} %>
-              <%= form.submit "#{hour}h", class: "btn btn-sm btn-outline-info", data: { confirm: "Proposer le #{date.day}/#{date.month}/#{date.year} à #{hour}h au mentor ?" } %>
+              <% else %>
+
+                <% if convert_date_in_datetime(date, hour).to_date > DateTime.now().to_date %>
+                  <%= form_with model: @appointment, url: talent_appointments_path, local: true do |form| %>
+                    <%= form.datetime_select :start_time, {default: {day: date.day, month: date.month, year: date.year, hour: hour, minute: 00, seconde: 00 }, use_hidden: true} %>
+                    <%= form.submit "#{hour}h", class: "btn btn-sm btn-outline-info", data: { confirm: "Proposer le #{date.day}/#{date.month}/#{date.year} à #{hour}h au mentor ?" } %>
+                  <% end %>
+                <% end %>
+                
+              <% end %>
+
             <% end %>
-
           <% end %>
-
-        <% end %>
 
       </div>
 
