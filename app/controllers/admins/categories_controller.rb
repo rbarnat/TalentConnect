@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admins::CategoriesController < ApplicationController
 
     def index
         @category = Category.all
@@ -7,16 +7,16 @@ class Admin::CategoriesController < ApplicationController
     def create
         @category = Category.new(category_params)
         if @category.save
-            redirect_to admin_talents_path ,  success: 'Catégorie créée avec succés !'
+            redirect_to admins_talents_path ,  success: 'Catégorie créée avec succés !'
         else
-            redirect_to admin_talents_path , danger: 'La création de la catégorie a échouée'
+            redirect_to admins_talents_path , danger: 'La création de la catégorie a échouée'
         end
     end
 
     def destroy 
         @category = Category.find(params[:id])
         @category.destroy
-        redirect_to admin_talents_path ,  success: 'Catégorie supprimée !'
+        redirect_to admins_talents_path ,  success: 'Catégorie supprimée !'
     end
 
     private

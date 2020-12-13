@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
+  # STATIC PAGES : HOME ABOUT CONTACT KIT UI
+  get "/home" => "static_pages#home"
+  get "/about" => "static_pages#about"
+  get "/contact" => "static_pages#contact"
+  get "/ui_kit" => "static_pages#ui_kit"
+  # SEARCH RESULT PAGEœ
   get 'search_results' => 'talents#search_results', as: 'search_results'
-  get 'static_pages/home'
-  get 'static_pages/about'
-  get 'static_pages/contact'
-  get 'static_pages/ui_kit'
   
   # HOME PAGE
   root to: "static_pages#home"
   # ADMIN ROUTES
-  namespace :admin do
+  get "/admin" => "admins/admins#show"
+  namespace :admins, only: [:index] do
     resources :talents, only: [:index, :edit, :destroy]
     resources :categories, only: [:create, :destroy]
   end
@@ -36,8 +39,4 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :destroy, :show, :update]
   # PLACES PAGES
   resources :places, only: [:index, :show, :create, :edit, :update]
-  # STATIC PAGES : HOME ABOUT CONTACT
-  get "/home" => "static_pages#home"
-  get "/about" => "static_pages#about"
-  get "/contact" => "static_pages#contact"
 end
