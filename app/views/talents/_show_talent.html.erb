@@ -46,6 +46,7 @@
         </p>
         <!-- REWIEWS CONTENT -->
         <div class="container">
+          <% if @reviewed_appointments.count > 0 %>
             <% @reviewed_appointments.sort.each do |appointment| %>
               <div class="col">
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -63,6 +64,11 @@
                 </div>
               </div>
             <% end %>
+          <% else %>
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+              Aucun commentaires.
+            </div>
+          <% end %>
         </div>
       </div>
 
