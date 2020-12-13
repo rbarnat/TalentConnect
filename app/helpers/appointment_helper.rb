@@ -22,4 +22,8 @@ module AppointmentHelper
       redirect_to edit_user_registration_path
     end
   end
+
+  def count_notifications
+    Appointment.where(apprentice_id: current_user.id, is_mentor_validate: true, is_paid: false).count + Appointment.where(mentor_id: current_user.id, is_mentor_validate: false).count
+  end
 end
