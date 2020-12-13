@@ -14,9 +14,13 @@
     <%= render 'layouts/navbar' %>
 
     <!-- USER MESSAGES -->
-    <div class="container">
-      <%= render 'layouts/messages' %>  
-    </div>
+    <% if current_page?(root_path) %>
+      <%= render 'layouts/messages' %>
+    <% else %>
+      <div class="container">
+        <%= render 'layouts/messages' %>  
+      </div>
+    <% end %>
 
     <!-- PAGE CONTENT -->
     <%= yield %>
