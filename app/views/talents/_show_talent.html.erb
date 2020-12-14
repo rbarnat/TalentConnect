@@ -30,10 +30,10 @@
           <strong>MENUS ADMIN</strong>
           <div class="container d-flex justify-content-center">
             <div class="text-center">
-              <%= link_to "Modifier le talent", edit_admin_talent_path(id: @talent.id),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+              <%= link_to "Modifier le talent", edit_admins_talent_path(id: @talent.id),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
             </div>
             <div class="text-center">
-              <%= link_to "Supprimer", admin_talent_path(@talent), method: "delete", class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
+              <%= link_to "Supprimer", admins_talent_path(@talent), data: { confirm: "Es-tu sûr de vouloir supprimer le talent ?" }, method: "delete", class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
             </div>
           </div>
         </div>
