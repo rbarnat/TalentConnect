@@ -1,5 +1,70 @@
-<hr>
+
 <footer class="text-muted container">
+<hr>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-4">
+        <h6>Liens pratiques du site</h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Accueil", home_path %>
+          </li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Explorer", talents_path %>
+          </li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   A propos / L'équipe", about_path %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-4">
+        <h6>Visualiser</h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Mes informations", user_path(current_user.id) %>
+          </li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Mon profil apprenti", apprentice_show_user_path(current_user.id) %>
+          </li>
+        </ul>
+         <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Mon profil mentor", mentor_show_user_path(current_user.id) %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-4">
+        <h6>Proposer / Modifier</h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Proposer une activité", new_talent_path %>
+          </li>
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Modifier mon profil", edit_user_registration_path(current_user.id) %>
+          </li>
+        </ul>
+         <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "   Nous contacter", contact_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<hr>
+
     <p class="float-right">
       <a href="#">
         <button type="button" class="btn btn-sm btn-outline-secondary">Retour haut de page</button>
