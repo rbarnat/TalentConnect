@@ -1,0 +1,49 @@
+<div class="container-fluid">
+      <div class="row">
+        <%= render partial: 'admins/admins/admin_menu' %>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Catégories</h1>
+          </div>
+
+          <h4 class="pb-2 mb-4"> Statistiques : </h4>
+          <p>  <strong class="text-primary"> <%= @categories.count%></strong class="text-primary"> catégories différentes !</p>
+
+          <h2 class="pb-2">Nouvelle catégorie :</h2>
+          <div class="d-flex justify-content-start">
+            <%= form_with model: @category, url: admins_categories_path, local: true do |form| %>
+                <%= form.text_field :title, class: "form-control ", placeholder: "L'intitulé de ta catégorie" %>
+                <%= form.submit "Créer la catégorie", class: "btn btn-primary mt-1" %>
+            <% end %>
+          </div>
+            
+
+          <h2 class="mt-5">Catégories existantes :</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Titre</th>
+                  <th>Suprimer</th>
+                  <th>Date/heure de création</th>
+                  <th>Date/heure de modification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @categories.each do |category| %>
+                  <tr>
+                    <td><%= category.id%></td>
+                    <td><%= category.title%></td>
+                    <td><%= link_to "Supprimer", admins_category_path(id: category.id), data: { confirm: "Es-tu sûr de vouloir supprimer la catégorie ?" }, method: "delete", remote: true, class: "btn btn-outline-danger btn-sm" %></td>
+                    <td><%= category.created_at %></td>
+                    <td><%= category.updated_at %></td>
+                  </tr>
+                <% end%>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>

@@ -2,120 +2,61 @@
 <%= render 'layouts/back_link' %> 
 
 <div class="container">
-<h1>Notre équipe</h1>
-<br>
+  <h3 class="text-center text-primary">Notre équipe</h3>
 
-<!-- ABOUT PAGE CARDS -->
-<div class="container">
-<div class = "row d-flex justify-content-center">
-  
-  <div class="card card-custom shadow m-4 text-center max-width-18">
-    <div class="card-img-container">
-    <%= image_tag("static_about1.jpg", alt: "photo", class: "img card-img-top") %>
-    </div>
-    <div class="card-body">
-      <h6 class="card-title">Diane DECOURT</h5>
-      <a href="https://github.com/dediane">Lien GitHub</a>
-    </div>
-  </div>
-
-  <div class="card card-custom shadow m-4 text-center max-width-18">
-    <div class="card-img-container">
-    <%= image_tag("static_about2.jpg", alt: "photo", class: "img card-img-top") %>
-    </div>
-    <div class="card-body">
-      <h6 class="card-title">Mehdi Lucas AMMAR</h5>
-      <a href="https://github.com/Mehdi-Lucas">Lien GitHub</a>
-    </div>
-  </div>
-
-  <div class="card card-custom shadow m-4 text-center max-width-18">
-      <div class="card-img-container">
-     <%= image_tag("static_about3.jpg", alt: "photo", class: "img card-img-top") %>
-      </div>
-    <div class="card-body">
-      <h6 class="card-title">Patrice HUSZEZO</h6>
-      <a href="https://github.com/PatriceH7">Lien GitHub</a>
-    </div>
-  </div>
-
-  <div class="card card-custom shadow m-4 text-center max-width-18">
-    <div class="card-img-container">
-    <%= image_tag("static_about3.jpg", alt: "photo", class: "img card-img-top") %>
-    </div>
-    <div class="card-body">
-      <h6 class="card-title">Rémi BARNAT</h6>
-      <a href="https://github.com/rbarnat">Lien GitHub</a>
-    </div>
-  </div>
-
-   <div class="card card-custom shadow m-4 text-center max-width-18">
-    <div class="card-img-container">
-    <%= image_tag("static_about1.jpg", alt: "photo", class: "img card-img-top") %>
-    </div>
-    <div class="card-body">
-      <h6 class="card-title">Yohan FLEURY</h6>
-      <a href="https://github.com/YohanFleury">Lien GitHub</a>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-</div>
-</div>
-<br>
-<br>
-<br>
-
-<!-- FOOTER WITH SITE MAP -->
-<footer class="pb-4 bg-primary-3" id="about-footer">
+  <!-- ABOUT PAGE CARDS -->
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-6 col-lg-3 col-xl-3">
-        <h5>À propos de nous</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <%= link_to "   Equipe", about_path %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "   Contacte-nous", contact_path %>
-          </li>
-        </ul>
-      </div> 
-      <div class="col-6 col-lg-3 col-xl-3">
-        <h5>Liens pratiques du site</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <%= link_to "   Accueil", home_path %>
-          </li>
-        </ul>
+    <div class = "row d-flex justify-content-center">
+  
+      <div class="card card-custom shadow m-4 text-center max-width-18">
+        <div class="card-img-container">
+          <%= image_tag("static_about1.jpg", alt: "photo", class: "img card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Diane DECOURT</h5>
+          <a href="https://github.com/dediane">Lien GitHub</a>
+        </div>
       </div>
-      <div class="col-6 col-lg-6 col-xl-6">
-        <h5>Pourquoi utiliser TalentConnect ?</h5>
-        <ul class="list-unstyled">
-          <li class="mb-3 d-flex">
-            <div class="ml-3">
-              <span>
-              Te former facilement sur des talents qui te tiennent à coeur
-              </span>
-            </div>
-          </li>
-          <li class="mb-3 d-flex">
-            <div class="ml-3">
-              <span>
-              Rejoindre un réseau bienveillant
-              </span>
-            </div>
-          </li>
-          <li class="mb-3 d-flex">
-            <div class="ml-3">
-              <span>
-              Partager et transmettre tes passions en devenant mentor
-              </span>
-            </div>
-          </li>
-        </ul>
+
+      <div class="card card-custom shadow m-4 text-center max-width-18">
+        <div class="card-img-container">
+          <%= image_tag("static_about2.jpg", alt: "photo", class: "img card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Mehdi Lucas AMMAR</h5>
+          <a href="https://github.com/Mehdi-Lucas">Lien GitHub</a>
+        </div>
+      </div>
+
+      <div class="card card-custom shadow m-4 text-center max-width-18">
+        <div class="card-img-container">
+          <%= image_tag("static_about3.jpg", alt: "photo", class: "img card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Patrice HUSZEZO</h6>
+          <a href="https://github.com/PatriceH7">Lien GitHub</a>
+        </div>
+      </div>
+
+      <div class="card card-custom shadow m-4 text-center max-width-18">
+        <div class="card-img-container">
+          <%= image_tag("static_about3.jpg", alt: "photo", class: "img card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Rémi BARNAT</h6>
+          <a href="https://github.com/rbarnat">Lien GitHub</a>
+        </div>
+      </div>
+
+      <div class="card card-custom shadow m-4 text-center max-width-18">
+        <div class="card-img-container">
+          <%= image_tag("static_about1.jpg", alt: "photo", class: "img card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Yohan FLEURY</h6>
+          <a href="https://github.com/YohanFleury">Lien GitHub</a>
+        </div>
       </div>
     </div>
   </div>
-</footer>
+</div>

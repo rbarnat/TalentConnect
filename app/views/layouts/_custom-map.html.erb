@@ -209,7 +209,7 @@ return result;
 }
     // Create one unique marker for each talent
     <% id = 0 %>
-    <% @found_talents.each do |talent|%>
+    <% @filtred_talents.each do |talent|%>
     var markerInfoWindow = addMarker({lat: <%= talent.place.latitude%> , lng: <%= talent.place.longitude%>},"<%= talent.price.to_i %> €", <%= id %>)
     markers[<%= id %>]= markerInfoWindow[0]
     infoWindows[<%= id %>]= markerInfoWindow[1]
