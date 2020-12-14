@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/admin" => "admins/admins#show"
   namespace :admins, only: [:index] do
     resources :talents, only: [:index, :edit, :destroy]
-    resources :categories, only: [:create, :destroy]
+    resources :categories, only: [:index, :create, :destroy]
   end
   # USERS AND PROFILE PAGES
   devise_for :users, controllers: { registrations: 'registrations' }
