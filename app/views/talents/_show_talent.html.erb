@@ -15,7 +15,7 @@
           <p>Aucune photo de ce talent</p>
         <%end%>
       </div>
-      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-5 pr-3 ml-1 max-width-40 row ">
+      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-5 pr-5 ml-1 max-width-40 row ">
         <h5>Description: </h5>
         <p><%= @talent.description %></p>
       </div>
@@ -45,7 +45,7 @@
           <a class="btn btn-outline-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Voir les commentaires</a>
         </p>
         <!-- REWIEWS CONTENT -->
-        <div class="container">
+        <div class="container text-left">
           <% if @reviewed_appointments.count > 0 %>
             <% @reviewed_appointments.sort.each do |appointment| %>
               <div class="col">
