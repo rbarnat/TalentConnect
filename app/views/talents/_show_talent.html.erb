@@ -5,7 +5,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-8 text-center">
+    <div class="col-sm-8">
 
       <!-- TALENT CARD -->
       <div class="image-container">
@@ -15,18 +15,18 @@
           <p>Aucune photo de ce talent</p>
         <%end%>
       </div>
-      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-4 ml-1 max-width-40 row ">
+      <div class="card card-custom2 shadow mb-4 mt-4 pt-2 pl-5 pr-5 ml-1 max-width-40 row ">
         <h5>Description: </h5>
         <p><%= @talent.description %></p>
       </div>
 
       <!-- ADD APPOINTMENT BUTTTON -->
-      <div class="mr-5">
+      <div class="mr-5 text-center">
         <%= link_to "Faire une demande de réservation", new_talent_appointment_path(@talent),  class: "btn btn-outline-danger mt-3 mb-4 mx-auto" %>
       </div>
 
       <% if is_current_user_admin? %>
-        <div class="mr-5">
+        <div class="mr-5 text-center">
           <strong>MENUS ADMIN</strong>
           <div class="container d-flex justify-content-center">
             <div class="text-center">
@@ -39,13 +39,13 @@
         </div>
       <% end %>
 
-      <div class="mr-5">
+      <div class="mr-5 text-center">
         <!-- REWIEWS BUTTTON -->
         <p class="text-center">
           <a class="btn btn-outline-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Voir les commentaires</a>
         </p>
         <!-- REWIEWS CONTENT -->
-        <div class="container">
+        <div class="container text-left">
           <% if @reviewed_appointments.count > 0 %>
             <% @reviewed_appointments.sort.each do |appointment| %>
               <div class="col">
