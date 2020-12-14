@@ -23,7 +23,7 @@
         <!-- GOOGLE MAP API -->
         <%= render 'layouts/custom-map' %>
         <script defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCROEXaB0Wy3Go4BC2Mv8oAg8uVR4r9PmM&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap">
         </script>
     </div>
   </div>
