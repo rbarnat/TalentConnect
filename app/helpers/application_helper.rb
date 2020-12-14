@@ -9,7 +9,7 @@ module ApplicationHelper
   def get_cities_name
     cities_names_array = []
     Place.all.each do |place|
-      unless cities_names_array.include?(place.city_name) || place.city_name == "Ville non renseignée"
+      unless cities_names_array.any?{ |s| s.casecmp(place.city_name)==0 } || place.city_name == "Ville non renseignée"
         cities_names_array << place.city_name
       end
     end
